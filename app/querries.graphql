@@ -1,0 +1,9 @@
+﻿query getCompany{
+  Companies{
+    nodes{
+      id
+      name
+      status
+    }
+  }
+}

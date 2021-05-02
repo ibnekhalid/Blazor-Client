@@ -1,0 +1,294 @@
+﻿schema {
+  query: Query
+  mutation: Mutation
+}
+
+scalar Uuid
+
+type Query {
+  Company(companyId: Int! where: CompanyFilterInput): Company
+  Companies(first: Int after: String last: Int before: String where: CompanyFilterInput order: [CompanySortInput!]): CompanyConnection
+}
+
+type Company {
+  id: String
+  name: String
+  status: Status!
+  users: [User]
+  projects: [Project]
+}
+
+input CompanyFilterInput {
+  and: [CompanyFilterInput!]
+  or: [CompanyFilterInput!]
+  id: StringOperationFilterInput
+  name: StringOperationFilterInput
+  status: StatusOperationFilterInput
+  users: ListFilterInputTypeOfUserFilterInput
+  projects: ListFilterInputTypeOfProjectFilterInput
+}
+
+input CompanySortInput {
+  id: SortEnumType
+  name: SortEnumType
+  status: SortEnumType
+}
+
+"A connection to a list of items."
+type CompanyConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of edges."
+  edges: [CompanyEdge!]
+  "A flattened list of the nodes."
+  nodes: [Company]
+  totalCount: Int!
+}
+
+enum ApplyPolicy {
+  BEFORE_RESOLVER
+  AFTER_RESOLVER
+}
+
+input StringOperationFilterInput {
+  and: [StringOperationFilterInput!]
+  or: [StringOperationFilterInput!]
+  eq: String
+  neq: String
+  contains: String
+  ncontains: String
+  in: [String]
+  nin: [String]
+  startsWith: String
+  nstartsWith: String
+  endsWith: String
+  nendsWith: String
+}
+
+input StatusOperationFilterInput {
+  eq: Status
+  neq: Status
+  in: [Status!]
+  nin: [Status!]
+}
+
+input ListFilterInputTypeOfUserFilterInput {
+  all: UserFilterInput
+  none: UserFilterInput
+  some: UserFilterInput
+  any: Boolean
+}
+
+input ListFilterInputTypeOfProjectFilterInput {
+  all: ProjectFilterInput
+  none: ProjectFilterInput
+  some: ProjectFilterInput
+  any: Boolean
+}
+
+enum SortEnumType {
+  ASC
+  DESC
+}
+
+"Information about pagination in a connection."
+type PageInfo {
+  "Indicates whether more edges exist following the set defined by the clients arguments."
+  hasNextPage: Boolean!
+  "Indicates whether more edges exist prior the set defined by the clients arguments."
+  hasPreviousPage: Boolean!
+  "When paginating backwards, the cursor to continue."
+  startCursor: String
+  "When paginating forwards, the cursor to continue."
+  endCursor: String
+}
+
+"An edge in a connection."
+type CompanyEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: Company
+}
+
+input UserFilterInput {
+  and: [UserFilterInput!]
+  or: [UserFilterInput!]
+  id: StringOperationFilterInput
+  companyId: StringOperationFilterInput
+  status: StatusOperationFilterInput
+  company: CompanyFilterInput
+  userProjects: ListFilterInputTypeOfUserProjectFilterInput
+  userName: StringOperationFilterInput
+  normalizedUserName: StringOperationFilterInput
+  email: StringOperationFilterInput
+  normalizedEmail: StringOperationFilterInput
+  emailConfirmed: BooleanOperationFilterInput
+  passwordHash: StringOperationFilterInput
+  securityStamp: StringOperationFilterInput
+  concurrencyStamp: StringOperationFilterInput
+  phoneNumber: StringOperationFilterInput
+  phoneNumberConfirmed: BooleanOperationFilterInput
+  twoFactorEnabled: BooleanOperationFilterInput
+  lockoutEnd: ComparableNullableOfDateTimeOffsetOperationFilterInput
+  lockoutEnabled: BooleanOperationFilterInput
+  accessFailedCount: ComparableInt32OperationFilterInput
+}
+
+input ProjectFilterInput {
+  and: [ProjectFilterInput!]
+  or: [ProjectFilterInput!]
+  companyId: StringOperationFilterInput
+  title: StringOperationFilterInput
+  status: StatusOperationFilterInput
+  company: CompanyFilterInput
+  userProjects: ListFilterInputTypeOfUserProjectFilterInput
+  id: StringOperationFilterInput
+}
+
+input ListFilterInputTypeOfUserProjectFilterInput {
+  all: UserProjectFilterInput
+  none: UserProjectFilterInput
+  some: UserProjectFilterInput
+  any: Boolean
+}
+
+input BooleanOperationFilterInput {
+  eq: Boolean
+  neq: Boolean
+}
+
+input ComparableNullableOfDateTimeOffsetOperationFilterInput {
+  eq: DateTime
+  neq: DateTime
+  in: [DateTime]
+  nin: [DateTime]
+  gt: DateTime
+  ngt: DateTime
+  gte: DateTime
+  ngte: DateTime
+  lt: DateTime
+  nlt: DateTime
+  lte: DateTime
+  nlte: DateTime
+}
+
+input ComparableInt32OperationFilterInput {
+  eq: Int
+  neq: Int
+  in: [Int!]
+  nin: [Int!]
+  gt: Int
+  ngt: Int
+  gte: Int
+  ngte: Int
+  lt: Int
+  nlt: Int
+  lte: Int
+  nlte: Int
+}
+
+input UserProjectFilterInput {
+  and: [UserProjectFilterInput!]
+  or: [UserProjectFilterInput!]
+  userId: StringOperationFilterInput
+  projectId: StringOperationFilterInput
+  status: StatusOperationFilterInput
+  project: ProjectFilterInput
+  user: UserFilterInput
+  id: StringOperationFilterInput
+}
+
+enum Status {
+  INACTIVE
+  ACTIVE
+  COMPLETE
+}
+
+type Mutation {
+  company: CompanyMutationType
+  account: AccountMutationType
+}
+
+type User {
+  id: String
+  companyId: String
+  status: Status!
+  company: Company
+  userProjects: [UserProject]
+  userName: String
+  normalizedUserName: String
+  email: String
+  normalizedEmail: String
+  emailConfirmed: Boolean!
+  passwordHash: String
+  securityStamp: String
+  concurrencyStamp: String
+  phoneNumber: String
+  phoneNumberConfirmed: Boolean!
+  twoFactorEnabled: Boolean!
+  lockoutEnd: DateTime
+  lockoutEnabled: Boolean!
+  accessFailedCount: Int!
+}
+
+type Project {
+  companyId: String
+  title: String
+  status: Status!
+  company: Company
+  userProjects: [UserProject]
+  id: String
+}
+
+"The `DateTime` scalar represents an ISO-8601 compliant date time type."
+scalar DateTime
+
+type UserProject {
+  userId: String
+  projectId: String
+  status: Status!
+  project: Project
+  user: User
+  id: String
+}
+
+type AccountMutationType {
+  login(model: LoginModelInput): String
+  register(model: RegisterModelInput): String
+  refreshToken(id: String): String
+  activate(id: String): String
+}
+
+type CompanyMutationType {
+  add(model: CreateCompanyVmInput): String
+  update(model: UpdateCompanyVmInput): String
+  inactivate(id: String): String
+  activate(id: String): String
+}
+
+input UpdateCompanyVmInput {
+  id: String!
+  name: String!
+}
+
+input CreateCompanyVmInput {
+  name: String!
+}
+
+input RegisterModelInput {
+  companyName: String!
+  email: String!
+  passwordConfirmation: String!
+  username: String!
+  password: String!
+}
+
+input LoginModelInput {
+  username: String!
+  password: String!
+}
+
+directive @export(as: String) on FIELD
+
+directive @authorize("The name of the authorization policy that determines access to the annotated resource." policy: String "Roles that are allowed to access the annotated resource." roles: [String!] "Defines when when the resolver shall be executed.By default the resolver is executed after the policy has determined that the current user is allowed to access the field." apply: ApplyPolicy! = BEFORE_RESOLVER) repeatable on SCHEMA | OBJECT | FIELD_DEFINITION

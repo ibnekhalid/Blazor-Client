@@ -1,0 +1,103 @@
+@page "/account/login"
+@using app.Core.Moldes.Account
+@using app.Core.Services
+@inject NavigationManager _navigationManager
+@inject IAlertService  _alertService
+@inject ILocalStorageService  _localStorageService
+@inject IAccountService _client
+
+
+
+<div class="d-flex justify-content-center h-100 pt-5">
+    <div class="card  h-100">
+        <div class="card-header">
+            <h3>Sign In</h3>
+            <div class="d-flex justify-content-end social_icon">
+                <span><i class="fab fa-facebook-square"></i></span>
+                <span><i class="fab fa-google-plus-square"></i></span>
+                <span><i class="fab fa-twitter-square"></i></span>
+            </div>
+        </div>
+        <div class="card-body">
+            <EditForm Model="@model" OnValidSubmit="OnValidSubmit">
+                <DataAnnotationsValidator />
+
+
+
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <InputText @bind-Value="model.Username" class="form-control" placeholder="username" />
+                    <ValidationMessage For="@(() => model.Username)" />
+
+                </div>
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    </div>
+                    <InputText @bind-Value="model.Password" type="password" class="form-control" placeholder="password" />
+                    <ValidationMessage For="@(() => model.Password)" />
+                </div>
+                <div class="row align-items-center remember">
+                    <input type="checkbox">Remember Me
+                </div>
+                <div class="form-group">
+                    <button disabled="@loading"  class="btn float-right login_btn">
+                        @if (loading)
+                        {
+                            <span class="spinner-border spinner-border-sm mr-1"></span>
+                        }
+                        Login
+                    </button>
+                </div>
+            </EditForm>
+        </div>
+        <div class="card-footer">
+            <div class="d-flex justify-content-center links">
+                Don't have an account?<a href="account/register">Sign Up</a>
+            </div>
+            <div class="d-flex justify-content-center">
+                <a href="#">Forgot your password?</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private LoginModel model = new LoginModel();
+    private bool loading;
+
+
+
+    private async void OnValidSubmit()
+    {
+        loading = true;
+        try
+        {
+            var result = await _client.LoginAsync(model);
+            if (result.isError)
+            {
+                _alertService.Error(result.result, true, true);
+                loading = false;
+                return;
+            }
+
+
+            var returnUrl = _navigationManager.QueryString("returnUrl") ?? "";
+            _navigationManager.NavigateTo("");
+
+        }
+        catch (Exception ex)
+        {
+            _alertService.Error(ex.Message, true, true);
+
+            StateHasChanged();
+        }
+        finally
+        {
+            loading = false;
+        }
+    }
+}

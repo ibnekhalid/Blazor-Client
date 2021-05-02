@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <GraphQL Remove="querries.graphql" />
+    <GraphQL Remove="Querries\account.graphql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="querries.graphql" />
+    <None Remove="Querries\account.graphql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="querries.graphql">
+      <GraphQL>true</GraphQL>
+    </AdditionalFiles>
+    <AdditionalFiles Include="Querries\account.graphql">
+      <GraphQL>true</GraphQL>
+    </AdditionalFiles>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.5" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
+    <PackageReference Include="StrawberryShake.CodeGeneration.CSharp.Analyzers" Version="11.2.2" />
+    <PackageReference Include="StrawberryShake.Transport.Http" Version="11.2.2" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.11.0" />
+    <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
+  </ItemGroup>
+
+</Project>

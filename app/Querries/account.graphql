@@ -1,0 +1,15 @@
+﻿mutation Login($model:LoginModelInput){
+  account{
+    login(model:$model)
+  }
+}
+mutation Register($model:RegisterModelInput){
+  account{
+    register(model:$model)
+  }
+}
+mutation RefreshToken{
+  account{
+    refreshToken
+  }
+}

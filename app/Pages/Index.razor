@@ -1,0 +1,31 @@
+﻿@page "/"
+@attribute [Authorize]
+@inject TmClient _client
+@layout MainLayout
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+@if (titles is not null && titles.Count > 0)
+{
+    foreach (var item in titles)
+    {
+        <ul>
+            <li>@item</li>
+            @*<li>@item.Id</li>
+                <li>@item.Name</li>
+                <li>@item.Status</li>*@
+        </ul>
+    }
+}
+
+
+@code {
+    public List<string> titles;
+    protected override async Task OnInitializedAsync()
+    {
+        var result = await _client.GetCompany.ExecuteAsync();
+        titles = result.Data.Companies.Nodes.Select(x => x.Name).ToList();
+    }
+}
