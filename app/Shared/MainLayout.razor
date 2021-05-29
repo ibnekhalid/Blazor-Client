@@ -2,30 +2,90 @@
 @using app.Core.Services
 @inject IAccountService _accountService
 @inject NavigationManager NavigationManager
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+<MudThemeProvider />
 
-@if (LoggedIn)
+@if (NavigationManager.Uri.ToString().ToLower().Contains("account"))
 {
-    <!-- nav -->
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
-        <div class="navbar-nav">
-            <NavLink href="" Match="NavLinkMatch.All" class="nav-item nav-link">Home</NavLink>
-            <NavLink href="users" class="nav-item nav-link">Users</NavLink>
-            <NavLink href="account/logout" class="nav-item nav-link">Logout</NavLink>
-            @if (userClaims is not null)
-            {
-                <NavLink href="account/logout" class="nav-item nav-link">@userClaims.Username</NavLink>
-            }
+    <div>
+        @Body
+    </div>
+}
+else
+{
+    <MudLayout>
+        <MudAppBar Elevation="1">
+            <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+            <MudText Typo="Typo.h5" Class="ml-3">Application</MudText>
+            <MudAppBarSpacer />
+            <MudMenu  Variant="Variant.Filled" Color="Color.Inherit" Direction="Direction.Right" OffsetY="true" Dense="true">
+                <ActivatorContent>
+                    <MudAvatar Color="Color.Dark">@userClaims.Username.First().ToString().ToUpper()</MudAvatar>
+                </ActivatorContent>
+                <ChildContent>
+                    
+                        <MudCard Style="box-shadow: none;">
+                            <MudCardHeader >
+                                <CardHeaderAvatar>
+                                    <MudAvatar Color="Color.Dark">@userClaims.Username.First().ToString().ToUpper()</MudAvatar>
+                                </CardHeaderAvatar>
+                                <CardHeaderContent>
+                                    <MudText Typo="Typo.body1">@userClaims.Username</MudText>
+                                    <MudText Typo="Typo.body2">@userClaims.Email</MudText>
+                                </CardHeaderContent>
+                                <CardHeaderActions>
+                                    <MudIconButton Icon="@Icons.Material.Filled.Settings" Color="Color.Default" />
+                                </CardHeaderActions>
+                            </MudCardHeader>
+                            <MudCardActions Class="text-right">
+                                <MudLink  Color="Color.Default"></MudLink>
+                                <MudLink Href="account/logout" Color="Color.Default">Logout</MudLink>
+                            </MudCardActions>
+                        </MudCard>
+                    
+                  
+                </ChildContent>
+            </MudMenu>
+      
+            <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit" Edge="Edge.End" />
+        </MudAppBar>
+        <MudDrawer @bind-Open="_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="2">
+            <MudPaper Width="250px" Height="100%" Style="scroll-x:hidden;" Class="d-inline-flex py-3" Square="true">
+                <MudNavMenu Class="mud-width-full">
+                    <MudText Typo="Typo.h6" Class="px-4">@userClaims.Username</MudText>
+                    <MudText Typo="Typo.body2" Class="px-4 mud-text-secondary">@userClaims.Email</MudText>
+                    <MudDivider Class="my-2" />
 
-        </div>
-    </nav>
+                    <MudNavLink Href="/" Icon="@Icons.Filled.Dashboard">Dashboard</MudNavLink>
+                    <MudNavLink Href="/Team" Icon="@Icons.Filled.SupervisedUserCircle">Team</MudNavLink>
+                    <MudNavLink Href="/Projects" Icon="@Icons.Filled.Pages">Projects</MudNavLink>
+                    @*<MudNavGroup Title="Settings" Icon="@Icons.Filled.Settings" Expanded="true">
+                            <MudNavLink Href="/users" Icon="@Icons.Filled.People" IconColor="Color.Success">Users</MudNavLink>
+                            <MudNavLink Href="/security" Icon="@Icons.Filled.Security" IconColor="Color.Info">Security</MudNavLink>
+                        </MudNavGroup>*@
+                    @if (userClaims is not null)
+                    {<MudDivider Class="my-2" />
+                        <MudNavLink Href="account/logout" Icon="@Icons.Filled.ExitToApp">Logout</MudNavLink>
+                    }
+                </MudNavMenu>
+            </MudPaper>
+        </MudDrawer>
+        <MudMainContent>
+            <Alert />
+            @Body
+        </MudMainContent>
+    </MudLayout>
 }
 
-<div class="app-container @(LoggedIn ? "bg-light" : "")">
-    <Alert />
-    @Body
-</div>
-
 @code {
+    bool _drawerOpen = true;
+
+    void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+    }
     Core.Moldes.User.UserClaims userClaims;
     protected override void OnInitialized()
     {
@@ -36,3 +96,6 @@
         get { return _accountService.IsLoggedIn(); }
     }
 }
+
+
+

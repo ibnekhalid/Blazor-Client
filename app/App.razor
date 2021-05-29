@@ -1,4 +1,5 @@
-﻿@inject NavigationManager NavigationManager
+﻿@inject NavigationManager navigationManager
+
 <Router AppAssembly="@typeof(Program).Assembly">
     <Found Context="routeData">
         <AppRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
@@ -6,7 +7,7 @@
     <NotFound>
         @{
             // redirect to home page if not found
-            NavigationManager.NavigateTo("");
+            navigationManager.NavigateTo("");
         }
     </NotFound>
 </Router>

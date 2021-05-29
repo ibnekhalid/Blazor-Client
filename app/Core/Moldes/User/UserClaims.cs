@@ -12,7 +12,7 @@ namespace app.Core.Moldes.User
 	{
 		public string Id { get; private set; }
 		//public string CompanyId { get; private set; }
-		//public string Email { get; private set; }
+		public string Email { get; private set; }
 		public string Username { get; private set; }
 		//public string CompanyName { get; private set; }
 		public UserClaims()
@@ -24,8 +24,12 @@ namespace app.Core.Moldes.User
 			var identity = string.IsNullOrEmpty(token)
 			? new ClaimsIdentity()
 			: new ClaimsIdentity(ServiceExtensions.ParseClaimsFromJwt(token), "jwt");
-			Id = identity.Claims.First(claim => claim.Type == JwtRegisteredClaimNames.Sub).Value;
-			Username = identity.Claims.First(claim => claim.Type == JwtRegisteredClaimNames.UniqueName).Value;
+			if (identity.Claims.Any(claim => claim.Type == JwtRegisteredClaimNames.Sub))
+				Id = identity.Claims.First(claim => claim.Type == JwtRegisteredClaimNames.Sub).Value;
+			if (identity.Claims.Any(claim => claim.Type == JwtRegisteredClaimNames.UniqueName))
+				Username = identity.Claims.First(claim => claim.Type == JwtRegisteredClaimNames.UniqueName).Value;
+			if (identity.Claims.Any(claim => claim.Type == JwtRegisteredClaimNames.Email))
+				Email = identity.Claims.First(claim => claim.Type == JwtRegisteredClaimNames.Email).Value;
 		}
 	}
 	public static class ServiceExtensions
