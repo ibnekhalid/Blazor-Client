@@ -24,16 +24,17 @@ namespace app
 			builder.Services
 			   .AddScoped<IAlertService, AlertService>()
 			   .AddScoped<ILocalStorageService, LocalStorageService>()
-			   .AddScoped<IAccountService, AccountService>();
-			builder.Services.AddMudServices(config=>
+			   .AddScoped<IAccountService, AccountService>()
+			   .AddScoped<IUserService, UserService>()
+			   .AddScoped<IProjectService, ProjectService>();
+			builder.Services.AddMudServices(config =>
 			{
-
 				config.SnackbarConfiguration.PositionClass = Defaults.Classes.Position.BottomRight;
 
 				config.SnackbarConfiguration.PreventDuplicates = false;
 				config.SnackbarConfiguration.NewestOnTop = false;
 				config.SnackbarConfiguration.ShowCloseIcon = true;
-				config.SnackbarConfiguration.VisibleStateDuration = 10000;
+				config.SnackbarConfiguration.VisibleStateDuration = 5000;
 				config.SnackbarConfiguration.HideTransitionDuration = 500;
 				config.SnackbarConfiguration.ShowTransitionDuration = 500;
 				config.SnackbarConfiguration.SnackbarVariant = Variant.Outlined;
@@ -43,7 +44,7 @@ namespace app
 				"TmClient",
 				(sp, client) =>
 				{
-										client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
+					client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
 					client.BaseAddress = new Uri("https://localhost:5001/query/");
 				});
 			var host = builder.Build();

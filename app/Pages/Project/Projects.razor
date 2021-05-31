@@ -1,0 +1,134 @@
+@page "/projects"
+@using app.Core.Moldes.Account
+@using app.Core.Services
+@inject NavigationManager _navigationManager
+@inject ISnackbar  _alertService
+@inject ILocalStorageService  _localStorageService
+@inject IProjectService _client
+@inject IUserService _userService
+@inject IDialogService DialogService
+
+<div Class="d-flex align-center mud-full-width pl-2">
+    <MudText Typo="Typo.subtitle1">Projects</MudText>
+    <MudToolBarSpacer />
+    <MudIconButton OnClick="(e) => OpenAddDrawer()" Icon="@Icons.Filled.AddCircle"></MudIconButton>
+</div>
+
+<AddProject Close="CloseAddDrawerEvent" DrawerOpen="closeAddDrawer"></AddProject>
+
+
+@if (projects is not null && projects.Count > 0)
+{<MudGrid>
+        <MudItem xs="12">
+            <MudGrid Spacing="2" Justify="Justify.FlexStart">
+                @foreach (var item in projects)
+                {
+
+                    <MudItem>
+                        <MudCard style="min-width: 390px; max-width:450px">
+                            <MudCardHeader>
+                                <CardHeaderAvatar>
+                                    <MudAvatar Style="height:70px; width:70px; font-size:2rem;" Color="Color.Secondary">@item.Title.First().ToString().ToUpper()</MudAvatar>
+                                </CardHeaderAvatar>
+                                <CardHeaderContent>
+                                    <MudText Typo="Typo.body1">@item.Title</MudText>
+                                    @*<MudText Typo="Typo.body2"><MudChip Size="Size.Small" Color="Color.Primary">@item.Status.ToString()</MudChip></MudText>*@
+                                </CardHeaderContent>
+                                <CardHeaderActions>
+                                    <MudChip Size="Size.Small" Color="Color.Primary">@item.Status.ToString()</MudChip>
+                                    <MudIconButton Size="Size.Small" Icon="@Icons.Material.Filled.Settings" Color="Color.Default" />
+                                </CardHeaderActions>
+                            </MudCardHeader>
+
+                            <MudCardContent>
+                                <MudText Typo="Typo.body2">@item.Description</MudText>
+                            </MudCardContent>
+                            <MudCardActions>
+                                <MudButton OnClick="()=>ToggleOpen(item.Id)" Size="Size.Small" Color="Color.Primary"> <MudIcon Size="Size.Small" Color="Color.Primary" Icon="@Icons.Material.Filled.AddCircleOutline"></MudIcon> Invite User</MudButton>
+
+
+                                <MudIconButton Size="Size.Small" Icon="@Icons.Material.Filled.Share" Color="Color.Default" />
+                            </MudCardActions>
+                        </MudCard>
+                    </MudItem>
+                }
+
+
+            </MudGrid>
+        </MudItem>
+    </MudGrid>
+    <MudPopover Open="@_isOpen" Class="px-4 pt-4" Style="max-width:300px">
+        <div class="d-flex flex-column">
+            <EditForm Model="@user" OnValidSubmit="OnValidSubmit">
+                <DataAnnotationsValidator />
+                <div class=" form-group">
+                    <label>Email</label>
+                    <InputText @bind-Value="user.Email" class="form-control" placeholder="user@domain.com" />
+                    <ValidationMessage For="@(() => user.Email)" />
+
+                </div>
+
+                <MudDivider Class="my-2 mt-5 mb-5" />
+                <div class="form-group text-right">
+
+                    <MudButton ButtonType="ButtonType.Submit" Disabled="loading" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Primary">Save</MudButton>
+                </div>
+            </EditForm>
+
+        </div>
+    </MudPopover>
+}
+
+
+@code {
+    public List<ProjectVm> projects;
+    bool closeAddDrawer = false;
+    bool loading = false;
+    string projectId;
+    public UserInput user = new UserInput();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var result = await _client.GetProjectsAsync();
+        projects = result.Data;
+    }
+
+
+    private async Task CloseAddDrawerEvent(bool value)
+    {
+        closeAddDrawer = value;
+        await OnInitializedAsync();
+    }
+    private void OpenAddDrawer()
+        => closeAddDrawer = true;
+    private async Task OnValidSubmit()
+    {
+        try
+        {
+            var result = await _client.AddUserInProject(projectId,user.Email);
+            if (result.isError)
+            {
+                _alertService.Add(result.result, Severity.Error);
+
+                return;
+            }
+            _alertService.Add("User has been added.", Severity.Success);
+
+        }
+        catch (Exception ex)
+        {
+            _alertService.Add(ex.Message, Severity.Error);
+
+            StateHasChanged();
+        }
+    }
+    //In a real world scenario this bool would probably be a service to delete the item from api/database
+    public bool _isOpen;
+
+    public void ToggleOpen(string val)
+    {
+        if (!_isOpen)
+            projectId = val;
+        _isOpen = !_isOpen;
+    }
+}

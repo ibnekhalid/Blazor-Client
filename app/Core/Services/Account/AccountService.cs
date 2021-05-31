@@ -39,7 +39,7 @@ namespace app.Core.Services
 			if (result.IsErrorResult())
 			{
 
-				return (string.Join('\n', result.Errors), true);
+				return (string.Join('\n', result.Errors.Select(x => x.Message)), true);
 			}
 			var token = result.Data.Account.Login.ToString();
 			await _storageService.SetItem<string>("token", token);
@@ -53,7 +53,7 @@ namespace app.Core.Services
 			if (result.IsErrorResult())
 			{
 
-				return (string.Join('\n', result.Errors), true);
+				return (string.Join('\n', result.Errors.Select(x => x.Message)), true);
 			}
 
 			return ("", false);

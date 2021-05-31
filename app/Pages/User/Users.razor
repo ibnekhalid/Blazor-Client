@@ -1,0 +1,73 @@
+@page "/Users"
+@using app.Core.Moldes
+@using app.Core.Services
+@inject NavigationManager _navigationManager
+@inject ISnackbar  _alertService
+@inject ILocalStorageService  _localStorageService
+@inject IUserService _client
+
+<div Class="d-flex align-center mud-full-width pl-2">
+    <MudText Typo="Typo.subtitle1">Users</MudText>
+    <MudToolBarSpacer />
+    <MudIconButton OnClick="(e)=> OpenAddDrawer()" Icon="@Icons.Filled.AddCircle"></MudIconButton>
+</div>
+
+<AddUser Close="CloseAddDrawerEvent" DrawerOpen="closeAddDrawer"></AddUser>
+@if (users is not null && users.Count > 0)
+{<MudGrid>
+        <MudItem xs="12">
+            <MudGrid Spacing="2" Justify="Justify.FlexStart">
+                @foreach (var item in users)
+                {
+                    <MudItem>
+                        <MudCard style="min-width: 390px;">
+                            <MudCardHeader>
+                                <CardHeaderAvatar>
+                                    <MudAvatar Style="height:70px; width:70px; font-size:2rem;" Color="Color.Secondary">@item.Username.First().ToString().ToUpper()</MudAvatar>
+                                </CardHeaderAvatar>
+                                <CardHeaderContent>
+                                    <MudText Typo="Typo.body1">@item.Username</MudText>
+                                    <MudText Typo="Typo.body2">@item.Email</MudText>
+                                </CardHeaderContent>
+                                <CardHeaderActions>
+                                    <MudChip Size="Size.Small" Color="Color.Primary">@item.Status.ToString()</MudChip>
+                                    <MudIconButton Size="Size.Small" Icon="@Icons.Material.Filled.Settings" Color="Color.Default" />
+                                </CardHeaderActions>
+                            </MudCardHeader>
+
+
+                            <MudCardActions>
+                                <MudIconButton Size="Size.Small" Icon="@Icons.Material.Filled.Favorite" Color="Color.Default" />
+                                <MudIconButton Size="Size.Small" Icon="@Icons.Material.Filled.Share" Color="Color.Default" />
+                            </MudCardActions>
+                        </MudCard>
+                    </MudItem>
+                }
+
+
+            </MudGrid>
+        </MudItem>
+    </MudGrid>
+
+}
+
+
+@code {
+    public List<UserVm> users;
+    bool closeAddDrawer = false;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var result = await _client.GetUsers();
+        users = result.Data;
+    }
+
+
+    private async Task CloseAddDrawerEvent(bool value)
+    {
+        closeAddDrawer = value;
+        await OnInitializedAsync();
+    }
+    private void OpenAddDrawer()
+        => closeAddDrawer = true;
+}

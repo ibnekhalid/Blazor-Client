@@ -1,0 +1,29 @@
+﻿mutation CreateProject($model:CreateProjectVmInput){
+  project{
+    add(model:$model)
+  }
+}
+query getProjects($filter:ProjectFilterInput){
+ Projects (where:$filter){
+   nodes{
+     description
+     id
+     companyId
+     status
+     title
+
+   }
+   pageInfo{
+     endCursor
+     hasNextPage
+     hasPreviousPage
+     startCursor
+   }
+   totalCount
+ }
+}
+mutation addUserInProject($projectId:String,$model:String){
+  project{
+    addUser(projectId:$projectId,model:$model)
+  }
+}

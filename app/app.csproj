@@ -5,24 +5,37 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="2.0.0" />
+    <Watch Include="**\*.cshtml" />
     <GraphQL Remove="querries.graphql" />
     <GraphQL Remove="Querries\account.graphql" />
+    <GraphQL Remove="Querries\project.graphql" />
+    <GraphQL Remove="Querries\projects.graphql" />
+    <GraphQL Remove="Querries\users.graphql" />
   </ItemGroup>
 
   <ItemGroup>
     <None Remove="querries.graphql" />
     <None Remove="Querries\account.graphql" />
+    <None Remove="Querries\project.graphql" />
+    <None Remove="Querries\users.graphql" />
   </ItemGroup>
 
   <ItemGroup>
     <AdditionalFiles Include="querries.graphql">
       <GraphQL>true</GraphQL>
     </AdditionalFiles>
+    <AdditionalFiles Include="Querries\users.graphql">
+      <GraphQL>true</GraphQL>
+    </AdditionalFiles>
+    <AdditionalFiles Include="Querries\project.graphql">
+      <GraphQL>true</GraphQL>
+    </AdditionalFiles>
     <AdditionalFiles Include="Querries\account.graphql">
       <GraphQL>true</GraphQL>
     </AdditionalFiles>
   </ItemGroup>
-
+ 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.5" PrivateAssets="all" />

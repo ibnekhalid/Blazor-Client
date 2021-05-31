@@ -11,7 +11,7 @@ namespace app.Core.Moldes.User
 	public class UserClaims
 	{
 		public string Id { get; private set; }
-		//public string CompanyId { get; private set; }
+		public string CompanyId { get; private set; }
 		public string Email { get; private set; }
 		public string Username { get; private set; }
 		//public string CompanyName { get; private set; }
@@ -30,6 +30,8 @@ namespace app.Core.Moldes.User
 				Username = identity.Claims.First(claim => claim.Type == JwtRegisteredClaimNames.UniqueName).Value;
 			if (identity.Claims.Any(claim => claim.Type == JwtRegisteredClaimNames.Email))
 				Email = identity.Claims.First(claim => claim.Type == JwtRegisteredClaimNames.Email).Value;
+			if (identity.Claims.Any(claim => claim.Type == "companyId"))
+				CompanyId = identity.Claims.First(claim => claim.Type == "companyId").Value;
 		}
 	}
 	public static class ServiceExtensions

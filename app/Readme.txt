@@ -1,0 +1,1 @@
+﻿dotnet graphql init https://localhost:5001/query -p ./app

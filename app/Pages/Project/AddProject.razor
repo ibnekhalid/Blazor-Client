@@ -1,0 +1,78 @@
+﻿@inject IDialogService DialogService
+@inject ISnackbar  _alertService
+@inject IProjectService _client
+    <MudDrawerContainer Class="mud-height-full">
+        <MudDrawer @bind-Open="@DrawerOpen" Width="40vw" Fixed="true" Anchor="Anchor.Right" Elevation="0" Variant="@DrawerVariant.Temporary">
+            <MudDrawerHeader>
+                <MudText Typo="Typo.h6"> Add Project</MudText>
+            </MudDrawerHeader>
+            <MudPaper Class="px-5" Elevation="0">
+                <EditForm Model="@project" OnValidSubmit="OnValidSubmit">
+                    <DataAnnotationsValidator />
+                    <div class=" form-group">
+                        <label>Title</label>
+                        <InputText @bind-Value="project.Title" class="form-control" placeholder="give it a name" />
+                        <ValidationMessage For="@(() => project.Title)" />
+
+                    </div>
+                    <div class=" form-group">
+                        <label>Description</label>
+                        <InputTextArea @bind-Value="project.Description" class="form-control" placeholder="describe your project" />
+                        <ValidationMessage For="@(() => project.Description)" />
+                    </div>
+                    <MudDivider Class="my-2 mt-5 mb-5" />
+                    <div class="form-group text-right">
+                        <MudButton Variant="Variant.Outlined"  Size="Size.Small" Color="Color.Default" OnClick="Cancel">Cancel</MudButton>
+                        <MudButton ButtonType="ButtonType.Submit" Disabled="loading"  Size="Size.Small" Variant="Variant.Outlined" Color="Color.Primary">Save</MudButton>
+                    </div>
+                </EditForm>
+            </MudPaper>
+
+        </MudDrawer>
+</MudDrawerContainer>
+
+
+        @code {
+            [Parameter]
+            public EventCallback<bool> Close { get; set; }
+            [Parameter]
+            public bool DrawerOpen { get; set; } = false;
+
+            void CompanyDrawerToggle()
+            {
+                DrawerOpen = !DrawerOpen;
+            }
+            bool loading = false;
+
+
+            public ProjectInput project = new ProjectInput();
+
+            private async Task Cancel()
+            {
+                await Close.InvokeAsync(false);
+            }
+
+            private async Task OnValidSubmit()
+            {
+                try
+                {
+                    var result = await _client.CreateProjects(project);
+                    if (result.isError)
+                    {
+                        _alertService.Add(result.result, Severity.Error);
+
+                        return;
+                    }
+                    _alertService.Add("Project has been created.", Severity.Success);
+                    await Close.InvokeAsync(false);
+                }
+                catch (Exception ex)
+                {
+                    _alertService.Add(ex.Message, Severity.Error);
+                    await Close.InvokeAsync(false);
+                    StateHasChanged();
+                }
+                //In a real world scenario this bool would probably be a service to delete the item from api/database
+
+            }
+        }

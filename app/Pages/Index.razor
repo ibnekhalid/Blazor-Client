@@ -22,7 +22,7 @@
     public List<string> titles;
     protected override async Task OnInitializedAsync()
     {
-        var result = await _client.GetCompany.ExecuteAsync();
-        titles = result.Data.Companies.Nodes.Select(x => x.Name).ToList();
+        //var result = await _client.GetCompany.ExecuteAsync();
+        //titles = result.Data.Companies.Nodes.Select(x => x.Name).ToList();
     }
 }

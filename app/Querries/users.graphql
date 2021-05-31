@@ -1,0 +1,28 @@
+﻿mutation CreateUser($model:CreateUserVmInput){
+  user{
+    add(model:$model)
+  }
+}
+query getUsers($filter:UserFilterInput){
+ Users (where:$filter){
+   nodes{
+      company{
+        name
+      }
+      id
+      email
+      phoneNumber
+      status
+      userName
+      companyId
+
+    }
+   pageInfo{
+     endCursor
+     hasNextPage
+     hasPreviousPage
+     startCursor
+   }
+   totalCount
+ }
+}

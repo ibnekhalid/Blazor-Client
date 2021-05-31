@@ -6,8 +6,12 @@
 scalar Uuid
 
 type Query {
-  Company(companyId: Int! where: CompanyFilterInput): Company
+  Company(where: CompanyFilterInput): Company
   Companies(first: Int after: String last: Int before: String where: CompanyFilterInput order: [CompanySortInput!]): CompanyConnection
+  Project(projectId: String where: ProjectFilterInput): Project
+  Projects(first: Int after: String last: Int before: String where: ProjectFilterInput order: [ProjectSortInput!]): ProjectConnection
+  Users(first: Int after: String last: Int before: String where: UserFilterInput order: [UserSortInput!]): UserConnection
+  User(userId: String where: UserFilterInput): User
 }
 
 type Company {
@@ -16,6 +20,36 @@ type Company {
   status: Status!
   users: [User]
   projects: [Project]
+}
+
+type Project {
+  id: String
+  companyId: String
+  title: String
+  status: Status!
+  users: [User]
+  description: String
+}
+
+type User {
+  id: String
+  companyId: String
+  email: String
+  status: Status!
+  emailConfirmed: Boolean!
+  phoneNumber: String
+  phoneNumberConfirmed: Boolean!
+  userName: String
+  userProjects: [Project]
+  company: Company
+}
+
+type UserProject {
+  id: String
+  project: Project
+  projectId: String
+  user: User
+  userId: String
 }
 
 input CompanyFilterInput {
@@ -34,6 +68,72 @@ input CompanySortInput {
   status: SortEnumType
 }
 
+input ProjectFilterInput {
+  and: [ProjectFilterInput!]
+  or: [ProjectFilterInput!]
+  id: StringOperationFilterInput
+  companyId: StringOperationFilterInput
+  title: StringOperationFilterInput
+  description: StringOperationFilterInput
+  status: StatusOperationFilterInput
+  company: CompanyFilterInput
+  users: ListFilterInputTypeOfUserFilterInput
+}
+
+input ProjectSortInput {
+  id: SortEnumType
+  companyId: SortEnumType
+  title: SortEnumType
+  description: SortEnumType
+  status: SortEnumType
+  company: CompanySortInput
+}
+
+input UserFilterInput {
+  and: [UserFilterInput!]
+  or: [UserFilterInput!]
+  id: StringOperationFilterInput
+  companyId: StringOperationFilterInput
+  status: StatusOperationFilterInput
+  company: CompanyFilterInput
+  userProjects: ListFilterInputTypeOfProjectFilterInput
+  userName: StringOperationFilterInput
+  normalizedUserName: StringOperationFilterInput
+  email: StringOperationFilterInput
+  normalizedEmail: StringOperationFilterInput
+  emailConfirmed: BooleanOperationFilterInput
+  passwordHash: StringOperationFilterInput
+  securityStamp: StringOperationFilterInput
+  concurrencyStamp: StringOperationFilterInput
+  phoneNumber: StringOperationFilterInput
+  phoneNumberConfirmed: BooleanOperationFilterInput
+  twoFactorEnabled: BooleanOperationFilterInput
+  lockoutEnd: ComparableNullableOfDateTimeOffsetOperationFilterInput
+  lockoutEnabled: BooleanOperationFilterInput
+  accessFailedCount: ComparableInt32OperationFilterInput
+}
+
+input UserSortInput {
+  id: SortEnumType
+  companyId: SortEnumType
+  status: SortEnumType
+  company: CompanySortInput
+  userName: SortEnumType
+  normalizedUserName: SortEnumType
+  email: SortEnumType
+  normalizedEmail: SortEnumType
+  emailConfirmed: SortEnumType
+  passwordHash: SortEnumType
+  securityStamp: SortEnumType
+  concurrencyStamp: SortEnumType
+  phoneNumber: SortEnumType
+  phoneNumberConfirmed: SortEnumType
+  twoFactorEnabled: SortEnumType
+  lockoutEnd: SortEnumType
+  lockoutEnabled: SortEnumType
+  accessFailedCount: SortEnumType
+}
+
 "A connection to a list of items."
 type CompanyConnection {
   "Information to aid in pagination."
@@ -42,6 +142,28 @@ type CompanyConnection {
   edges: [CompanyEdge!]
   "A flattened list of the nodes."
   nodes: [Company]
+  totalCount: Int!
+}
+
+"A connection to a list of items."
+type ProjectConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of edges."
+  edges: [ProjectEdge!]
+  "A flattened list of the nodes."
+  nodes: [Project]
+  totalCount: Int!
+}
+
+"A connection to a list of items."
+type UserConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of edges."
+  edges: [UserEdge!]
+  "A flattened list of the nodes."
+  nodes: [User]
   totalCount: Int!
 }
 
@@ -91,68 +213,6 @@ enum SortEnumType {
   DESC
 }
 
-"Information about pagination in a connection."
-type PageInfo {
-  "Indicates whether more edges exist following the set defined by the clients arguments."
-  hasNextPage: Boolean!
-  "Indicates whether more edges exist prior the set defined by the clients arguments."
-  hasPreviousPage: Boolean!
-  "When paginating backwards, the cursor to continue."
-  startCursor: String
-  "When paginating forwards, the cursor to continue."
-  endCursor: String
-}
-
-"An edge in a connection."
-type CompanyEdge {
-  "A cursor for use in pagination."
-  cursor: String!
-  "The item at the end of the edge."
-  node: Company
-}
-
-input UserFilterInput {
-  and: [UserFilterInput!]
-  or: [UserFilterInput!]
-  id: StringOperationFilterInput
-  companyId: StringOperationFilterInput
-  status: StatusOperationFilterInput
-  company: CompanyFilterInput
-  userProjects: ListFilterInputTypeOfUserProjectFilterInput
-  userName: StringOperationFilterInput
-  normalizedUserName: StringOperationFilterInput
-  email: StringOperationFilterInput
-  normalizedEmail: StringOperationFilterInput
-  emailConfirmed: BooleanOperationFilterInput
-  passwordHash: StringOperationFilterInput
-  securityStamp: StringOperationFilterInput
-  concurrencyStamp: StringOperationFilterInput
-  phoneNumber: StringOperationFilterInput
-  phoneNumberConfirmed: BooleanOperationFilterInput
-  twoFactorEnabled: BooleanOperationFilterInput
-  lockoutEnd: ComparableNullableOfDateTimeOffsetOperationFilterInput
-  lockoutEnabled: BooleanOperationFilterInput
-  accessFailedCount: ComparableInt32OperationFilterInput
-}
-
-input ProjectFilterInput {
-  and: [ProjectFilterInput!]
-  or: [ProjectFilterInput!]
-  companyId: StringOperationFilterInput
-  title: StringOperationFilterInput
-  status: StatusOperationFilterInput
-  company: CompanyFilterInput
-  userProjects: ListFilterInputTypeOfUserProjectFilterInput
-  id: StringOperationFilterInput
-}
-
-input ListFilterInputTypeOfUserProjectFilterInput {
-  all: UserProjectFilterInput
-  none: UserProjectFilterInput
-  some: UserProjectFilterInput
-  any: Boolean
-}
-
 input BooleanOperationFilterInput {
   eq: Boolean
   neq: Boolean
@@ -188,15 +248,40 @@ input ComparableInt32OperationFilterInput {
   nlte: Int
 }
 
-input UserProjectFilterInput {
-  and: [UserProjectFilterInput!]
-  or: [UserProjectFilterInput!]
-  userId: StringOperationFilterInput
-  projectId: StringOperationFilterInput
-  status: StatusOperationFilterInput
-  project: ProjectFilterInput
-  user: UserFilterInput
-  id: StringOperationFilterInput
+"Information about pagination in a connection."
+type PageInfo {
+  "Indicates whether more edges exist following the set defined by the clients arguments."
+  hasNextPage: Boolean!
+  "Indicates whether more edges exist prior the set defined by the clients arguments."
+  hasPreviousPage: Boolean!
+  "When paginating backwards, the cursor to continue."
+  startCursor: String
+  "When paginating forwards, the cursor to continue."
+  endCursor: String
+}
+
+"An edge in a connection."
+type CompanyEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: Company
+}
+
+"An edge in a connection."
+type ProjectEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: Project
+}
+
+"An edge in a connection."
+type UserEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: User
 }
 
 enum Status {
@@ -208,56 +293,34 @@ enum Status {
 type Mutation {
   company: CompanyMutationType
   account: AccountMutationType
-}
-
-type User {
-  id: String
-  companyId: String
-  status: Status!
-  company: Company
-  userProjects: [UserProject]
-  userName: String
-  normalizedUserName: String
-  email: String
-  normalizedEmail: String
-  emailConfirmed: Boolean!
-  passwordHash: String
-  securityStamp: String
-  concurrencyStamp: String
-  phoneNumber: String
-  phoneNumberConfirmed: Boolean!
-  twoFactorEnabled: Boolean!
-  lockoutEnd: DateTime
-  lockoutEnabled: Boolean!
-  accessFailedCount: Int!
-}
-
-type Project {
-  companyId: String
-  title: String
-  status: Status!
-  company: Company
-  userProjects: [UserProject]
-  id: String
+  project: ProjectMutationType
+  user: UserMutationType
 }
 
 "The `DateTime` scalar represents an ISO-8601 compliant date time type."
 scalar DateTime
 
-type UserProject {
-  userId: String
-  projectId: String
-  status: Status!
-  project: Project
-  user: User
-  id: String
+type UserMutationType {
+  add(model: CreateUserVmInput): String
+  inactivate(id: String): String
+  activate(id: String): String
+}
+
+type ProjectMutationType {
+  add(model: CreateProjectVmInput): String
+  addUsers(projectId: String model: [String]): String
+  addUser(projectId: String model: String): String
+  update(model: UpdateProjectVmInput): String
+  inactivate(id: String): String
+  activate(id: String): String
+  complete(id: String): String
 }
 
 type AccountMutationType {
   login(model: LoginModelInput): String
   register(model: RegisterModelInput): String
-  refreshToken(id: String): String
-  activate(id: String): String
+  refreshToken: String
+  logout: String
 }
 
 type CompanyMutationType {
@@ -267,13 +330,24 @@ type CompanyMutationType {
   activate(id: String): String
 }
 
-input UpdateCompanyVmInput {
-  id: String!
-  name: String!
+input LoginModelInput {
+  username: String!
+  password: String!
 }
 
-input CreateCompanyVmInput {
-  name: String!
+input UpdateProjectVmInput {
+  id: String
+  title: String!
+  description: String!
+}
+
+input CreateProjectVmInput {
+  title: String!
+  description: String!
+}
+
+input CreateUserVmInput {
+  email: String!
 }
 
 input RegisterModelInput {
@@ -284,9 +358,13 @@ input RegisterModelInput {
   password: String!
 }
 
-input LoginModelInput {
-  username: String!
-  password: String!
+input CreateCompanyVmInput {
+  name: String!
+}
+
+input UpdateCompanyVmInput {
+  id: String!
+  name: String!
 }
 
 directive @export(as: String) on FIELD
