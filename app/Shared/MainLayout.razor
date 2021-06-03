@@ -2,13 +2,13 @@
 @using app.Core.Services
 @inject IAccountService _accountService
 @inject NavigationManager NavigationManager
+@inject TmClient _client
 <MudThemeProvider />
-<MudDialogProvider FullWidth="true" 
-                   MaxWidth="MaxWidth.ExtraLarge" 
-                   
-                   CloseButton="true" 
-                   DisableBackdropClick="false" 
-                   NoHeader="false" 
+<MudDialogProvider FullWidth="true"
+                   MaxWidth="MaxWidth.ExtraLarge"
+                   CloseButton="true"
+                   DisableBackdropClick="false"
+                   NoHeader="false"
                    Position="DialogPosition.Center" />
 <MudSnackbarProvider />
 <MudThemeProvider />
@@ -21,81 +21,76 @@
 }
 else
 {
-<MudLayout>
-    <MudAppBar Color="Color.Dark" Elevation="0" Dense="true">
-        <MudIconButton Size="Size.Small" Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
-        <MudText Typo="Typo.h6" Class="ml-3">Application</MudText>
-        <MudAppBarSpacer />
-        <MudMenu Size="Size.Small" Variant="Variant.Filled" Color="Color.Default" Direction="Direction.Right" OffsetY="true" Dense="true">
-            <ActivatorContent>
-                <MudAvatar Color="Color.Dark">@userClaims.Username.First().ToString().ToUpper()</MudAvatar>
-            </ActivatorContent>
-            <ChildContent>
+    <MudLayout>
+        <MudAppBar Color="Color.Dark" Elevation="0" Dense="true">
+            <MudIconButton Size="Size.Small" Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+            <MudText Typo="Typo.h6" Class="ml-3">Application</MudText>
+            <MudAppBarSpacer />
+            <MudMenu Size="Size.Small" Variant="Variant.Filled" Color="Color.Default" Direction="Direction.Right" OffsetY="true" Dense="true">
+                <ActivatorContent>
+                    <MudAvatar Color="Color.Dark">@userClaims.Username.First().ToString().ToUpper()</MudAvatar>
+                </ActivatorContent>
+                <ChildContent>
 
-                <MudCard Style="box-shadow: none;">
-                    <MudCardHeader>
-                        <CardHeaderAvatar>
-                            <MudAvatar Color="Color.Dark">@userClaims.Username.First().ToString().ToUpper()</MudAvatar>
-                        </CardHeaderAvatar>
-                        <CardHeaderContent>
-                            <MudText Typo="Typo.body1">@userClaims.Username</MudText>
-                            <MudText Typo="Typo.body2">@userClaims.Email</MudText>
-                        </CardHeaderContent>
-                        <CardHeaderActions>
-                            <MudIconButton Icon="@Icons.Material.Filled.Settings" Color="Color.Default" />
-                        </CardHeaderActions>
-                    </MudCardHeader>
-                    <MudCardActions Class="text-right">
-                        <MudLink Color="Color.Default"></MudLink>
-                        <MudLink Href="account/logout" Color="Color.Default">Logout</MudLink>
-                    </MudCardActions>
-                </MudCard>
-
-
-            </ChildContent>
-        </MudMenu>
-
-        <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit" Edge="Edge.End" OnClick="@((e) => CompanyDrawerToggle())" />
-    </MudAppBar>
-    <MudDrawer @bind-Open="_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="0">
-
-        <MudNavMenu Class="mud-width-full">
-            <MudText Typo="Typo.h6" Class="px-4">@userClaims.Username</MudText>
-            <MudText Typo="Typo.body2" Class="px-4 mud-text-secondary">@userClaims.Email</MudText>
-            <MudDivider Class="my-2" />
+                    <MudCard Style="box-shadow: none;">
+                        <MudCardHeader>
+                            <CardHeaderAvatar>
+                                <MudAvatar Color="Color.Dark">@userClaims.Username.First().ToString().ToUpper()</MudAvatar>
+                            </CardHeaderAvatar>
+                            <CardHeaderContent>
+                                <MudText Typo="Typo.body1">@userClaims.Username</MudText>
+                                <MudText Typo="Typo.body2">@userClaims.Email</MudText>
+                            </CardHeaderContent>
+                            <CardHeaderActions>
+                                <MudIconButton Icon="@Icons.Material.Filled.Settings" Color="Color.Default" />
+                            </CardHeaderActions>
+                        </MudCardHeader>
+                        <MudCardActions Class="text-right">
+                            <MudLink Color="Color.Default"></MudLink>
+                            <MudLink Href="account/logout" Color="Color.Default">Logout</MudLink>
+                        </MudCardActions>
+                    </MudCard>
 
 
-            <MudNavLink Href="/Users" Match="NavLinkMatch.All" Icon="@Icons.Filled.SupervisedUserCircle">Team</MudNavLink>
-            <MudNavLink Href="/Projects" Match="NavLinkMatch.All" Icon="@Icons.Filled.BuildCircle">Projects</MudNavLink>
-          
-            @if (userClaims is not null)
-            {<MudDivider Class="my-2" />
-                <MudNavLink Href="account/logout" Icon="@Icons.Filled.ExitToApp">Logout</MudNavLink>
-            }
-        </MudNavMenu>
+                </ChildContent>
+            </MudMenu>
 
-    </MudDrawer>
-    <MudDrawer @bind-Open="@_companyDrawerOpen" Anchor="@Anchor.Right" Elevation="0" Variant="@DrawerVariant.Temporary">
-        <MudDrawerHeader>
-            <MudText Typo="Typo.h6">Organization</MudText>
-        </MudDrawerHeader>
-        <MudNavMenu>
-            <MudNavLink >Store</MudNavLink>
-            <MudNavLink >Library</MudNavLink>
-            <MudNavLink >Community</MudNavLink>
-        </MudNavMenu>
-    </MudDrawer>
-    <MudMainContent>
+            <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit" Edge="Edge.End" OnClick="@((e) => CompanyDrawerToggle())" />
+        </MudAppBar>
+        <MudDrawer @bind-Open="_drawerOpen" Color="Color.Dark" Variant="@DrawerVariant.Mini" PreserveOpenState="true" ClipMode="DrawerClipMode.Never" Elevation="0">
 
-        <MudContainer Fixed="true">
-            @Body
-        </MudContainer>
-    </MudMainContent>
-</MudLayout>
+            <MudNavMenu>
+
+                <MudNavLink IconColor="Color.Inherit" Href="/Users" Match="NavLinkMatch.All" Icon="@Icons.Filled.SupervisedUserCircle">Team</MudNavLink>
+                <MudNavLink IconColor="Color.Inherit" Href="/Projects" Match="NavLinkMatch.All" Icon="@Icons.Filled.BuildCircle">Projects</MudNavLink>
+
+
+            </MudNavMenu>
+
+        </MudDrawer>
+        <MudDrawer @bind-Open="@_companyDrawerOpen" Color="Color.Dark" Anchor="@Anchor.Right" Elevation="0" Variant="@DrawerVariant.Temporary">
+            <MudDrawerHeader>
+                <MudText Typo="Typo.h6">Organization</MudText>
+            </MudDrawerHeader>
+            <MudNavMenu>
+                @foreach (var company in _companies)
+                {
+                    <MudNavLink>@company</MudNavLink>
+                }
+               
+            </MudNavMenu>
+        </MudDrawer>
+        <MudMainContent Class="pt-16 px-16">
+            <MudContainer Class="mt-6" MaxWidth="MaxWidth.ExtraLarge">
+                @Body
+            </MudContainer>
+        </MudMainContent>
+    </MudLayout>
 }
 
 @code {
     bool _drawerOpen = true;
+    List<string> _companies = new List<string>();
 
     void DrawerToggle()
     {
@@ -108,15 +103,23 @@ else
         _companyDrawerOpen = !_companyDrawerOpen;
     }
     Core.Moldes.User.UserClaims userClaims;
-    protected override void OnInitialized()
+    protected override async void OnInitialized()
     {
         userClaims = _accountService.GetUserClaims();
+        if (userClaims?.Id is not null)
+        {
+            var result = await _client.GetCompany.ExecuteAsync();
+            _companies =  result.Data.Companies.Nodes.Select(x => x.Name).ToList();
+        }
+       
     }
 
     public bool LoggedIn
     {
         get { return _accountService.IsLoggedIn(); }
     }
+    public List<string> titles;
+
 }
 
 
