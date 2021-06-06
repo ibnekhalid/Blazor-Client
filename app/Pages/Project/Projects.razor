@@ -14,7 +14,15 @@
     <MudToolBarSpacer />
     <input @bind-value="@Search" @oninput="(e)=> SearchProjets(e.Value.ToString())" type="text" class="form-control form-control-sm" style="width:160px !important;" placeholder="search" />
    
-    <MudIconButton  Disabled="true" Class="ml-5" Size="Size.Small">@(CurrentPage*1) of @total</MudIconButton>
+    <MudIconButton   Disabled="true" Class="ml-5" Size="Size.Small">@(((CurrentPage-1)*pageSize)+projects.Count) of @total</MudIconButton>
+   
+    <select style="width:75px !important;" class="form-control form-control-sm"   @onchange="@((e)=>ChangePageSize(e.Value.ToString()))">
+        <option value="1">1</option>
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="100">100</option>
+    </select>
     <MudIconButton  Disabled="@(!pInfo.HasPreviousPage)"  Size="Size.Small" OnClick="(e) => Previous()"Icon="@Icons.Filled.ChevronLeft"></MudIconButton>
     <MudIconButton  Disabled="@(!pInfo.HasNextPage)"  Size="Size.Small" OnClick="(e) => Next()"Icon="@Icons.Filled.ChevronRight"></MudIconButton>
 
@@ -113,6 +121,7 @@
 @code {
     public List<ProjectVm> projects = new List<ProjectVm>();
     long total;
+    int pageSize=1;
     int CurrentPage = 1;
     bool closeAddDrawer = false;
     ProjectFilterInput filter = new ProjectFilterInput();
@@ -131,11 +140,11 @@
 
         }
     }
-
+   
     protected override async Task OnInitializedAsync()
     {
 
-        pagingFilter.TakeFirst =1;
+        pagingFilter.TakeFirst = pageSize;
         pagingFilter.After = null;
         pagingFilter.Before = null;
         pagingFilter.TakePrevious = null;
@@ -143,11 +152,19 @@
         await GetData();
     }
     #region Scroll
-
+    private async Task ChangePageSize(string value)
+    {
+        pageSize = Convert.ToInt32(value);
+        pagingFilter.TakeFirst = pageSize;
+        pagingFilter.After = null;
+        pagingFilter.Before = null;
+        pagingFilter.TakePrevious = null;
+        await GetData();
+    }
     private async Task Next()
     {
 
-        pagingFilter.TakeFirst = 1;
+        pagingFilter.TakeFirst = pageSize;
         pagingFilter.After = pInfo.EndCursor;
         pagingFilter.TakePrevious = null;
         pagingFilter.Before = null;
@@ -159,12 +176,12 @@
 
         pagingFilter.After = null;
         pagingFilter.TakeFirst = null;
-        pagingFilter.TakePrevious = 1;
+        pagingFilter.TakePrevious = pageSize;
         pagingFilter.Before = pInfo.StartCursor;
         await GetData();
         CurrentPage--;
     }
-   
+
 
     #endregion
     public async Task GetData()
