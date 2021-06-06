@@ -52,3 +52,29 @@ a, .btn-link {
     color: red;
     font-size: 9px;
 }
+.mud-nav-link.active:not(.mud-nav-link-disabled) {
+    background-color: rgb(0 0 0 / 75%) !important;
+}
+.bg-gray-custom {
+    background:#f1f1f1 !important;
+}
+.mud-navmenu.hover-white a:hover {
+     color: white !important; 
+}
+.mud-navmenu.hover-white a.active {
+    color: white !important; 
+}
+
+.mud-drawer.mud-drawer-mini.mud-drawer-anchor-left.mud-drawer--closed.width-40 .mud-nav-link {
+    padding: 8px 7px 8px 7px;
+}
+.margin-top-20-inverse{
+    margin-top: -20px;
+}
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: none !important;
+}

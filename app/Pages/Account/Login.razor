@@ -86,7 +86,7 @@
 
 
             var returnUrl = _navigationManager.QueryString("returnUrl") ?? "";
-            _navigationManager.NavigateTo("");
+            _navigationManager.NavigateTo("/", true);
 
         }
         catch (Exception ex)

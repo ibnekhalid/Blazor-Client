@@ -3,7 +3,7 @@
 @inject IAccountService _accountService
 @inject NavigationManager NavigationManager
 @inject TmClient _client
-<MudThemeProvider />
+
 <MudDialogProvider FullWidth="true"
                    MaxWidth="MaxWidth.ExtraLarge"
                    CloseButton="true"
@@ -11,7 +11,7 @@
                    NoHeader="false"
                    Position="DialogPosition.Center" />
 <MudSnackbarProvider />
-<MudThemeProvider />
+<MudThemeProvider Theme="MyCustomTheme"/>
 
 @if (NavigationManager.Uri.ToString().ToLower().Contains("account"))
 {
@@ -23,19 +23,21 @@ else
 {
     <MudLayout>
         <MudAppBar Color="Color.Dark" Elevation="0" Dense="true">
-            <MudIconButton Size="Size.Small" Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
-            <MudText Typo="Typo.h6" Class="ml-3">Application</MudText>
+ 
             <MudAppBarSpacer />
             <MudMenu Size="Size.Small" Variant="Variant.Filled" Color="Color.Default" Direction="Direction.Right" OffsetY="true" Dense="true">
                 <ActivatorContent>
-                    <MudAvatar Color="Color.Dark">@userClaims.Username.First().ToString().ToUpper()</MudAvatar>
+                    <MudAvatar Size="Size.Small" Style="@AvatarStyle.Get(@userClaims.Username,"","","")">@userClaims.Username.First().ToString().ToUpper()</MudAvatar>
                 </ActivatorContent>
                 <ChildContent>
 
                     <MudCard Style="box-shadow: none;">
+                        <MudText Align="Align.Right" class="px-3">
+                            <MudAvatar  Size="Size.Small" style="@AvatarStyle.Get(userClaims.Company,"","","")">A</MudAvatar><b>@userClaims.Company</b></MudText>
+                      
                         <MudCardHeader>
                             <CardHeaderAvatar>
-                                <MudAvatar Color="Color.Dark">@userClaims.Username.First().ToString().ToUpper()</MudAvatar>
+                                <MudAvatar  Style="@AvatarStyle.Get(@userClaims.Username,"","","")">@userClaims.Username.First().ToString().ToUpper()</MudAvatar>
                             </CardHeaderAvatar>
                             <CardHeaderContent>
                                 <MudText Typo="Typo.body1">@userClaims.Username</MudText>
@@ -57,9 +59,16 @@ else
 
             <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit" Edge="Edge.End" OnClick="@((e) => CompanyDrawerToggle())" />
         </MudAppBar>
-        <MudDrawer @bind-Open="_drawerOpen" Color="Color.Dark" Variant="@DrawerVariant.Mini" PreserveOpenState="true" ClipMode="DrawerClipMode.Never" Elevation="0">
+        <MudDrawer @bind-Open="_drawerOpen" wid="40px" Class="width-40" Color="Color.Dark" Variant="@DrawerVariant.Mini" PreserveOpenState="true" ClipMode="DrawerClipMode.Never" Elevation="0">
+            <MudDrawerHeader Class="px-3">
+                <MudIconButton Class="mb-1 mr-3" Size="Size.Small" Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+                @if (_drawerOpen)
+                {
+                    <img src="/logo.png" style="width: 30px;height: 30px;">
+                }
 
-            <MudNavMenu>
+            </MudDrawerHeader>
+            <MudNavMenu Class="hover-white">
 
                 <MudNavLink IconColor="Color.Inherit" Href="/Users" Match="NavLinkMatch.All" Icon="@Icons.Filled.SupervisedUserCircle">Team</MudNavLink>
                 <MudNavLink IconColor="Color.Inherit" Href="/Projects" Match="NavLinkMatch.All" Icon="@Icons.Filled.BuildCircle">Projects</MudNavLink>
@@ -68,20 +77,26 @@ else
             </MudNavMenu>
 
         </MudDrawer>
-        <MudDrawer @bind-Open="@_companyDrawerOpen" Color="Color.Dark" Anchor="@Anchor.Right" Elevation="0" Variant="@DrawerVariant.Temporary">
+        <MudDrawer Style=" overflow-x: hidden;" @bind-Open="@_companyDrawerOpen" Color="Color.Dark" Anchor="@Anchor.Right" Elevation="0" Variant="@DrawerVariant.Temporary">
             <MudDrawerHeader>
                 <MudText Typo="Typo.h6">Organization</MudText>
             </MudDrawerHeader>
-            <MudNavMenu>
-                @foreach (var company in _companies)
-                {
-                    <MudNavLink>@company</MudNavLink>
-                }
-               
-            </MudNavMenu>
+            <MudPaper  Width="300px">
+                <MudList Class="p-0 px-2" Style="background: black; color: white;" >
+                    @foreach (var company in _companies)
+                    {
+                    <MudListItem Class="p-0 " >
+                        <MudAvatar Class="mr-2" Size="Size.Medium" Style="@AvatarStyle.Get(company,"","","")">@company.First().ToString().ToUpper()</MudAvatar> @company
+                    </MudListItem>
+                    }
+
+
+                </MudList>
+            </MudPaper>
+
         </MudDrawer>
-        <MudMainContent Class="pt-16 px-16">
-            <MudContainer Class="mt-6" MaxWidth="MaxWidth.ExtraLarge">
+        <MudMainContent Style="@GetStyle()">
+            <MudContainer Class="margin-top-20-inverse" MaxWidth="MaxWidth.ExtraLarge">
                 @Body
             </MudContainer>
         </MudMainContent>
@@ -91,7 +106,10 @@ else
 @code {
     bool _drawerOpen = true;
     List<string> _companies = new List<string>();
-
+    string GetStyle()
+    {
+       return _drawerOpen ?"": $"padding-left: 65px";
+    }
     void DrawerToggle()
     {
         _drawerOpen = !_drawerOpen;
@@ -109,9 +127,9 @@ else
         if (userClaims?.Id is not null)
         {
             var result = await _client.GetCompany.ExecuteAsync();
-            _companies =  result.Data.Companies.Nodes.Select(x => x.Name).ToList();
+            _companies = result.IsSuccessResult() ? result.Data.Companies.Nodes.Select(x => x.Name).ToList() : new List<string?>();
         }
-       
+
     }
 
     public bool LoggedIn
@@ -120,6 +138,29 @@ else
     }
     public List<string> titles;
 
+    #region Customize Theme
+
+    MudTheme MyCustomTheme = new MudTheme()
+    {
+        Palette = new Palette()
+        {
+            Primary = Colors.Blue.Default,
+            Secondary = Colors.Green.Accent4,
+            AppbarBackground = Colors.Red.Default,
+        },
+
+        LayoutProperties = new LayoutProperties()
+        {
+            DrawerWidthLeft = "260px",
+            DrawerWidthRight = "300px",
+            AppbarMinHeight= "50px",
+            DrawerMiniWidthLeft="40px",
+
+
+
+        }
+    };
+    #endregion
 }
 
 

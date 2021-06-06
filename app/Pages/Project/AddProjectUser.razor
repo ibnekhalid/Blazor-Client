@@ -1,0 +1,81 @@
+﻿@inject IDialogService DialogService
+@inject ISnackbar  _alertService
+@inject IProjectService _client
+@inject IUserService _userService
+
+<input @bind-value="@Search" @oninput="(e)=> SearchUser(e.Value.ToString())" type="text" class="form-control" placeholder="user@domain.com" />
+<div style="max-height: 200px">
+    <MudList Dense="true" Clickable="true">
+        @foreach (var u in UserEmails)
+        {
+            <MudListItem Text="@u" @key="u" @onclick="@(()=>OnValidSubmit(ProjectId,u))" Class="font-weight-light">
+                <MudAvatar Class="mr-2" Size="Size.Small" Style="@AvatarStyle.Get(u,"","","")">@u.First().ToString().ToUpper()</MudAvatar> @u
+            </MudListItem>
+            <MudDivider />
+        }
+    </MudList>
+</div>
+
+
+@code {
+    [Parameter]
+    public EventCallback<bool> Success { get; set; }
+    [Parameter]
+    public string ProjectId { get; set; }
+    public List<string> UserEmails = new List<string>();
+    UserFilterInput filter = new UserFilterInput();
+   
+    string search;
+    string Search
+    {
+        get { return search; }
+        set
+        {
+            search = value;
+
+        }
+    }
+
+    bool loading = false;
+
+    private async Task OnValidSubmit(string Id, string email)
+    {
+
+        try
+        {
+            var result = await _client.AddUserInProject(Id, email);
+            if (result.isError)
+            {
+                _alertService.Add(result.result, Severity.Error);
+
+                return;
+            }
+            _alertService.Add("User has been added.", Severity.Success);
+            await Success.InvokeAsync(true);
+
+        }
+        catch (Exception ex)
+        {
+            _alertService.Add(ex.Message, Severity.Error);
+
+            StateHasChanged();
+        }
+    }
+
+    private async Task SearchUser(string value)
+    {
+        search = value;
+        // In real life use an asynchronous function for fetching data from an api.
+
+        filter.Email = new StringOperationFilterInput() { Contains = search };
+        // if text is null or empty, show complete list
+
+        var users = await _userService.GetUsers(filter);
+
+        if (users.Data.Any())
+            UserEmails = users.Data.Select(x => x.Email).ToList();
+    }
+
+
+
+}

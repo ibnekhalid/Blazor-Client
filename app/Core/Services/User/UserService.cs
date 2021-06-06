@@ -14,46 +14,54 @@ using System.Threading.Tasks;
 
 namespace app.Core.Services
 {
-    public class UserService : IUserService
-    {
-        private static TmClient _client;
-        private static ISnackbar _snackbar;
-        public UserService(TmClient tmClient, ISnackbar snackbar)
-        {
-            _client = tmClient;
-            _snackbar = snackbar;
-        }
-        public async Task<PageResult<UserVm>> GetUsers()
-        {
-            var result = await _client.GetUsers.ExecuteAsync(null);
-            if (result.IsErrorResult())
-                _snackbar.Add(string.Join('\n', result.Errors.Select(x => x.Message)), Severity.Error);
-            return new PageResult<UserVm>(result.Data.Users);
-        }
-        public async Task<(string result, bool isError)> CreateUser(UserInput vm)
-        {
-            var result = await _client.CreateUser.ExecuteAsync(new CreateUserVmInput { Email = vm.Email });
-            if (result.IsErrorResult())
-            {
+	public class UserService : IUserService
+	{
+		private static TmClient _client;
+		private static ISnackbar _snackbar;
+		public UserService(TmClient tmClient, ISnackbar snackbar)
+		{
+			_client = tmClient;
+			_snackbar = snackbar;
+		}
+		public async Task<PageResult<UserVm>> GetUsers(UserFilterInput filter)
+		{
+			var result = await _client.GetUsers.ExecuteAsync(filter);
+			if (result.IsErrorResult())
+				_snackbar.Add(string.Join('\n', result.Errors.Select(x => x.Message)), Severity.Error);
+			return new PageResult<UserVm>(result.Data.Users);
+		}
+		public async Task<PageResult<UserVm>> GetUsers(string search)
+		{
+			var result = await _client.GetUsers.ExecuteAsync(new UserFilterInput() { Email = new StringOperationFilterInput() { Contains = search } });
+			if (result.IsErrorResult())
+				_snackbar.Add(string.Join('\n', result.Errors.Select(x => x.Message)), Severity.Error);
+			return new PageResult<UserVm>(result.Data.Users);
+		}
+		public async Task<(string result, bool isError)> CreateUser(UserInput vm)
+		{
+			var result = await _client.CreateUser.ExecuteAsync(new CreateUserVmInput { Email = vm.Email });
+			if (result.IsErrorResult())
+			{
 
-                return (string.Join('\n', result.Errors.Select(x => x.Message)), true);
-            }
+				return (string.Join('\n', result.Errors.Select(x => x.Message)), true);
+			}
 
-            return ("", false);
-        }
-    }
-    public interface IUserService
-    {
-        Task<PageResult<UserVm>> GetUsers();
-        Task<(string result, bool isError)> CreateUser(UserInput vm);
-    }
-    public class UserInput
-    {
-        [Required]
-        [EmailAddress]
-        public string Email { get; set; }
+			return ("", false);
+		}
+	}
+	public interface IUserService
+	{
+		Task<PageResult<UserVm>> GetUsers(UserFilterInput filter);
+		Task<PageResult<UserVm>> GetUsers(string search);
+		Task<(string result, bool isError)> CreateUser(UserInput vm);
+	}
+	public class UserInput
+	{
+		[Required]
+		[EmailAddress]
+		public string Email { get; set; }
 
-    }
+	}
 
 
 }

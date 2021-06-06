@@ -3,14 +3,28 @@
     add(model:$model)
   }
 }
-query getProjects($filter:ProjectFilterInput){
- Projects (where:$filter){
+query getProjects($takeFirst:Int,$taskPrevious:Int,$after:String,$before:String,$filter:ProjectFilterInput){
+ Projects (
+   first:$takeFirst
+   last:$taskPrevious
+   after:$after,
+   before:$before,
+   where:$filter){
    nodes{
      description
      id
      companyId
      status
      title
+      userProjects{
+       userId
+       user{
+         userName
+       }
+     }
+     users{
+       userName
+     }
 
    }
    pageInfo{

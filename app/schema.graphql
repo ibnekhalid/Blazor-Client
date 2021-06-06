@@ -27,8 +27,9 @@ type Project {
   companyId: String
   title: String
   status: Status!
-  users: [User]
+  userProjects: [UserProject]
   description: String
+  users: [User]
 }
 
 type User {
@@ -40,7 +41,7 @@ type User {
   phoneNumber: String
   phoneNumberConfirmed: Boolean!
   userName: String
-  userProjects: [Project]
+  userProjects: [UserProject]
   company: Company
 }
 
@@ -77,7 +78,7 @@ input ProjectFilterInput {
   description: StringOperationFilterInput
   status: StatusOperationFilterInput
   company: CompanyFilterInput
-  users: ListFilterInputTypeOfUserFilterInput
+  userProjects: ListFilterInputTypeOfUserProjectFilterInput
 }
 
 input ProjectSortInput {
@@ -96,7 +97,7 @@ input UserFilterInput {
   companyId: StringOperationFilterInput
   status: StatusOperationFilterInput
   company: CompanyFilterInput
-  userProjects: ListFilterInputTypeOfProjectFilterInput
+  userProjects: ListFilterInputTypeOfUserProjectFilterInput
   userName: StringOperationFilterInput
   normalizedUserName: StringOperationFilterInput
   email: StringOperationFilterInput
@@ -213,6 +214,13 @@ enum SortEnumType {
   DESC
 }
 
+input ListFilterInputTypeOfUserProjectFilterInput {
+  all: UserProjectFilterInput
+  none: UserProjectFilterInput
+  some: UserProjectFilterInput
+  any: Boolean
+}
+
 input BooleanOperationFilterInput {
   eq: Boolean
   neq: Boolean
@@ -282,6 +290,16 @@ type UserEdge {
   cursor: String!
   "The item at the end of the edge."
   node: User
+}
+
+input UserProjectFilterInput {
+  and: [UserProjectFilterInput!]
+  or: [UserProjectFilterInput!]
+  id: StringOperationFilterInput
+  userId: StringOperationFilterInput
+  projectId: StringOperationFilterInput
+  project: ProjectFilterInput
+  user: UserFilterInput
 }
 
 enum Status {

@@ -11,6 +11,7 @@ using app.Core.Services;
 using System.IdentityModel.Tokens.Jwt;
 using MudBlazor.Services;
 using MudBlazor;
+using app.Core.Helpers;
 
 namespace app
 {
@@ -22,6 +23,7 @@ namespace app
 			var builder = WebAssemblyHostBuilder.CreateDefault(args);
 			builder.RootComponents.Add<App>("#app");
 			builder.Services
+			   .AddScoped<IScrollInfoService, ScrollInfoService>()
 			   .AddScoped<IAlertService, AlertService>()
 			   .AddScoped<ILocalStorageService, LocalStorageService>()
 			   .AddScoped<IAccountService, AccountService>()
@@ -29,6 +31,7 @@ namespace app
 			   .AddScoped<IProjectService, ProjectService>();
 			builder.Services.AddMudServices(config =>
 			{
+				
 				config.SnackbarConfiguration.PositionClass = Defaults.Classes.Position.BottomRight;
 
 				config.SnackbarConfiguration.PreventDuplicates = false;

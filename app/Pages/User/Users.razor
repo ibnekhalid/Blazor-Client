@@ -1,4 +1,5 @@
 @page "/Users"
+@attribute [Authorize]
 @using app.Core.Moldes
 @using app.Core.Services
 @inject NavigationManager _navigationManager
@@ -6,9 +7,10 @@
 @inject ILocalStorageService  _localStorageService
 @inject IUserService _client
 
-<div Class="d-flex align-center mud-full-width pl-2">
+<div Class="d-flex align-center mud-full-width p-2 mb-2 border-bottom">
     <MudText Typo="Typo.subtitle1">Users</MudText>
     <MudToolBarSpacer />
+    <input @bind-value="@Search" @oninput="(e)=> SearchUsers(e.Value.ToString())" type="text" class="form-control form-control-sm" style="width:160px !important;" placeholder="search" />
     <MudIconButton OnClick="(e)=> OpenAddDrawer()" Icon="@Icons.Filled.AddCircle"></MudIconButton>
 </div>
 
@@ -20,10 +22,10 @@
                 @foreach (var item in users)
                 {
                     <MudItem>
-                        <MudCard style="min-width: 390px;">
+                        <MudCard Style="@(AvatarStyle.GetBorderLeftStyle(item.Username)+"min-width: 390px;")">
                             <MudCardHeader>
                                 <CardHeaderAvatar>
-                                    <MudAvatar Style="height:70px; width:70px; font-size:2rem;" Color="Color.Secondary">@item.Username.First().ToString().ToUpper()</MudAvatar>
+                                    <MudAvatar style="@AvatarStyle.Get(item.Username,"70px","70px","2.0rem")">@item.Username.First().ToString().ToUpper()</MudAvatar>
                                 </CardHeaderAvatar>
                                 <CardHeaderContent>
                                     <MudText Typo="Typo.body1">@item.Username</MudText>
@@ -36,7 +38,7 @@
                             </MudCardHeader>
 
 
-                            <MudCardActions>
+                            <MudCardActions Class="bg-gray-custom">
                                 <MudIconButton Size="Size.Small" Icon="@Icons.Material.Filled.Favorite" Color="Color.Default" />
                                 <MudIconButton Size="Size.Small" Icon="@Icons.Material.Filled.Share" Color="Color.Default" />
                             </MudCardActions>
@@ -55,13 +57,27 @@
 @code {
     public List<UserVm> users;
     bool closeAddDrawer = false;
+    UserFilterInput filter = new UserFilterInput();
+    string search;
+    string Search
+    {
+        get { return search; }
+        set
+        {
+            search = value;
 
+        }
+    }
     protected override async Task OnInitializedAsync()
     {
-        var result = await _client.GetUsers();
+        filter.Email = new StringOperationFilterInput() { Contains = "" };
+        await GetData();
+    }
+    public async Task GetData()
+    {
+        var result = await _client.GetUsers(filter);
         users = result.Data;
     }
-
 
     private async Task CloseAddDrawerEvent(bool value)
     {
@@ -70,4 +86,10 @@
     }
     private void OpenAddDrawer()
         => closeAddDrawer = true;
+    public async Task SearchUsers(string value)
+    {
+        search = value;
+        filter.Email = new StringOperationFilterInput() { Contains = search };
+        await GetData();
+    }
 }

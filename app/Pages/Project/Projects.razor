@@ -1,6 +1,7 @@
 @page "/projects"
-@using app.Core.Moldes.Account
+@attribute [Authorize]
 @using app.Core.Services
+@using app.Core.Moldes.PageResultModel
 @inject NavigationManager _navigationManager
 @inject ISnackbar  _alertService
 @inject ILocalStorageService  _localStorageService
@@ -8,27 +9,34 @@
 @inject IUserService _userService
 @inject IDialogService DialogService
 
-<div Class="d-flex align-center mud-full-width pl-2">
+<div Class="d-flex align-center mud-full-width p-2 mb-2 border-bottom">
     <MudText Typo="Typo.subtitle1">Projects</MudText>
     <MudToolBarSpacer />
-    <MudIconButton OnClick="(e) => OpenAddDrawer()" Icon="@Icons.Filled.AddCircle"></MudIconButton>
-</div>
+    <input @bind-value="@Search" @oninput="(e)=> SearchProjets(e.Value.ToString())" type="text" class="form-control form-control-sm" style="width:160px !important;" placeholder="search" />
+   
+    <MudIconButton  Disabled="true" Class="ml-5" Size="Size.Small">@(CurrentPage*1) of @total</MudIconButton>
+    <MudIconButton  Disabled="@(!pInfo.HasPreviousPage)"  Size="Size.Small" OnClick="(e) => Previous()"Icon="@Icons.Filled.ChevronLeft"></MudIconButton>
+    <MudIconButton  Disabled="@(!pInfo.HasNextPage)"  Size="Size.Small" OnClick="(e) => Next()"Icon="@Icons.Filled.ChevronRight"></MudIconButton>
 
+    <MudIconButton Class="ml-5"  Size="Size.Small" OnClick="(e) => OpenAddDrawer()" Icon="@Icons.Filled.AddCircle"></MudIconButton>
+</div>
 <AddProject Close="CloseAddDrawerEvent" DrawerOpen="closeAddDrawer"></AddProject>
 
 
 @if (projects is not null && projects.Count > 0)
-{<MudGrid>
+{
+    <MudGrid>
         <MudItem xs="12">
             <MudGrid Spacing="2" Justify="Justify.FlexStart">
                 @foreach (var item in projects)
                 {
 
                     <MudItem>
-                        <MudCard style="min-width: 390px; max-width:450px">
+                        <MudCard Style="@(AvatarStyle.GetBorderLeftStyle(item.Title)+"min-width: 390px; max-width:450px")">
+
                             <MudCardHeader>
                                 <CardHeaderAvatar>
-                                    <MudAvatar Style="height:70px; width:70px; font-size:2rem;" Color="Color.Secondary">@item.Title.First().ToString().ToUpper()</MudAvatar>
+                                    <MudAvatar style="@AvatarStyle.Get(item.Title,"70px","70px","2.0rem")">@item.Title.First().ToString().ToUpper()</MudAvatar>
                                 </CardHeaderAvatar>
                                 <CardHeaderContent>
                                     <MudText Typo="Typo.body1">@item.Title</MudText>
@@ -42,12 +50,53 @@
 
                             <MudCardContent>
                                 <MudText Typo="Typo.body2">@item.Description</MudText>
+
                             </MudCardContent>
-                            <MudCardActions>
-                                <MudButton OnClick="()=>ToggleOpen(item.Id)" Size="Size.Small" Color="Color.Primary"> <MudIcon Size="Size.Small" Color="Color.Primary" Icon="@Icons.Material.Filled.AddCircleOutline"></MudIcon> Invite User</MudButton>
+                            <MudCardActions Class="bg-gray-custom">
+                                @{
+                                    bool afterFirstt = false;
+                                }
+                                @foreach (var user in item.Users)
+                                {
+                                    @if (!afterFirstt)
+                                    {
+                                        <MudTooltip Text="@user.Username">
+                                            <MudAvatar style="@AvatarStyle.Get(user.Username,"","","1.0rem")" Size="Size.Small">
+                                                @user.Username.ToUpper().FirstOrDefault()
+                                            </MudAvatar>
+                                        </MudTooltip>
+                                    }
+                                    else
+                                    {
+                                        <MudTooltip Text="@user.Username">
+                                            <MudAvatar style="@(AvatarStyle.Get(user.Username,"","","1.0rem")+" margin-left: -10px;")" Size="Size.Small">
+                                                @user.Username.ToUpper().FirstOrDefault()
+                                            </MudAvatar>
+                                        </MudTooltip>
+                                    }
 
 
-                                <MudIconButton Size="Size.Small" Icon="@Icons.Material.Filled.Share" Color="Color.Default" />
+                                    {
+                                        afterFirstt = true;
+                                    }
+
+                                }
+
+                                <MudMenu FullWidth="true" Style="min-width:250px !important;" Size="Size.Small" Direction="Direction.Right">
+                                    <ActivatorContent>
+                                        <MudChip Icon="@Icons.Material.Filled.PersonAddAlt" Size="Size.Small" Color="Color.Primary">Users</MudChip>
+                                    </ActivatorContent>
+                                    <ChildContent>
+                                        <MudPaper Elevation="0" Style="padding:5px;">
+                                            <AddProjectUser ProjectId="@item.Id" Success="UserAddedEvent"></AddProjectUser>
+                                        </MudPaper>
+
+
+                                    </ChildContent>
+                                </MudMenu>
+
+
+
                             </MudCardActions>
                         </MudCard>
                     </MudItem>
@@ -56,79 +105,104 @@
 
             </MudGrid>
         </MudItem>
+        
     </MudGrid>
-    <MudPopover Open="@_isOpen" Class="px-4 pt-4" Style="max-width:300px">
-        <div class="d-flex flex-column">
-            <EditForm Model="@user" OnValidSubmit="OnValidSubmit">
-                <DataAnnotationsValidator />
-                <div class=" form-group">
-                    <label>Email</label>
-                    <InputText @bind-Value="user.Email" class="form-control" placeholder="user@domain.com" />
-                    <ValidationMessage For="@(() => user.Email)" />
-
-                </div>
-
-                <MudDivider Class="my-2 mt-5 mb-5" />
-                <div class="form-group text-right">
-
-                    <MudButton ButtonType="ButtonType.Submit" Disabled="loading" Size="Size.Small" Variant="Variant.Outlined" Color="Color.Primary">Save</MudButton>
-                </div>
-            </EditForm>
-
-        </div>
-    </MudPopover>
 }
 
 
 @code {
-    public List<ProjectVm> projects;
+    public List<ProjectVm> projects = new List<ProjectVm>();
+    long total;
+    int CurrentPage = 1;
     bool closeAddDrawer = false;
+    ProjectFilterInput filter = new ProjectFilterInput();
+    PagingFilter pagingFilter = new PagingFilter();
+    PageInfo pInfo = new PageInfo();
+    public bool _isOpen;
     bool loading = false;
     string projectId;
-    public UserInput user = new UserInput();
+    string search;
+    string Search
+    {
+        get { return search; }
+        set
+        {
+            search = value;
+
+        }
+    }
 
     protected override async Task OnInitializedAsync()
     {
-        var result = await _client.GetProjectsAsync();
-        projects = result.Data;
-    }
 
+        pagingFilter.TakeFirst =1;
+        pagingFilter.After = null;
+        pagingFilter.Before = null;
+        pagingFilter.TakePrevious = null;
+        filter.Title = new StringOperationFilterInput() { Contains = "" };
+        await GetData();
+    }
+    #region Scroll
+
+    private async Task Next()
+    {
+
+        pagingFilter.TakeFirst = 1;
+        pagingFilter.After = pInfo.EndCursor;
+        pagingFilter.TakePrevious = null;
+        pagingFilter.Before = null;
+        await GetData();
+        CurrentPage++;
+    }
+    private async Task Previous()
+    {
+
+        pagingFilter.After = null;
+        pagingFilter.TakeFirst = null;
+        pagingFilter.TakePrevious = 1;
+        pagingFilter.Before = pInfo.StartCursor;
+        await GetData();
+        CurrentPage--;
+    }
+   
+
+    #endregion
+    public async Task GetData()
+    {
+
+        var result = await _client.GetProjectsAsync(pagingFilter, filter);
+        if (result?.Data is not null)
+        {
+            projects=result?.Data;
+            pInfo = result?.PageInfo;
+            total = result.TotalCount;
+        }
+    }
 
     private async Task CloseAddDrawerEvent(bool value)
     {
         closeAddDrawer = value;
         await OnInitializedAsync();
     }
-    private void OpenAddDrawer()
-        => closeAddDrawer = true;
-    private async Task OnValidSubmit()
+    private async Task UserAddedEvent(bool value)
     {
-        try
-        {
-            var result = await _client.AddUserInProject(projectId,user.Email);
-            if (result.isError)
-            {
-                _alertService.Add(result.result, Severity.Error);
-
-                return;
-            }
-            _alertService.Add("User has been added.", Severity.Success);
-
-        }
-        catch (Exception ex)
-        {
-            _alertService.Add(ex.Message, Severity.Error);
-
-            StateHasChanged();
-        }
+        if (value)
+            await OnInitializedAsync();
     }
-    //In a real world scenario this bool would probably be a service to delete the item from api/database
-    public bool _isOpen;
+
+    private void OpenAddDrawer()
+    => closeAddDrawer = true;
 
     public void ToggleOpen(string val)
     {
         if (!_isOpen)
             projectId = val;
         _isOpen = !_isOpen;
+    }
+    public async Task SearchProjets(string value)
+    {
+        search = value;
+        filter.Title = new StringOperationFilterInput() { Contains = search };
+        await GetData();
     }
 }
