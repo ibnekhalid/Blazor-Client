@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 
 namespace app.Core.Helpers
 {
@@ -9,11 +6,8 @@ namespace app.Core.Helpers
 	{
 		public static string Get(string characterCodes, string heightPx, string widthPx, string fontRem)
 		{
-			var hash = 0;
-			for (var i = 0; i < characterCodes.Length; i++)
-			{
-				hash = ((int)characterCodes[i]) + ((hash << 5) - hash);
-			}
+			var hash = characterCodes.Aggregate(0, (current, item) => item + ((current << 5) - current));
+
 			if (heightPx.Length > 0 && widthPx.Length > 0)
 				return @$"height:{heightPx}; background-color:hsl({hash % 360},100%,20%) !important; width:{widthPx}; font-size:{fontRem};";
 			if (heightPx.Length > 0 && widthPx.Length > 0)
@@ -23,12 +17,8 @@ namespace app.Core.Helpers
 		}
 		public static string GetBorderLeftStyle(string characterCodes)
 		{
-			var hash = 0;
-			for (var i = 0; i < characterCodes.Length; i++)
-			{
-				hash = ((int)characterCodes[i]) + ((hash << 5) - hash);
-			}
-			
+			var hash = characterCodes.Aggregate(0, (current, item) => ((int) item) + ((current << 5) - current));
+
 			return @$"border-bottom: 5px solid hsl({hash % 360},100%,20%) !important;";
 
 		}

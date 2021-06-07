@@ -33,7 +33,7 @@ else
 
                     <MudCard Style="box-shadow: none;">
                         <MudText Align="Align.Right" class="px-3">
-                            <MudAvatar  Size="Size.Small" style="@AvatarStyle.Get(userClaims.Company,"","","")">A</MudAvatar><b>@userClaims.Company</b></MudText>
+                            <MudAvatar Size="Size.Small" style="@AvatarStyle.Get(userClaims.Company,"","","")">@userClaims.Company.ToUpper().First()</MudAvatar><b>@userClaims.Company</b></MudText>
                       
                         <MudCardHeader>
                             <CardHeaderAvatar>

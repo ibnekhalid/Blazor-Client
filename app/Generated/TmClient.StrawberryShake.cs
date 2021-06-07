@@ -11,7 +11,10 @@ namespace app.Graphql
             Companies = companies;
         }
 
-        public global::app.Graphql.IGetCompany_Companies? Companies { get; }
+        public global::app.Graphql.IGetCompany_Companies? Companies
+        {
+            get;
+        }
 
         public virtual global::System.Boolean Equals(GetCompanyResult? other)
         {
@@ -82,7 +85,10 @@ namespace app.Graphql
         /// <summary>
         /// A flattened list of the nodes.
         /// </summary>
-        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetCompany_Companies_Nodes?>? Nodes { get; }
+        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetCompany_Companies_Nodes?>? Nodes
+        {
+            get;
+        }
 
         public virtual global::System.Boolean Equals(GetCompany_Companies_CompanyConnection? other)
         {
@@ -155,11 +161,20 @@ namespace app.Graphql
             Status = status;
         }
 
-        public global::System.String? Id { get; }
+        public global::System.String? Id
+        {
+            get;
+        }
 
-        public global::System.String? Name { get; }
+        public global::System.String? Name
+        {
+            get;
+        }
 
-        public global::app.Graphql.Status Status { get; }
+        public global::app.Graphql.Status Status
+        {
+            get;
+        }
 
         public virtual global::System.Boolean Equals(GetCompany_Companies_Nodes_Company? other)
         {
@@ -225,7 +240,10 @@ namespace app.Graphql
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface IGetCompanyResult
     {
-        public global::app.Graphql.IGetCompany_Companies? Companies { get; }
+        public global::app.Graphql.IGetCompany_Companies? Companies
+        {
+            get;
+        }
     }
 
     /// <summary>
@@ -237,7 +255,10 @@ namespace app.Graphql
         /// <summary>
         /// A flattened list of the nodes.
         /// </summary>
-        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetCompany_Companies_Nodes?>? Nodes { get; }
+        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetCompany_Companies_Nodes?>? Nodes
+        {
+            get;
+        }
     }
 
     /// <summary>
@@ -251,11 +272,20 @@ namespace app.Graphql
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface IGetCompany_Companies_Nodes
     {
-        public global::System.String? Id { get; }
+        public global::System.String? Id
+        {
+            get;
+        }
 
-        public global::System.String? Name { get; }
+        public global::System.String? Name
+        {
+            get;
+        }
 
-        public global::app.Graphql.Status Status { get; }
+        public global::app.Graphql.Status Status
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -271,7 +301,10 @@ namespace app.Graphql
             User = user;
         }
 
-        public global::app.Graphql.ICreateUser_User? User { get; }
+        public global::app.Graphql.ICreateUser_User? User
+        {
+            get;
+        }
 
         public virtual global::System.Boolean Equals(CreateUserResult? other)
         {
@@ -336,7 +369,10 @@ namespace app.Graphql
             Add = @add;
         }
 
-        public global::System.String? Add { get; }
+        public global::System.String? Add
+        {
+            get;
+        }
 
         public virtual global::System.Boolean Equals(CreateUser_User_UserMutationType? other)
         {
@@ -396,13 +432,19 @@ namespace app.Graphql
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface ICreateUserResult
     {
-        public global::app.Graphql.ICreateUser_User? User { get; }
+        public global::app.Graphql.ICreateUser_User? User
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface ICreateUser_User
     {
-        public global::System.String? Add { get; }
+        public global::System.String? Add
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -418,7 +460,10 @@ namespace app.Graphql
             Users = users;
         }
 
-        public global::app.Graphql.IGetUsers_Users? Users { get; }
+        public global::app.Graphql.IGetUsers_Users? Users
+        {
+            get;
+        }
 
         public virtual global::System.Boolean Equals(GetUsersResult? other)
         {
@@ -491,14 +536,23 @@ namespace app.Graphql
         /// <summary>
         /// A flattened list of the nodes.
         /// </summary>
-        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetUsers_Users_Nodes?>? Nodes { get; }
+        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetUsers_Users_Nodes?>? Nodes
+        {
+            get;
+        }
 
         /// <summary>
         /// Information to aid in pagination.
         /// </summary>
-        public global::app.Graphql.IGetUsers_Users_PageInfo PageInfo { get; }
+        public global::app.Graphql.IGetUsers_Users_PageInfo PageInfo
+        {
+            get;
+        }
 
-        public global::System.Int32 TotalCount { get; }
+        public global::System.Int32 TotalCount
+        {
+            get;
+        }
 
         public virtual global::System.Boolean Equals(GetUsers_Users_UserConnection? other)
         {
@@ -577,19 +631,40 @@ namespace app.Graphql
             CompanyId = companyId;
         }
 
-        public global::app.Graphql.IGetUsers_Users_Nodes_Company? Company { get; }
+        public global::app.Graphql.IGetUsers_Users_Nodes_Company? Company
+        {
+            get;
+        }
 
-        public global::System.String? Id { get; }
+        public global::System.String? Id
+        {
+            get;
+        }
 
-        public global::System.String? Email { get; }
+        public global::System.String? Email
+        {
+            get;
+        }
 
-        public global::System.String? PhoneNumber { get; }
+        public global::System.String? PhoneNumber
+        {
+            get;
+        }
 
-        public global::app.Graphql.Status Status { get; }
+        public global::app.Graphql.Status Status
+        {
+            get;
+        }
 
-        public global::System.String? UserName { get; }
+        public global::System.String? UserName
+        {
+            get;
+        }
 
-        public global::System.String? CompanyId { get; }
+        public global::System.String? CompanyId
+        {
+            get;
+        }
 
         public virtual global::System.Boolean Equals(GetUsers_Users_Nodes_User? other)
         {
@@ -689,22 +764,34 @@ namespace app.Graphql
         /// <summary>
         /// When paginating forwards, the cursor to continue.
         /// </summary>
-        public global::System.String? EndCursor { get; }
+        public global::System.String? EndCursor
+        {
+            get;
+        }
 
         /// <summary>
         /// Indicates whether more edges exist following the set defined by the clients arguments.
         /// </summary>
-        public global::System.Boolean HasNextPage { get; }
+        public global::System.Boolean HasNextPage
+        {
+            get;
+        }
 
         /// <summary>
         /// Indicates whether more edges exist prior the set defined by the clients arguments.
         /// </summary>
-        public global::System.Boolean HasPreviousPage { get; }
+        public global::System.Boolean HasPreviousPage
+        {
+            get;
+        }
 
         /// <summary>
         /// When paginating backwards, the cursor to continue.
         /// </summary>
-        public global::System.String? StartCursor { get; }
+        public global::System.String? StartCursor
+        {
+            get;
+        }
 
         public virtual global::System.Boolean Equals(GetUsers_Users_PageInfo_PageInfo? other)
         {
@@ -776,7 +863,10 @@ namespace app.Graphql
             Name = name;
         }
 
-        public global::System.String? Name { get; }
+        public global::System.String? Name
+        {
+            get;
+        }
 
         public virtual global::System.Boolean Equals(GetUsers_Users_Nodes_Company_Company? other)
         {
@@ -836,7 +926,10 @@ namespace app.Graphql
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface IGetUsersResult
     {
-        public global::app.Graphql.IGetUsers_Users? Users { get; }
+        public global::app.Graphql.IGetUsers_Users? Users
+        {
+            get;
+        }
     }
 
     /// <summary>
@@ -848,14 +941,23 @@ namespace app.Graphql
         /// <summary>
         /// A flattened list of the nodes.
         /// </summary>
-        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetUsers_Users_Nodes?>? Nodes { get; }
+        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetUsers_Users_Nodes?>? Nodes
+        {
+            get;
+        }
 
         /// <summary>
         /// Information to aid in pagination.
         /// </summary>
-        public global::app.Graphql.IGetUsers_Users_PageInfo PageInfo { get; }
+        public global::app.Graphql.IGetUsers_Users_PageInfo PageInfo
+        {
+            get;
+        }
 
-        public global::System.Int32 TotalCount { get; }
+        public global::System.Int32 TotalCount
+        {
+            get;
+        }
     }
 
     /// <summary>
@@ -869,19 +971,40 @@ namespace app.Graphql
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface IGetUsers_Users_Nodes
     {
-        public global::app.Graphql.IGetUsers_Users_Nodes_Company? Company { get; }
+        public global::app.Graphql.IGetUsers_Users_Nodes_Company? Company
+        {
+            get;
+        }
 
-        public global::System.String? Id { get; }
+        public global::System.String? Id
+        {
+            get;
+        }
 
-        public global::System.String? Email { get; }
+        public global::System.String? Email
+        {
+            get;
+        }
 
-        public global::System.String? PhoneNumber { get; }
+        public global::System.String? PhoneNumber
+        {
+            get;
+        }
 
-        public global::app.Graphql.Status Status { get; }
+        public global::app.Graphql.Status Status
+        {
+            get;
+        }
 
-        public global::System.String? UserName { get; }
+        public global::System.String? UserName
+        {
+            get;
+        }
 
-        public global::System.String? CompanyId { get; }
+        public global::System.String? CompanyId
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -898,22 +1021,34 @@ namespace app.Graphql
         /// <summary>
         /// When paginating forwards, the cursor to continue.
         /// </summary>
-        public global::System.String? EndCursor { get; }
+        public global::System.String? EndCursor
+        {
+            get;
+        }
 
         /// <summary>
         /// Indicates whether more edges exist following the set defined by the clients arguments.
         /// </summary>
-        public global::System.Boolean HasNextPage { get; }
+        public global::System.Boolean HasNextPage
+        {
+            get;
+        }
 
         /// <summary>
         /// Indicates whether more edges exist prior the set defined by the clients arguments.
         /// </summary>
-        public global::System.Boolean HasPreviousPage { get; }
+        public global::System.Boolean HasPreviousPage
+        {
+            get;
+        }
 
         /// <summary>
         /// When paginating backwards, the cursor to continue.
         /// </summary>
-        public global::System.String? StartCursor { get; }
+        public global::System.String? StartCursor
+        {
+            get;
+        }
     }
 
     /// <summary>
@@ -927,7 +1062,10 @@ namespace app.Graphql
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface IGetUsers_Users_Nodes_Company
     {
-        public global::System.String? Name { get; }
+        public global::System.String? Name
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -943,7 +1081,10 @@ namespace app.Graphql
             Project = project;
         }
 
-        public global::app.Graphql.ICreateProject_Project? Project { get; }
+        public global::app.Graphql.ICreateProject_Project? Project
+        {
+            get;
+        }
 
         public virtual global::System.Boolean Equals(CreateProjectResult? other)
         {
@@ -1008,7 +1149,10 @@ namespace app.Graphql
             Add = @add;
         }
 
-        public global::System.String? Add { get; }
+        public global::System.String? Add
+        {
+            get;
+        }
 
         public virtual global::System.Boolean Equals(CreateProject_Project_ProjectMutationType? other)
         {
@@ -1068,13 +1212,19 @@ namespace app.Graphql
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface ICreateProjectResult
     {
-        public global::app.Graphql.ICreateProject_Project? Project { get; }
+        public global::app.Graphql.ICreateProject_Project? Project
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface ICreateProject_Project
     {
-        public global::System.String? Add { get; }
+        public global::System.String? Add
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -1090,7 +1240,10 @@ namespace app.Graphql
             Projects = projects;
         }
 
-        public global::app.Graphql.IGetProjects_Projects? Projects { get; }
+        public global::app.Graphql.IGetProjects_Projects? Projects
+        {
+            get;
+        }
 
         public virtual global::System.Boolean Equals(GetProjectsResult? other)
         {
@@ -1163,14 +1316,23 @@ namespace app.Graphql
         /// <summary>
         /// A flattened list of the nodes.
         /// </summary>
-        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetProjects_Projects_Nodes?>? Nodes { get; }
+        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetProjects_Projects_Nodes?>? Nodes
+        {
+            get;
+        }
 
         /// <summary>
         /// Information to aid in pagination.
         /// </summary>
-        public global::app.Graphql.IGetProjects_Projects_PageInfo PageInfo { get; }
+        public global::app.Graphql.IGetProjects_Projects_PageInfo PageInfo
+        {
+            get;
+        }
 
-        public global::System.Int32 TotalCount { get; }
+        public global::System.Int32 TotalCount
+        {
+            get;
+        }
 
         public virtual global::System.Boolean Equals(GetProjects_Projects_ProjectConnection? other)
         {
@@ -1249,19 +1411,40 @@ namespace app.Graphql
             Users = users;
         }
 
-        public global::System.String? Description { get; }
+        public global::System.String? Description
+        {
+            get;
+        }
 
-        public global::System.String? Id { get; }
+        public global::System.String? Id
+        {
+            get;
+        }
 
-        public global::System.String? CompanyId { get; }
+        public global::System.String? CompanyId
+        {
+            get;
+        }
 
-        public global::app.Graphql.Status Status { get; }
+        public global::app.Graphql.Status Status
+        {
+            get;
+        }
 
-        public global::System.String? Title { get; }
+        public global::System.String? Title
+        {
+            get;
+        }
 
-        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetProjects_Projects_Nodes_UserProjects?>? UserProjects { get; }
+        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetProjects_Projects_Nodes_UserProjects?>? UserProjects
+        {
+            get;
+        }
 
-        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetProjects_Projects_Nodes_Users?>? Users { get; }
+        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetProjects_Projects_Nodes_Users?>? Users
+        {
+            get;
+        }
 
         public virtual global::System.Boolean Equals(GetProjects_Projects_Nodes_Project? other)
         {
@@ -1373,22 +1556,34 @@ namespace app.Graphql
         /// <summary>
         /// When paginating forwards, the cursor to continue.
         /// </summary>
-        public global::System.String? EndCursor { get; }
+        public global::System.String? EndCursor
+        {
+            get;
+        }
 
         /// <summary>
         /// Indicates whether more edges exist following the set defined by the clients arguments.
         /// </summary>
-        public global::System.Boolean HasNextPage { get; }
+        public global::System.Boolean HasNextPage
+        {
+            get;
+        }
 
         /// <summary>
         /// Indicates whether more edges exist prior the set defined by the clients arguments.
         /// </summary>
-        public global::System.Boolean HasPreviousPage { get; }
+        public global::System.Boolean HasPreviousPage
+        {
+            get;
+        }
 
         /// <summary>
         /// When paginating backwards, the cursor to continue.
         /// </summary>
-        public global::System.String? StartCursor { get; }
+        public global::System.String? StartCursor
+        {
+            get;
+        }
 
         public virtual global::System.Boolean Equals(GetProjects_Projects_PageInfo_PageInfo? other)
         {
@@ -1461,9 +1656,15 @@ namespace app.Graphql
             User = user;
         }
 
-        public global::System.String? UserId { get; }
+        public global::System.String? UserId
+        {
+            get;
+        }
 
-        public global::app.Graphql.IGetProjects_Projects_Nodes_UserProjects_User? User { get; }
+        public global::app.Graphql.IGetProjects_Projects_Nodes_UserProjects_User? User
+        {
+            get;
+        }
 
         public virtual global::System.Boolean Equals(GetProjects_Projects_Nodes_UserProjects_UserProject? other)
         {
@@ -1533,7 +1734,10 @@ namespace app.Graphql
             UserName = userName;
         }
 
-        public global::System.String? UserName { get; }
+        public global::System.String? UserName
+        {
+            get;
+        }
 
         public virtual global::System.Boolean Equals(GetProjects_Projects_Nodes_Users_User? other)
         {
@@ -1598,7 +1802,10 @@ namespace app.Graphql
             UserName = userName;
         }
 
-        public global::System.String? UserName { get; }
+        public global::System.String? UserName
+        {
+            get;
+        }
 
         public virtual global::System.Boolean Equals(GetProjects_Projects_Nodes_UserProjects_User_User? other)
         {
@@ -1658,7 +1865,10 @@ namespace app.Graphql
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface IGetProjectsResult
     {
-        public global::app.Graphql.IGetProjects_Projects? Projects { get; }
+        public global::app.Graphql.IGetProjects_Projects? Projects
+        {
+            get;
+        }
     }
 
     /// <summary>
@@ -1670,14 +1880,23 @@ namespace app.Graphql
         /// <summary>
         /// A flattened list of the nodes.
         /// </summary>
-        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetProjects_Projects_Nodes?>? Nodes { get; }
+        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetProjects_Projects_Nodes?>? Nodes
+        {
+            get;
+        }
 
         /// <summary>
         /// Information to aid in pagination.
         /// </summary>
-        public global::app.Graphql.IGetProjects_Projects_PageInfo PageInfo { get; }
+        public global::app.Graphql.IGetProjects_Projects_PageInfo PageInfo
+        {
+            get;
+        }
 
-        public global::System.Int32 TotalCount { get; }
+        public global::System.Int32 TotalCount
+        {
+            get;
+        }
     }
 
     /// <summary>
@@ -1691,19 +1910,40 @@ namespace app.Graphql
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface IGetProjects_Projects_Nodes
     {
-        public global::System.String? Description { get; }
+        public global::System.String? Description
+        {
+            get;
+        }
 
-        public global::System.String? Id { get; }
+        public global::System.String? Id
+        {
+            get;
+        }
 
-        public global::System.String? CompanyId { get; }
+        public global::System.String? CompanyId
+        {
+            get;
+        }
 
-        public global::app.Graphql.Status Status { get; }
+        public global::app.Graphql.Status Status
+        {
+            get;
+        }
 
-        public global::System.String? Title { get; }
+        public global::System.String? Title
+        {
+            get;
+        }
 
-        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetProjects_Projects_Nodes_UserProjects?>? UserProjects { get; }
+        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetProjects_Projects_Nodes_UserProjects?>? UserProjects
+        {
+            get;
+        }
 
-        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetProjects_Projects_Nodes_Users?>? Users { get; }
+        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetProjects_Projects_Nodes_Users?>? Users
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -1720,22 +1960,34 @@ namespace app.Graphql
         /// <summary>
         /// When paginating forwards, the cursor to continue.
         /// </summary>
-        public global::System.String? EndCursor { get; }
+        public global::System.String? EndCursor
+        {
+            get;
+        }
 
         /// <summary>
         /// Indicates whether more edges exist following the set defined by the clients arguments.
         /// </summary>
-        public global::System.Boolean HasNextPage { get; }
+        public global::System.Boolean HasNextPage
+        {
+            get;
+        }
 
         /// <summary>
         /// Indicates whether more edges exist prior the set defined by the clients arguments.
         /// </summary>
-        public global::System.Boolean HasPreviousPage { get; }
+        public global::System.Boolean HasPreviousPage
+        {
+            get;
+        }
 
         /// <summary>
         /// When paginating backwards, the cursor to continue.
         /// </summary>
-        public global::System.String? StartCursor { get; }
+        public global::System.String? StartCursor
+        {
+            get;
+        }
     }
 
     /// <summary>
@@ -1749,9 +2001,15 @@ namespace app.Graphql
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface IGetProjects_Projects_Nodes_UserProjects
     {
-        public global::System.String? UserId { get; }
+        public global::System.String? UserId
+        {
+            get;
+        }
 
-        public global::app.Graphql.IGetProjects_Projects_Nodes_UserProjects_User? User { get; }
+        public global::app.Graphql.IGetProjects_Projects_Nodes_UserProjects_User? User
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -1762,7 +2020,10 @@ namespace app.Graphql
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface IGetProjects_Projects_Nodes_Users
     {
-        public global::System.String? UserName { get; }
+        public global::System.String? UserName
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -1773,7 +2034,10 @@ namespace app.Graphql
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface IGetProjects_Projects_Nodes_UserProjects_User
     {
-        public global::System.String? UserName { get; }
+        public global::System.String? UserName
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -1789,7 +2053,10 @@ namespace app.Graphql
             Project = project;
         }
 
-        public global::app.Graphql.IAddUserInProject_Project? Project { get; }
+        public global::app.Graphql.IAddUserInProject_Project? Project
+        {
+            get;
+        }
 
         public virtual global::System.Boolean Equals(AddUserInProjectResult? other)
         {
@@ -1854,7 +2121,10 @@ namespace app.Graphql
             AddUser = addUser;
         }
 
-        public global::System.String? AddUser { get; }
+        public global::System.String? AddUser
+        {
+            get;
+        }
 
         public virtual global::System.Boolean Equals(AddUserInProject_Project_ProjectMutationType? other)
         {
@@ -1914,13 +2184,19 @@ namespace app.Graphql
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface IAddUserInProjectResult
     {
-        public global::app.Graphql.IAddUserInProject_Project? Project { get; }
+        public global::app.Graphql.IAddUserInProject_Project? Project
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface IAddUserInProject_Project
     {
-        public global::System.String? AddUser { get; }
+        public global::System.String? AddUser
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -1936,7 +2212,10 @@ namespace app.Graphql
             Account = account;
         }
 
-        public global::app.Graphql.ILogin_Account? Account { get; }
+        public global::app.Graphql.ILogin_Account? Account
+        {
+            get;
+        }
 
         public virtual global::System.Boolean Equals(LoginResult? other)
         {
@@ -2001,7 +2280,10 @@ namespace app.Graphql
             Login = login;
         }
 
-        public global::System.String? Login { get; }
+        public global::System.String? Login
+        {
+            get;
+        }
 
         public virtual global::System.Boolean Equals(Login_Account_AccountMutationType? other)
         {
@@ -2061,13 +2343,19 @@ namespace app.Graphql
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface ILoginResult
     {
-        public global::app.Graphql.ILogin_Account? Account { get; }
+        public global::app.Graphql.ILogin_Account? Account
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface ILogin_Account
     {
-        public global::System.String? Login { get; }
+        public global::System.String? Login
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -2083,7 +2371,10 @@ namespace app.Graphql
             Account = account;
         }
 
-        public global::app.Graphql.IRegister_Account? Account { get; }
+        public global::app.Graphql.IRegister_Account? Account
+        {
+            get;
+        }
 
         public virtual global::System.Boolean Equals(RegisterResult? other)
         {
@@ -2148,7 +2439,10 @@ namespace app.Graphql
             Register = register;
         }
 
-        public global::System.String? Register { get; }
+        public global::System.String? Register
+        {
+            get;
+        }
 
         public virtual global::System.Boolean Equals(Register_Account_AccountMutationType? other)
         {
@@ -2208,13 +2502,19 @@ namespace app.Graphql
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface IRegisterResult
     {
-        public global::app.Graphql.IRegister_Account? Account { get; }
+        public global::app.Graphql.IRegister_Account? Account
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface IRegister_Account
     {
-        public global::System.String? Register { get; }
+        public global::System.String? Register
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -2230,7 +2530,10 @@ namespace app.Graphql
             Account = account;
         }
 
-        public global::app.Graphql.IRefreshToken_Account? Account { get; }
+        public global::app.Graphql.IRefreshToken_Account? Account
+        {
+            get;
+        }
 
         public virtual global::System.Boolean Equals(RefreshTokenResult? other)
         {
@@ -2295,7 +2598,10 @@ namespace app.Graphql
             RefreshToken = refreshToken;
         }
 
-        public global::System.String? RefreshToken { get; }
+        public global::System.String? RefreshToken
+        {
+            get;
+        }
 
         public virtual global::System.Boolean Equals(RefreshToken_Account_AccountMutationType? other)
         {
@@ -2355,13 +2661,19 @@ namespace app.Graphql
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface IRefreshTokenResult
     {
-        public global::app.Graphql.IRefreshToken_Account? Account { get; }
+        public global::app.Graphql.IRefreshToken_Account? Account
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface IRefreshToken_Account
     {
-        public global::System.String? RefreshToken { get; }
+        public global::System.String? RefreshToken
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -7770,10 +8082,20 @@ namespace app.Graphql
         {
         }
 
-        public static GetCompanyQueryDocument Instance { get; } = new GetCompanyQueryDocument();
+        public static GetCompanyQueryDocument Instance
+        {
+            get;
+        }
+
+        = new GetCompanyQueryDocument();
         public global::StrawberryShake.OperationKind Kind => global::StrawberryShake.OperationKind.Query;
         public global::System.ReadOnlySpan<global::System.Byte> Body => new global::System.Byte[]{0x71, 0x75, 0x65, 0x72, 0x79, 0x20, 0x47, 0x65, 0x74, 0x43, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x20, 0x7b, 0x20, 0x43, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x69, 0x65, 0x73, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x6e, 0x6f, 0x64, 0x65, 0x73, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x69, 0x64, 0x20, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x43, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x7d};
-        public global::StrawberryShake.DocumentHash Hash { get; } = new global::StrawberryShake.DocumentHash("md5Hash", "3562551688f11b2ff1613a193440f4c8");
+        public global::StrawberryShake.DocumentHash Hash
+        {
+            get;
+        }
+
+        = new global::StrawberryShake.DocumentHash("md5Hash", "3562551688f11b2ff1613a193440f4c8");
         public override global::System.String ToString()
         {
 #if NETSTANDARD2_0
@@ -7885,10 +8207,20 @@ namespace app.Graphql
         {
         }
 
-        public static CreateUserMutationDocument Instance { get; } = new CreateUserMutationDocument();
+        public static CreateUserMutationDocument Instance
+        {
+            get;
+        }
+
+        = new CreateUserMutationDocument();
         public global::StrawberryShake.OperationKind Kind => global::StrawberryShake.OperationKind.Mutation;
         public global::System.ReadOnlySpan<global::System.Byte> Body => new global::System.Byte[]{0x6d, 0x75, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x20, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x28, 0x24, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x3a, 0x20, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x56, 0x6d, 0x49, 0x6e, 0x70, 0x75, 0x74, 0x29, 0x20, 0x7b, 0x20, 0x75, 0x73, 0x65, 0x72, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x61, 0x64, 0x64, 0x28, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x3a, 0x20, 0x24, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x29, 0x20, 0x7d, 0x20, 0x7d};
-        public global::StrawberryShake.DocumentHash Hash { get; } = new global::StrawberryShake.DocumentHash("md5Hash", "87c8bbb06dc76c52429fbffa0caefe0d");
+        public global::StrawberryShake.DocumentHash Hash
+        {
+            get;
+        }
+
+        = new global::StrawberryShake.DocumentHash("md5Hash", "87c8bbb06dc76c52429fbffa0caefe0d");
         public override global::System.String ToString()
         {
 #if NETSTANDARD2_0
@@ -8026,10 +8358,20 @@ namespace app.Graphql
         {
         }
 
-        public static GetUsersQueryDocument Instance { get; } = new GetUsersQueryDocument();
+        public static GetUsersQueryDocument Instance
+        {
+            get;
+        }
+
+        = new GetUsersQueryDocument();
         public global::StrawberryShake.OperationKind Kind => global::StrawberryShake.OperationKind.Query;
         public global::System.ReadOnlySpan<global::System.Byte> Body => new global::System.Byte[]{0x71, 0x75, 0x65, 0x72, 0x79, 0x20, 0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x73, 0x28, 0x24, 0x66, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x3a, 0x20, 0x55, 0x73, 0x65, 0x72, 0x46, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x49, 0x6e, 0x70, 0x75, 0x74, 0x29, 0x20, 0x7b, 0x20, 0x55, 0x73, 0x65, 0x72, 0x73, 0x28, 0x77, 0x68, 0x65, 0x72, 0x65, 0x3a, 0x20, 0x24, 0x66, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x29, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x6e, 0x6f, 0x64, 0x65, 0x73, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x43, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x69, 0x64, 0x20, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x20, 0x70, 0x68, 0x6f, 0x6e, 0x65, 0x4e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x20, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x20, 0x75, 0x73, 0x65, 0x72, 0x4e, 0x61, 0x6d, 0x65, 0x20, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x49, 0x64, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x55, 0x73, 0x65, 0x72, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x70, 0x61, 0x67, 0x65, 0x49, 0x6e, 0x66, 0x6f, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x65, 0x6e, 0x64, 0x43, 0x75, 0x72, 0x73, 0x6f, 0x72, 0x20, 0x68, 0x61, 0x73, 0x4e, 0x65, 0x78, 0x74, 0x50, 0x61, 0x67, 0x65, 0x20, 0x68, 0x61, 0x73, 0x50, 0x72, 0x65, 0x76, 0x69, 0x6f, 0x75, 0x73, 0x50, 0x61, 0x67, 0x65, 0x20, 0x73, 0x74, 0x61, 0x72, 0x74, 0x43, 0x75, 0x72, 0x73, 0x6f, 0x72, 0x20, 0x7d, 0x20, 0x74, 0x6f, 0x74, 0x61, 0x6c, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x20, 0x7d, 0x20, 0x7d};
-        public global::StrawberryShake.DocumentHash Hash { get; } = new global::StrawberryShake.DocumentHash("md5Hash", "8ba7db67b072171991c92c7e1903d7ce");
+        public global::StrawberryShake.DocumentHash Hash
+        {
+            get;
+        }
+
+        = new global::StrawberryShake.DocumentHash("md5Hash", "8ba7db67b072171991c92c7e1903d7ce");
         public override global::System.String ToString()
         {
 #if NETSTANDARD2_0
@@ -8193,10 +8535,20 @@ namespace app.Graphql
         {
         }
 
-        public static CreateProjectMutationDocument Instance { get; } = new CreateProjectMutationDocument();
+        public static CreateProjectMutationDocument Instance
+        {
+            get;
+        }
+
+        = new CreateProjectMutationDocument();
         public global::StrawberryShake.OperationKind Kind => global::StrawberryShake.OperationKind.Mutation;
         public global::System.ReadOnlySpan<global::System.Byte> Body => new global::System.Byte[]{0x6d, 0x75, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x20, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x28, 0x24, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x3a, 0x20, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x56, 0x6d, 0x49, 0x6e, 0x70, 0x75, 0x74, 0x29, 0x20, 0x7b, 0x20, 0x70, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x61, 0x64, 0x64, 0x28, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x3a, 0x20, 0x24, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x29, 0x20, 0x7d, 0x20, 0x7d};
-        public global::StrawberryShake.DocumentHash Hash { get; } = new global::StrawberryShake.DocumentHash("md5Hash", "b885b52eb7f0e3f8de9d666249422f95");
+        public global::StrawberryShake.DocumentHash Hash
+        {
+            get;
+        }
+
+        = new global::StrawberryShake.DocumentHash("md5Hash", "b885b52eb7f0e3f8de9d666249422f95");
         public override global::System.String ToString()
         {
 #if NETSTANDARD2_0
@@ -8347,10 +8699,20 @@ namespace app.Graphql
         {
         }
 
-        public static GetProjectsQueryDocument Instance { get; } = new GetProjectsQueryDocument();
+        public static GetProjectsQueryDocument Instance
+        {
+            get;
+        }
+
+        = new GetProjectsQueryDocument();
         public global::StrawberryShake.OperationKind Kind => global::StrawberryShake.OperationKind.Query;
         public global::System.ReadOnlySpan<global::System.Byte> Body => new global::System.Byte[]{0x71, 0x75, 0x65, 0x72, 0x79, 0x20, 0x47, 0x65, 0x74, 0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x73, 0x28, 0x24, 0x74, 0x61, 0x6b, 0x65, 0x46, 0x69, 0x72, 0x73, 0x74, 0x3a, 0x20, 0x49, 0x6e, 0x74, 0x2c, 0x20, 0x24, 0x74, 0x61, 0x73, 0x6b, 0x50, 0x72, 0x65, 0x76, 0x69, 0x6f, 0x75, 0x73, 0x3a, 0x20, 0x49, 0x6e, 0x74, 0x2c, 0x20, 0x24, 0x61, 0x66, 0x74, 0x65, 0x72, 0x3a, 0x20, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x2c, 0x20, 0x24, 0x62, 0x65, 0x66, 0x6f, 0x72, 0x65, 0x3a, 0x20, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x2c, 0x20, 0x24, 0x66, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x3a, 0x20, 0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x46, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x49, 0x6e, 0x70, 0x75, 0x74, 0x29, 0x20, 0x7b, 0x20, 0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x73, 0x28, 0x66, 0x69, 0x72, 0x73, 0x74, 0x3a, 0x20, 0x24, 0x74, 0x61, 0x6b, 0x65, 0x46, 0x69, 0x72, 0x73, 0x74, 0x2c, 0x20, 0x6c, 0x61, 0x73, 0x74, 0x3a, 0x20, 0x24, 0x74, 0x61, 0x73, 0x6b, 0x50, 0x72, 0x65, 0x76, 0x69, 0x6f, 0x75, 0x73, 0x2c, 0x20, 0x61, 0x66, 0x74, 0x65, 0x72, 0x3a, 0x20, 0x24, 0x61, 0x66, 0x74, 0x65, 0x72, 0x2c, 0x20, 0x62, 0x65, 0x66, 0x6f, 0x72, 0x65, 0x3a, 0x20, 0x24, 0x62, 0x65, 0x66, 0x6f, 0x72, 0x65, 0x2c, 0x20, 0x77, 0x68, 0x65, 0x72, 0x65, 0x3a, 0x20, 0x24, 0x66, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x29, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x6e, 0x6f, 0x64, 0x65, 0x73, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x20, 0x69, 0x64, 0x20, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x49, 0x64, 0x20, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x20, 0x74, 0x69, 0x74, 0x6c, 0x65, 0x20, 0x75, 0x73, 0x65, 0x72, 0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x73, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x20, 0x75, 0x73, 0x65, 0x72, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x75, 0x73, 0x65, 0x72, 0x4e, 0x61, 0x6d, 0x65, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x55, 0x73, 0x65, 0x72, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x55, 0x73, 0x65, 0x72, 0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x75, 0x73, 0x65, 0x72, 0x73, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x75, 0x73, 0x65, 0x72, 0x4e, 0x61, 0x6d, 0x65, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x55, 0x73, 0x65, 0x72, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x70, 0x61, 0x67, 0x65, 0x49, 0x6e, 0x66, 0x6f, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x65, 0x6e, 0x64, 0x43, 0x75, 0x72, 0x73, 0x6f, 0x72, 0x20, 0x68, 0x61, 0x73, 0x4e, 0x65, 0x78, 0x74, 0x50, 0x61, 0x67, 0x65, 0x20, 0x68, 0x61, 0x73, 0x50, 0x72, 0x65, 0x76, 0x69, 0x6f, 0x75, 0x73, 0x50, 0x61, 0x67, 0x65, 0x20, 0x73, 0x74, 0x61, 0x72, 0x74, 0x43, 0x75, 0x72, 0x73, 0x6f, 0x72, 0x20, 0x7d, 0x20, 0x74, 0x6f, 0x74, 0x61, 0x6c, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x20, 0x7d, 0x20, 0x7d};
-        public global::StrawberryShake.DocumentHash Hash { get; } = new global::StrawberryShake.DocumentHash("md5Hash", "e2ca19bfd566beb11df5fad10e02a1e4");
+        public global::StrawberryShake.DocumentHash Hash
+        {
+            get;
+        }
+
+        = new global::StrawberryShake.DocumentHash("md5Hash", "e2ca19bfd566beb11df5fad10e02a1e4");
         public override global::System.String ToString()
         {
 #if NETSTANDARD2_0
@@ -8596,10 +8958,20 @@ namespace app.Graphql
         {
         }
 
-        public static AddUserInProjectMutationDocument Instance { get; } = new AddUserInProjectMutationDocument();
+        public static AddUserInProjectMutationDocument Instance
+        {
+            get;
+        }
+
+        = new AddUserInProjectMutationDocument();
         public global::StrawberryShake.OperationKind Kind => global::StrawberryShake.OperationKind.Mutation;
         public global::System.ReadOnlySpan<global::System.Byte> Body => new global::System.Byte[]{0x6d, 0x75, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x20, 0x41, 0x64, 0x64, 0x55, 0x73, 0x65, 0x72, 0x49, 0x6e, 0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x28, 0x24, 0x70, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x49, 0x64, 0x3a, 0x20, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x2c, 0x20, 0x24, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x3a, 0x20, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x29, 0x20, 0x7b, 0x20, 0x70, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x61, 0x64, 0x64, 0x55, 0x73, 0x65, 0x72, 0x28, 0x70, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x49, 0x64, 0x3a, 0x20, 0x24, 0x70, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x49, 0x64, 0x2c, 0x20, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x3a, 0x20, 0x24, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x29, 0x20, 0x7d, 0x20, 0x7d};
-        public global::StrawberryShake.DocumentHash Hash { get; } = new global::StrawberryShake.DocumentHash("md5Hash", "4220fdc4c7d04c61691c4ef866a36e62");
+        public global::StrawberryShake.DocumentHash Hash
+        {
+            get;
+        }
+
+        = new global::StrawberryShake.DocumentHash("md5Hash", "4220fdc4c7d04c61691c4ef866a36e62");
         public override global::System.String ToString()
         {
 #if NETSTANDARD2_0
@@ -8724,10 +9096,20 @@ namespace app.Graphql
         {
         }
 
-        public static LoginMutationDocument Instance { get; } = new LoginMutationDocument();
+        public static LoginMutationDocument Instance
+        {
+            get;
+        }
+
+        = new LoginMutationDocument();
         public global::StrawberryShake.OperationKind Kind => global::StrawberryShake.OperationKind.Mutation;
         public global::System.ReadOnlySpan<global::System.Byte> Body => new global::System.Byte[]{0x6d, 0x75, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x20, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x28, 0x24, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x3a, 0x20, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x49, 0x6e, 0x70, 0x75, 0x74, 0x29, 0x20, 0x7b, 0x20, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x6c, 0x6f, 0x67, 0x69, 0x6e, 0x28, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x3a, 0x20, 0x24, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x29, 0x20, 0x7d, 0x20, 0x7d};
-        public global::StrawberryShake.DocumentHash Hash { get; } = new global::StrawberryShake.DocumentHash("md5Hash", "b608660a5770bd8ca53c27064f0dc44d");
+        public global::StrawberryShake.DocumentHash Hash
+        {
+            get;
+        }
+
+        = new global::StrawberryShake.DocumentHash("md5Hash", "b608660a5770bd8ca53c27064f0dc44d");
         public override global::System.String ToString()
         {
 #if NETSTANDARD2_0
@@ -8839,10 +9221,20 @@ namespace app.Graphql
         {
         }
 
-        public static RegisterMutationDocument Instance { get; } = new RegisterMutationDocument();
+        public static RegisterMutationDocument Instance
+        {
+            get;
+        }
+
+        = new RegisterMutationDocument();
         public global::StrawberryShake.OperationKind Kind => global::StrawberryShake.OperationKind.Mutation;
         public global::System.ReadOnlySpan<global::System.Byte> Body => new global::System.Byte[]{0x6d, 0x75, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x20, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x28, 0x24, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x3a, 0x20, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x49, 0x6e, 0x70, 0x75, 0x74, 0x29, 0x20, 0x7b, 0x20, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x72, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x28, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x3a, 0x20, 0x24, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x29, 0x20, 0x7d, 0x20, 0x7d};
-        public global::StrawberryShake.DocumentHash Hash { get; } = new global::StrawberryShake.DocumentHash("md5Hash", "003441ab205e7f8f021ad4af3db64538");
+        public global::StrawberryShake.DocumentHash Hash
+        {
+            get;
+        }
+
+        = new global::StrawberryShake.DocumentHash("md5Hash", "003441ab205e7f8f021ad4af3db64538");
         public override global::System.String ToString()
         {
 #if NETSTANDARD2_0
@@ -8954,10 +9346,20 @@ namespace app.Graphql
         {
         }
 
-        public static RefreshTokenMutationDocument Instance { get; } = new RefreshTokenMutationDocument();
+        public static RefreshTokenMutationDocument Instance
+        {
+            get;
+        }
+
+        = new RefreshTokenMutationDocument();
         public global::StrawberryShake.OperationKind Kind => global::StrawberryShake.OperationKind.Mutation;
         public global::System.ReadOnlySpan<global::System.Byte> Body => new global::System.Byte[]{0x6d, 0x75, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x20, 0x52, 0x65, 0x66, 0x72, 0x65, 0x73, 0x68, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x20, 0x7b, 0x20, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x72, 0x65, 0x66, 0x72, 0x65, 0x73, 0x68, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x20, 0x7d, 0x20, 0x7d};
-        public global::StrawberryShake.DocumentHash Hash { get; } = new global::StrawberryShake.DocumentHash("md5Hash", "083faf1597469fcd7bd8a9d9c16e72f6");
+        public global::StrawberryShake.DocumentHash Hash
+        {
+            get;
+        }
+
+        = new global::StrawberryShake.DocumentHash("md5Hash", "083faf1597469fcd7bd8a9d9c16e72f6");
         public override global::System.String ToString()
         {
 #if NETSTANDARD2_0
@@ -9081,23 +9483,50 @@ namespace app.Graphql
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface ITmClient
     {
-        global::app.Graphql.IGetCompanyQuery GetCompany { get; }
+        global::app.Graphql.IGetCompanyQuery GetCompany
+        {
+            get;
+        }
 
-        global::app.Graphql.ICreateUserMutation CreateUser { get; }
+        global::app.Graphql.ICreateUserMutation CreateUser
+        {
+            get;
+        }
 
-        global::app.Graphql.IGetUsersQuery GetUsers { get; }
+        global::app.Graphql.IGetUsersQuery GetUsers
+        {
+            get;
+        }
 
-        global::app.Graphql.ICreateProjectMutation CreateProject { get; }
+        global::app.Graphql.ICreateProjectMutation CreateProject
+        {
+            get;
+        }
 
-        global::app.Graphql.IGetProjectsQuery GetProjects { get; }
+        global::app.Graphql.IGetProjectsQuery GetProjects
+        {
+            get;
+        }
 
-        global::app.Graphql.IAddUserInProjectMutation AddUserInProject { get; }
+        global::app.Graphql.IAddUserInProjectMutation AddUserInProject
+        {
+            get;
+        }
 
-        global::app.Graphql.ILoginMutation Login { get; }
+        global::app.Graphql.ILoginMutation Login
+        {
+            get;
+        }
 
-        global::app.Graphql.IRegisterMutation Register { get; }
+        global::app.Graphql.IRegisterMutation Register
+        {
+            get;
+        }
 
-        global::app.Graphql.IRefreshTokenMutation RefreshToken { get; }
+        global::app.Graphql.IRefreshTokenMutation RefreshToken
+        {
+            get;
+        }
     }
 }
 
@@ -9113,11 +9542,20 @@ namespace app.Graphql.State
             Status = status;
         }
 
-        public global::System.String? Id { get; }
+        public global::System.String? Id
+        {
+            get;
+        }
 
-        public global::System.String? Name { get; }
+        public global::System.String? Name
+        {
+            get;
+        }
 
-        public global::app.Graphql.Status Status { get; }
+        public global::app.Graphql.Status Status
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -9134,19 +9572,40 @@ namespace app.Graphql.State
             CompanyId = companyId;
         }
 
-        public global::StrawberryShake.EntityId? Company { get; }
+        public global::StrawberryShake.EntityId? Company
+        {
+            get;
+        }
 
-        public global::System.String? Id { get; }
+        public global::System.String? Id
+        {
+            get;
+        }
 
-        public global::System.String? Email { get; }
+        public global::System.String? Email
+        {
+            get;
+        }
 
-        public global::System.String? PhoneNumber { get; }
+        public global::System.String? PhoneNumber
+        {
+            get;
+        }
 
-        public global::app.Graphql.Status Status { get; }
+        public global::app.Graphql.Status Status
+        {
+            get;
+        }
 
-        public global::System.String? UserName { get; }
+        public global::System.String? UserName
+        {
+            get;
+        }
 
-        public global::System.String? CompanyId { get; }
+        public global::System.String? CompanyId
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -9163,19 +9622,40 @@ namespace app.Graphql.State
             Users = users;
         }
 
-        public global::System.String? Description { get; }
+        public global::System.String? Description
+        {
+            get;
+        }
 
-        public global::System.String? Id { get; }
+        public global::System.String? Id
+        {
+            get;
+        }
 
-        public global::System.String? CompanyId { get; }
+        public global::System.String? CompanyId
+        {
+            get;
+        }
 
-        public global::app.Graphql.Status Status { get; }
+        public global::app.Graphql.Status Status
+        {
+            get;
+        }
 
-        public global::System.String? Title { get; }
+        public global::System.String? Title
+        {
+            get;
+        }
 
-        public global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? UserProjects { get; }
+        public global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? UserProjects
+        {
+            get;
+        }
 
-        public global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? Users { get; }
+        public global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? Users
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -9187,9 +9667,15 @@ namespace app.Graphql.State
             User = user;
         }
 
-        public global::System.String? UserId { get; }
+        public global::System.String? UserId
+        {
+            get;
+        }
 
-        public global::StrawberryShake.EntityId? User { get; }
+        public global::StrawberryShake.EntityId? User
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -9288,7 +9774,10 @@ namespace app.Graphql.State
             _version = version;
         }
 
-        public global::app.Graphql.State.CompanyConnectionData? Companies { get; }
+        public global::app.Graphql.State.CompanyConnectionData? Companies
+        {
+            get;
+        }
 
         public global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> EntityIds => _entityIds;
         public global::System.UInt64 Version => _version;
@@ -9381,7 +9870,10 @@ namespace app.Graphql.State
             _version = version;
         }
 
-        public global::app.Graphql.State.UserMutationTypeData? User { get; }
+        public global::app.Graphql.State.UserMutationTypeData? User
+        {
+            get;
+        }
 
         public global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> EntityIds => _entityIds;
         public global::System.UInt64 Version => _version;
@@ -9519,7 +10011,10 @@ namespace app.Graphql.State
             _version = version;
         }
 
-        public global::app.Graphql.State.UserConnectionData? Users { get; }
+        public global::app.Graphql.State.UserConnectionData? Users
+        {
+            get;
+        }
 
         public global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> EntityIds => _entityIds;
         public global::System.UInt64 Version => _version;
@@ -9649,7 +10144,10 @@ namespace app.Graphql.State
             _version = version;
         }
 
-        public global::app.Graphql.State.ProjectMutationTypeData? Project { get; }
+        public global::app.Graphql.State.ProjectMutationTypeData? Project
+        {
+            get;
+        }
 
         public global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> EntityIds => _entityIds;
         public global::System.UInt64 Version => _version;
@@ -9853,7 +10351,10 @@ namespace app.Graphql.State
             _version = version;
         }
 
-        public global::app.Graphql.State.ProjectConnectionData? Projects { get; }
+        public global::app.Graphql.State.ProjectConnectionData? Projects
+        {
+            get;
+        }
 
         public global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> EntityIds => _entityIds;
         public global::System.UInt64 Version => _version;
@@ -10106,7 +10607,10 @@ namespace app.Graphql.State
             _version = version;
         }
 
-        public global::app.Graphql.State.ProjectMutationTypeData? Project { get; }
+        public global::app.Graphql.State.ProjectMutationTypeData? Project
+        {
+            get;
+        }
 
         public global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> EntityIds => _entityIds;
         public global::System.UInt64 Version => _version;
@@ -10179,7 +10683,10 @@ namespace app.Graphql.State
             _version = version;
         }
 
-        public global::app.Graphql.State.AccountMutationTypeData? Account { get; }
+        public global::app.Graphql.State.AccountMutationTypeData? Account
+        {
+            get;
+        }
 
         public global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> EntityIds => _entityIds;
         public global::System.UInt64 Version => _version;
@@ -10252,7 +10759,10 @@ namespace app.Graphql.State
             _version = version;
         }
 
-        public global::app.Graphql.State.AccountMutationTypeData? Account { get; }
+        public global::app.Graphql.State.AccountMutationTypeData? Account
+        {
+            get;
+        }
 
         public global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> EntityIds => _entityIds;
         public global::System.UInt64 Version => _version;
@@ -10325,7 +10835,10 @@ namespace app.Graphql.State
             _version = version;
         }
 
-        public global::app.Graphql.State.AccountMutationTypeData? Account { get; }
+        public global::app.Graphql.State.AccountMutationTypeData? Account
+        {
+            get;
+        }
 
         public global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> EntityIds => _entityIds;
         public global::System.UInt64 Version => _version;
@@ -10338,281 +10851,605 @@ namespace app.Graphql.State
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     internal interface ICreateUserVmInputInfo
     {
-        global::System.Boolean IsEmailSet { get; }
+        global::System.Boolean IsEmailSet
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     internal interface IUserFilterInputInfo
     {
-        global::System.Boolean IsAndSet { get; }
+        global::System.Boolean IsAndSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsOrSet { get; }
+        global::System.Boolean IsOrSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsIdSet { get; }
+        global::System.Boolean IsIdSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsCompanyIdSet { get; }
+        global::System.Boolean IsCompanyIdSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsStatusSet { get; }
+        global::System.Boolean IsStatusSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsCompanySet { get; }
+        global::System.Boolean IsCompanySet
+        {
+            get;
+        }
 
-        global::System.Boolean IsUserProjectsSet { get; }
+        global::System.Boolean IsUserProjectsSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsUserNameSet { get; }
+        global::System.Boolean IsUserNameSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsNormalizedUserNameSet { get; }
+        global::System.Boolean IsNormalizedUserNameSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsEmailSet { get; }
+        global::System.Boolean IsEmailSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsNormalizedEmailSet { get; }
+        global::System.Boolean IsNormalizedEmailSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsEmailConfirmedSet { get; }
+        global::System.Boolean IsEmailConfirmedSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsPasswordHashSet { get; }
+        global::System.Boolean IsPasswordHashSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsSecurityStampSet { get; }
+        global::System.Boolean IsSecurityStampSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsConcurrencyStampSet { get; }
+        global::System.Boolean IsConcurrencyStampSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsPhoneNumberSet { get; }
+        global::System.Boolean IsPhoneNumberSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsPhoneNumberConfirmedSet { get; }
+        global::System.Boolean IsPhoneNumberConfirmedSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsTwoFactorEnabledSet { get; }
+        global::System.Boolean IsTwoFactorEnabledSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsLockoutEndSet { get; }
+        global::System.Boolean IsLockoutEndSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsLockoutEnabledSet { get; }
+        global::System.Boolean IsLockoutEnabledSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsAccessFailedCountSet { get; }
+        global::System.Boolean IsAccessFailedCountSet
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     internal interface IStringOperationFilterInputInfo
     {
-        global::System.Boolean IsAndSet { get; }
+        global::System.Boolean IsAndSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsOrSet { get; }
+        global::System.Boolean IsOrSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsEqSet { get; }
+        global::System.Boolean IsEqSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsNeqSet { get; }
+        global::System.Boolean IsNeqSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsContainsSet { get; }
+        global::System.Boolean IsContainsSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsNcontainsSet { get; }
+        global::System.Boolean IsNcontainsSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsInSet { get; }
+        global::System.Boolean IsInSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsNinSet { get; }
+        global::System.Boolean IsNinSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsStartsWithSet { get; }
+        global::System.Boolean IsStartsWithSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsNstartsWithSet { get; }
+        global::System.Boolean IsNstartsWithSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsEndsWithSet { get; }
+        global::System.Boolean IsEndsWithSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsNendsWithSet { get; }
+        global::System.Boolean IsNendsWithSet
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     internal interface IStatusOperationFilterInputInfo
     {
-        global::System.Boolean IsEqSet { get; }
+        global::System.Boolean IsEqSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsNeqSet { get; }
+        global::System.Boolean IsNeqSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsInSet { get; }
+        global::System.Boolean IsInSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsNinSet { get; }
+        global::System.Boolean IsNinSet
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     internal interface ICompanyFilterInputInfo
     {
-        global::System.Boolean IsAndSet { get; }
+        global::System.Boolean IsAndSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsOrSet { get; }
+        global::System.Boolean IsOrSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsIdSet { get; }
+        global::System.Boolean IsIdSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsNameSet { get; }
+        global::System.Boolean IsNameSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsStatusSet { get; }
+        global::System.Boolean IsStatusSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsUsersSet { get; }
+        global::System.Boolean IsUsersSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsProjectsSet { get; }
+        global::System.Boolean IsProjectsSet
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     internal interface IListFilterInputTypeOfUserFilterInputInfo
     {
-        global::System.Boolean IsAllSet { get; }
+        global::System.Boolean IsAllSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsNoneSet { get; }
+        global::System.Boolean IsNoneSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsSomeSet { get; }
+        global::System.Boolean IsSomeSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsAnySet { get; }
+        global::System.Boolean IsAnySet
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     internal interface IListFilterInputTypeOfProjectFilterInputInfo
     {
-        global::System.Boolean IsAllSet { get; }
+        global::System.Boolean IsAllSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsNoneSet { get; }
+        global::System.Boolean IsNoneSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsSomeSet { get; }
+        global::System.Boolean IsSomeSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsAnySet { get; }
+        global::System.Boolean IsAnySet
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     internal interface IProjectFilterInputInfo
     {
-        global::System.Boolean IsAndSet { get; }
+        global::System.Boolean IsAndSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsOrSet { get; }
+        global::System.Boolean IsOrSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsIdSet { get; }
+        global::System.Boolean IsIdSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsCompanyIdSet { get; }
+        global::System.Boolean IsCompanyIdSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsTitleSet { get; }
+        global::System.Boolean IsTitleSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsDescriptionSet { get; }
+        global::System.Boolean IsDescriptionSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsStatusSet { get; }
+        global::System.Boolean IsStatusSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsCompanySet { get; }
+        global::System.Boolean IsCompanySet
+        {
+            get;
+        }
 
-        global::System.Boolean IsUserProjectsSet { get; }
+        global::System.Boolean IsUserProjectsSet
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     internal interface IListFilterInputTypeOfUserProjectFilterInputInfo
     {
-        global::System.Boolean IsAllSet { get; }
+        global::System.Boolean IsAllSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsNoneSet { get; }
+        global::System.Boolean IsNoneSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsSomeSet { get; }
+        global::System.Boolean IsSomeSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsAnySet { get; }
+        global::System.Boolean IsAnySet
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     internal interface IUserProjectFilterInputInfo
     {
-        global::System.Boolean IsAndSet { get; }
+        global::System.Boolean IsAndSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsOrSet { get; }
+        global::System.Boolean IsOrSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsIdSet { get; }
+        global::System.Boolean IsIdSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsUserIdSet { get; }
+        global::System.Boolean IsUserIdSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsProjectIdSet { get; }
+        global::System.Boolean IsProjectIdSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsProjectSet { get; }
+        global::System.Boolean IsProjectSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsUserSet { get; }
+        global::System.Boolean IsUserSet
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     internal interface IBooleanOperationFilterInputInfo
     {
-        global::System.Boolean IsEqSet { get; }
+        global::System.Boolean IsEqSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsNeqSet { get; }
+        global::System.Boolean IsNeqSet
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     internal interface IComparableNullableOfDateTimeOffsetOperationFilterInputInfo
     {
-        global::System.Boolean IsEqSet { get; }
+        global::System.Boolean IsEqSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsNeqSet { get; }
+        global::System.Boolean IsNeqSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsInSet { get; }
+        global::System.Boolean IsInSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsNinSet { get; }
+        global::System.Boolean IsNinSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsGtSet { get; }
+        global::System.Boolean IsGtSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsNgtSet { get; }
+        global::System.Boolean IsNgtSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsGteSet { get; }
+        global::System.Boolean IsGteSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsNgteSet { get; }
+        global::System.Boolean IsNgteSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsLtSet { get; }
+        global::System.Boolean IsLtSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsNltSet { get; }
+        global::System.Boolean IsNltSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsLteSet { get; }
+        global::System.Boolean IsLteSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsNlteSet { get; }
+        global::System.Boolean IsNlteSet
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     internal interface IComparableInt32OperationFilterInputInfo
     {
-        global::System.Boolean IsEqSet { get; }
+        global::System.Boolean IsEqSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsNeqSet { get; }
+        global::System.Boolean IsNeqSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsInSet { get; }
+        global::System.Boolean IsInSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsNinSet { get; }
+        global::System.Boolean IsNinSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsGtSet { get; }
+        global::System.Boolean IsGtSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsNgtSet { get; }
+        global::System.Boolean IsNgtSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsGteSet { get; }
+        global::System.Boolean IsGteSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsNgteSet { get; }
+        global::System.Boolean IsNgteSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsLtSet { get; }
+        global::System.Boolean IsLtSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsNltSet { get; }
+        global::System.Boolean IsNltSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsLteSet { get; }
+        global::System.Boolean IsLteSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsNlteSet { get; }
+        global::System.Boolean IsNlteSet
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     internal interface ICreateProjectVmInputInfo
     {
-        global::System.Boolean IsTitleSet { get; }
+        global::System.Boolean IsTitleSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsDescriptionSet { get; }
+        global::System.Boolean IsDescriptionSet
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     internal interface ILoginModelInputInfo
     {
-        global::System.Boolean IsUsernameSet { get; }
+        global::System.Boolean IsUsernameSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsPasswordSet { get; }
+        global::System.Boolean IsPasswordSet
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     internal interface IRegisterModelInputInfo
     {
-        global::System.Boolean IsCompanyNameSet { get; }
+        global::System.Boolean IsCompanyNameSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsEmailSet { get; }
+        global::System.Boolean IsEmailSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsPasswordConfirmationSet { get; }
+        global::System.Boolean IsPasswordConfirmationSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsUsernameSet { get; }
+        global::System.Boolean IsUsernameSet
+        {
+            get;
+        }
 
-        global::System.Boolean IsPasswordSet { get; }
+        global::System.Boolean IsPasswordSet
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -11805,10 +12642,16 @@ namespace app.Graphql.State
             Nodes = nodes;
         }
 
-        public global::System.String __typename { get; }
+        public global::System.String __typename
+        {
+            get;
+        }
 
         ///<summary>A flattened list of the nodes.</summary>
-        public global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? Nodes { get; }
+        public global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? Nodes
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -11820,9 +12663,15 @@ namespace app.Graphql.State
             Add = @add;
         }
 
-        public global::System.String __typename { get; }
+        public global::System.String __typename
+        {
+            get;
+        }
 
-        public global::System.String? Add { get; }
+        public global::System.String? Add
+        {
+            get;
+        }
     }
 
     ///<summary>A connection to a list of items.</summary>
@@ -11837,15 +12686,27 @@ namespace app.Graphql.State
             TotalCount = totalCount;
         }
 
-        public global::System.String __typename { get; }
+        public global::System.String __typename
+        {
+            get;
+        }
 
         ///<summary>A flattened list of the nodes.</summary>
-        public global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? Nodes { get; }
+        public global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? Nodes
+        {
+            get;
+        }
 
         ///<summary>Information to aid in pagination.</summary>
-        public global::app.Graphql.State.PageInfoData? PageInfo { get; }
+        public global::app.Graphql.State.PageInfoData? PageInfo
+        {
+            get;
+        }
 
-        public global::System.Int32? TotalCount { get; }
+        public global::System.Int32? TotalCount
+        {
+            get;
+        }
     }
 
     ///<summary>Information about pagination in a connection.</summary>
@@ -11861,19 +12722,34 @@ namespace app.Graphql.State
             StartCursor = startCursor;
         }
 
-        public global::System.String __typename { get; }
+        public global::System.String __typename
+        {
+            get;
+        }
 
         ///<summary>When paginating forwards, the cursor to continue.</summary>
-        public global::System.String? EndCursor { get; }
+        public global::System.String? EndCursor
+        {
+            get;
+        }
 
         ///<summary>Indicates whether more edges exist following the set defined by the clients arguments.</summary>
-        public global::System.Boolean? HasNextPage { get; }
+        public global::System.Boolean? HasNextPage
+        {
+            get;
+        }
 
         ///<summary>Indicates whether more edges exist prior the set defined by the clients arguments.</summary>
-        public global::System.Boolean? HasPreviousPage { get; }
+        public global::System.Boolean? HasPreviousPage
+        {
+            get;
+        }
 
         ///<summary>When paginating backwards, the cursor to continue.</summary>
-        public global::System.String? StartCursor { get; }
+        public global::System.String? StartCursor
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -11886,11 +12762,20 @@ namespace app.Graphql.State
             AddUser = addUser;
         }
 
-        public global::System.String __typename { get; }
+        public global::System.String __typename
+        {
+            get;
+        }
 
-        public global::System.String? Add { get; }
+        public global::System.String? Add
+        {
+            get;
+        }
 
-        public global::System.String? AddUser { get; }
+        public global::System.String? AddUser
+        {
+            get;
+        }
     }
 
     ///<summary>A connection to a list of items.</summary>
@@ -11905,15 +12790,27 @@ namespace app.Graphql.State
             TotalCount = totalCount;
         }
 
-        public global::System.String __typename { get; }
+        public global::System.String __typename
+        {
+            get;
+        }
 
         ///<summary>A flattened list of the nodes.</summary>
-        public global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? Nodes { get; }
+        public global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? Nodes
+        {
+            get;
+        }
 
         ///<summary>Information to aid in pagination.</summary>
-        public global::app.Graphql.State.PageInfoData? PageInfo { get; }
+        public global::app.Graphql.State.PageInfoData? PageInfo
+        {
+            get;
+        }
 
-        public global::System.Int32? TotalCount { get; }
+        public global::System.Int32? TotalCount
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -11927,13 +12824,25 @@ namespace app.Graphql.State
             RefreshToken = refreshToken;
         }
 
-        public global::System.String __typename { get; }
+        public global::System.String __typename
+        {
+            get;
+        }
 
-        public global::System.String? Login { get; }
+        public global::System.String? Login
+        {
+            get;
+        }
 
-        public global::System.String? Register { get; }
+        public global::System.String? Register
+        {
+            get;
+        }
 
-        public global::System.String? RefreshToken { get; }
+        public global::System.String? RefreshToken
+        {
+            get;
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
