@@ -4,19 +4,16 @@
 namespace app.Graphql
 {
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class GetCompanyResult : global::System.IEquatable<GetCompanyResult>, IGetCompanyResult
+    public partial class LoginResult : global::System.IEquatable<LoginResult>, ILoginResult
     {
-        public GetCompanyResult(global::app.Graphql.IGetCompany_Companies? companies)
+        public LoginResult(global::app.Graphql.ILogin_Account? account)
         {
-            Companies = companies;
+            Account = account;
         }
 
-        public global::app.Graphql.IGetCompany_Companies? Companies
-        {
-            get;
-        }
+        public global::app.Graphql.ILogin_Account? Account { get; }
 
-        public virtual global::System.Boolean Equals(GetCompanyResult? other)
+        public virtual global::System.Boolean Equals(LoginResult? other)
         {
             if (ReferenceEquals(null, other))
             {
@@ -33,7 +30,7 @@ namespace app.Graphql
                 return false;
             }
 
-            return (((Companies is null && other.Companies is null) || Companies != null && Companies.Equals(other.Companies)));
+            return (((Account is null && other.Account is null) || Account != null && Account.Equals(other.Account)));
         }
 
         public override global::System.Boolean Equals(global::System.Object? obj)
@@ -53,7 +50,7 @@ namespace app.Graphql
                 return false;
             }
 
-            return Equals((GetCompanyResult)obj);
+            return Equals((LoginResult)obj);
         }
 
         public override global::System.Int32 GetHashCode()
@@ -61,9 +58,9 @@ namespace app.Graphql
             unchecked
             {
                 int hash = 5;
-                if (Companies != null)
+                if (Account != null)
                 {
-                    hash ^= 397 * Companies.GetHashCode();
+                    hash ^= 397 * Account.GetHashCode();
                 }
 
                 return hash;
@@ -71,26 +68,17 @@ namespace app.Graphql
         }
     }
 
-    /// <summary>
-    /// A connection to a list of items.
-    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class GetCompany_Companies_CompanyConnection : global::System.IEquatable<GetCompany_Companies_CompanyConnection>, IGetCompany_Companies_CompanyConnection
+    public partial class Login_Account_AccountMutationType : global::System.IEquatable<Login_Account_AccountMutationType>, ILogin_Account_AccountMutationType
     {
-        public GetCompany_Companies_CompanyConnection(global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetCompany_Companies_Nodes?>? nodes)
+        public Login_Account_AccountMutationType(global::System.String? login)
         {
-            Nodes = nodes;
+            Login = login;
         }
 
-        /// <summary>
-        /// A flattened list of the nodes.
-        /// </summary>
-        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetCompany_Companies_Nodes?>? Nodes
-        {
-            get;
-        }
+        public global::System.String? Login { get; }
 
-        public virtual global::System.Boolean Equals(GetCompany_Companies_CompanyConnection? other)
+        public virtual global::System.Boolean Equals(Login_Account_AccountMutationType? other)
         {
             if (ReferenceEquals(null, other))
             {
@@ -107,7 +95,7 @@ namespace app.Graphql
                 return false;
             }
 
-            return (global::StrawberryShake.Helper.ComparisonHelper.SequenceEqual(Nodes, other.Nodes));
+            return (((Login is null && other.Login is null) || Login != null && Login.Equals(other.Login)));
         }
 
         public override global::System.Boolean Equals(global::System.Object? obj)
@@ -127,7 +115,7 @@ namespace app.Graphql
                 return false;
             }
 
-            return Equals((GetCompany_Companies_CompanyConnection)obj);
+            return Equals((Login_Account_AccountMutationType)obj);
         }
 
         public override global::System.Int32 GetHashCode()
@@ -135,15 +123,9 @@ namespace app.Graphql
             unchecked
             {
                 int hash = 5;
-                if (Nodes != null)
+                if (Login != null)
                 {
-                    foreach (var Nodes_elm in Nodes)
-                    {
-                        if (Nodes_elm != null)
-                        {
-                            hash ^= 397 * Nodes_elm.GetHashCode();
-                        }
-                    }
+                    hash ^= 397 * Login.GetHashCode();
                 }
 
                 return hash;
@@ -152,31 +134,33 @@ namespace app.Graphql
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class GetCompany_Companies_Nodes_Company : global::System.IEquatable<GetCompany_Companies_Nodes_Company>, IGetCompany_Companies_Nodes_Company
+    public interface ILoginResult
     {
-        public GetCompany_Companies_Nodes_Company(global::System.String? id, global::System.String? name, global::app.Graphql.Status status)
+        public global::app.Graphql.ILogin_Account? Account { get; }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public interface ILogin_Account
+    {
+        public global::System.String? Login { get; }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public interface ILogin_Account_AccountMutationType : ILogin_Account
+    {
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class RegisterResult : global::System.IEquatable<RegisterResult>, IRegisterResult
+    {
+        public RegisterResult(global::app.Graphql.IRegister_Account? account)
         {
-            Id = id;
-            Name = name;
-            Status = status;
+            Account = account;
         }
 
-        public global::System.String? Id
-        {
-            get;
-        }
+        public global::app.Graphql.IRegister_Account? Account { get; }
 
-        public global::System.String? Name
-        {
-            get;
-        }
-
-        public global::app.Graphql.Status Status
-        {
-            get;
-        }
-
-        public virtual global::System.Boolean Equals(GetCompany_Companies_Nodes_Company? other)
+        public virtual global::System.Boolean Equals(RegisterResult? other)
         {
             if (ReferenceEquals(null, other))
             {
@@ -193,7 +177,7 @@ namespace app.Graphql
                 return false;
             }
 
-            return (((Id is null && other.Id is null) || Id != null && Id.Equals(other.Id))) && ((Name is null && other.Name is null) || Name != null && Name.Equals(other.Name)) && Status.Equals(other.Status);
+            return (((Account is null && other.Account is null) || Account != null && Account.Equals(other.Account)));
         }
 
         public override global::System.Boolean Equals(global::System.Object? obj)
@@ -213,7 +197,7 @@ namespace app.Graphql
                 return false;
             }
 
-            return Equals((GetCompany_Companies_Nodes_Company)obj);
+            return Equals((RegisterResult)obj);
         }
 
         public override global::System.Int32 GetHashCode()
@@ -221,92 +205,27 @@ namespace app.Graphql
             unchecked
             {
                 int hash = 5;
-                if (Id != null)
+                if (Account != null)
                 {
-                    hash ^= 397 * Id.GetHashCode();
+                    hash ^= 397 * Account.GetHashCode();
                 }
 
-                if (Name != null)
-                {
-                    hash ^= 397 * Name.GetHashCode();
-                }
-
-                hash ^= 397 * Status.GetHashCode();
                 return hash;
             }
         }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface IGetCompanyResult
+    public partial class Register_Account_AccountMutationType : global::System.IEquatable<Register_Account_AccountMutationType>, IRegister_Account_AccountMutationType
     {
-        public global::app.Graphql.IGetCompany_Companies? Companies
+        public Register_Account_AccountMutationType(global::System.String? register)
         {
-            get;
-        }
-    }
-
-    /// <summary>
-    /// A connection to a list of items.
-    /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface IGetCompany_Companies
-    {
-        /// <summary>
-        /// A flattened list of the nodes.
-        /// </summary>
-        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetCompany_Companies_Nodes?>? Nodes
-        {
-            get;
-        }
-    }
-
-    /// <summary>
-    /// A connection to a list of items.
-    /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface IGetCompany_Companies_CompanyConnection : IGetCompany_Companies
-    {
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface IGetCompany_Companies_Nodes
-    {
-        public global::System.String? Id
-        {
-            get;
+            Register = register;
         }
 
-        public global::System.String? Name
-        {
-            get;
-        }
+        public global::System.String? Register { get; }
 
-        public global::app.Graphql.Status Status
-        {
-            get;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface IGetCompany_Companies_Nodes_Company : IGetCompany_Companies_Nodes
-    {
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class CreateUserResult : global::System.IEquatable<CreateUserResult>, ICreateUserResult
-    {
-        public CreateUserResult(global::app.Graphql.ICreateUser_User? user)
-        {
-            User = user;
-        }
-
-        public global::app.Graphql.ICreateUser_User? User
-        {
-            get;
-        }
-
-        public virtual global::System.Boolean Equals(CreateUserResult? other)
+        public virtual global::System.Boolean Equals(Register_Account_AccountMutationType? other)
         {
             if (ReferenceEquals(null, other))
             {
@@ -323,7 +242,7 @@ namespace app.Graphql
                 return false;
             }
 
-            return (((User is null && other.User is null) || User != null && User.Equals(other.User)));
+            return (((Register is null && other.Register is null) || Register != null && Register.Equals(other.Register)));
         }
 
         public override global::System.Boolean Equals(global::System.Object? obj)
@@ -343,7 +262,7 @@ namespace app.Graphql
                 return false;
             }
 
-            return Equals((CreateUserResult)obj);
+            return Equals((Register_Account_AccountMutationType)obj);
         }
 
         public override global::System.Int32 GetHashCode()
@@ -351,9 +270,9 @@ namespace app.Graphql
             unchecked
             {
                 int hash = 5;
-                if (User != null)
+                if (Register != null)
                 {
-                    hash ^= 397 * User.GetHashCode();
+                    hash ^= 397 * Register.GetHashCode();
                 }
 
                 return hash;
@@ -362,19 +281,33 @@ namespace app.Graphql
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class CreateUser_User_UserMutationType : global::System.IEquatable<CreateUser_User_UserMutationType>, ICreateUser_User_UserMutationType
+    public interface IRegisterResult
     {
-        public CreateUser_User_UserMutationType(global::System.String? @add)
+        public global::app.Graphql.IRegister_Account? Account { get; }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public interface IRegister_Account
+    {
+        public global::System.String? Register { get; }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public interface IRegister_Account_AccountMutationType : IRegister_Account
+    {
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class RefreshTokenResult : global::System.IEquatable<RefreshTokenResult>, IRefreshTokenResult
+    {
+        public RefreshTokenResult(global::app.Graphql.IRefreshToken_Account? account)
         {
-            Add = @add;
+            Account = account;
         }
 
-        public global::System.String? Add
-        {
-            get;
-        }
+        public global::app.Graphql.IRefreshToken_Account? Account { get; }
 
-        public virtual global::System.Boolean Equals(CreateUser_User_UserMutationType? other)
+        public virtual global::System.Boolean Equals(RefreshTokenResult? other)
         {
             if (ReferenceEquals(null, other))
             {
@@ -391,7 +324,7 @@ namespace app.Graphql
                 return false;
             }
 
-            return (((Add is null && other.Add is null) || Add != null && Add.Equals(other.Add)));
+            return (((Account is null && other.Account is null) || Account != null && Account.Equals(other.Account)));
         }
 
         public override global::System.Boolean Equals(global::System.Object? obj)
@@ -411,7 +344,7 @@ namespace app.Graphql
                 return false;
             }
 
-            return Equals((CreateUser_User_UserMutationType)obj);
+            return Equals((RefreshTokenResult)obj);
         }
 
         public override global::System.Int32 GetHashCode()
@@ -419,9 +352,9 @@ namespace app.Graphql
             unchecked
             {
                 int hash = 5;
-                if (Add != null)
+                if (Account != null)
                 {
-                    hash ^= 397 * Add.GetHashCode();
+                    hash ^= 397 * Account.GetHashCode();
                 }
 
                 return hash;
@@ -430,42 +363,16 @@ namespace app.Graphql
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface ICreateUserResult
+    public partial class RefreshToken_Account_AccountMutationType : global::System.IEquatable<RefreshToken_Account_AccountMutationType>, IRefreshToken_Account_AccountMutationType
     {
-        public global::app.Graphql.ICreateUser_User? User
+        public RefreshToken_Account_AccountMutationType(global::System.String? refreshToken)
         {
-            get;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface ICreateUser_User
-    {
-        public global::System.String? Add
-        {
-            get;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface ICreateUser_User_UserMutationType : ICreateUser_User
-    {
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class GetUsersResult : global::System.IEquatable<GetUsersResult>, IGetUsersResult
-    {
-        public GetUsersResult(global::app.Graphql.IGetUsers_Users? users)
-        {
-            Users = users;
+            RefreshToken = refreshToken;
         }
 
-        public global::app.Graphql.IGetUsers_Users? Users
-        {
-            get;
-        }
+        public global::System.String? RefreshToken { get; }
 
-        public virtual global::System.Boolean Equals(GetUsersResult? other)
+        public virtual global::System.Boolean Equals(RefreshToken_Account_AccountMutationType? other)
         {
             if (ReferenceEquals(null, other))
             {
@@ -482,7 +389,7 @@ namespace app.Graphql
                 return false;
             }
 
-            return (((Users is null && other.Users is null) || Users != null && Users.Equals(other.Users)));
+            return (((RefreshToken is null && other.RefreshToken is null) || RefreshToken != null && RefreshToken.Equals(other.RefreshToken)));
         }
 
         public override global::System.Boolean Equals(global::System.Object? obj)
@@ -502,7 +409,7 @@ namespace app.Graphql
                 return false;
             }
 
-            return Equals((GetUsersResult)obj);
+            return Equals((RefreshToken_Account_AccountMutationType)obj);
         }
 
         public override global::System.Int32 GetHashCode()
@@ -510,344 +417,9 @@ namespace app.Graphql
             unchecked
             {
                 int hash = 5;
-                if (Users != null)
+                if (RefreshToken != null)
                 {
-                    hash ^= 397 * Users.GetHashCode();
-                }
-
-                return hash;
-            }
-        }
-    }
-
-    /// <summary>
-    /// A connection to a list of items.
-    /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class GetUsers_Users_UserConnection : global::System.IEquatable<GetUsers_Users_UserConnection>, IGetUsers_Users_UserConnection
-    {
-        public GetUsers_Users_UserConnection(global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetUsers_Users_Nodes?>? nodes, global::app.Graphql.IGetUsers_Users_PageInfo pageInfo, global::System.Int32 totalCount)
-        {
-            Nodes = nodes;
-            PageInfo = pageInfo;
-            TotalCount = totalCount;
-        }
-
-        /// <summary>
-        /// A flattened list of the nodes.
-        /// </summary>
-        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetUsers_Users_Nodes?>? Nodes
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Information to aid in pagination.
-        /// </summary>
-        public global::app.Graphql.IGetUsers_Users_PageInfo PageInfo
-        {
-            get;
-        }
-
-        public global::System.Int32 TotalCount
-        {
-            get;
-        }
-
-        public virtual global::System.Boolean Equals(GetUsers_Users_UserConnection? other)
-        {
-            if (ReferenceEquals(null, other))
-            {
-                return false;
-            }
-
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-
-            if (other.GetType() != GetType())
-            {
-                return false;
-            }
-
-            return (global::StrawberryShake.Helper.ComparisonHelper.SequenceEqual(Nodes, other.Nodes)) && PageInfo.Equals(other.PageInfo) && TotalCount == other.TotalCount;
-        }
-
-        public override global::System.Boolean Equals(global::System.Object? obj)
-        {
-            if (ReferenceEquals(null, obj))
-            {
-                return false;
-            }
-
-            if (ReferenceEquals(this, obj))
-            {
-                return true;
-            }
-
-            if (obj.GetType() != GetType())
-            {
-                return false;
-            }
-
-            return Equals((GetUsers_Users_UserConnection)obj);
-        }
-
-        public override global::System.Int32 GetHashCode()
-        {
-            unchecked
-            {
-                int hash = 5;
-                if (Nodes != null)
-                {
-                    foreach (var Nodes_elm in Nodes)
-                    {
-                        if (Nodes_elm != null)
-                        {
-                            hash ^= 397 * Nodes_elm.GetHashCode();
-                        }
-                    }
-                }
-
-                hash ^= 397 * PageInfo.GetHashCode();
-                hash ^= 397 * TotalCount.GetHashCode();
-                return hash;
-            }
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class GetUsers_Users_Nodes_User : global::System.IEquatable<GetUsers_Users_Nodes_User>, IGetUsers_Users_Nodes_User
-    {
-        public GetUsers_Users_Nodes_User(global::app.Graphql.IGetUsers_Users_Nodes_Company? company, global::System.String? id, global::System.String? email, global::System.String? phoneNumber, global::app.Graphql.Status status, global::System.String? userName, global::System.String? companyId)
-        {
-            Company = company;
-            Id = id;
-            Email = email;
-            PhoneNumber = phoneNumber;
-            Status = status;
-            UserName = userName;
-            CompanyId = companyId;
-        }
-
-        public global::app.Graphql.IGetUsers_Users_Nodes_Company? Company
-        {
-            get;
-        }
-
-        public global::System.String? Id
-        {
-            get;
-        }
-
-        public global::System.String? Email
-        {
-            get;
-        }
-
-        public global::System.String? PhoneNumber
-        {
-            get;
-        }
-
-        public global::app.Graphql.Status Status
-        {
-            get;
-        }
-
-        public global::System.String? UserName
-        {
-            get;
-        }
-
-        public global::System.String? CompanyId
-        {
-            get;
-        }
-
-        public virtual global::System.Boolean Equals(GetUsers_Users_Nodes_User? other)
-        {
-            if (ReferenceEquals(null, other))
-            {
-                return false;
-            }
-
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-
-            if (other.GetType() != GetType())
-            {
-                return false;
-            }
-
-            return (((Company is null && other.Company is null) || Company != null && Company.Equals(other.Company))) && ((Id is null && other.Id is null) || Id != null && Id.Equals(other.Id)) && ((Email is null && other.Email is null) || Email != null && Email.Equals(other.Email)) && ((PhoneNumber is null && other.PhoneNumber is null) || PhoneNumber != null && PhoneNumber.Equals(other.PhoneNumber)) && Status.Equals(other.Status) && ((UserName is null && other.UserName is null) || UserName != null && UserName.Equals(other.UserName)) && ((CompanyId is null && other.CompanyId is null) || CompanyId != null && CompanyId.Equals(other.CompanyId));
-        }
-
-        public override global::System.Boolean Equals(global::System.Object? obj)
-        {
-            if (ReferenceEquals(null, obj))
-            {
-                return false;
-            }
-
-            if (ReferenceEquals(this, obj))
-            {
-                return true;
-            }
-
-            if (obj.GetType() != GetType())
-            {
-                return false;
-            }
-
-            return Equals((GetUsers_Users_Nodes_User)obj);
-        }
-
-        public override global::System.Int32 GetHashCode()
-        {
-            unchecked
-            {
-                int hash = 5;
-                if (Company != null)
-                {
-                    hash ^= 397 * Company.GetHashCode();
-                }
-
-                if (Id != null)
-                {
-                    hash ^= 397 * Id.GetHashCode();
-                }
-
-                if (Email != null)
-                {
-                    hash ^= 397 * Email.GetHashCode();
-                }
-
-                if (PhoneNumber != null)
-                {
-                    hash ^= 397 * PhoneNumber.GetHashCode();
-                }
-
-                hash ^= 397 * Status.GetHashCode();
-                if (UserName != null)
-                {
-                    hash ^= 397 * UserName.GetHashCode();
-                }
-
-                if (CompanyId != null)
-                {
-                    hash ^= 397 * CompanyId.GetHashCode();
-                }
-
-                return hash;
-            }
-        }
-    }
-
-    /// <summary>
-    /// Information about pagination in a connection.
-    /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class GetUsers_Users_PageInfo_PageInfo : global::System.IEquatable<GetUsers_Users_PageInfo_PageInfo>, IGetUsers_Users_PageInfo_PageInfo
-    {
-        public GetUsers_Users_PageInfo_PageInfo(global::System.String? endCursor, global::System.Boolean hasNextPage, global::System.Boolean hasPreviousPage, global::System.String? startCursor)
-        {
-            EndCursor = endCursor;
-            HasNextPage = hasNextPage;
-            HasPreviousPage = hasPreviousPage;
-            StartCursor = startCursor;
-        }
-
-        /// <summary>
-        /// When paginating forwards, the cursor to continue.
-        /// </summary>
-        public global::System.String? EndCursor
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Indicates whether more edges exist following the set defined by the clients arguments.
-        /// </summary>
-        public global::System.Boolean HasNextPage
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Indicates whether more edges exist prior the set defined by the clients arguments.
-        /// </summary>
-        public global::System.Boolean HasPreviousPage
-        {
-            get;
-        }
-
-        /// <summary>
-        /// When paginating backwards, the cursor to continue.
-        /// </summary>
-        public global::System.String? StartCursor
-        {
-            get;
-        }
-
-        public virtual global::System.Boolean Equals(GetUsers_Users_PageInfo_PageInfo? other)
-        {
-            if (ReferenceEquals(null, other))
-            {
-                return false;
-            }
-
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-
-            if (other.GetType() != GetType())
-            {
-                return false;
-            }
-
-            return (((EndCursor is null && other.EndCursor is null) || EndCursor != null && EndCursor.Equals(other.EndCursor))) && HasNextPage == other.HasNextPage && HasPreviousPage == other.HasPreviousPage && ((StartCursor is null && other.StartCursor is null) || StartCursor != null && StartCursor.Equals(other.StartCursor));
-        }
-
-        public override global::System.Boolean Equals(global::System.Object? obj)
-        {
-            if (ReferenceEquals(null, obj))
-            {
-                return false;
-            }
-
-            if (ReferenceEquals(this, obj))
-            {
-                return true;
-            }
-
-            if (obj.GetType() != GetType())
-            {
-                return false;
-            }
-
-            return Equals((GetUsers_Users_PageInfo_PageInfo)obj);
-        }
-
-        public override global::System.Int32 GetHashCode()
-        {
-            unchecked
-            {
-                int hash = 5;
-                if (EndCursor != null)
-                {
-                    hash ^= 397 * EndCursor.GetHashCode();
-                }
-
-                hash ^= 397 * HasNextPage.GetHashCode();
-                hash ^= 397 * HasPreviousPage.GetHashCode();
-                if (StartCursor != null)
-                {
-                    hash ^= 397 * StartCursor.GetHashCode();
+                    hash ^= 397 * RefreshToken.GetHashCode();
                 }
 
                 return hash;
@@ -856,220 +428,19 @@ namespace app.Graphql
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class GetUsers_Users_Nodes_Company_Company : global::System.IEquatable<GetUsers_Users_Nodes_Company_Company>, IGetUsers_Users_Nodes_Company_Company
+    public interface IRefreshTokenResult
     {
-        public GetUsers_Users_Nodes_Company_Company(global::System.String? name)
-        {
-            Name = name;
-        }
-
-        public global::System.String? Name
-        {
-            get;
-        }
-
-        public virtual global::System.Boolean Equals(GetUsers_Users_Nodes_Company_Company? other)
-        {
-            if (ReferenceEquals(null, other))
-            {
-                return false;
-            }
-
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-
-            if (other.GetType() != GetType())
-            {
-                return false;
-            }
-
-            return (((Name is null && other.Name is null) || Name != null && Name.Equals(other.Name)));
-        }
-
-        public override global::System.Boolean Equals(global::System.Object? obj)
-        {
-            if (ReferenceEquals(null, obj))
-            {
-                return false;
-            }
-
-            if (ReferenceEquals(this, obj))
-            {
-                return true;
-            }
-
-            if (obj.GetType() != GetType())
-            {
-                return false;
-            }
-
-            return Equals((GetUsers_Users_Nodes_Company_Company)obj);
-        }
-
-        public override global::System.Int32 GetHashCode()
-        {
-            unchecked
-            {
-                int hash = 5;
-                if (Name != null)
-                {
-                    hash ^= 397 * Name.GetHashCode();
-                }
-
-                return hash;
-            }
-        }
+        public global::app.Graphql.IRefreshToken_Account? Account { get; }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface IGetUsersResult
+    public interface IRefreshToken_Account
     {
-        public global::app.Graphql.IGetUsers_Users? Users
-        {
-            get;
-        }
-    }
-
-    /// <summary>
-    /// A connection to a list of items.
-    /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface IGetUsers_Users
-    {
-        /// <summary>
-        /// A flattened list of the nodes.
-        /// </summary>
-        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetUsers_Users_Nodes?>? Nodes
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Information to aid in pagination.
-        /// </summary>
-        public global::app.Graphql.IGetUsers_Users_PageInfo PageInfo
-        {
-            get;
-        }
-
-        public global::System.Int32 TotalCount
-        {
-            get;
-        }
-    }
-
-    /// <summary>
-    /// A connection to a list of items.
-    /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface IGetUsers_Users_UserConnection : IGetUsers_Users
-    {
+        public global::System.String? RefreshToken { get; }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface IGetUsers_Users_Nodes
-    {
-        public global::app.Graphql.IGetUsers_Users_Nodes_Company? Company
-        {
-            get;
-        }
-
-        public global::System.String? Id
-        {
-            get;
-        }
-
-        public global::System.String? Email
-        {
-            get;
-        }
-
-        public global::System.String? PhoneNumber
-        {
-            get;
-        }
-
-        public global::app.Graphql.Status Status
-        {
-            get;
-        }
-
-        public global::System.String? UserName
-        {
-            get;
-        }
-
-        public global::System.String? CompanyId
-        {
-            get;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface IGetUsers_Users_Nodes_User : IGetUsers_Users_Nodes
-    {
-    }
-
-    /// <summary>
-    /// Information about pagination in a connection.
-    /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface IGetUsers_Users_PageInfo
-    {
-        /// <summary>
-        /// When paginating forwards, the cursor to continue.
-        /// </summary>
-        public global::System.String? EndCursor
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Indicates whether more edges exist following the set defined by the clients arguments.
-        /// </summary>
-        public global::System.Boolean HasNextPage
-        {
-            get;
-        }
-
-        /// <summary>
-        /// Indicates whether more edges exist prior the set defined by the clients arguments.
-        /// </summary>
-        public global::System.Boolean HasPreviousPage
-        {
-            get;
-        }
-
-        /// <summary>
-        /// When paginating backwards, the cursor to continue.
-        /// </summary>
-        public global::System.String? StartCursor
-        {
-            get;
-        }
-    }
-
-    /// <summary>
-    /// Information about pagination in a connection.
-    /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface IGetUsers_Users_PageInfo_PageInfo : IGetUsers_Users_PageInfo
-    {
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface IGetUsers_Users_Nodes_Company
-    {
-        public global::System.String? Name
-        {
-            get;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface IGetUsers_Users_Nodes_Company_Company : IGetUsers_Users_Nodes_Company
+    public interface IRefreshToken_Account_AccountMutationType : IRefreshToken_Account
     {
     }
 
@@ -1081,10 +452,7 @@ namespace app.Graphql
             Project = project;
         }
 
-        public global::app.Graphql.ICreateProject_Project? Project
-        {
-            get;
-        }
+        public global::app.Graphql.ICreateProject_Project? Project { get; }
 
         public virtual global::System.Boolean Equals(CreateProjectResult? other)
         {
@@ -1149,10 +517,7 @@ namespace app.Graphql
             Add = @add;
         }
 
-        public global::System.String? Add
-        {
-            get;
-        }
+        public global::System.String? Add { get; }
 
         public virtual global::System.Boolean Equals(CreateProject_Project_ProjectMutationType? other)
         {
@@ -1212,19 +577,13 @@ namespace app.Graphql
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface ICreateProjectResult
     {
-        public global::app.Graphql.ICreateProject_Project? Project
-        {
-            get;
-        }
+        public global::app.Graphql.ICreateProject_Project? Project { get; }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface ICreateProject_Project
     {
-        public global::System.String? Add
-        {
-            get;
-        }
+        public global::System.String? Add { get; }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -1240,10 +599,7 @@ namespace app.Graphql
             Projects = projects;
         }
 
-        public global::app.Graphql.IGetProjects_Projects? Projects
-        {
-            get;
-        }
+        public global::app.Graphql.IGetProjects_Projects? Projects { get; }
 
         public virtual global::System.Boolean Equals(GetProjectsResult? other)
         {
@@ -1316,23 +672,14 @@ namespace app.Graphql
         /// <summary>
         /// A flattened list of the nodes.
         /// </summary>
-        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetProjects_Projects_Nodes?>? Nodes
-        {
-            get;
-        }
+        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetProjects_Projects_Nodes?>? Nodes { get; }
 
         /// <summary>
         /// Information to aid in pagination.
         /// </summary>
-        public global::app.Graphql.IGetProjects_Projects_PageInfo PageInfo
-        {
-            get;
-        }
+        public global::app.Graphql.IGetProjects_Projects_PageInfo PageInfo { get; }
 
-        public global::System.Int32 TotalCount
-        {
-            get;
-        }
+        public global::System.Int32 TotalCount { get; }
 
         public virtual global::System.Boolean Equals(GetProjects_Projects_ProjectConnection? other)
         {
@@ -1411,40 +758,19 @@ namespace app.Graphql
             Users = users;
         }
 
-        public global::System.String? Description
-        {
-            get;
-        }
+        public global::System.String? Description { get; }
 
-        public global::System.String? Id
-        {
-            get;
-        }
+        public global::System.String? Id { get; }
 
-        public global::System.String? CompanyId
-        {
-            get;
-        }
+        public global::System.String? CompanyId { get; }
 
-        public global::app.Graphql.Status Status
-        {
-            get;
-        }
+        public global::app.Graphql.Status Status { get; }
 
-        public global::System.String? Title
-        {
-            get;
-        }
+        public global::System.String? Title { get; }
 
-        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetProjects_Projects_Nodes_UserProjects?>? UserProjects
-        {
-            get;
-        }
+        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetProjects_Projects_Nodes_UserProjects?>? UserProjects { get; }
 
-        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetProjects_Projects_Nodes_Users?>? Users
-        {
-            get;
-        }
+        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetProjects_Projects_Nodes_Users?>? Users { get; }
 
         public virtual global::System.Boolean Equals(GetProjects_Projects_Nodes_Project? other)
         {
@@ -1556,34 +882,22 @@ namespace app.Graphql
         /// <summary>
         /// When paginating forwards, the cursor to continue.
         /// </summary>
-        public global::System.String? EndCursor
-        {
-            get;
-        }
+        public global::System.String? EndCursor { get; }
 
         /// <summary>
         /// Indicates whether more edges exist following the set defined by the clients arguments.
         /// </summary>
-        public global::System.Boolean HasNextPage
-        {
-            get;
-        }
+        public global::System.Boolean HasNextPage { get; }
 
         /// <summary>
         /// Indicates whether more edges exist prior the set defined by the clients arguments.
         /// </summary>
-        public global::System.Boolean HasPreviousPage
-        {
-            get;
-        }
+        public global::System.Boolean HasPreviousPage { get; }
 
         /// <summary>
         /// When paginating backwards, the cursor to continue.
         /// </summary>
-        public global::System.String? StartCursor
-        {
-            get;
-        }
+        public global::System.String? StartCursor { get; }
 
         public virtual global::System.Boolean Equals(GetProjects_Projects_PageInfo_PageInfo? other)
         {
@@ -1656,15 +970,9 @@ namespace app.Graphql
             User = user;
         }
 
-        public global::System.String? UserId
-        {
-            get;
-        }
+        public global::System.String? UserId { get; }
 
-        public global::app.Graphql.IGetProjects_Projects_Nodes_UserProjects_User? User
-        {
-            get;
-        }
+        public global::app.Graphql.IGetProjects_Projects_Nodes_UserProjects_User? User { get; }
 
         public virtual global::System.Boolean Equals(GetProjects_Projects_Nodes_UserProjects_UserProject? other)
         {
@@ -1734,10 +1042,7 @@ namespace app.Graphql
             UserName = userName;
         }
 
-        public global::System.String? UserName
-        {
-            get;
-        }
+        public global::System.String? UserName { get; }
 
         public virtual global::System.Boolean Equals(GetProjects_Projects_Nodes_Users_User? other)
         {
@@ -1802,10 +1107,7 @@ namespace app.Graphql
             UserName = userName;
         }
 
-        public global::System.String? UserName
-        {
-            get;
-        }
+        public global::System.String? UserName { get; }
 
         public virtual global::System.Boolean Equals(GetProjects_Projects_Nodes_UserProjects_User_User? other)
         {
@@ -1865,10 +1167,7 @@ namespace app.Graphql
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface IGetProjectsResult
     {
-        public global::app.Graphql.IGetProjects_Projects? Projects
-        {
-            get;
-        }
+        public global::app.Graphql.IGetProjects_Projects? Projects { get; }
     }
 
     /// <summary>
@@ -1880,23 +1179,14 @@ namespace app.Graphql
         /// <summary>
         /// A flattened list of the nodes.
         /// </summary>
-        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetProjects_Projects_Nodes?>? Nodes
-        {
-            get;
-        }
+        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetProjects_Projects_Nodes?>? Nodes { get; }
 
         /// <summary>
         /// Information to aid in pagination.
         /// </summary>
-        public global::app.Graphql.IGetProjects_Projects_PageInfo PageInfo
-        {
-            get;
-        }
+        public global::app.Graphql.IGetProjects_Projects_PageInfo PageInfo { get; }
 
-        public global::System.Int32 TotalCount
-        {
-            get;
-        }
+        public global::System.Int32 TotalCount { get; }
     }
 
     /// <summary>
@@ -1910,40 +1200,19 @@ namespace app.Graphql
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface IGetProjects_Projects_Nodes
     {
-        public global::System.String? Description
-        {
-            get;
-        }
+        public global::System.String? Description { get; }
 
-        public global::System.String? Id
-        {
-            get;
-        }
+        public global::System.String? Id { get; }
 
-        public global::System.String? CompanyId
-        {
-            get;
-        }
+        public global::System.String? CompanyId { get; }
 
-        public global::app.Graphql.Status Status
-        {
-            get;
-        }
+        public global::app.Graphql.Status Status { get; }
 
-        public global::System.String? Title
-        {
-            get;
-        }
+        public global::System.String? Title { get; }
 
-        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetProjects_Projects_Nodes_UserProjects?>? UserProjects
-        {
-            get;
-        }
+        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetProjects_Projects_Nodes_UserProjects?>? UserProjects { get; }
 
-        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetProjects_Projects_Nodes_Users?>? Users
-        {
-            get;
-        }
+        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetProjects_Projects_Nodes_Users?>? Users { get; }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -1960,34 +1229,22 @@ namespace app.Graphql
         /// <summary>
         /// When paginating forwards, the cursor to continue.
         /// </summary>
-        public global::System.String? EndCursor
-        {
-            get;
-        }
+        public global::System.String? EndCursor { get; }
 
         /// <summary>
         /// Indicates whether more edges exist following the set defined by the clients arguments.
         /// </summary>
-        public global::System.Boolean HasNextPage
-        {
-            get;
-        }
+        public global::System.Boolean HasNextPage { get; }
 
         /// <summary>
         /// Indicates whether more edges exist prior the set defined by the clients arguments.
         /// </summary>
-        public global::System.Boolean HasPreviousPage
-        {
-            get;
-        }
+        public global::System.Boolean HasPreviousPage { get; }
 
         /// <summary>
         /// When paginating backwards, the cursor to continue.
         /// </summary>
-        public global::System.String? StartCursor
-        {
-            get;
-        }
+        public global::System.String? StartCursor { get; }
     }
 
     /// <summary>
@@ -2001,15 +1258,9 @@ namespace app.Graphql
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface IGetProjects_Projects_Nodes_UserProjects
     {
-        public global::System.String? UserId
-        {
-            get;
-        }
+        public global::System.String? UserId { get; }
 
-        public global::app.Graphql.IGetProjects_Projects_Nodes_UserProjects_User? User
-        {
-            get;
-        }
+        public global::app.Graphql.IGetProjects_Projects_Nodes_UserProjects_User? User { get; }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -2020,10 +1271,7 @@ namespace app.Graphql
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface IGetProjects_Projects_Nodes_Users
     {
-        public global::System.String? UserName
-        {
-            get;
-        }
+        public global::System.String? UserName { get; }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -2034,10 +1282,7 @@ namespace app.Graphql
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface IGetProjects_Projects_Nodes_UserProjects_User
     {
-        public global::System.String? UserName
-        {
-            get;
-        }
+        public global::System.String? UserName { get; }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -2053,10 +1298,7 @@ namespace app.Graphql
             Project = project;
         }
 
-        public global::app.Graphql.IAddUserInProject_Project? Project
-        {
-            get;
-        }
+        public global::app.Graphql.IAddUserInProject_Project? Project { get; }
 
         public virtual global::System.Boolean Equals(AddUserInProjectResult? other)
         {
@@ -2121,10 +1363,7 @@ namespace app.Graphql
             AddUser = addUser;
         }
 
-        public global::System.String? AddUser
-        {
-            get;
-        }
+        public global::System.String? AddUser { get; }
 
         public virtual global::System.Boolean Equals(AddUserInProject_Project_ProjectMutationType? other)
         {
@@ -2184,19 +1423,13 @@ namespace app.Graphql
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface IAddUserInProjectResult
     {
-        public global::app.Graphql.IAddUserInProject_Project? Project
-        {
-            get;
-        }
+        public global::app.Graphql.IAddUserInProject_Project? Project { get; }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface IAddUserInProject_Project
     {
-        public global::System.String? AddUser
-        {
-            get;
-        }
+        public global::System.String? AddUser { get; }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -2205,19 +1438,16 @@ namespace app.Graphql
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class LoginResult : global::System.IEquatable<LoginResult>, ILoginResult
+    public partial class GetCompanyResult : global::System.IEquatable<GetCompanyResult>, IGetCompanyResult
     {
-        public LoginResult(global::app.Graphql.ILogin_Account? account)
+        public GetCompanyResult(global::app.Graphql.IGetCompany_Companies? companies)
         {
-            Account = account;
+            Companies = companies;
         }
 
-        public global::app.Graphql.ILogin_Account? Account
-        {
-            get;
-        }
+        public global::app.Graphql.IGetCompany_Companies? Companies { get; }
 
-        public virtual global::System.Boolean Equals(LoginResult? other)
+        public virtual global::System.Boolean Equals(GetCompanyResult? other)
         {
             if (ReferenceEquals(null, other))
             {
@@ -2234,7 +1464,7 @@ namespace app.Graphql
                 return false;
             }
 
-            return (((Account is null && other.Account is null) || Account != null && Account.Equals(other.Account)));
+            return (((Companies is null && other.Companies is null) || Companies != null && Companies.Equals(other.Companies)));
         }
 
         public override global::System.Boolean Equals(global::System.Object? obj)
@@ -2254,7 +1484,7 @@ namespace app.Graphql
                 return false;
             }
 
-            return Equals((LoginResult)obj);
+            return Equals((GetCompanyResult)obj);
         }
 
         public override global::System.Int32 GetHashCode()
@@ -2262,9 +1492,9 @@ namespace app.Graphql
             unchecked
             {
                 int hash = 5;
-                if (Account != null)
+                if (Companies != null)
                 {
-                    hash ^= 397 * Account.GetHashCode();
+                    hash ^= 397 * Companies.GetHashCode();
                 }
 
                 return hash;
@@ -2272,20 +1502,23 @@ namespace app.Graphql
         }
     }
 
+    /// <summary>
+    /// A connection to a list of items.
+    /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class Login_Account_AccountMutationType : global::System.IEquatable<Login_Account_AccountMutationType>, ILogin_Account_AccountMutationType
+    public partial class GetCompany_Companies_CompanyConnection : global::System.IEquatable<GetCompany_Companies_CompanyConnection>, IGetCompany_Companies_CompanyConnection
     {
-        public Login_Account_AccountMutationType(global::System.String? login)
+        public GetCompany_Companies_CompanyConnection(global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetCompany_Companies_Nodes?>? nodes)
         {
-            Login = login;
+            Nodes = nodes;
         }
 
-        public global::System.String? Login
-        {
-            get;
-        }
+        /// <summary>
+        /// A flattened list of the nodes.
+        /// </summary>
+        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetCompany_Companies_Nodes?>? Nodes { get; }
 
-        public virtual global::System.Boolean Equals(Login_Account_AccountMutationType? other)
+        public virtual global::System.Boolean Equals(GetCompany_Companies_CompanyConnection? other)
         {
             if (ReferenceEquals(null, other))
             {
@@ -2302,7 +1535,7 @@ namespace app.Graphql
                 return false;
             }
 
-            return (((Login is null && other.Login is null) || Login != null && Login.Equals(other.Login)));
+            return (global::StrawberryShake.Helper.ComparisonHelper.SequenceEqual(Nodes, other.Nodes));
         }
 
         public override global::System.Boolean Equals(global::System.Object? obj)
@@ -2322,7 +1555,7 @@ namespace app.Graphql
                 return false;
             }
 
-            return Equals((Login_Account_AccountMutationType)obj);
+            return Equals((GetCompany_Companies_CompanyConnection)obj);
         }
 
         public override global::System.Int32 GetHashCode()
@@ -2330,9 +1563,15 @@ namespace app.Graphql
             unchecked
             {
                 int hash = 5;
-                if (Login != null)
+                if (Nodes != null)
                 {
-                    hash ^= 397 * Login.GetHashCode();
+                    foreach (var Nodes_elm in Nodes)
+                    {
+                        if (Nodes_elm != null)
+                        {
+                            hash ^= 397 * Nodes_elm.GetHashCode();
+                        }
+                    }
                 }
 
                 return hash;
@@ -2341,42 +1580,22 @@ namespace app.Graphql
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface ILoginResult
+    public partial class GetCompany_Companies_Nodes_Company : global::System.IEquatable<GetCompany_Companies_Nodes_Company>, IGetCompany_Companies_Nodes_Company
     {
-        public global::app.Graphql.ILogin_Account? Account
+        public GetCompany_Companies_Nodes_Company(global::System.String? id, global::System.String? name, global::app.Graphql.Status status)
         {
-            get;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface ILogin_Account
-    {
-        public global::System.String? Login
-        {
-            get;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface ILogin_Account_AccountMutationType : ILogin_Account
-    {
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class RegisterResult : global::System.IEquatable<RegisterResult>, IRegisterResult
-    {
-        public RegisterResult(global::app.Graphql.IRegister_Account? account)
-        {
-            Account = account;
+            Id = id;
+            Name = name;
+            Status = status;
         }
 
-        public global::app.Graphql.IRegister_Account? Account
-        {
-            get;
-        }
+        public global::System.String? Id { get; }
 
-        public virtual global::System.Boolean Equals(RegisterResult? other)
+        public global::System.String? Name { get; }
+
+        public global::app.Graphql.Status Status { get; }
+
+        public virtual global::System.Boolean Equals(GetCompany_Companies_Nodes_Company? other)
         {
             if (ReferenceEquals(null, other))
             {
@@ -2393,7 +1612,7 @@ namespace app.Graphql
                 return false;
             }
 
-            return (((Account is null && other.Account is null) || Account != null && Account.Equals(other.Account)));
+            return (((Id is null && other.Id is null) || Id != null && Id.Equals(other.Id))) && ((Name is null && other.Name is null) || Name != null && Name.Equals(other.Name)) && Status.Equals(other.Status);
         }
 
         public override global::System.Boolean Equals(global::System.Object? obj)
@@ -2413,7 +1632,7 @@ namespace app.Graphql
                 return false;
             }
 
-            return Equals((RegisterResult)obj);
+            return Equals((GetCompany_Companies_Nodes_Company)obj);
         }
 
         public override global::System.Int32 GetHashCode()
@@ -2421,30 +1640,74 @@ namespace app.Graphql
             unchecked
             {
                 int hash = 5;
-                if (Account != null)
+                if (Id != null)
                 {
-                    hash ^= 397 * Account.GetHashCode();
+                    hash ^= 397 * Id.GetHashCode();
                 }
 
+                if (Name != null)
+                {
+                    hash ^= 397 * Name.GetHashCode();
+                }
+
+                hash ^= 397 * Status.GetHashCode();
                 return hash;
             }
         }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class Register_Account_AccountMutationType : global::System.IEquatable<Register_Account_AccountMutationType>, IRegister_Account_AccountMutationType
+    public interface IGetCompanyResult
     {
-        public Register_Account_AccountMutationType(global::System.String? register)
+        public global::app.Graphql.IGetCompany_Companies? Companies { get; }
+    }
+
+    /// <summary>
+    /// A connection to a list of items.
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public interface IGetCompany_Companies
+    {
+        /// <summary>
+        /// A flattened list of the nodes.
+        /// </summary>
+        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetCompany_Companies_Nodes?>? Nodes { get; }
+    }
+
+    /// <summary>
+    /// A connection to a list of items.
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public interface IGetCompany_Companies_CompanyConnection : IGetCompany_Companies
+    {
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public interface IGetCompany_Companies_Nodes
+    {
+        public global::System.String? Id { get; }
+
+        public global::System.String? Name { get; }
+
+        public global::app.Graphql.Status Status { get; }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public interface IGetCompany_Companies_Nodes_Company : IGetCompany_Companies_Nodes
+    {
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class CreateUserResult : global::System.IEquatable<CreateUserResult>, ICreateUserResult
+    {
+        public CreateUserResult(global::app.Graphql.ICreateUser_User? user)
         {
-            Register = register;
+            User = user;
         }
 
-        public global::System.String? Register
-        {
-            get;
-        }
+        public global::app.Graphql.ICreateUser_User? User { get; }
 
-        public virtual global::System.Boolean Equals(Register_Account_AccountMutationType? other)
+        public virtual global::System.Boolean Equals(CreateUserResult? other)
         {
             if (ReferenceEquals(null, other))
             {
@@ -2461,7 +1724,7 @@ namespace app.Graphql
                 return false;
             }
 
-            return (((Register is null && other.Register is null) || Register != null && Register.Equals(other.Register)));
+            return (((User is null && other.User is null) || User != null && User.Equals(other.User)));
         }
 
         public override global::System.Boolean Equals(global::System.Object? obj)
@@ -2481,7 +1744,7 @@ namespace app.Graphql
                 return false;
             }
 
-            return Equals((Register_Account_AccountMutationType)obj);
+            return Equals((CreateUserResult)obj);
         }
 
         public override global::System.Int32 GetHashCode()
@@ -2489,9 +1752,9 @@ namespace app.Graphql
             unchecked
             {
                 int hash = 5;
-                if (Register != null)
+                if (User != null)
                 {
-                    hash ^= 397 * Register.GetHashCode();
+                    hash ^= 397 * User.GetHashCode();
                 }
 
                 return hash;
@@ -2500,42 +1763,16 @@ namespace app.Graphql
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface IRegisterResult
+    public partial class CreateUser_User_UserMutationType : global::System.IEquatable<CreateUser_User_UserMutationType>, ICreateUser_User_UserMutationType
     {
-        public global::app.Graphql.IRegister_Account? Account
+        public CreateUser_User_UserMutationType(global::System.String? @add)
         {
-            get;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface IRegister_Account
-    {
-        public global::System.String? Register
-        {
-            get;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface IRegister_Account_AccountMutationType : IRegister_Account
-    {
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class RefreshTokenResult : global::System.IEquatable<RefreshTokenResult>, IRefreshTokenResult
-    {
-        public RefreshTokenResult(global::app.Graphql.IRefreshToken_Account? account)
-        {
-            Account = account;
+            Add = @add;
         }
 
-        public global::app.Graphql.IRefreshToken_Account? Account
-        {
-            get;
-        }
+        public global::System.String? Add { get; }
 
-        public virtual global::System.Boolean Equals(RefreshTokenResult? other)
+        public virtual global::System.Boolean Equals(CreateUser_User_UserMutationType? other)
         {
             if (ReferenceEquals(null, other))
             {
@@ -2552,7 +1789,7 @@ namespace app.Graphql
                 return false;
             }
 
-            return (((Account is null && other.Account is null) || Account != null && Account.Equals(other.Account)));
+            return (((Add is null && other.Add is null) || Add != null && Add.Equals(other.Add)));
         }
 
         public override global::System.Boolean Equals(global::System.Object? obj)
@@ -2572,7 +1809,7 @@ namespace app.Graphql
                 return false;
             }
 
-            return Equals((RefreshTokenResult)obj);
+            return Equals((CreateUser_User_UserMutationType)obj);
         }
 
         public override global::System.Int32 GetHashCode()
@@ -2580,9 +1817,9 @@ namespace app.Graphql
             unchecked
             {
                 int hash = 5;
-                if (Account != null)
+                if (Add != null)
                 {
-                    hash ^= 397 * Account.GetHashCode();
+                    hash ^= 397 * Add.GetHashCode();
                 }
 
                 return hash;
@@ -2591,19 +1828,33 @@ namespace app.Graphql
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class RefreshToken_Account_AccountMutationType : global::System.IEquatable<RefreshToken_Account_AccountMutationType>, IRefreshToken_Account_AccountMutationType
+    public interface ICreateUserResult
     {
-        public RefreshToken_Account_AccountMutationType(global::System.String? refreshToken)
+        public global::app.Graphql.ICreateUser_User? User { get; }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public interface ICreateUser_User
+    {
+        public global::System.String? Add { get; }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public interface ICreateUser_User_UserMutationType : ICreateUser_User
+    {
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class GetUsersResult : global::System.IEquatable<GetUsersResult>, IGetUsersResult
+    {
+        public GetUsersResult(global::app.Graphql.IGetUsers_Users? users)
         {
-            RefreshToken = refreshToken;
+            Users = users;
         }
 
-        public global::System.String? RefreshToken
-        {
-            get;
-        }
+        public global::app.Graphql.IGetUsers_Users? Users { get; }
 
-        public virtual global::System.Boolean Equals(RefreshToken_Account_AccountMutationType? other)
+        public virtual global::System.Boolean Equals(GetUsersResult? other)
         {
             if (ReferenceEquals(null, other))
             {
@@ -2620,7 +1871,7 @@ namespace app.Graphql
                 return false;
             }
 
-            return (((RefreshToken is null && other.RefreshToken is null) || RefreshToken != null && RefreshToken.Equals(other.RefreshToken)));
+            return (((Users is null && other.Users is null) || Users != null && Users.Equals(other.Users)));
         }
 
         public override global::System.Boolean Equals(global::System.Object? obj)
@@ -2640,7 +1891,7 @@ namespace app.Graphql
                 return false;
             }
 
-            return Equals((RefreshToken_Account_AccountMutationType)obj);
+            return Equals((GetUsersResult)obj);
         }
 
         public override global::System.Int32 GetHashCode()
@@ -2648,9 +1899,302 @@ namespace app.Graphql
             unchecked
             {
                 int hash = 5;
-                if (RefreshToken != null)
+                if (Users != null)
                 {
-                    hash ^= 397 * RefreshToken.GetHashCode();
+                    hash ^= 397 * Users.GetHashCode();
+                }
+
+                return hash;
+            }
+        }
+    }
+
+    /// <summary>
+    /// A connection to a list of items.
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class GetUsers_Users_UserConnection : global::System.IEquatable<GetUsers_Users_UserConnection>, IGetUsers_Users_UserConnection
+    {
+        public GetUsers_Users_UserConnection(global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetUsers_Users_Nodes?>? nodes, global::app.Graphql.IGetUsers_Users_PageInfo pageInfo, global::System.Int32 totalCount)
+        {
+            Nodes = nodes;
+            PageInfo = pageInfo;
+            TotalCount = totalCount;
+        }
+
+        /// <summary>
+        /// A flattened list of the nodes.
+        /// </summary>
+        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetUsers_Users_Nodes?>? Nodes { get; }
+
+        /// <summary>
+        /// Information to aid in pagination.
+        /// </summary>
+        public global::app.Graphql.IGetUsers_Users_PageInfo PageInfo { get; }
+
+        public global::System.Int32 TotalCount { get; }
+
+        public virtual global::System.Boolean Equals(GetUsers_Users_UserConnection? other)
+        {
+            if (ReferenceEquals(null, other))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, other))
+            {
+                return true;
+            }
+
+            if (other.GetType() != GetType())
+            {
+                return false;
+            }
+
+            return (global::StrawberryShake.Helper.ComparisonHelper.SequenceEqual(Nodes, other.Nodes)) && PageInfo.Equals(other.PageInfo) && TotalCount == other.TotalCount;
+        }
+
+        public override global::System.Boolean Equals(global::System.Object? obj)
+        {
+            if (ReferenceEquals(null, obj))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (obj.GetType() != GetType())
+            {
+                return false;
+            }
+
+            return Equals((GetUsers_Users_UserConnection)obj);
+        }
+
+        public override global::System.Int32 GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 5;
+                if (Nodes != null)
+                {
+                    foreach (var Nodes_elm in Nodes)
+                    {
+                        if (Nodes_elm != null)
+                        {
+                            hash ^= 397 * Nodes_elm.GetHashCode();
+                        }
+                    }
+                }
+
+                hash ^= 397 * PageInfo.GetHashCode();
+                hash ^= 397 * TotalCount.GetHashCode();
+                return hash;
+            }
+        }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class GetUsers_Users_Nodes_User : global::System.IEquatable<GetUsers_Users_Nodes_User>, IGetUsers_Users_Nodes_User
+    {
+        public GetUsers_Users_Nodes_User(global::app.Graphql.IGetUsers_Users_Nodes_Company? company, global::System.String? id, global::System.String? email, global::System.String? phoneNumber, global::app.Graphql.Status status, global::System.String? userName, global::System.String? companyId)
+        {
+            Company = company;
+            Id = id;
+            Email = email;
+            PhoneNumber = phoneNumber;
+            Status = status;
+            UserName = userName;
+            CompanyId = companyId;
+        }
+
+        public global::app.Graphql.IGetUsers_Users_Nodes_Company? Company { get; }
+
+        public global::System.String? Id { get; }
+
+        public global::System.String? Email { get; }
+
+        public global::System.String? PhoneNumber { get; }
+
+        public global::app.Graphql.Status Status { get; }
+
+        public global::System.String? UserName { get; }
+
+        public global::System.String? CompanyId { get; }
+
+        public virtual global::System.Boolean Equals(GetUsers_Users_Nodes_User? other)
+        {
+            if (ReferenceEquals(null, other))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, other))
+            {
+                return true;
+            }
+
+            if (other.GetType() != GetType())
+            {
+                return false;
+            }
+
+            return (((Company is null && other.Company is null) || Company != null && Company.Equals(other.Company))) && ((Id is null && other.Id is null) || Id != null && Id.Equals(other.Id)) && ((Email is null && other.Email is null) || Email != null && Email.Equals(other.Email)) && ((PhoneNumber is null && other.PhoneNumber is null) || PhoneNumber != null && PhoneNumber.Equals(other.PhoneNumber)) && Status.Equals(other.Status) && ((UserName is null && other.UserName is null) || UserName != null && UserName.Equals(other.UserName)) && ((CompanyId is null && other.CompanyId is null) || CompanyId != null && CompanyId.Equals(other.CompanyId));
+        }
+
+        public override global::System.Boolean Equals(global::System.Object? obj)
+        {
+            if (ReferenceEquals(null, obj))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (obj.GetType() != GetType())
+            {
+                return false;
+            }
+
+            return Equals((GetUsers_Users_Nodes_User)obj);
+        }
+
+        public override global::System.Int32 GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 5;
+                if (Company != null)
+                {
+                    hash ^= 397 * Company.GetHashCode();
+                }
+
+                if (Id != null)
+                {
+                    hash ^= 397 * Id.GetHashCode();
+                }
+
+                if (Email != null)
+                {
+                    hash ^= 397 * Email.GetHashCode();
+                }
+
+                if (PhoneNumber != null)
+                {
+                    hash ^= 397 * PhoneNumber.GetHashCode();
+                }
+
+                hash ^= 397 * Status.GetHashCode();
+                if (UserName != null)
+                {
+                    hash ^= 397 * UserName.GetHashCode();
+                }
+
+                if (CompanyId != null)
+                {
+                    hash ^= 397 * CompanyId.GetHashCode();
+                }
+
+                return hash;
+            }
+        }
+    }
+
+    /// <summary>
+    /// Information about pagination in a connection.
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class GetUsers_Users_PageInfo_PageInfo : global::System.IEquatable<GetUsers_Users_PageInfo_PageInfo>, IGetUsers_Users_PageInfo_PageInfo
+    {
+        public GetUsers_Users_PageInfo_PageInfo(global::System.String? endCursor, global::System.Boolean hasNextPage, global::System.Boolean hasPreviousPage, global::System.String? startCursor)
+        {
+            EndCursor = endCursor;
+            HasNextPage = hasNextPage;
+            HasPreviousPage = hasPreviousPage;
+            StartCursor = startCursor;
+        }
+
+        /// <summary>
+        /// When paginating forwards, the cursor to continue.
+        /// </summary>
+        public global::System.String? EndCursor { get; }
+
+        /// <summary>
+        /// Indicates whether more edges exist following the set defined by the clients arguments.
+        /// </summary>
+        public global::System.Boolean HasNextPage { get; }
+
+        /// <summary>
+        /// Indicates whether more edges exist prior the set defined by the clients arguments.
+        /// </summary>
+        public global::System.Boolean HasPreviousPage { get; }
+
+        /// <summary>
+        /// When paginating backwards, the cursor to continue.
+        /// </summary>
+        public global::System.String? StartCursor { get; }
+
+        public virtual global::System.Boolean Equals(GetUsers_Users_PageInfo_PageInfo? other)
+        {
+            if (ReferenceEquals(null, other))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, other))
+            {
+                return true;
+            }
+
+            if (other.GetType() != GetType())
+            {
+                return false;
+            }
+
+            return (((EndCursor is null && other.EndCursor is null) || EndCursor != null && EndCursor.Equals(other.EndCursor))) && HasNextPage == other.HasNextPage && HasPreviousPage == other.HasPreviousPage && ((StartCursor is null && other.StartCursor is null) || StartCursor != null && StartCursor.Equals(other.StartCursor));
+        }
+
+        public override global::System.Boolean Equals(global::System.Object? obj)
+        {
+            if (ReferenceEquals(null, obj))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (obj.GetType() != GetType())
+            {
+                return false;
+            }
+
+            return Equals((GetUsers_Users_PageInfo_PageInfo)obj);
+        }
+
+        public override global::System.Int32 GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 5;
+                if (EndCursor != null)
+                {
+                    hash ^= 397 * EndCursor.GetHashCode();
+                }
+
+                hash ^= 397 * HasNextPage.GetHashCode();
+                hash ^= 397 * HasPreviousPage.GetHashCode();
+                if (StartCursor != null)
+                {
+                    hash ^= 397 * StartCursor.GetHashCode();
                 }
 
                 return hash;
@@ -2659,33 +2203,177 @@ namespace app.Graphql
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface IRefreshTokenResult
+    public partial class GetUsers_Users_Nodes_Company_Company : global::System.IEquatable<GetUsers_Users_Nodes_Company_Company>, IGetUsers_Users_Nodes_Company_Company
     {
-        public global::app.Graphql.IRefreshToken_Account? Account
+        public GetUsers_Users_Nodes_Company_Company(global::System.String? name)
         {
-            get;
+            Name = name;
+        }
+
+        public global::System.String? Name { get; }
+
+        public virtual global::System.Boolean Equals(GetUsers_Users_Nodes_Company_Company? other)
+        {
+            if (ReferenceEquals(null, other))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, other))
+            {
+                return true;
+            }
+
+            if (other.GetType() != GetType())
+            {
+                return false;
+            }
+
+            return (((Name is null && other.Name is null) || Name != null && Name.Equals(other.Name)));
+        }
+
+        public override global::System.Boolean Equals(global::System.Object? obj)
+        {
+            if (ReferenceEquals(null, obj))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (obj.GetType() != GetType())
+            {
+                return false;
+            }
+
+            return Equals((GetUsers_Users_Nodes_Company_Company)obj);
+        }
+
+        public override global::System.Int32 GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 5;
+                if (Name != null)
+                {
+                    hash ^= 397 * Name.GetHashCode();
+                }
+
+                return hash;
+            }
         }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface IRefreshToken_Account
+    public interface IGetUsersResult
     {
-        public global::System.String? RefreshToken
-        {
-            get;
-        }
+        public global::app.Graphql.IGetUsers_Users? Users { get; }
+    }
+
+    /// <summary>
+    /// A connection to a list of items.
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public interface IGetUsers_Users
+    {
+        /// <summary>
+        /// A flattened list of the nodes.
+        /// </summary>
+        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetUsers_Users_Nodes?>? Nodes { get; }
+
+        /// <summary>
+        /// Information to aid in pagination.
+        /// </summary>
+        public global::app.Graphql.IGetUsers_Users_PageInfo PageInfo { get; }
+
+        public global::System.Int32 TotalCount { get; }
+    }
+
+    /// <summary>
+    /// A connection to a list of items.
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public interface IGetUsers_Users_UserConnection : IGetUsers_Users
+    {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface IRefreshToken_Account_AccountMutationType : IRefreshToken_Account
+    public interface IGetUsers_Users_Nodes
+    {
+        public global::app.Graphql.IGetUsers_Users_Nodes_Company? Company { get; }
+
+        public global::System.String? Id { get; }
+
+        public global::System.String? Email { get; }
+
+        public global::System.String? PhoneNumber { get; }
+
+        public global::app.Graphql.Status Status { get; }
+
+        public global::System.String? UserName { get; }
+
+        public global::System.String? CompanyId { get; }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public interface IGetUsers_Users_Nodes_User : IGetUsers_Users_Nodes
+    {
+    }
+
+    /// <summary>
+    /// Information about pagination in a connection.
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public interface IGetUsers_Users_PageInfo
+    {
+        /// <summary>
+        /// When paginating forwards, the cursor to continue.
+        /// </summary>
+        public global::System.String? EndCursor { get; }
+
+        /// <summary>
+        /// Indicates whether more edges exist following the set defined by the clients arguments.
+        /// </summary>
+        public global::System.Boolean HasNextPage { get; }
+
+        /// <summary>
+        /// Indicates whether more edges exist prior the set defined by the clients arguments.
+        /// </summary>
+        public global::System.Boolean HasPreviousPage { get; }
+
+        /// <summary>
+        /// When paginating backwards, the cursor to continue.
+        /// </summary>
+        public global::System.String? StartCursor { get; }
+    }
+
+    /// <summary>
+    /// Information about pagination in a connection.
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public interface IGetUsers_Users_PageInfo_PageInfo : IGetUsers_Users_PageInfo
     {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class CreateUserVmInputInputValueFormatter : global::StrawberryShake.Serialization.IInputObjectFormatter
+    public interface IGetUsers_Users_Nodes_Company
+    {
+        public global::System.String? Name { get; }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public interface IGetUsers_Users_Nodes_Company_Company : IGetUsers_Users_Nodes_Company
+    {
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class LoginModelInputInputValueFormatter : global::StrawberryShake.Serialization.IInputObjectFormatter
     {
         private global::StrawberryShake.Serialization.IInputValueFormatter _stringFormatter = default !;
-        public global::System.String TypeName => "CreateUserVmInput";
+        public global::System.String TypeName => "LoginModelInput";
         public void Initialize(global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
         {
             _stringFormatter = serializerResolver.GetInputValueFormatter("String");
@@ -2698,23 +2386,38 @@ namespace app.Graphql
                 return null;
             }
 
-            var input = runtimeValue as global::app.Graphql.CreateUserVmInput;
-            var inputInfo = runtimeValue as global::app.Graphql.State.ICreateUserVmInputInfo;
+            var input = runtimeValue as global::app.Graphql.LoginModelInput;
+            var inputInfo = runtimeValue as global::app.Graphql.State.ILoginModelInputInfo;
             if (input is null || inputInfo is null)
             {
                 throw new global::System.ArgumentException(nameof(runtimeValue));
             }
 
             var fields = new global::System.Collections.Generic.List<global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>>();
-            if (inputInfo.IsEmailSet)
+            if (inputInfo.IsUsernameSet)
             {
-                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("email", FormatEmail(input.Email)));
+                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("username", FormatUsername(input.Username)));
+            }
+
+            if (inputInfo.IsPasswordSet)
+            {
+                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("password", FormatPassword(input.Password)));
             }
 
             return fields;
         }
 
-        private global::System.Object? FormatEmail(global::System.String input)
+        private global::System.Object? FormatUsername(global::System.String input)
+        {
+            if (input is null)
+            {
+                throw new global::System.ArgumentNullException(nameof(input));
+            }
+
+            return _stringFormatter.Format(input);
+        }
+
+        private global::System.Object? FormatPassword(global::System.String input)
         {
             if (input is null)
             {
@@ -2726,7 +2429,7 @@ namespace app.Graphql
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class CreateUserVmInput : global::app.Graphql.State.ICreateUserVmInputInfo, global::System.IEquatable<CreateUserVmInput>
+    public partial class LoginModelInput : global::app.Graphql.State.ILoginModelInputInfo, global::System.IEquatable<LoginModelInput>
     {
         public override global::System.Boolean Equals(global::System.Object? obj)
         {
@@ -2745,10 +2448,10 @@ namespace app.Graphql
                 return false;
             }
 
-            return Equals((CreateUserVmInput)obj);
+            return Equals((LoginModelInput)obj);
         }
 
-        public virtual global::System.Boolean Equals(CreateUserVmInput? other)
+        public virtual global::System.Boolean Equals(LoginModelInput? other)
         {
             if (ReferenceEquals(null, other))
             {
@@ -2765,7 +2468,7 @@ namespace app.Graphql
                 return false;
             }
 
-            return (Email.Equals(other.Email));
+            return (Username.Equals(other.Username)) && Password.Equals(other.Password);
         }
 
         public override global::System.Int32 GetHashCode()
@@ -2773,13 +2476,222 @@ namespace app.Graphql
             unchecked
             {
                 int hash = 5;
-                hash ^= 397 * Email.GetHashCode();
+                hash ^= 397 * Username.GetHashCode();
+                hash ^= 397 * Password.GetHashCode();
                 return hash;
             }
         }
 
+        private global::System.String _value_username = default !;
+        private global::System.Boolean _set_username;
+        private global::System.String _value_password = default !;
+        private global::System.Boolean _set_password;
+        public global::System.String Username
+        {
+            get => _value_username;
+            set
+            {
+                _set_username = true;
+                _value_username = value;
+            }
+        }
+
+        global::System.Boolean global::app.Graphql.State.ILoginModelInputInfo.IsUsernameSet => _set_username;
+        public global::System.String Password
+        {
+            get => _value_password;
+            set
+            {
+                _set_password = true;
+                _value_password = value;
+            }
+        }
+
+        global::System.Boolean global::app.Graphql.State.ILoginModelInputInfo.IsPasswordSet => _set_password;
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class RegisterModelInputInputValueFormatter : global::StrawberryShake.Serialization.IInputObjectFormatter
+    {
+        private global::StrawberryShake.Serialization.IInputValueFormatter _stringFormatter = default !;
+        public global::System.String TypeName => "RegisterModelInput";
+        public void Initialize(global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
+        {
+            _stringFormatter = serializerResolver.GetInputValueFormatter("String");
+        }
+
+        public global::System.Object? Format(global::System.Object? runtimeValue)
+        {
+            if (runtimeValue is null)
+            {
+                return null;
+            }
+
+            var input = runtimeValue as global::app.Graphql.RegisterModelInput;
+            var inputInfo = runtimeValue as global::app.Graphql.State.IRegisterModelInputInfo;
+            if (input is null || inputInfo is null)
+            {
+                throw new global::System.ArgumentException(nameof(runtimeValue));
+            }
+
+            var fields = new global::System.Collections.Generic.List<global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>>();
+            if (inputInfo.IsCompanyNameSet)
+            {
+                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("companyName", FormatCompanyName(input.CompanyName)));
+            }
+
+            if (inputInfo.IsEmailSet)
+            {
+                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("email", FormatEmail(input.Email)));
+            }
+
+            if (inputInfo.IsPasswordConfirmationSet)
+            {
+                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("passwordConfirmation", FormatPasswordConfirmation(input.PasswordConfirmation)));
+            }
+
+            if (inputInfo.IsUsernameSet)
+            {
+                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("username", FormatUsername(input.Username)));
+            }
+
+            if (inputInfo.IsPasswordSet)
+            {
+                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("password", FormatPassword(input.Password)));
+            }
+
+            return fields;
+        }
+
+        private global::System.Object? FormatCompanyName(global::System.String input)
+        {
+            if (input is null)
+            {
+                throw new global::System.ArgumentNullException(nameof(input));
+            }
+
+            return _stringFormatter.Format(input);
+        }
+
+        private global::System.Object? FormatEmail(global::System.String input)
+        {
+            if (input is null)
+            {
+                throw new global::System.ArgumentNullException(nameof(input));
+            }
+
+            return _stringFormatter.Format(input);
+        }
+
+        private global::System.Object? FormatPasswordConfirmation(global::System.String input)
+        {
+            if (input is null)
+            {
+                throw new global::System.ArgumentNullException(nameof(input));
+            }
+
+            return _stringFormatter.Format(input);
+        }
+
+        private global::System.Object? FormatUsername(global::System.String input)
+        {
+            if (input is null)
+            {
+                throw new global::System.ArgumentNullException(nameof(input));
+            }
+
+            return _stringFormatter.Format(input);
+        }
+
+        private global::System.Object? FormatPassword(global::System.String input)
+        {
+            if (input is null)
+            {
+                throw new global::System.ArgumentNullException(nameof(input));
+            }
+
+            return _stringFormatter.Format(input);
+        }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class RegisterModelInput : global::app.Graphql.State.IRegisterModelInputInfo, global::System.IEquatable<RegisterModelInput>
+    {
+        public override global::System.Boolean Equals(global::System.Object? obj)
+        {
+            if (ReferenceEquals(null, obj))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (obj.GetType() != GetType())
+            {
+                return false;
+            }
+
+            return Equals((RegisterModelInput)obj);
+        }
+
+        public virtual global::System.Boolean Equals(RegisterModelInput? other)
+        {
+            if (ReferenceEquals(null, other))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, other))
+            {
+                return true;
+            }
+
+            if (other.GetType() != GetType())
+            {
+                return false;
+            }
+
+            return (CompanyName.Equals(other.CompanyName)) && Email.Equals(other.Email) && PasswordConfirmation.Equals(other.PasswordConfirmation) && Username.Equals(other.Username) && Password.Equals(other.Password);
+        }
+
+        public override global::System.Int32 GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 5;
+                hash ^= 397 * CompanyName.GetHashCode();
+                hash ^= 397 * Email.GetHashCode();
+                hash ^= 397 * PasswordConfirmation.GetHashCode();
+                hash ^= 397 * Username.GetHashCode();
+                hash ^= 397 * Password.GetHashCode();
+                return hash;
+            }
+        }
+
+        private global::System.String _value_companyName = default !;
+        private global::System.Boolean _set_companyName;
         private global::System.String _value_email = default !;
         private global::System.Boolean _set_email;
+        private global::System.String _value_passwordConfirmation = default !;
+        private global::System.Boolean _set_passwordConfirmation;
+        private global::System.String _value_username = default !;
+        private global::System.Boolean _set_username;
+        private global::System.String _value_password = default !;
+        private global::System.Boolean _set_password;
+        public global::System.String CompanyName
+        {
+            get => _value_companyName;
+            set
+            {
+                _set_companyName = true;
+                _value_companyName = value;
+            }
+        }
+
+        global::System.Boolean global::app.Graphql.State.IRegisterModelInputInfo.IsCompanyNameSet => _set_companyName;
         public global::System.String Email
         {
             get => _value_email;
@@ -2790,31 +2702,50 @@ namespace app.Graphql
             }
         }
 
-        global::System.Boolean global::app.Graphql.State.ICreateUserVmInputInfo.IsEmailSet => _set_email;
+        global::System.Boolean global::app.Graphql.State.IRegisterModelInputInfo.IsEmailSet => _set_email;
+        public global::System.String PasswordConfirmation
+        {
+            get => _value_passwordConfirmation;
+            set
+            {
+                _set_passwordConfirmation = true;
+                _value_passwordConfirmation = value;
+            }
+        }
+
+        global::System.Boolean global::app.Graphql.State.IRegisterModelInputInfo.IsPasswordConfirmationSet => _set_passwordConfirmation;
+        public global::System.String Username
+        {
+            get => _value_username;
+            set
+            {
+                _set_username = true;
+                _value_username = value;
+            }
+        }
+
+        global::System.Boolean global::app.Graphql.State.IRegisterModelInputInfo.IsUsernameSet => _set_username;
+        public global::System.String Password
+        {
+            get => _value_password;
+            set
+            {
+                _set_password = true;
+                _value_password = value;
+            }
+        }
+
+        global::System.Boolean global::app.Graphql.State.IRegisterModelInputInfo.IsPasswordSet => _set_password;
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class UserFilterInputInputValueFormatter : global::StrawberryShake.Serialization.IInputObjectFormatter
+    public partial class CreateProjectVmInputInputValueFormatter : global::StrawberryShake.Serialization.IInputObjectFormatter
     {
-        private global::StrawberryShake.Serialization.IInputValueFormatter _userFilterInputFormatter = default !;
-        private global::StrawberryShake.Serialization.IInputValueFormatter _stringOperationFilterInputFormatter = default !;
-        private global::StrawberryShake.Serialization.IInputValueFormatter _statusOperationFilterInputFormatter = default !;
-        private global::StrawberryShake.Serialization.IInputValueFormatter _companyFilterInputFormatter = default !;
-        private global::StrawberryShake.Serialization.IInputValueFormatter _listFilterInputTypeOfUserProjectFilterInputFormatter = default !;
-        private global::StrawberryShake.Serialization.IInputValueFormatter _booleanOperationFilterInputFormatter = default !;
-        private global::StrawberryShake.Serialization.IInputValueFormatter _comparableNullableOfDateTimeOffsetOperationFilterInputFormatter = default !;
-        private global::StrawberryShake.Serialization.IInputValueFormatter _comparableInt32OperationFilterInputFormatter = default !;
-        public global::System.String TypeName => "UserFilterInput";
+        private global::StrawberryShake.Serialization.IInputValueFormatter _stringFormatter = default !;
+        public global::System.String TypeName => "CreateProjectVmInput";
         public void Initialize(global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
         {
-            _userFilterInputFormatter = serializerResolver.GetInputValueFormatter("UserFilterInput");
-            _stringOperationFilterInputFormatter = serializerResolver.GetInputValueFormatter("StringOperationFilterInput");
-            _statusOperationFilterInputFormatter = serializerResolver.GetInputValueFormatter("StatusOperationFilterInput");
-            _companyFilterInputFormatter = serializerResolver.GetInputValueFormatter("CompanyFilterInput");
-            _listFilterInputTypeOfUserProjectFilterInputFormatter = serializerResolver.GetInputValueFormatter("ListFilterInputTypeOfUserProjectFilterInput");
-            _booleanOperationFilterInputFormatter = serializerResolver.GetInputValueFormatter("BooleanOperationFilterInput");
-            _comparableNullableOfDateTimeOffsetOperationFilterInputFormatter = serializerResolver.GetInputValueFormatter("ComparableNullableOfDateTimeOffsetOperationFilterInput");
-            _comparableInt32OperationFilterInputFormatter = serializerResolver.GetInputValueFormatter("ComparableInt32OperationFilterInput");
+            _stringFormatter = serializerResolver.GetInputValueFormatter("String");
         }
 
         public global::System.Object? Format(global::System.Object? runtimeValue)
@@ -2824,8 +2755,157 @@ namespace app.Graphql
                 return null;
             }
 
-            var input = runtimeValue as global::app.Graphql.UserFilterInput;
-            var inputInfo = runtimeValue as global::app.Graphql.State.IUserFilterInputInfo;
+            var input = runtimeValue as global::app.Graphql.CreateProjectVmInput;
+            var inputInfo = runtimeValue as global::app.Graphql.State.ICreateProjectVmInputInfo;
+            if (input is null || inputInfo is null)
+            {
+                throw new global::System.ArgumentException(nameof(runtimeValue));
+            }
+
+            var fields = new global::System.Collections.Generic.List<global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>>();
+            if (inputInfo.IsTitleSet)
+            {
+                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("title", FormatTitle(input.Title)));
+            }
+
+            if (inputInfo.IsDescriptionSet)
+            {
+                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("description", FormatDescription(input.Description)));
+            }
+
+            return fields;
+        }
+
+        private global::System.Object? FormatTitle(global::System.String input)
+        {
+            if (input is null)
+            {
+                throw new global::System.ArgumentNullException(nameof(input));
+            }
+
+            return _stringFormatter.Format(input);
+        }
+
+        private global::System.Object? FormatDescription(global::System.String input)
+        {
+            if (input is null)
+            {
+                throw new global::System.ArgumentNullException(nameof(input));
+            }
+
+            return _stringFormatter.Format(input);
+        }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class CreateProjectVmInput : global::app.Graphql.State.ICreateProjectVmInputInfo, global::System.IEquatable<CreateProjectVmInput>
+    {
+        public override global::System.Boolean Equals(global::System.Object? obj)
+        {
+            if (ReferenceEquals(null, obj))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, obj))
+            {
+                return true;
+            }
+
+            if (obj.GetType() != GetType())
+            {
+                return false;
+            }
+
+            return Equals((CreateProjectVmInput)obj);
+        }
+
+        public virtual global::System.Boolean Equals(CreateProjectVmInput? other)
+        {
+            if (ReferenceEquals(null, other))
+            {
+                return false;
+            }
+
+            if (ReferenceEquals(this, other))
+            {
+                return true;
+            }
+
+            if (other.GetType() != GetType())
+            {
+                return false;
+            }
+
+            return (Title.Equals(other.Title)) && Description.Equals(other.Description);
+        }
+
+        public override global::System.Int32 GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 5;
+                hash ^= 397 * Title.GetHashCode();
+                hash ^= 397 * Description.GetHashCode();
+                return hash;
+            }
+        }
+
+        private global::System.String _value_title = default !;
+        private global::System.Boolean _set_title;
+        private global::System.String _value_description = default !;
+        private global::System.Boolean _set_description;
+        public global::System.String Title
+        {
+            get => _value_title;
+            set
+            {
+                _set_title = true;
+                _value_title = value;
+            }
+        }
+
+        global::System.Boolean global::app.Graphql.State.ICreateProjectVmInputInfo.IsTitleSet => _set_title;
+        public global::System.String Description
+        {
+            get => _value_description;
+            set
+            {
+                _set_description = true;
+                _value_description = value;
+            }
+        }
+
+        global::System.Boolean global::app.Graphql.State.ICreateProjectVmInputInfo.IsDescriptionSet => _set_description;
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class ProjectFilterInputInputValueFormatter : global::StrawberryShake.Serialization.IInputObjectFormatter
+    {
+        private global::StrawberryShake.Serialization.IInputValueFormatter _projectFilterInputFormatter = default !;
+        private global::StrawberryShake.Serialization.IInputValueFormatter _stringOperationFilterInputFormatter = default !;
+        private global::StrawberryShake.Serialization.IInputValueFormatter _statusOperationFilterInputFormatter = default !;
+        private global::StrawberryShake.Serialization.IInputValueFormatter _companyFilterInputFormatter = default !;
+        private global::StrawberryShake.Serialization.IInputValueFormatter _listFilterInputTypeOfUserProjectFilterInputFormatter = default !;
+        public global::System.String TypeName => "ProjectFilterInput";
+        public void Initialize(global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
+        {
+            _projectFilterInputFormatter = serializerResolver.GetInputValueFormatter("ProjectFilterInput");
+            _stringOperationFilterInputFormatter = serializerResolver.GetInputValueFormatter("StringOperationFilterInput");
+            _statusOperationFilterInputFormatter = serializerResolver.GetInputValueFormatter("StatusOperationFilterInput");
+            _companyFilterInputFormatter = serializerResolver.GetInputValueFormatter("CompanyFilterInput");
+            _listFilterInputTypeOfUserProjectFilterInputFormatter = serializerResolver.GetInputValueFormatter("ListFilterInputTypeOfUserProjectFilterInput");
+        }
+
+        public global::System.Object? Format(global::System.Object? runtimeValue)
+        {
+            if (runtimeValue is null)
+            {
+                return null;
+            }
+
+            var input = runtimeValue as global::app.Graphql.ProjectFilterInput;
+            var inputInfo = runtimeValue as global::app.Graphql.State.IProjectFilterInputInfo;
             if (input is null || inputInfo is null)
             {
                 throw new global::System.ArgumentException(nameof(runtimeValue));
@@ -2852,6 +2932,16 @@ namespace app.Graphql
                 fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("companyId", FormatCompanyId(input.CompanyId)));
             }
 
+            if (inputInfo.IsTitleSet)
+            {
+                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("title", FormatTitle(input.Title)));
+            }
+
+            if (inputInfo.IsDescriptionSet)
+            {
+                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("description", FormatDescription(input.Description)));
+            }
+
             if (inputInfo.IsStatusSet)
             {
                 fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("status", FormatStatus(input.Status)));
@@ -2867,80 +2957,10 @@ namespace app.Graphql
                 fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("userProjects", FormatUserProjects(input.UserProjects)));
             }
 
-            if (inputInfo.IsUserNameSet)
-            {
-                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("userName", FormatUserName(input.UserName)));
-            }
-
-            if (inputInfo.IsNormalizedUserNameSet)
-            {
-                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("normalizedUserName", FormatNormalizedUserName(input.NormalizedUserName)));
-            }
-
-            if (inputInfo.IsEmailSet)
-            {
-                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("email", FormatEmail(input.Email)));
-            }
-
-            if (inputInfo.IsNormalizedEmailSet)
-            {
-                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("normalizedEmail", FormatNormalizedEmail(input.NormalizedEmail)));
-            }
-
-            if (inputInfo.IsEmailConfirmedSet)
-            {
-                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("emailConfirmed", FormatEmailConfirmed(input.EmailConfirmed)));
-            }
-
-            if (inputInfo.IsPasswordHashSet)
-            {
-                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("passwordHash", FormatPasswordHash(input.PasswordHash)));
-            }
-
-            if (inputInfo.IsSecurityStampSet)
-            {
-                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("securityStamp", FormatSecurityStamp(input.SecurityStamp)));
-            }
-
-            if (inputInfo.IsConcurrencyStampSet)
-            {
-                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("concurrencyStamp", FormatConcurrencyStamp(input.ConcurrencyStamp)));
-            }
-
-            if (inputInfo.IsPhoneNumberSet)
-            {
-                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("phoneNumber", FormatPhoneNumber(input.PhoneNumber)));
-            }
-
-            if (inputInfo.IsPhoneNumberConfirmedSet)
-            {
-                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("phoneNumberConfirmed", FormatPhoneNumberConfirmed(input.PhoneNumberConfirmed)));
-            }
-
-            if (inputInfo.IsTwoFactorEnabledSet)
-            {
-                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("twoFactorEnabled", FormatTwoFactorEnabled(input.TwoFactorEnabled)));
-            }
-
-            if (inputInfo.IsLockoutEndSet)
-            {
-                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("lockoutEnd", FormatLockoutEnd(input.LockoutEnd)));
-            }
-
-            if (inputInfo.IsLockoutEnabledSet)
-            {
-                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("lockoutEnabled", FormatLockoutEnabled(input.LockoutEnabled)));
-            }
-
-            if (inputInfo.IsAccessFailedCountSet)
-            {
-                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("accessFailedCount", FormatAccessFailedCount(input.AccessFailedCount)));
-            }
-
             return fields;
         }
 
-        private global::System.Object? FormatAnd(global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.UserFilterInput>? input)
+        private global::System.Object? FormatAnd(global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.ProjectFilterInput>? input)
         {
             if (input is null)
             {
@@ -2956,14 +2976,14 @@ namespace app.Graphql
                         throw new global::System.ArgumentNullException(nameof(input_elm));
                     }
 
-                    input_list.Add(_userFilterInputFormatter.Format(input_elm));
+                    input_list.Add(_projectFilterInputFormatter.Format(input_elm));
                 }
 
                 return input_list;
             }
         }
 
-        private global::System.Object? FormatOr(global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.UserFilterInput>? input)
+        private global::System.Object? FormatOr(global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.ProjectFilterInput>? input)
         {
             if (input is null)
             {
@@ -2979,7 +2999,7 @@ namespace app.Graphql
                         throw new global::System.ArgumentNullException(nameof(input_elm));
                     }
 
-                    input_list.Add(_userFilterInputFormatter.Format(input_elm));
+                    input_list.Add(_projectFilterInputFormatter.Format(input_elm));
                 }
 
                 return input_list;
@@ -2999,6 +3019,30 @@ namespace app.Graphql
         }
 
         private global::System.Object? FormatCompanyId(global::app.Graphql.StringOperationFilterInput? input)
+        {
+            if (input is null)
+            {
+                return input;
+            }
+            else
+            {
+                return _stringOperationFilterInputFormatter.Format(input);
+            }
+        }
+
+        private global::System.Object? FormatTitle(global::app.Graphql.StringOperationFilterInput? input)
+        {
+            if (input is null)
+            {
+                return input;
+            }
+            else
+            {
+                return _stringOperationFilterInputFormatter.Format(input);
+            }
+        }
+
+        private global::System.Object? FormatDescription(global::app.Graphql.StringOperationFilterInput? input)
         {
             if (input is null)
             {
@@ -3045,178 +3089,10 @@ namespace app.Graphql
                 return _listFilterInputTypeOfUserProjectFilterInputFormatter.Format(input);
             }
         }
-
-        private global::System.Object? FormatUserName(global::app.Graphql.StringOperationFilterInput? input)
-        {
-            if (input is null)
-            {
-                return input;
-            }
-            else
-            {
-                return _stringOperationFilterInputFormatter.Format(input);
-            }
-        }
-
-        private global::System.Object? FormatNormalizedUserName(global::app.Graphql.StringOperationFilterInput? input)
-        {
-            if (input is null)
-            {
-                return input;
-            }
-            else
-            {
-                return _stringOperationFilterInputFormatter.Format(input);
-            }
-        }
-
-        private global::System.Object? FormatEmail(global::app.Graphql.StringOperationFilterInput? input)
-        {
-            if (input is null)
-            {
-                return input;
-            }
-            else
-            {
-                return _stringOperationFilterInputFormatter.Format(input);
-            }
-        }
-
-        private global::System.Object? FormatNormalizedEmail(global::app.Graphql.StringOperationFilterInput? input)
-        {
-            if (input is null)
-            {
-                return input;
-            }
-            else
-            {
-                return _stringOperationFilterInputFormatter.Format(input);
-            }
-        }
-
-        private global::System.Object? FormatEmailConfirmed(global::app.Graphql.BooleanOperationFilterInput? input)
-        {
-            if (input is null)
-            {
-                return input;
-            }
-            else
-            {
-                return _booleanOperationFilterInputFormatter.Format(input);
-            }
-        }
-
-        private global::System.Object? FormatPasswordHash(global::app.Graphql.StringOperationFilterInput? input)
-        {
-            if (input is null)
-            {
-                return input;
-            }
-            else
-            {
-                return _stringOperationFilterInputFormatter.Format(input);
-            }
-        }
-
-        private global::System.Object? FormatSecurityStamp(global::app.Graphql.StringOperationFilterInput? input)
-        {
-            if (input is null)
-            {
-                return input;
-            }
-            else
-            {
-                return _stringOperationFilterInputFormatter.Format(input);
-            }
-        }
-
-        private global::System.Object? FormatConcurrencyStamp(global::app.Graphql.StringOperationFilterInput? input)
-        {
-            if (input is null)
-            {
-                return input;
-            }
-            else
-            {
-                return _stringOperationFilterInputFormatter.Format(input);
-            }
-        }
-
-        private global::System.Object? FormatPhoneNumber(global::app.Graphql.StringOperationFilterInput? input)
-        {
-            if (input is null)
-            {
-                return input;
-            }
-            else
-            {
-                return _stringOperationFilterInputFormatter.Format(input);
-            }
-        }
-
-        private global::System.Object? FormatPhoneNumberConfirmed(global::app.Graphql.BooleanOperationFilterInput? input)
-        {
-            if (input is null)
-            {
-                return input;
-            }
-            else
-            {
-                return _booleanOperationFilterInputFormatter.Format(input);
-            }
-        }
-
-        private global::System.Object? FormatTwoFactorEnabled(global::app.Graphql.BooleanOperationFilterInput? input)
-        {
-            if (input is null)
-            {
-                return input;
-            }
-            else
-            {
-                return _booleanOperationFilterInputFormatter.Format(input);
-            }
-        }
-
-        private global::System.Object? FormatLockoutEnd(global::app.Graphql.ComparableNullableOfDateTimeOffsetOperationFilterInput? input)
-        {
-            if (input is null)
-            {
-                return input;
-            }
-            else
-            {
-                return _comparableNullableOfDateTimeOffsetOperationFilterInputFormatter.Format(input);
-            }
-        }
-
-        private global::System.Object? FormatLockoutEnabled(global::app.Graphql.BooleanOperationFilterInput? input)
-        {
-            if (input is null)
-            {
-                return input;
-            }
-            else
-            {
-                return _booleanOperationFilterInputFormatter.Format(input);
-            }
-        }
-
-        private global::System.Object? FormatAccessFailedCount(global::app.Graphql.ComparableInt32OperationFilterInput? input)
-        {
-            if (input is null)
-            {
-                return input;
-            }
-            else
-            {
-                return _comparableInt32OperationFilterInputFormatter.Format(input);
-            }
-        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class UserFilterInput : global::app.Graphql.State.IUserFilterInputInfo, global::System.IEquatable<UserFilterInput>
+    public partial class ProjectFilterInput : global::app.Graphql.State.IProjectFilterInputInfo, global::System.IEquatable<ProjectFilterInput>
     {
         public override global::System.Boolean Equals(global::System.Object? obj)
         {
@@ -3235,10 +3111,10 @@ namespace app.Graphql
                 return false;
             }
 
-            return Equals((UserFilterInput)obj);
+            return Equals((ProjectFilterInput)obj);
         }
 
-        public virtual global::System.Boolean Equals(UserFilterInput? other)
+        public virtual global::System.Boolean Equals(ProjectFilterInput? other)
         {
             if (ReferenceEquals(null, other))
             {
@@ -3255,7 +3131,7 @@ namespace app.Graphql
                 return false;
             }
 
-            return (global::StrawberryShake.Helper.ComparisonHelper.SequenceEqual(And, other.And)) && global::StrawberryShake.Helper.ComparisonHelper.SequenceEqual(Or, other.Or) && ((Id is null && other.Id is null) || Id != null && Id.Equals(other.Id)) && ((CompanyId is null && other.CompanyId is null) || CompanyId != null && CompanyId.Equals(other.CompanyId)) && ((Status is null && other.Status is null) || Status != null && Status.Equals(other.Status)) && ((Company is null && other.Company is null) || Company != null && Company.Equals(other.Company)) && ((UserProjects is null && other.UserProjects is null) || UserProjects != null && UserProjects.Equals(other.UserProjects)) && ((UserName is null && other.UserName is null) || UserName != null && UserName.Equals(other.UserName)) && ((NormalizedUserName is null && other.NormalizedUserName is null) || NormalizedUserName != null && NormalizedUserName.Equals(other.NormalizedUserName)) && ((Email is null && other.Email is null) || Email != null && Email.Equals(other.Email)) && ((NormalizedEmail is null && other.NormalizedEmail is null) || NormalizedEmail != null && NormalizedEmail.Equals(other.NormalizedEmail)) && ((EmailConfirmed is null && other.EmailConfirmed is null) || EmailConfirmed != null && EmailConfirmed.Equals(other.EmailConfirmed)) && ((PasswordHash is null && other.PasswordHash is null) || PasswordHash != null && PasswordHash.Equals(other.PasswordHash)) && ((SecurityStamp is null && other.SecurityStamp is null) || SecurityStamp != null && SecurityStamp.Equals(other.SecurityStamp)) && ((ConcurrencyStamp is null && other.ConcurrencyStamp is null) || ConcurrencyStamp != null && ConcurrencyStamp.Equals(other.ConcurrencyStamp)) && ((PhoneNumber is null && other.PhoneNumber is null) || PhoneNumber != null && PhoneNumber.Equals(other.PhoneNumber)) && ((PhoneNumberConfirmed is null && other.PhoneNumberConfirmed is null) || PhoneNumberConfirmed != null && PhoneNumberConfirmed.Equals(other.PhoneNumberConfirmed)) && ((TwoFactorEnabled is null && other.TwoFactorEnabled is null) || TwoFactorEnabled != null && TwoFactorEnabled.Equals(other.TwoFactorEnabled)) && ((LockoutEnd is null && other.LockoutEnd is null) || LockoutEnd != null && LockoutEnd.Equals(other.LockoutEnd)) && ((LockoutEnabled is null && other.LockoutEnabled is null) || LockoutEnabled != null && LockoutEnabled.Equals(other.LockoutEnabled)) && ((AccessFailedCount is null && other.AccessFailedCount is null) || AccessFailedCount != null && AccessFailedCount.Equals(other.AccessFailedCount));
+            return (global::StrawberryShake.Helper.ComparisonHelper.SequenceEqual(And, other.And)) && global::StrawberryShake.Helper.ComparisonHelper.SequenceEqual(Or, other.Or) && ((Id is null && other.Id is null) || Id != null && Id.Equals(other.Id)) && ((CompanyId is null && other.CompanyId is null) || CompanyId != null && CompanyId.Equals(other.CompanyId)) && ((Title is null && other.Title is null) || Title != null && Title.Equals(other.Title)) && ((Description is null && other.Description is null) || Description != null && Description.Equals(other.Description)) && ((Status is null && other.Status is null) || Status != null && Status.Equals(other.Status)) && ((Company is null && other.Company is null) || Company != null && Company.Equals(other.Company)) && ((UserProjects is null && other.UserProjects is null) || UserProjects != null && UserProjects.Equals(other.UserProjects));
         }
 
         public override global::System.Int32 GetHashCode()
@@ -3289,6 +3165,16 @@ namespace app.Graphql
                     hash ^= 397 * CompanyId.GetHashCode();
                 }
 
+                if (Title != null)
+                {
+                    hash ^= 397 * Title.GetHashCode();
+                }
+
+                if (Description != null)
+                {
+                    hash ^= 397 * Description.GetHashCode();
+                }
+
                 if (Status != null)
                 {
                     hash ^= 397 * Status.GetHashCode();
@@ -3304,123 +3190,29 @@ namespace app.Graphql
                     hash ^= 397 * UserProjects.GetHashCode();
                 }
 
-                if (UserName != null)
-                {
-                    hash ^= 397 * UserName.GetHashCode();
-                }
-
-                if (NormalizedUserName != null)
-                {
-                    hash ^= 397 * NormalizedUserName.GetHashCode();
-                }
-
-                if (Email != null)
-                {
-                    hash ^= 397 * Email.GetHashCode();
-                }
-
-                if (NormalizedEmail != null)
-                {
-                    hash ^= 397 * NormalizedEmail.GetHashCode();
-                }
-
-                if (EmailConfirmed != null)
-                {
-                    hash ^= 397 * EmailConfirmed.GetHashCode();
-                }
-
-                if (PasswordHash != null)
-                {
-                    hash ^= 397 * PasswordHash.GetHashCode();
-                }
-
-                if (SecurityStamp != null)
-                {
-                    hash ^= 397 * SecurityStamp.GetHashCode();
-                }
-
-                if (ConcurrencyStamp != null)
-                {
-                    hash ^= 397 * ConcurrencyStamp.GetHashCode();
-                }
-
-                if (PhoneNumber != null)
-                {
-                    hash ^= 397 * PhoneNumber.GetHashCode();
-                }
-
-                if (PhoneNumberConfirmed != null)
-                {
-                    hash ^= 397 * PhoneNumberConfirmed.GetHashCode();
-                }
-
-                if (TwoFactorEnabled != null)
-                {
-                    hash ^= 397 * TwoFactorEnabled.GetHashCode();
-                }
-
-                if (LockoutEnd != null)
-                {
-                    hash ^= 397 * LockoutEnd.GetHashCode();
-                }
-
-                if (LockoutEnabled != null)
-                {
-                    hash ^= 397 * LockoutEnabled.GetHashCode();
-                }
-
-                if (AccessFailedCount != null)
-                {
-                    hash ^= 397 * AccessFailedCount.GetHashCode();
-                }
-
                 return hash;
             }
         }
 
-        private global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.UserFilterInput>? _value_and;
+        private global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.ProjectFilterInput>? _value_and;
         private global::System.Boolean _set_and;
-        private global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.UserFilterInput>? _value_or;
+        private global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.ProjectFilterInput>? _value_or;
         private global::System.Boolean _set_or;
         private global::app.Graphql.StringOperationFilterInput? _value_id;
         private global::System.Boolean _set_id;
         private global::app.Graphql.StringOperationFilterInput? _value_companyId;
         private global::System.Boolean _set_companyId;
+        private global::app.Graphql.StringOperationFilterInput? _value_title;
+        private global::System.Boolean _set_title;
+        private global::app.Graphql.StringOperationFilterInput? _value_description;
+        private global::System.Boolean _set_description;
         private global::app.Graphql.StatusOperationFilterInput? _value_status;
         private global::System.Boolean _set_status;
         private global::app.Graphql.CompanyFilterInput? _value_company;
         private global::System.Boolean _set_company;
         private global::app.Graphql.ListFilterInputTypeOfUserProjectFilterInput? _value_userProjects;
         private global::System.Boolean _set_userProjects;
-        private global::app.Graphql.StringOperationFilterInput? _value_userName;
-        private global::System.Boolean _set_userName;
-        private global::app.Graphql.StringOperationFilterInput? _value_normalizedUserName;
-        private global::System.Boolean _set_normalizedUserName;
-        private global::app.Graphql.StringOperationFilterInput? _value_email;
-        private global::System.Boolean _set_email;
-        private global::app.Graphql.StringOperationFilterInput? _value_normalizedEmail;
-        private global::System.Boolean _set_normalizedEmail;
-        private global::app.Graphql.BooleanOperationFilterInput? _value_emailConfirmed;
-        private global::System.Boolean _set_emailConfirmed;
-        private global::app.Graphql.StringOperationFilterInput? _value_passwordHash;
-        private global::System.Boolean _set_passwordHash;
-        private global::app.Graphql.StringOperationFilterInput? _value_securityStamp;
-        private global::System.Boolean _set_securityStamp;
-        private global::app.Graphql.StringOperationFilterInput? _value_concurrencyStamp;
-        private global::System.Boolean _set_concurrencyStamp;
-        private global::app.Graphql.StringOperationFilterInput? _value_phoneNumber;
-        private global::System.Boolean _set_phoneNumber;
-        private global::app.Graphql.BooleanOperationFilterInput? _value_phoneNumberConfirmed;
-        private global::System.Boolean _set_phoneNumberConfirmed;
-        private global::app.Graphql.BooleanOperationFilterInput? _value_twoFactorEnabled;
-        private global::System.Boolean _set_twoFactorEnabled;
-        private global::app.Graphql.ComparableNullableOfDateTimeOffsetOperationFilterInput? _value_lockoutEnd;
-        private global::System.Boolean _set_lockoutEnd;
-        private global::app.Graphql.BooleanOperationFilterInput? _value_lockoutEnabled;
-        private global::System.Boolean _set_lockoutEnabled;
-        private global::app.Graphql.ComparableInt32OperationFilterInput? _value_accessFailedCount;
-        private global::System.Boolean _set_accessFailedCount;
-        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.UserFilterInput>? And
+        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.ProjectFilterInput>? And
         {
             get => _value_and;
             set
@@ -3430,8 +3222,8 @@ namespace app.Graphql
             }
         }
 
-        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsAndSet => _set_and;
-        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.UserFilterInput>? Or
+        global::System.Boolean global::app.Graphql.State.IProjectFilterInputInfo.IsAndSet => _set_and;
+        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.ProjectFilterInput>? Or
         {
             get => _value_or;
             set
@@ -3441,7 +3233,7 @@ namespace app.Graphql
             }
         }
 
-        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsOrSet => _set_or;
+        global::System.Boolean global::app.Graphql.State.IProjectFilterInputInfo.IsOrSet => _set_or;
         public global::app.Graphql.StringOperationFilterInput? Id
         {
             get => _value_id;
@@ -3452,7 +3244,7 @@ namespace app.Graphql
             }
         }
 
-        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsIdSet => _set_id;
+        global::System.Boolean global::app.Graphql.State.IProjectFilterInputInfo.IsIdSet => _set_id;
         public global::app.Graphql.StringOperationFilterInput? CompanyId
         {
             get => _value_companyId;
@@ -3463,7 +3255,29 @@ namespace app.Graphql
             }
         }
 
-        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsCompanyIdSet => _set_companyId;
+        global::System.Boolean global::app.Graphql.State.IProjectFilterInputInfo.IsCompanyIdSet => _set_companyId;
+        public global::app.Graphql.StringOperationFilterInput? Title
+        {
+            get => _value_title;
+            set
+            {
+                _set_title = true;
+                _value_title = value;
+            }
+        }
+
+        global::System.Boolean global::app.Graphql.State.IProjectFilterInputInfo.IsTitleSet => _set_title;
+        public global::app.Graphql.StringOperationFilterInput? Description
+        {
+            get => _value_description;
+            set
+            {
+                _set_description = true;
+                _value_description = value;
+            }
+        }
+
+        global::System.Boolean global::app.Graphql.State.IProjectFilterInputInfo.IsDescriptionSet => _set_description;
         public global::app.Graphql.StatusOperationFilterInput? Status
         {
             get => _value_status;
@@ -3474,7 +3288,7 @@ namespace app.Graphql
             }
         }
 
-        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsStatusSet => _set_status;
+        global::System.Boolean global::app.Graphql.State.IProjectFilterInputInfo.IsStatusSet => _set_status;
         public global::app.Graphql.CompanyFilterInput? Company
         {
             get => _value_company;
@@ -3485,7 +3299,7 @@ namespace app.Graphql
             }
         }
 
-        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsCompanySet => _set_company;
+        global::System.Boolean global::app.Graphql.State.IProjectFilterInputInfo.IsCompanySet => _set_company;
         public global::app.Graphql.ListFilterInputTypeOfUserProjectFilterInput? UserProjects
         {
             get => _value_userProjects;
@@ -3496,161 +3310,7 @@ namespace app.Graphql
             }
         }
 
-        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsUserProjectsSet => _set_userProjects;
-        public global::app.Graphql.StringOperationFilterInput? UserName
-        {
-            get => _value_userName;
-            set
-            {
-                _set_userName = true;
-                _value_userName = value;
-            }
-        }
-
-        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsUserNameSet => _set_userName;
-        public global::app.Graphql.StringOperationFilterInput? NormalizedUserName
-        {
-            get => _value_normalizedUserName;
-            set
-            {
-                _set_normalizedUserName = true;
-                _value_normalizedUserName = value;
-            }
-        }
-
-        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsNormalizedUserNameSet => _set_normalizedUserName;
-        public global::app.Graphql.StringOperationFilterInput? Email
-        {
-            get => _value_email;
-            set
-            {
-                _set_email = true;
-                _value_email = value;
-            }
-        }
-
-        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsEmailSet => _set_email;
-        public global::app.Graphql.StringOperationFilterInput? NormalizedEmail
-        {
-            get => _value_normalizedEmail;
-            set
-            {
-                _set_normalizedEmail = true;
-                _value_normalizedEmail = value;
-            }
-        }
-
-        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsNormalizedEmailSet => _set_normalizedEmail;
-        public global::app.Graphql.BooleanOperationFilterInput? EmailConfirmed
-        {
-            get => _value_emailConfirmed;
-            set
-            {
-                _set_emailConfirmed = true;
-                _value_emailConfirmed = value;
-            }
-        }
-
-        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsEmailConfirmedSet => _set_emailConfirmed;
-        public global::app.Graphql.StringOperationFilterInput? PasswordHash
-        {
-            get => _value_passwordHash;
-            set
-            {
-                _set_passwordHash = true;
-                _value_passwordHash = value;
-            }
-        }
-
-        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsPasswordHashSet => _set_passwordHash;
-        public global::app.Graphql.StringOperationFilterInput? SecurityStamp
-        {
-            get => _value_securityStamp;
-            set
-            {
-                _set_securityStamp = true;
-                _value_securityStamp = value;
-            }
-        }
-
-        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsSecurityStampSet => _set_securityStamp;
-        public global::app.Graphql.StringOperationFilterInput? ConcurrencyStamp
-        {
-            get => _value_concurrencyStamp;
-            set
-            {
-                _set_concurrencyStamp = true;
-                _value_concurrencyStamp = value;
-            }
-        }
-
-        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsConcurrencyStampSet => _set_concurrencyStamp;
-        public global::app.Graphql.StringOperationFilterInput? PhoneNumber
-        {
-            get => _value_phoneNumber;
-            set
-            {
-                _set_phoneNumber = true;
-                _value_phoneNumber = value;
-            }
-        }
-
-        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsPhoneNumberSet => _set_phoneNumber;
-        public global::app.Graphql.BooleanOperationFilterInput? PhoneNumberConfirmed
-        {
-            get => _value_phoneNumberConfirmed;
-            set
-            {
-                _set_phoneNumberConfirmed = true;
-                _value_phoneNumberConfirmed = value;
-            }
-        }
-
-        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsPhoneNumberConfirmedSet => _set_phoneNumberConfirmed;
-        public global::app.Graphql.BooleanOperationFilterInput? TwoFactorEnabled
-        {
-            get => _value_twoFactorEnabled;
-            set
-            {
-                _set_twoFactorEnabled = true;
-                _value_twoFactorEnabled = value;
-            }
-        }
-
-        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsTwoFactorEnabledSet => _set_twoFactorEnabled;
-        public global::app.Graphql.ComparableNullableOfDateTimeOffsetOperationFilterInput? LockoutEnd
-        {
-            get => _value_lockoutEnd;
-            set
-            {
-                _set_lockoutEnd = true;
-                _value_lockoutEnd = value;
-            }
-        }
-
-        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsLockoutEndSet => _set_lockoutEnd;
-        public global::app.Graphql.BooleanOperationFilterInput? LockoutEnabled
-        {
-            get => _value_lockoutEnabled;
-            set
-            {
-                _set_lockoutEnabled = true;
-                _value_lockoutEnabled = value;
-            }
-        }
-
-        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsLockoutEnabledSet => _set_lockoutEnabled;
-        public global::app.Graphql.ComparableInt32OperationFilterInput? AccessFailedCount
-        {
-            get => _value_accessFailedCount;
-            set
-            {
-                _set_accessFailedCount = true;
-                _value_accessFailedCount = value;
-            }
-        }
-
-        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsAccessFailedCountSet => _set_accessFailedCount;
+        global::System.Boolean global::app.Graphql.State.IProjectFilterInputInfo.IsUserProjectsSet => _set_userProjects;
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -5055,246 +4715,27 @@ namespace app.Graphql
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class ListFilterInputTypeOfProjectFilterInputInputValueFormatter : global::StrawberryShake.Serialization.IInputObjectFormatter
+    public partial class UserFilterInputInputValueFormatter : global::StrawberryShake.Serialization.IInputObjectFormatter
     {
-        private global::StrawberryShake.Serialization.IInputValueFormatter _projectFilterInputFormatter = default !;
-        private global::StrawberryShake.Serialization.IInputValueFormatter _booleanFormatter = default !;
-        public global::System.String TypeName => "ListFilterInputTypeOfProjectFilterInput";
-        public void Initialize(global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
-        {
-            _projectFilterInputFormatter = serializerResolver.GetInputValueFormatter("ProjectFilterInput");
-            _booleanFormatter = serializerResolver.GetInputValueFormatter("Boolean");
-        }
-
-        public global::System.Object? Format(global::System.Object? runtimeValue)
-        {
-            if (runtimeValue is null)
-            {
-                return null;
-            }
-
-            var input = runtimeValue as global::app.Graphql.ListFilterInputTypeOfProjectFilterInput;
-            var inputInfo = runtimeValue as global::app.Graphql.State.IListFilterInputTypeOfProjectFilterInputInfo;
-            if (input is null || inputInfo is null)
-            {
-                throw new global::System.ArgumentException(nameof(runtimeValue));
-            }
-
-            var fields = new global::System.Collections.Generic.List<global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>>();
-            if (inputInfo.IsAllSet)
-            {
-                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("all", FormatAll(input.All)));
-            }
-
-            if (inputInfo.IsNoneSet)
-            {
-                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("none", FormatNone(input.None)));
-            }
-
-            if (inputInfo.IsSomeSet)
-            {
-                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("some", FormatSome(input.Some)));
-            }
-
-            if (inputInfo.IsAnySet)
-            {
-                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("any", FormatAny(input.Any)));
-            }
-
-            return fields;
-        }
-
-        private global::System.Object? FormatAll(global::app.Graphql.ProjectFilterInput? input)
-        {
-            if (input is null)
-            {
-                return input;
-            }
-            else
-            {
-                return _projectFilterInputFormatter.Format(input);
-            }
-        }
-
-        private global::System.Object? FormatNone(global::app.Graphql.ProjectFilterInput? input)
-        {
-            if (input is null)
-            {
-                return input;
-            }
-            else
-            {
-                return _projectFilterInputFormatter.Format(input);
-            }
-        }
-
-        private global::System.Object? FormatSome(global::app.Graphql.ProjectFilterInput? input)
-        {
-            if (input is null)
-            {
-                return input;
-            }
-            else
-            {
-                return _projectFilterInputFormatter.Format(input);
-            }
-        }
-
-        private global::System.Object? FormatAny(global::System.Boolean? input)
-        {
-            if (input is null)
-            {
-                return input;
-            }
-            else
-            {
-                return _booleanFormatter.Format(input);
-            }
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class ListFilterInputTypeOfProjectFilterInput : global::app.Graphql.State.IListFilterInputTypeOfProjectFilterInputInfo, global::System.IEquatable<ListFilterInputTypeOfProjectFilterInput>
-    {
-        public override global::System.Boolean Equals(global::System.Object? obj)
-        {
-            if (ReferenceEquals(null, obj))
-            {
-                return false;
-            }
-
-            if (ReferenceEquals(this, obj))
-            {
-                return true;
-            }
-
-            if (obj.GetType() != GetType())
-            {
-                return false;
-            }
-
-            return Equals((ListFilterInputTypeOfProjectFilterInput)obj);
-        }
-
-        public virtual global::System.Boolean Equals(ListFilterInputTypeOfProjectFilterInput? other)
-        {
-            if (ReferenceEquals(null, other))
-            {
-                return false;
-            }
-
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-
-            if (other.GetType() != GetType())
-            {
-                return false;
-            }
-
-            return (((All is null && other.All is null) || All != null && All.Equals(other.All))) && ((None is null && other.None is null) || None != null && None.Equals(other.None)) && ((Some is null && other.Some is null) || Some != null && Some.Equals(other.Some)) && Any == other.Any;
-        }
-
-        public override global::System.Int32 GetHashCode()
-        {
-            unchecked
-            {
-                int hash = 5;
-                if (All != null)
-                {
-                    hash ^= 397 * All.GetHashCode();
-                }
-
-                if (None != null)
-                {
-                    hash ^= 397 * None.GetHashCode();
-                }
-
-                if (Some != null)
-                {
-                    hash ^= 397 * Some.GetHashCode();
-                }
-
-                if (Any != null)
-                {
-                    hash ^= 397 * Any.GetHashCode();
-                }
-
-                return hash;
-            }
-        }
-
-        private global::app.Graphql.ProjectFilterInput? _value_all;
-        private global::System.Boolean _set_all;
-        private global::app.Graphql.ProjectFilterInput? _value_none;
-        private global::System.Boolean _set_none;
-        private global::app.Graphql.ProjectFilterInput? _value_some;
-        private global::System.Boolean _set_some;
-        private global::System.Boolean? _value_any;
-        private global::System.Boolean _set_any;
-        public global::app.Graphql.ProjectFilterInput? All
-        {
-            get => _value_all;
-            set
-            {
-                _set_all = true;
-                _value_all = value;
-            }
-        }
-
-        global::System.Boolean global::app.Graphql.State.IListFilterInputTypeOfProjectFilterInputInfo.IsAllSet => _set_all;
-        public global::app.Graphql.ProjectFilterInput? None
-        {
-            get => _value_none;
-            set
-            {
-                _set_none = true;
-                _value_none = value;
-            }
-        }
-
-        global::System.Boolean global::app.Graphql.State.IListFilterInputTypeOfProjectFilterInputInfo.IsNoneSet => _set_none;
-        public global::app.Graphql.ProjectFilterInput? Some
-        {
-            get => _value_some;
-            set
-            {
-                _set_some = true;
-                _value_some = value;
-            }
-        }
-
-        global::System.Boolean global::app.Graphql.State.IListFilterInputTypeOfProjectFilterInputInfo.IsSomeSet => _set_some;
-        public global::System.Boolean? Any
-        {
-            get => _value_any;
-            set
-            {
-                _set_any = true;
-                _value_any = value;
-            }
-        }
-
-        global::System.Boolean global::app.Graphql.State.IListFilterInputTypeOfProjectFilterInputInfo.IsAnySet => _set_any;
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class ProjectFilterInputInputValueFormatter : global::StrawberryShake.Serialization.IInputObjectFormatter
-    {
-        private global::StrawberryShake.Serialization.IInputValueFormatter _projectFilterInputFormatter = default !;
+        private global::StrawberryShake.Serialization.IInputValueFormatter _userFilterInputFormatter = default !;
         private global::StrawberryShake.Serialization.IInputValueFormatter _stringOperationFilterInputFormatter = default !;
         private global::StrawberryShake.Serialization.IInputValueFormatter _statusOperationFilterInputFormatter = default !;
         private global::StrawberryShake.Serialization.IInputValueFormatter _companyFilterInputFormatter = default !;
         private global::StrawberryShake.Serialization.IInputValueFormatter _listFilterInputTypeOfUserProjectFilterInputFormatter = default !;
-        public global::System.String TypeName => "ProjectFilterInput";
+        private global::StrawberryShake.Serialization.IInputValueFormatter _booleanOperationFilterInputFormatter = default !;
+        private global::StrawberryShake.Serialization.IInputValueFormatter _comparableNullableOfDateTimeOffsetOperationFilterInputFormatter = default !;
+        private global::StrawberryShake.Serialization.IInputValueFormatter _comparableInt32OperationFilterInputFormatter = default !;
+        public global::System.String TypeName => "UserFilterInput";
         public void Initialize(global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
         {
-            _projectFilterInputFormatter = serializerResolver.GetInputValueFormatter("ProjectFilterInput");
+            _userFilterInputFormatter = serializerResolver.GetInputValueFormatter("UserFilterInput");
             _stringOperationFilterInputFormatter = serializerResolver.GetInputValueFormatter("StringOperationFilterInput");
             _statusOperationFilterInputFormatter = serializerResolver.GetInputValueFormatter("StatusOperationFilterInput");
             _companyFilterInputFormatter = serializerResolver.GetInputValueFormatter("CompanyFilterInput");
             _listFilterInputTypeOfUserProjectFilterInputFormatter = serializerResolver.GetInputValueFormatter("ListFilterInputTypeOfUserProjectFilterInput");
+            _booleanOperationFilterInputFormatter = serializerResolver.GetInputValueFormatter("BooleanOperationFilterInput");
+            _comparableNullableOfDateTimeOffsetOperationFilterInputFormatter = serializerResolver.GetInputValueFormatter("ComparableNullableOfDateTimeOffsetOperationFilterInput");
+            _comparableInt32OperationFilterInputFormatter = serializerResolver.GetInputValueFormatter("ComparableInt32OperationFilterInput");
         }
 
         public global::System.Object? Format(global::System.Object? runtimeValue)
@@ -5304,8 +4745,8 @@ namespace app.Graphql
                 return null;
             }
 
-            var input = runtimeValue as global::app.Graphql.ProjectFilterInput;
-            var inputInfo = runtimeValue as global::app.Graphql.State.IProjectFilterInputInfo;
+            var input = runtimeValue as global::app.Graphql.UserFilterInput;
+            var inputInfo = runtimeValue as global::app.Graphql.State.IUserFilterInputInfo;
             if (input is null || inputInfo is null)
             {
                 throw new global::System.ArgumentException(nameof(runtimeValue));
@@ -5332,16 +4773,6 @@ namespace app.Graphql
                 fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("companyId", FormatCompanyId(input.CompanyId)));
             }
 
-            if (inputInfo.IsTitleSet)
-            {
-                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("title", FormatTitle(input.Title)));
-            }
-
-            if (inputInfo.IsDescriptionSet)
-            {
-                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("description", FormatDescription(input.Description)));
-            }
-
             if (inputInfo.IsStatusSet)
             {
                 fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("status", FormatStatus(input.Status)));
@@ -5357,10 +4788,80 @@ namespace app.Graphql
                 fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("userProjects", FormatUserProjects(input.UserProjects)));
             }
 
+            if (inputInfo.IsUserNameSet)
+            {
+                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("userName", FormatUserName(input.UserName)));
+            }
+
+            if (inputInfo.IsNormalizedUserNameSet)
+            {
+                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("normalizedUserName", FormatNormalizedUserName(input.NormalizedUserName)));
+            }
+
+            if (inputInfo.IsEmailSet)
+            {
+                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("email", FormatEmail(input.Email)));
+            }
+
+            if (inputInfo.IsNormalizedEmailSet)
+            {
+                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("normalizedEmail", FormatNormalizedEmail(input.NormalizedEmail)));
+            }
+
+            if (inputInfo.IsEmailConfirmedSet)
+            {
+                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("emailConfirmed", FormatEmailConfirmed(input.EmailConfirmed)));
+            }
+
+            if (inputInfo.IsPasswordHashSet)
+            {
+                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("passwordHash", FormatPasswordHash(input.PasswordHash)));
+            }
+
+            if (inputInfo.IsSecurityStampSet)
+            {
+                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("securityStamp", FormatSecurityStamp(input.SecurityStamp)));
+            }
+
+            if (inputInfo.IsConcurrencyStampSet)
+            {
+                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("concurrencyStamp", FormatConcurrencyStamp(input.ConcurrencyStamp)));
+            }
+
+            if (inputInfo.IsPhoneNumberSet)
+            {
+                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("phoneNumber", FormatPhoneNumber(input.PhoneNumber)));
+            }
+
+            if (inputInfo.IsPhoneNumberConfirmedSet)
+            {
+                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("phoneNumberConfirmed", FormatPhoneNumberConfirmed(input.PhoneNumberConfirmed)));
+            }
+
+            if (inputInfo.IsTwoFactorEnabledSet)
+            {
+                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("twoFactorEnabled", FormatTwoFactorEnabled(input.TwoFactorEnabled)));
+            }
+
+            if (inputInfo.IsLockoutEndSet)
+            {
+                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("lockoutEnd", FormatLockoutEnd(input.LockoutEnd)));
+            }
+
+            if (inputInfo.IsLockoutEnabledSet)
+            {
+                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("lockoutEnabled", FormatLockoutEnabled(input.LockoutEnabled)));
+            }
+
+            if (inputInfo.IsAccessFailedCountSet)
+            {
+                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("accessFailedCount", FormatAccessFailedCount(input.AccessFailedCount)));
+            }
+
             return fields;
         }
 
-        private global::System.Object? FormatAnd(global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.ProjectFilterInput>? input)
+        private global::System.Object? FormatAnd(global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.UserFilterInput>? input)
         {
             if (input is null)
             {
@@ -5376,14 +4877,14 @@ namespace app.Graphql
                         throw new global::System.ArgumentNullException(nameof(input_elm));
                     }
 
-                    input_list.Add(_projectFilterInputFormatter.Format(input_elm));
+                    input_list.Add(_userFilterInputFormatter.Format(input_elm));
                 }
 
                 return input_list;
             }
         }
 
-        private global::System.Object? FormatOr(global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.ProjectFilterInput>? input)
+        private global::System.Object? FormatOr(global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.UserFilterInput>? input)
         {
             if (input is null)
             {
@@ -5399,7 +4900,7 @@ namespace app.Graphql
                         throw new global::System.ArgumentNullException(nameof(input_elm));
                     }
 
-                    input_list.Add(_projectFilterInputFormatter.Format(input_elm));
+                    input_list.Add(_userFilterInputFormatter.Format(input_elm));
                 }
 
                 return input_list;
@@ -5419,30 +4920,6 @@ namespace app.Graphql
         }
 
         private global::System.Object? FormatCompanyId(global::app.Graphql.StringOperationFilterInput? input)
-        {
-            if (input is null)
-            {
-                return input;
-            }
-            else
-            {
-                return _stringOperationFilterInputFormatter.Format(input);
-            }
-        }
-
-        private global::System.Object? FormatTitle(global::app.Graphql.StringOperationFilterInput? input)
-        {
-            if (input is null)
-            {
-                return input;
-            }
-            else
-            {
-                return _stringOperationFilterInputFormatter.Format(input);
-            }
-        }
-
-        private global::System.Object? FormatDescription(global::app.Graphql.StringOperationFilterInput? input)
         {
             if (input is null)
             {
@@ -5489,10 +4966,178 @@ namespace app.Graphql
                 return _listFilterInputTypeOfUserProjectFilterInputFormatter.Format(input);
             }
         }
+
+        private global::System.Object? FormatUserName(global::app.Graphql.StringOperationFilterInput? input)
+        {
+            if (input is null)
+            {
+                return input;
+            }
+            else
+            {
+                return _stringOperationFilterInputFormatter.Format(input);
+            }
+        }
+
+        private global::System.Object? FormatNormalizedUserName(global::app.Graphql.StringOperationFilterInput? input)
+        {
+            if (input is null)
+            {
+                return input;
+            }
+            else
+            {
+                return _stringOperationFilterInputFormatter.Format(input);
+            }
+        }
+
+        private global::System.Object? FormatEmail(global::app.Graphql.StringOperationFilterInput? input)
+        {
+            if (input is null)
+            {
+                return input;
+            }
+            else
+            {
+                return _stringOperationFilterInputFormatter.Format(input);
+            }
+        }
+
+        private global::System.Object? FormatNormalizedEmail(global::app.Graphql.StringOperationFilterInput? input)
+        {
+            if (input is null)
+            {
+                return input;
+            }
+            else
+            {
+                return _stringOperationFilterInputFormatter.Format(input);
+            }
+        }
+
+        private global::System.Object? FormatEmailConfirmed(global::app.Graphql.BooleanOperationFilterInput? input)
+        {
+            if (input is null)
+            {
+                return input;
+            }
+            else
+            {
+                return _booleanOperationFilterInputFormatter.Format(input);
+            }
+        }
+
+        private global::System.Object? FormatPasswordHash(global::app.Graphql.StringOperationFilterInput? input)
+        {
+            if (input is null)
+            {
+                return input;
+            }
+            else
+            {
+                return _stringOperationFilterInputFormatter.Format(input);
+            }
+        }
+
+        private global::System.Object? FormatSecurityStamp(global::app.Graphql.StringOperationFilterInput? input)
+        {
+            if (input is null)
+            {
+                return input;
+            }
+            else
+            {
+                return _stringOperationFilterInputFormatter.Format(input);
+            }
+        }
+
+        private global::System.Object? FormatConcurrencyStamp(global::app.Graphql.StringOperationFilterInput? input)
+        {
+            if (input is null)
+            {
+                return input;
+            }
+            else
+            {
+                return _stringOperationFilterInputFormatter.Format(input);
+            }
+        }
+
+        private global::System.Object? FormatPhoneNumber(global::app.Graphql.StringOperationFilterInput? input)
+        {
+            if (input is null)
+            {
+                return input;
+            }
+            else
+            {
+                return _stringOperationFilterInputFormatter.Format(input);
+            }
+        }
+
+        private global::System.Object? FormatPhoneNumberConfirmed(global::app.Graphql.BooleanOperationFilterInput? input)
+        {
+            if (input is null)
+            {
+                return input;
+            }
+            else
+            {
+                return _booleanOperationFilterInputFormatter.Format(input);
+            }
+        }
+
+        private global::System.Object? FormatTwoFactorEnabled(global::app.Graphql.BooleanOperationFilterInput? input)
+        {
+            if (input is null)
+            {
+                return input;
+            }
+            else
+            {
+                return _booleanOperationFilterInputFormatter.Format(input);
+            }
+        }
+
+        private global::System.Object? FormatLockoutEnd(global::app.Graphql.ComparableNullableOfDateTimeOffsetOperationFilterInput? input)
+        {
+            if (input is null)
+            {
+                return input;
+            }
+            else
+            {
+                return _comparableNullableOfDateTimeOffsetOperationFilterInputFormatter.Format(input);
+            }
+        }
+
+        private global::System.Object? FormatLockoutEnabled(global::app.Graphql.BooleanOperationFilterInput? input)
+        {
+            if (input is null)
+            {
+                return input;
+            }
+            else
+            {
+                return _booleanOperationFilterInputFormatter.Format(input);
+            }
+        }
+
+        private global::System.Object? FormatAccessFailedCount(global::app.Graphql.ComparableInt32OperationFilterInput? input)
+        {
+            if (input is null)
+            {
+                return input;
+            }
+            else
+            {
+                return _comparableInt32OperationFilterInputFormatter.Format(input);
+            }
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class ProjectFilterInput : global::app.Graphql.State.IProjectFilterInputInfo, global::System.IEquatable<ProjectFilterInput>
+    public partial class UserFilterInput : global::app.Graphql.State.IUserFilterInputInfo, global::System.IEquatable<UserFilterInput>
     {
         public override global::System.Boolean Equals(global::System.Object? obj)
         {
@@ -5511,10 +5156,10 @@ namespace app.Graphql
                 return false;
             }
 
-            return Equals((ProjectFilterInput)obj);
+            return Equals((UserFilterInput)obj);
         }
 
-        public virtual global::System.Boolean Equals(ProjectFilterInput? other)
+        public virtual global::System.Boolean Equals(UserFilterInput? other)
         {
             if (ReferenceEquals(null, other))
             {
@@ -5531,7 +5176,7 @@ namespace app.Graphql
                 return false;
             }
 
-            return (global::StrawberryShake.Helper.ComparisonHelper.SequenceEqual(And, other.And)) && global::StrawberryShake.Helper.ComparisonHelper.SequenceEqual(Or, other.Or) && ((Id is null && other.Id is null) || Id != null && Id.Equals(other.Id)) && ((CompanyId is null && other.CompanyId is null) || CompanyId != null && CompanyId.Equals(other.CompanyId)) && ((Title is null && other.Title is null) || Title != null && Title.Equals(other.Title)) && ((Description is null && other.Description is null) || Description != null && Description.Equals(other.Description)) && ((Status is null && other.Status is null) || Status != null && Status.Equals(other.Status)) && ((Company is null && other.Company is null) || Company != null && Company.Equals(other.Company)) && ((UserProjects is null && other.UserProjects is null) || UserProjects != null && UserProjects.Equals(other.UserProjects));
+            return (global::StrawberryShake.Helper.ComparisonHelper.SequenceEqual(And, other.And)) && global::StrawberryShake.Helper.ComparisonHelper.SequenceEqual(Or, other.Or) && ((Id is null && other.Id is null) || Id != null && Id.Equals(other.Id)) && ((CompanyId is null && other.CompanyId is null) || CompanyId != null && CompanyId.Equals(other.CompanyId)) && ((Status is null && other.Status is null) || Status != null && Status.Equals(other.Status)) && ((Company is null && other.Company is null) || Company != null && Company.Equals(other.Company)) && ((UserProjects is null && other.UserProjects is null) || UserProjects != null && UserProjects.Equals(other.UserProjects)) && ((UserName is null && other.UserName is null) || UserName != null && UserName.Equals(other.UserName)) && ((NormalizedUserName is null && other.NormalizedUserName is null) || NormalizedUserName != null && NormalizedUserName.Equals(other.NormalizedUserName)) && ((Email is null && other.Email is null) || Email != null && Email.Equals(other.Email)) && ((NormalizedEmail is null && other.NormalizedEmail is null) || NormalizedEmail != null && NormalizedEmail.Equals(other.NormalizedEmail)) && ((EmailConfirmed is null && other.EmailConfirmed is null) || EmailConfirmed != null && EmailConfirmed.Equals(other.EmailConfirmed)) && ((PasswordHash is null && other.PasswordHash is null) || PasswordHash != null && PasswordHash.Equals(other.PasswordHash)) && ((SecurityStamp is null && other.SecurityStamp is null) || SecurityStamp != null && SecurityStamp.Equals(other.SecurityStamp)) && ((ConcurrencyStamp is null && other.ConcurrencyStamp is null) || ConcurrencyStamp != null && ConcurrencyStamp.Equals(other.ConcurrencyStamp)) && ((PhoneNumber is null && other.PhoneNumber is null) || PhoneNumber != null && PhoneNumber.Equals(other.PhoneNumber)) && ((PhoneNumberConfirmed is null && other.PhoneNumberConfirmed is null) || PhoneNumberConfirmed != null && PhoneNumberConfirmed.Equals(other.PhoneNumberConfirmed)) && ((TwoFactorEnabled is null && other.TwoFactorEnabled is null) || TwoFactorEnabled != null && TwoFactorEnabled.Equals(other.TwoFactorEnabled)) && ((LockoutEnd is null && other.LockoutEnd is null) || LockoutEnd != null && LockoutEnd.Equals(other.LockoutEnd)) && ((LockoutEnabled is null && other.LockoutEnabled is null) || LockoutEnabled != null && LockoutEnabled.Equals(other.LockoutEnabled)) && ((AccessFailedCount is null && other.AccessFailedCount is null) || AccessFailedCount != null && AccessFailedCount.Equals(other.AccessFailedCount));
         }
 
         public override global::System.Int32 GetHashCode()
@@ -5565,16 +5210,6 @@ namespace app.Graphql
                     hash ^= 397 * CompanyId.GetHashCode();
                 }
 
-                if (Title != null)
-                {
-                    hash ^= 397 * Title.GetHashCode();
-                }
-
-                if (Description != null)
-                {
-                    hash ^= 397 * Description.GetHashCode();
-                }
-
                 if (Status != null)
                 {
                     hash ^= 397 * Status.GetHashCode();
@@ -5590,29 +5225,123 @@ namespace app.Graphql
                     hash ^= 397 * UserProjects.GetHashCode();
                 }
 
+                if (UserName != null)
+                {
+                    hash ^= 397 * UserName.GetHashCode();
+                }
+
+                if (NormalizedUserName != null)
+                {
+                    hash ^= 397 * NormalizedUserName.GetHashCode();
+                }
+
+                if (Email != null)
+                {
+                    hash ^= 397 * Email.GetHashCode();
+                }
+
+                if (NormalizedEmail != null)
+                {
+                    hash ^= 397 * NormalizedEmail.GetHashCode();
+                }
+
+                if (EmailConfirmed != null)
+                {
+                    hash ^= 397 * EmailConfirmed.GetHashCode();
+                }
+
+                if (PasswordHash != null)
+                {
+                    hash ^= 397 * PasswordHash.GetHashCode();
+                }
+
+                if (SecurityStamp != null)
+                {
+                    hash ^= 397 * SecurityStamp.GetHashCode();
+                }
+
+                if (ConcurrencyStamp != null)
+                {
+                    hash ^= 397 * ConcurrencyStamp.GetHashCode();
+                }
+
+                if (PhoneNumber != null)
+                {
+                    hash ^= 397 * PhoneNumber.GetHashCode();
+                }
+
+                if (PhoneNumberConfirmed != null)
+                {
+                    hash ^= 397 * PhoneNumberConfirmed.GetHashCode();
+                }
+
+                if (TwoFactorEnabled != null)
+                {
+                    hash ^= 397 * TwoFactorEnabled.GetHashCode();
+                }
+
+                if (LockoutEnd != null)
+                {
+                    hash ^= 397 * LockoutEnd.GetHashCode();
+                }
+
+                if (LockoutEnabled != null)
+                {
+                    hash ^= 397 * LockoutEnabled.GetHashCode();
+                }
+
+                if (AccessFailedCount != null)
+                {
+                    hash ^= 397 * AccessFailedCount.GetHashCode();
+                }
+
                 return hash;
             }
         }
 
-        private global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.ProjectFilterInput>? _value_and;
+        private global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.UserFilterInput>? _value_and;
         private global::System.Boolean _set_and;
-        private global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.ProjectFilterInput>? _value_or;
+        private global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.UserFilterInput>? _value_or;
         private global::System.Boolean _set_or;
         private global::app.Graphql.StringOperationFilterInput? _value_id;
         private global::System.Boolean _set_id;
         private global::app.Graphql.StringOperationFilterInput? _value_companyId;
         private global::System.Boolean _set_companyId;
-        private global::app.Graphql.StringOperationFilterInput? _value_title;
-        private global::System.Boolean _set_title;
-        private global::app.Graphql.StringOperationFilterInput? _value_description;
-        private global::System.Boolean _set_description;
         private global::app.Graphql.StatusOperationFilterInput? _value_status;
         private global::System.Boolean _set_status;
         private global::app.Graphql.CompanyFilterInput? _value_company;
         private global::System.Boolean _set_company;
         private global::app.Graphql.ListFilterInputTypeOfUserProjectFilterInput? _value_userProjects;
         private global::System.Boolean _set_userProjects;
-        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.ProjectFilterInput>? And
+        private global::app.Graphql.StringOperationFilterInput? _value_userName;
+        private global::System.Boolean _set_userName;
+        private global::app.Graphql.StringOperationFilterInput? _value_normalizedUserName;
+        private global::System.Boolean _set_normalizedUserName;
+        private global::app.Graphql.StringOperationFilterInput? _value_email;
+        private global::System.Boolean _set_email;
+        private global::app.Graphql.StringOperationFilterInput? _value_normalizedEmail;
+        private global::System.Boolean _set_normalizedEmail;
+        private global::app.Graphql.BooleanOperationFilterInput? _value_emailConfirmed;
+        private global::System.Boolean _set_emailConfirmed;
+        private global::app.Graphql.StringOperationFilterInput? _value_passwordHash;
+        private global::System.Boolean _set_passwordHash;
+        private global::app.Graphql.StringOperationFilterInput? _value_securityStamp;
+        private global::System.Boolean _set_securityStamp;
+        private global::app.Graphql.StringOperationFilterInput? _value_concurrencyStamp;
+        private global::System.Boolean _set_concurrencyStamp;
+        private global::app.Graphql.StringOperationFilterInput? _value_phoneNumber;
+        private global::System.Boolean _set_phoneNumber;
+        private global::app.Graphql.BooleanOperationFilterInput? _value_phoneNumberConfirmed;
+        private global::System.Boolean _set_phoneNumberConfirmed;
+        private global::app.Graphql.BooleanOperationFilterInput? _value_twoFactorEnabled;
+        private global::System.Boolean _set_twoFactorEnabled;
+        private global::app.Graphql.ComparableNullableOfDateTimeOffsetOperationFilterInput? _value_lockoutEnd;
+        private global::System.Boolean _set_lockoutEnd;
+        private global::app.Graphql.BooleanOperationFilterInput? _value_lockoutEnabled;
+        private global::System.Boolean _set_lockoutEnabled;
+        private global::app.Graphql.ComparableInt32OperationFilterInput? _value_accessFailedCount;
+        private global::System.Boolean _set_accessFailedCount;
+        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.UserFilterInput>? And
         {
             get => _value_and;
             set
@@ -5622,8 +5351,8 @@ namespace app.Graphql
             }
         }
 
-        global::System.Boolean global::app.Graphql.State.IProjectFilterInputInfo.IsAndSet => _set_and;
-        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.ProjectFilterInput>? Or
+        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsAndSet => _set_and;
+        public global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.UserFilterInput>? Or
         {
             get => _value_or;
             set
@@ -5633,7 +5362,7 @@ namespace app.Graphql
             }
         }
 
-        global::System.Boolean global::app.Graphql.State.IProjectFilterInputInfo.IsOrSet => _set_or;
+        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsOrSet => _set_or;
         public global::app.Graphql.StringOperationFilterInput? Id
         {
             get => _value_id;
@@ -5644,7 +5373,7 @@ namespace app.Graphql
             }
         }
 
-        global::System.Boolean global::app.Graphql.State.IProjectFilterInputInfo.IsIdSet => _set_id;
+        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsIdSet => _set_id;
         public global::app.Graphql.StringOperationFilterInput? CompanyId
         {
             get => _value_companyId;
@@ -5655,29 +5384,7 @@ namespace app.Graphql
             }
         }
 
-        global::System.Boolean global::app.Graphql.State.IProjectFilterInputInfo.IsCompanyIdSet => _set_companyId;
-        public global::app.Graphql.StringOperationFilterInput? Title
-        {
-            get => _value_title;
-            set
-            {
-                _set_title = true;
-                _value_title = value;
-            }
-        }
-
-        global::System.Boolean global::app.Graphql.State.IProjectFilterInputInfo.IsTitleSet => _set_title;
-        public global::app.Graphql.StringOperationFilterInput? Description
-        {
-            get => _value_description;
-            set
-            {
-                _set_description = true;
-                _value_description = value;
-            }
-        }
-
-        global::System.Boolean global::app.Graphql.State.IProjectFilterInputInfo.IsDescriptionSet => _set_description;
+        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsCompanyIdSet => _set_companyId;
         public global::app.Graphql.StatusOperationFilterInput? Status
         {
             get => _value_status;
@@ -5688,7 +5395,7 @@ namespace app.Graphql
             }
         }
 
-        global::System.Boolean global::app.Graphql.State.IProjectFilterInputInfo.IsStatusSet => _set_status;
+        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsStatusSet => _set_status;
         public global::app.Graphql.CompanyFilterInput? Company
         {
             get => _value_company;
@@ -5699,7 +5406,7 @@ namespace app.Graphql
             }
         }
 
-        global::System.Boolean global::app.Graphql.State.IProjectFilterInputInfo.IsCompanySet => _set_company;
+        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsCompanySet => _set_company;
         public global::app.Graphql.ListFilterInputTypeOfUserProjectFilterInput? UserProjects
         {
             get => _value_userProjects;
@@ -5710,7 +5417,161 @@ namespace app.Graphql
             }
         }
 
-        global::System.Boolean global::app.Graphql.State.IProjectFilterInputInfo.IsUserProjectsSet => _set_userProjects;
+        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsUserProjectsSet => _set_userProjects;
+        public global::app.Graphql.StringOperationFilterInput? UserName
+        {
+            get => _value_userName;
+            set
+            {
+                _set_userName = true;
+                _value_userName = value;
+            }
+        }
+
+        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsUserNameSet => _set_userName;
+        public global::app.Graphql.StringOperationFilterInput? NormalizedUserName
+        {
+            get => _value_normalizedUserName;
+            set
+            {
+                _set_normalizedUserName = true;
+                _value_normalizedUserName = value;
+            }
+        }
+
+        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsNormalizedUserNameSet => _set_normalizedUserName;
+        public global::app.Graphql.StringOperationFilterInput? Email
+        {
+            get => _value_email;
+            set
+            {
+                _set_email = true;
+                _value_email = value;
+            }
+        }
+
+        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsEmailSet => _set_email;
+        public global::app.Graphql.StringOperationFilterInput? NormalizedEmail
+        {
+            get => _value_normalizedEmail;
+            set
+            {
+                _set_normalizedEmail = true;
+                _value_normalizedEmail = value;
+            }
+        }
+
+        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsNormalizedEmailSet => _set_normalizedEmail;
+        public global::app.Graphql.BooleanOperationFilterInput? EmailConfirmed
+        {
+            get => _value_emailConfirmed;
+            set
+            {
+                _set_emailConfirmed = true;
+                _value_emailConfirmed = value;
+            }
+        }
+
+        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsEmailConfirmedSet => _set_emailConfirmed;
+        public global::app.Graphql.StringOperationFilterInput? PasswordHash
+        {
+            get => _value_passwordHash;
+            set
+            {
+                _set_passwordHash = true;
+                _value_passwordHash = value;
+            }
+        }
+
+        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsPasswordHashSet => _set_passwordHash;
+        public global::app.Graphql.StringOperationFilterInput? SecurityStamp
+        {
+            get => _value_securityStamp;
+            set
+            {
+                _set_securityStamp = true;
+                _value_securityStamp = value;
+            }
+        }
+
+        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsSecurityStampSet => _set_securityStamp;
+        public global::app.Graphql.StringOperationFilterInput? ConcurrencyStamp
+        {
+            get => _value_concurrencyStamp;
+            set
+            {
+                _set_concurrencyStamp = true;
+                _value_concurrencyStamp = value;
+            }
+        }
+
+        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsConcurrencyStampSet => _set_concurrencyStamp;
+        public global::app.Graphql.StringOperationFilterInput? PhoneNumber
+        {
+            get => _value_phoneNumber;
+            set
+            {
+                _set_phoneNumber = true;
+                _value_phoneNumber = value;
+            }
+        }
+
+        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsPhoneNumberSet => _set_phoneNumber;
+        public global::app.Graphql.BooleanOperationFilterInput? PhoneNumberConfirmed
+        {
+            get => _value_phoneNumberConfirmed;
+            set
+            {
+                _set_phoneNumberConfirmed = true;
+                _value_phoneNumberConfirmed = value;
+            }
+        }
+
+        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsPhoneNumberConfirmedSet => _set_phoneNumberConfirmed;
+        public global::app.Graphql.BooleanOperationFilterInput? TwoFactorEnabled
+        {
+            get => _value_twoFactorEnabled;
+            set
+            {
+                _set_twoFactorEnabled = true;
+                _value_twoFactorEnabled = value;
+            }
+        }
+
+        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsTwoFactorEnabledSet => _set_twoFactorEnabled;
+        public global::app.Graphql.ComparableNullableOfDateTimeOffsetOperationFilterInput? LockoutEnd
+        {
+            get => _value_lockoutEnd;
+            set
+            {
+                _set_lockoutEnd = true;
+                _value_lockoutEnd = value;
+            }
+        }
+
+        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsLockoutEndSet => _set_lockoutEnd;
+        public global::app.Graphql.BooleanOperationFilterInput? LockoutEnabled
+        {
+            get => _value_lockoutEnabled;
+            set
+            {
+                _set_lockoutEnabled = true;
+                _value_lockoutEnabled = value;
+            }
+        }
+
+        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsLockoutEnabledSet => _set_lockoutEnabled;
+        public global::app.Graphql.ComparableInt32OperationFilterInput? AccessFailedCount
+        {
+            get => _value_accessFailedCount;
+            set
+            {
+                _set_accessFailedCount = true;
+                _value_accessFailedCount = value;
+            }
+        }
+
+        global::System.Boolean global::app.Graphql.State.IUserFilterInputInfo.IsAccessFailedCountSet => _set_accessFailedCount;
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -7516,13 +7377,15 @@ namespace app.Graphql
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class CreateProjectVmInputInputValueFormatter : global::StrawberryShake.Serialization.IInputObjectFormatter
+    public partial class ListFilterInputTypeOfProjectFilterInputInputValueFormatter : global::StrawberryShake.Serialization.IInputObjectFormatter
     {
-        private global::StrawberryShake.Serialization.IInputValueFormatter _stringFormatter = default !;
-        public global::System.String TypeName => "CreateProjectVmInput";
+        private global::StrawberryShake.Serialization.IInputValueFormatter _projectFilterInputFormatter = default !;
+        private global::StrawberryShake.Serialization.IInputValueFormatter _booleanFormatter = default !;
+        public global::System.String TypeName => "ListFilterInputTypeOfProjectFilterInput";
         public void Initialize(global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
         {
-            _stringFormatter = serializerResolver.GetInputValueFormatter("String");
+            _projectFilterInputFormatter = serializerResolver.GetInputValueFormatter("ProjectFilterInput");
+            _booleanFormatter = serializerResolver.GetInputValueFormatter("Boolean");
         }
 
         public global::System.Object? Format(global::System.Object? runtimeValue)
@@ -7532,50 +7395,88 @@ namespace app.Graphql
                 return null;
             }
 
-            var input = runtimeValue as global::app.Graphql.CreateProjectVmInput;
-            var inputInfo = runtimeValue as global::app.Graphql.State.ICreateProjectVmInputInfo;
+            var input = runtimeValue as global::app.Graphql.ListFilterInputTypeOfProjectFilterInput;
+            var inputInfo = runtimeValue as global::app.Graphql.State.IListFilterInputTypeOfProjectFilterInputInfo;
             if (input is null || inputInfo is null)
             {
                 throw new global::System.ArgumentException(nameof(runtimeValue));
             }
 
             var fields = new global::System.Collections.Generic.List<global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>>();
-            if (inputInfo.IsTitleSet)
+            if (inputInfo.IsAllSet)
             {
-                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("title", FormatTitle(input.Title)));
+                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("all", FormatAll(input.All)));
             }
 
-            if (inputInfo.IsDescriptionSet)
+            if (inputInfo.IsNoneSet)
             {
-                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("description", FormatDescription(input.Description)));
+                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("none", FormatNone(input.None)));
+            }
+
+            if (inputInfo.IsSomeSet)
+            {
+                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("some", FormatSome(input.Some)));
+            }
+
+            if (inputInfo.IsAnySet)
+            {
+                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("any", FormatAny(input.Any)));
             }
 
             return fields;
         }
 
-        private global::System.Object? FormatTitle(global::System.String input)
+        private global::System.Object? FormatAll(global::app.Graphql.ProjectFilterInput? input)
         {
             if (input is null)
             {
-                throw new global::System.ArgumentNullException(nameof(input));
+                return input;
             }
-
-            return _stringFormatter.Format(input);
+            else
+            {
+                return _projectFilterInputFormatter.Format(input);
+            }
         }
 
-        private global::System.Object? FormatDescription(global::System.String input)
+        private global::System.Object? FormatNone(global::app.Graphql.ProjectFilterInput? input)
         {
             if (input is null)
             {
-                throw new global::System.ArgumentNullException(nameof(input));
+                return input;
             }
+            else
+            {
+                return _projectFilterInputFormatter.Format(input);
+            }
+        }
 
-            return _stringFormatter.Format(input);
+        private global::System.Object? FormatSome(global::app.Graphql.ProjectFilterInput? input)
+        {
+            if (input is null)
+            {
+                return input;
+            }
+            else
+            {
+                return _projectFilterInputFormatter.Format(input);
+            }
+        }
+
+        private global::System.Object? FormatAny(global::System.Boolean? input)
+        {
+            if (input is null)
+            {
+                return input;
+            }
+            else
+            {
+                return _booleanFormatter.Format(input);
+            }
         }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class CreateProjectVmInput : global::app.Graphql.State.ICreateProjectVmInputInfo, global::System.IEquatable<CreateProjectVmInput>
+    public partial class ListFilterInputTypeOfProjectFilterInput : global::app.Graphql.State.IListFilterInputTypeOfProjectFilterInputInfo, global::System.IEquatable<ListFilterInputTypeOfProjectFilterInput>
     {
         public override global::System.Boolean Equals(global::System.Object? obj)
         {
@@ -7594,10 +7495,10 @@ namespace app.Graphql
                 return false;
             }
 
-            return Equals((CreateProjectVmInput)obj);
+            return Equals((ListFilterInputTypeOfProjectFilterInput)obj);
         }
 
-        public virtual global::System.Boolean Equals(CreateProjectVmInput? other)
+        public virtual global::System.Boolean Equals(ListFilterInputTypeOfProjectFilterInput? other)
         {
             if (ReferenceEquals(null, other))
             {
@@ -7614,7 +7515,7 @@ namespace app.Graphql
                 return false;
             }
 
-            return (Title.Equals(other.Title)) && Description.Equals(other.Description);
+            return (((All is null && other.All is null) || All != null && All.Equals(other.All))) && ((None is null && other.None is null) || None != null && None.Equals(other.None)) && ((Some is null && other.Some is null) || Some != null && Some.Equals(other.Some)) && Any == other.Any;
         }
 
         public override global::System.Int32 GetHashCode()
@@ -7622,45 +7523,89 @@ namespace app.Graphql
             unchecked
             {
                 int hash = 5;
-                hash ^= 397 * Title.GetHashCode();
-                hash ^= 397 * Description.GetHashCode();
+                if (All != null)
+                {
+                    hash ^= 397 * All.GetHashCode();
+                }
+
+                if (None != null)
+                {
+                    hash ^= 397 * None.GetHashCode();
+                }
+
+                if (Some != null)
+                {
+                    hash ^= 397 * Some.GetHashCode();
+                }
+
+                if (Any != null)
+                {
+                    hash ^= 397 * Any.GetHashCode();
+                }
+
                 return hash;
             }
         }
 
-        private global::System.String _value_title = default !;
-        private global::System.Boolean _set_title;
-        private global::System.String _value_description = default !;
-        private global::System.Boolean _set_description;
-        public global::System.String Title
+        private global::app.Graphql.ProjectFilterInput? _value_all;
+        private global::System.Boolean _set_all;
+        private global::app.Graphql.ProjectFilterInput? _value_none;
+        private global::System.Boolean _set_none;
+        private global::app.Graphql.ProjectFilterInput? _value_some;
+        private global::System.Boolean _set_some;
+        private global::System.Boolean? _value_any;
+        private global::System.Boolean _set_any;
+        public global::app.Graphql.ProjectFilterInput? All
         {
-            get => _value_title;
+            get => _value_all;
             set
             {
-                _set_title = true;
-                _value_title = value;
+                _set_all = true;
+                _value_all = value;
             }
         }
 
-        global::System.Boolean global::app.Graphql.State.ICreateProjectVmInputInfo.IsTitleSet => _set_title;
-        public global::System.String Description
+        global::System.Boolean global::app.Graphql.State.IListFilterInputTypeOfProjectFilterInputInfo.IsAllSet => _set_all;
+        public global::app.Graphql.ProjectFilterInput? None
         {
-            get => _value_description;
+            get => _value_none;
             set
             {
-                _set_description = true;
-                _value_description = value;
+                _set_none = true;
+                _value_none = value;
             }
         }
 
-        global::System.Boolean global::app.Graphql.State.ICreateProjectVmInputInfo.IsDescriptionSet => _set_description;
+        global::System.Boolean global::app.Graphql.State.IListFilterInputTypeOfProjectFilterInputInfo.IsNoneSet => _set_none;
+        public global::app.Graphql.ProjectFilterInput? Some
+        {
+            get => _value_some;
+            set
+            {
+                _set_some = true;
+                _value_some = value;
+            }
+        }
+
+        global::System.Boolean global::app.Graphql.State.IListFilterInputTypeOfProjectFilterInputInfo.IsSomeSet => _set_some;
+        public global::System.Boolean? Any
+        {
+            get => _value_any;
+            set
+            {
+                _set_any = true;
+                _value_any = value;
+            }
+        }
+
+        global::System.Boolean global::app.Graphql.State.IListFilterInputTypeOfProjectFilterInputInfo.IsAnySet => _set_any;
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class LoginModelInputInputValueFormatter : global::StrawberryShake.Serialization.IInputObjectFormatter
+    public partial class CreateUserVmInputInputValueFormatter : global::StrawberryShake.Serialization.IInputObjectFormatter
     {
         private global::StrawberryShake.Serialization.IInputValueFormatter _stringFormatter = default !;
-        public global::System.String TypeName => "LoginModelInput";
+        public global::System.String TypeName => "CreateUserVmInput";
         public void Initialize(global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
         {
             _stringFormatter = serializerResolver.GetInputValueFormatter("String");
@@ -7673,191 +7618,20 @@ namespace app.Graphql
                 return null;
             }
 
-            var input = runtimeValue as global::app.Graphql.LoginModelInput;
-            var inputInfo = runtimeValue as global::app.Graphql.State.ILoginModelInputInfo;
+            var input = runtimeValue as global::app.Graphql.CreateUserVmInput;
+            var inputInfo = runtimeValue as global::app.Graphql.State.ICreateUserVmInputInfo;
             if (input is null || inputInfo is null)
             {
                 throw new global::System.ArgumentException(nameof(runtimeValue));
             }
 
             var fields = new global::System.Collections.Generic.List<global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>>();
-            if (inputInfo.IsUsernameSet)
-            {
-                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("username", FormatUsername(input.Username)));
-            }
-
-            if (inputInfo.IsPasswordSet)
-            {
-                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("password", FormatPassword(input.Password)));
-            }
-
-            return fields;
-        }
-
-        private global::System.Object? FormatUsername(global::System.String input)
-        {
-            if (input is null)
-            {
-                throw new global::System.ArgumentNullException(nameof(input));
-            }
-
-            return _stringFormatter.Format(input);
-        }
-
-        private global::System.Object? FormatPassword(global::System.String input)
-        {
-            if (input is null)
-            {
-                throw new global::System.ArgumentNullException(nameof(input));
-            }
-
-            return _stringFormatter.Format(input);
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class LoginModelInput : global::app.Graphql.State.ILoginModelInputInfo, global::System.IEquatable<LoginModelInput>
-    {
-        public override global::System.Boolean Equals(global::System.Object? obj)
-        {
-            if (ReferenceEquals(null, obj))
-            {
-                return false;
-            }
-
-            if (ReferenceEquals(this, obj))
-            {
-                return true;
-            }
-
-            if (obj.GetType() != GetType())
-            {
-                return false;
-            }
-
-            return Equals((LoginModelInput)obj);
-        }
-
-        public virtual global::System.Boolean Equals(LoginModelInput? other)
-        {
-            if (ReferenceEquals(null, other))
-            {
-                return false;
-            }
-
-            if (ReferenceEquals(this, other))
-            {
-                return true;
-            }
-
-            if (other.GetType() != GetType())
-            {
-                return false;
-            }
-
-            return (Username.Equals(other.Username)) && Password.Equals(other.Password);
-        }
-
-        public override global::System.Int32 GetHashCode()
-        {
-            unchecked
-            {
-                int hash = 5;
-                hash ^= 397 * Username.GetHashCode();
-                hash ^= 397 * Password.GetHashCode();
-                return hash;
-            }
-        }
-
-        private global::System.String _value_username = default !;
-        private global::System.Boolean _set_username;
-        private global::System.String _value_password = default !;
-        private global::System.Boolean _set_password;
-        public global::System.String Username
-        {
-            get => _value_username;
-            set
-            {
-                _set_username = true;
-                _value_username = value;
-            }
-        }
-
-        global::System.Boolean global::app.Graphql.State.ILoginModelInputInfo.IsUsernameSet => _set_username;
-        public global::System.String Password
-        {
-            get => _value_password;
-            set
-            {
-                _set_password = true;
-                _value_password = value;
-            }
-        }
-
-        global::System.Boolean global::app.Graphql.State.ILoginModelInputInfo.IsPasswordSet => _set_password;
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class RegisterModelInputInputValueFormatter : global::StrawberryShake.Serialization.IInputObjectFormatter
-    {
-        private global::StrawberryShake.Serialization.IInputValueFormatter _stringFormatter = default !;
-        public global::System.String TypeName => "RegisterModelInput";
-        public void Initialize(global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
-        {
-            _stringFormatter = serializerResolver.GetInputValueFormatter("String");
-        }
-
-        public global::System.Object? Format(global::System.Object? runtimeValue)
-        {
-            if (runtimeValue is null)
-            {
-                return null;
-            }
-
-            var input = runtimeValue as global::app.Graphql.RegisterModelInput;
-            var inputInfo = runtimeValue as global::app.Graphql.State.IRegisterModelInputInfo;
-            if (input is null || inputInfo is null)
-            {
-                throw new global::System.ArgumentException(nameof(runtimeValue));
-            }
-
-            var fields = new global::System.Collections.Generic.List<global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>>();
-            if (inputInfo.IsCompanyNameSet)
-            {
-                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("companyName", FormatCompanyName(input.CompanyName)));
-            }
-
             if (inputInfo.IsEmailSet)
             {
                 fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("email", FormatEmail(input.Email)));
             }
 
-            if (inputInfo.IsPasswordConfirmationSet)
-            {
-                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("passwordConfirmation", FormatPasswordConfirmation(input.PasswordConfirmation)));
-            }
-
-            if (inputInfo.IsUsernameSet)
-            {
-                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("username", FormatUsername(input.Username)));
-            }
-
-            if (inputInfo.IsPasswordSet)
-            {
-                fields.Add(new global::System.Collections.Generic.KeyValuePair<global::System.String, global::System.Object?>("password", FormatPassword(input.Password)));
-            }
-
             return fields;
-        }
-
-        private global::System.Object? FormatCompanyName(global::System.String input)
-        {
-            if (input is null)
-            {
-                throw new global::System.ArgumentNullException(nameof(input));
-            }
-
-            return _stringFormatter.Format(input);
         }
 
         private global::System.Object? FormatEmail(global::System.String input)
@@ -7869,40 +7643,10 @@ namespace app.Graphql
 
             return _stringFormatter.Format(input);
         }
-
-        private global::System.Object? FormatPasswordConfirmation(global::System.String input)
-        {
-            if (input is null)
-            {
-                throw new global::System.ArgumentNullException(nameof(input));
-            }
-
-            return _stringFormatter.Format(input);
-        }
-
-        private global::System.Object? FormatUsername(global::System.String input)
-        {
-            if (input is null)
-            {
-                throw new global::System.ArgumentNullException(nameof(input));
-            }
-
-            return _stringFormatter.Format(input);
-        }
-
-        private global::System.Object? FormatPassword(global::System.String input)
-        {
-            if (input is null)
-            {
-                throw new global::System.ArgumentNullException(nameof(input));
-            }
-
-            return _stringFormatter.Format(input);
-        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class RegisterModelInput : global::app.Graphql.State.IRegisterModelInputInfo, global::System.IEquatable<RegisterModelInput>
+    public partial class CreateUserVmInput : global::app.Graphql.State.ICreateUserVmInputInfo, global::System.IEquatable<CreateUserVmInput>
     {
         public override global::System.Boolean Equals(global::System.Object? obj)
         {
@@ -7921,10 +7665,10 @@ namespace app.Graphql
                 return false;
             }
 
-            return Equals((RegisterModelInput)obj);
+            return Equals((CreateUserVmInput)obj);
         }
 
-        public virtual global::System.Boolean Equals(RegisterModelInput? other)
+        public virtual global::System.Boolean Equals(CreateUserVmInput? other)
         {
             if (ReferenceEquals(null, other))
             {
@@ -7941,7 +7685,7 @@ namespace app.Graphql
                 return false;
             }
 
-            return (CompanyName.Equals(other.CompanyName)) && Email.Equals(other.Email) && PasswordConfirmation.Equals(other.PasswordConfirmation) && Username.Equals(other.Username) && Password.Equals(other.Password);
+            return (Email.Equals(other.Email));
         }
 
         public override global::System.Int32 GetHashCode()
@@ -7949,36 +7693,13 @@ namespace app.Graphql
             unchecked
             {
                 int hash = 5;
-                hash ^= 397 * CompanyName.GetHashCode();
                 hash ^= 397 * Email.GetHashCode();
-                hash ^= 397 * PasswordConfirmation.GetHashCode();
-                hash ^= 397 * Username.GetHashCode();
-                hash ^= 397 * Password.GetHashCode();
                 return hash;
             }
         }
 
-        private global::System.String _value_companyName = default !;
-        private global::System.Boolean _set_companyName;
         private global::System.String _value_email = default !;
         private global::System.Boolean _set_email;
-        private global::System.String _value_passwordConfirmation = default !;
-        private global::System.Boolean _set_passwordConfirmation;
-        private global::System.String _value_username = default !;
-        private global::System.Boolean _set_username;
-        private global::System.String _value_password = default !;
-        private global::System.Boolean _set_password;
-        public global::System.String CompanyName
-        {
-            get => _value_companyName;
-            set
-            {
-                _set_companyName = true;
-                _value_companyName = value;
-            }
-        }
-
-        global::System.Boolean global::app.Graphql.State.IRegisterModelInputInfo.IsCompanyNameSet => _set_companyName;
         public global::System.String Email
         {
             get => _value_email;
@@ -7989,40 +7710,7 @@ namespace app.Graphql
             }
         }
 
-        global::System.Boolean global::app.Graphql.State.IRegisterModelInputInfo.IsEmailSet => _set_email;
-        public global::System.String PasswordConfirmation
-        {
-            get => _value_passwordConfirmation;
-            set
-            {
-                _set_passwordConfirmation = true;
-                _value_passwordConfirmation = value;
-            }
-        }
-
-        global::System.Boolean global::app.Graphql.State.IRegisterModelInputInfo.IsPasswordConfirmationSet => _set_passwordConfirmation;
-        public global::System.String Username
-        {
-            get => _value_username;
-            set
-            {
-                _set_username = true;
-                _value_username = value;
-            }
-        }
-
-        global::System.Boolean global::app.Graphql.State.IRegisterModelInputInfo.IsUsernameSet => _set_username;
-        public global::System.String Password
-        {
-            get => _value_password;
-            set
-            {
-                _set_password = true;
-                _value_password = value;
-            }
-        }
-
-        global::System.Boolean global::app.Graphql.State.IRegisterModelInputInfo.IsPasswordSet => _set_password;
+        global::System.Boolean global::app.Graphql.State.ICreateUserVmInputInfo.IsEmailSet => _set_email;
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -8057,45 +7745,27 @@ namespace app.Graphql
     }
 
     /// <summary>
-    /// Represents the operation service of the GetCompany GraphQL operation
+    /// Represents the operation service of the Login GraphQL operation
     /// <code>
-    /// query GetCompany {
-    ///   Companies {
+    /// mutation Login($model: LoginModelInput) {
+    ///   account {
     ///     __typename
-    ///     nodes {
-    ///       __typename
-    ///       id
-    ///       name
-    ///       status
-    ///       ... on Company {
-    ///         id
-    ///       }
-    ///     }
+    ///     login(model: $model)
     ///   }
     /// }
     /// </code>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class GetCompanyQueryDocument : global::StrawberryShake.IDocument
+    public partial class LoginMutationDocument : global::StrawberryShake.IDocument
     {
-        private GetCompanyQueryDocument()
+        private LoginMutationDocument()
         {
         }
 
-        public static GetCompanyQueryDocument Instance
-        {
-            get;
-        }
-
-        = new GetCompanyQueryDocument();
-        public global::StrawberryShake.OperationKind Kind => global::StrawberryShake.OperationKind.Query;
-        public global::System.ReadOnlySpan<global::System.Byte> Body => new global::System.Byte[]{0x71, 0x75, 0x65, 0x72, 0x79, 0x20, 0x47, 0x65, 0x74, 0x43, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x20, 0x7b, 0x20, 0x43, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x69, 0x65, 0x73, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x6e, 0x6f, 0x64, 0x65, 0x73, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x69, 0x64, 0x20, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x43, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x7d};
-        public global::StrawberryShake.DocumentHash Hash
-        {
-            get;
-        }
-
-        = new global::StrawberryShake.DocumentHash("md5Hash", "3562551688f11b2ff1613a193440f4c8");
+        public static LoginMutationDocument Instance { get; } = new LoginMutationDocument();
+        public global::StrawberryShake.OperationKind Kind => global::StrawberryShake.OperationKind.Mutation;
+        public global::System.ReadOnlySpan<global::System.Byte> Body => new global::System.Byte[]{0x6d, 0x75, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x20, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x28, 0x24, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x3a, 0x20, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x49, 0x6e, 0x70, 0x75, 0x74, 0x29, 0x20, 0x7b, 0x20, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x6c, 0x6f, 0x67, 0x69, 0x6e, 0x28, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x3a, 0x20, 0x24, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x29, 0x20, 0x7d, 0x20, 0x7d};
+        public global::StrawberryShake.DocumentHash Hash { get; } = new global::StrawberryShake.DocumentHash("md5Hash", "b608660a5770bd8ca53c27064f0dc44d");
         public override global::System.String ToString()
         {
 #if NETSTANDARD2_0
@@ -8107,41 +7777,263 @@ namespace app.Graphql
     }
 
     /// <summary>
-    /// Represents the operation service of the GetCompany GraphQL operation
+    /// Represents the operation service of the Login GraphQL operation
     /// <code>
-    /// query GetCompany {
-    ///   Companies {
+    /// mutation Login($model: LoginModelInput) {
+    ///   account {
     ///     __typename
-    ///     nodes {
-    ///       __typename
-    ///       id
-    ///       name
-    ///       status
-    ///       ... on Company {
-    ///         id
-    ///       }
-    ///     }
+    ///     login(model: $model)
     ///   }
     /// }
     /// </code>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class GetCompanyQuery : global::app.Graphql.IGetCompanyQuery
+    public partial class LoginMutation : global::app.Graphql.ILoginMutation
     {
-        private readonly global::StrawberryShake.IOperationExecutor<IGetCompanyResult> _operationExecutor;
-        public GetCompanyQuery(global::StrawberryShake.IOperationExecutor<IGetCompanyResult> operationExecutor)
+        private readonly global::StrawberryShake.IOperationExecutor<ILoginResult> _operationExecutor;
+        private readonly global::StrawberryShake.Serialization.IInputValueFormatter _loginModelInputFormatter;
+        public LoginMutation(global::StrawberryShake.IOperationExecutor<ILoginResult> operationExecutor, global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
+        {
+            _operationExecutor = operationExecutor ?? throw new global::System.ArgumentNullException(nameof(operationExecutor));
+            _loginModelInputFormatter = serializerResolver.GetInputValueFormatter("LoginModelInput");
+        }
+
+        global::System.Type global::StrawberryShake.IOperationRequestFactory.ResultType => typeof(ILoginResult);
+        public async global::System.Threading.Tasks.Task<global::StrawberryShake.IOperationResult<ILoginResult>> ExecuteAsync(global::app.Graphql.LoginModelInput? model, global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            var request = CreateRequest(model);
+            return await _operationExecutor.ExecuteAsync(request, cancellationToken).ConfigureAwait(false);
+        }
+
+        public global::System.IObservable<global::StrawberryShake.IOperationResult<ILoginResult>> Watch(global::app.Graphql.LoginModelInput? model, global::StrawberryShake.ExecutionStrategy? strategy = null)
+        {
+            var request = CreateRequest(model);
+            return _operationExecutor.Watch(request, strategy);
+        }
+
+        private global::StrawberryShake.OperationRequest CreateRequest(global::app.Graphql.LoginModelInput? model)
+        {
+            var variables = new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>();
+            variables.Add("model", FormatModel(model));
+            return CreateRequest(variables);
+        }
+
+        private global::StrawberryShake.OperationRequest CreateRequest(global::System.Collections.Generic.IReadOnlyDictionary<global::System.String, global::System.Object?>? variables)
+        {
+            return new global::StrawberryShake.OperationRequest(id: LoginMutationDocument.Instance.Hash.Value, name: "Login", document: LoginMutationDocument.Instance, strategy: global::StrawberryShake.RequestStrategy.Default, variables: variables);
+        }
+
+        private global::System.Object? FormatModel(global::app.Graphql.LoginModelInput? value)
+        {
+            if (value is null)
+            {
+                return value;
+            }
+            else
+            {
+                return _loginModelInputFormatter.Format(value);
+            }
+        }
+
+        global::StrawberryShake.OperationRequest global::StrawberryShake.IOperationRequestFactory.Create(global::System.Collections.Generic.IReadOnlyDictionary<global::System.String, global::System.Object?>? variables)
+        {
+            return CreateRequest(variables!);
+        }
+    }
+
+    /// <summary>
+    /// Represents the operation service of the Login GraphQL operation
+    /// <code>
+    /// mutation Login($model: LoginModelInput) {
+    ///   account {
+    ///     __typename
+    ///     login(model: $model)
+    ///   }
+    /// }
+    /// </code>
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public interface ILoginMutation : global::StrawberryShake.IOperationRequestFactory
+    {
+        global::System.Threading.Tasks.Task<global::StrawberryShake.IOperationResult<ILoginResult>> ExecuteAsync(global::app.Graphql.LoginModelInput? model, global::System.Threading.CancellationToken cancellationToken = default);
+        global::System.IObservable<global::StrawberryShake.IOperationResult<ILoginResult>> Watch(global::app.Graphql.LoginModelInput? model, global::StrawberryShake.ExecutionStrategy? strategy = null);
+    }
+
+    /// <summary>
+    /// Represents the operation service of the Register GraphQL operation
+    /// <code>
+    /// mutation Register($model: RegisterModelInput) {
+    ///   account {
+    ///     __typename
+    ///     register(model: $model)
+    ///   }
+    /// }
+    /// </code>
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class RegisterMutationDocument : global::StrawberryShake.IDocument
+    {
+        private RegisterMutationDocument()
+        {
+        }
+
+        public static RegisterMutationDocument Instance { get; } = new RegisterMutationDocument();
+        public global::StrawberryShake.OperationKind Kind => global::StrawberryShake.OperationKind.Mutation;
+        public global::System.ReadOnlySpan<global::System.Byte> Body => new global::System.Byte[]{0x6d, 0x75, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x20, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x28, 0x24, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x3a, 0x20, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x49, 0x6e, 0x70, 0x75, 0x74, 0x29, 0x20, 0x7b, 0x20, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x72, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x28, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x3a, 0x20, 0x24, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x29, 0x20, 0x7d, 0x20, 0x7d};
+        public global::StrawberryShake.DocumentHash Hash { get; } = new global::StrawberryShake.DocumentHash("md5Hash", "003441ab205e7f8f021ad4af3db64538");
+        public override global::System.String ToString()
+        {
+#if NETSTANDARD2_0
+        return global::System.Text.Encoding.UTF8.GetString(Body.ToArray());
+#else
+            return global::System.Text.Encoding.UTF8.GetString(Body);
+#endif
+        }
+    }
+
+    /// <summary>
+    /// Represents the operation service of the Register GraphQL operation
+    /// <code>
+    /// mutation Register($model: RegisterModelInput) {
+    ///   account {
+    ///     __typename
+    ///     register(model: $model)
+    ///   }
+    /// }
+    /// </code>
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class RegisterMutation : global::app.Graphql.IRegisterMutation
+    {
+        private readonly global::StrawberryShake.IOperationExecutor<IRegisterResult> _operationExecutor;
+        private readonly global::StrawberryShake.Serialization.IInputValueFormatter _registerModelInputFormatter;
+        public RegisterMutation(global::StrawberryShake.IOperationExecutor<IRegisterResult> operationExecutor, global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
+        {
+            _operationExecutor = operationExecutor ?? throw new global::System.ArgumentNullException(nameof(operationExecutor));
+            _registerModelInputFormatter = serializerResolver.GetInputValueFormatter("RegisterModelInput");
+        }
+
+        global::System.Type global::StrawberryShake.IOperationRequestFactory.ResultType => typeof(IRegisterResult);
+        public async global::System.Threading.Tasks.Task<global::StrawberryShake.IOperationResult<IRegisterResult>> ExecuteAsync(global::app.Graphql.RegisterModelInput? model, global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            var request = CreateRequest(model);
+            return await _operationExecutor.ExecuteAsync(request, cancellationToken).ConfigureAwait(false);
+        }
+
+        public global::System.IObservable<global::StrawberryShake.IOperationResult<IRegisterResult>> Watch(global::app.Graphql.RegisterModelInput? model, global::StrawberryShake.ExecutionStrategy? strategy = null)
+        {
+            var request = CreateRequest(model);
+            return _operationExecutor.Watch(request, strategy);
+        }
+
+        private global::StrawberryShake.OperationRequest CreateRequest(global::app.Graphql.RegisterModelInput? model)
+        {
+            var variables = new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>();
+            variables.Add("model", FormatModel(model));
+            return CreateRequest(variables);
+        }
+
+        private global::StrawberryShake.OperationRequest CreateRequest(global::System.Collections.Generic.IReadOnlyDictionary<global::System.String, global::System.Object?>? variables)
+        {
+            return new global::StrawberryShake.OperationRequest(id: RegisterMutationDocument.Instance.Hash.Value, name: "Register", document: RegisterMutationDocument.Instance, strategy: global::StrawberryShake.RequestStrategy.Default, variables: variables);
+        }
+
+        private global::System.Object? FormatModel(global::app.Graphql.RegisterModelInput? value)
+        {
+            if (value is null)
+            {
+                return value;
+            }
+            else
+            {
+                return _registerModelInputFormatter.Format(value);
+            }
+        }
+
+        global::StrawberryShake.OperationRequest global::StrawberryShake.IOperationRequestFactory.Create(global::System.Collections.Generic.IReadOnlyDictionary<global::System.String, global::System.Object?>? variables)
+        {
+            return CreateRequest(variables!);
+        }
+    }
+
+    /// <summary>
+    /// Represents the operation service of the Register GraphQL operation
+    /// <code>
+    /// mutation Register($model: RegisterModelInput) {
+    ///   account {
+    ///     __typename
+    ///     register(model: $model)
+    ///   }
+    /// }
+    /// </code>
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public interface IRegisterMutation : global::StrawberryShake.IOperationRequestFactory
+    {
+        global::System.Threading.Tasks.Task<global::StrawberryShake.IOperationResult<IRegisterResult>> ExecuteAsync(global::app.Graphql.RegisterModelInput? model, global::System.Threading.CancellationToken cancellationToken = default);
+        global::System.IObservable<global::StrawberryShake.IOperationResult<IRegisterResult>> Watch(global::app.Graphql.RegisterModelInput? model, global::StrawberryShake.ExecutionStrategy? strategy = null);
+    }
+
+    /// <summary>
+    /// Represents the operation service of the RefreshToken GraphQL operation
+    /// <code>
+    /// mutation RefreshToken {
+    ///   account {
+    ///     __typename
+    ///     refreshToken
+    ///   }
+    /// }
+    /// </code>
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class RefreshTokenMutationDocument : global::StrawberryShake.IDocument
+    {
+        private RefreshTokenMutationDocument()
+        {
+        }
+
+        public static RefreshTokenMutationDocument Instance { get; } = new RefreshTokenMutationDocument();
+        public global::StrawberryShake.OperationKind Kind => global::StrawberryShake.OperationKind.Mutation;
+        public global::System.ReadOnlySpan<global::System.Byte> Body => new global::System.Byte[]{0x6d, 0x75, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x20, 0x52, 0x65, 0x66, 0x72, 0x65, 0x73, 0x68, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x20, 0x7b, 0x20, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x72, 0x65, 0x66, 0x72, 0x65, 0x73, 0x68, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x20, 0x7d, 0x20, 0x7d};
+        public global::StrawberryShake.DocumentHash Hash { get; } = new global::StrawberryShake.DocumentHash("md5Hash", "083faf1597469fcd7bd8a9d9c16e72f6");
+        public override global::System.String ToString()
+        {
+#if NETSTANDARD2_0
+        return global::System.Text.Encoding.UTF8.GetString(Body.ToArray());
+#else
+            return global::System.Text.Encoding.UTF8.GetString(Body);
+#endif
+        }
+    }
+
+    /// <summary>
+    /// Represents the operation service of the RefreshToken GraphQL operation
+    /// <code>
+    /// mutation RefreshToken {
+    ///   account {
+    ///     __typename
+    ///     refreshToken
+    ///   }
+    /// }
+    /// </code>
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class RefreshTokenMutation : global::app.Graphql.IRefreshTokenMutation
+    {
+        private readonly global::StrawberryShake.IOperationExecutor<IRefreshTokenResult> _operationExecutor;
+        public RefreshTokenMutation(global::StrawberryShake.IOperationExecutor<IRefreshTokenResult> operationExecutor)
         {
             _operationExecutor = operationExecutor ?? throw new global::System.ArgumentNullException(nameof(operationExecutor));
         }
 
-        global::System.Type global::StrawberryShake.IOperationRequestFactory.ResultType => typeof(IGetCompanyResult);
-        public async global::System.Threading.Tasks.Task<global::StrawberryShake.IOperationResult<IGetCompanyResult>> ExecuteAsync(global::System.Threading.CancellationToken cancellationToken = default)
+        global::System.Type global::StrawberryShake.IOperationRequestFactory.ResultType => typeof(IRefreshTokenResult);
+        public async global::System.Threading.Tasks.Task<global::StrawberryShake.IOperationResult<IRefreshTokenResult>> ExecuteAsync(global::System.Threading.CancellationToken cancellationToken = default)
         {
             var request = CreateRequest();
             return await _operationExecutor.ExecuteAsync(request, cancellationToken).ConfigureAwait(false);
         }
 
-        public global::System.IObservable<global::StrawberryShake.IOperationResult<IGetCompanyResult>> Watch(global::StrawberryShake.ExecutionStrategy? strategy = null)
+        public global::System.IObservable<global::StrawberryShake.IOperationResult<IRefreshTokenResult>> Watch(global::StrawberryShake.ExecutionStrategy? strategy = null)
         {
             var request = CreateRequest();
             return _operationExecutor.Watch(request, strategy);
@@ -8154,7 +8046,7 @@ namespace app.Graphql
 
         private global::StrawberryShake.OperationRequest CreateRequest(global::System.Collections.Generic.IReadOnlyDictionary<global::System.String, global::System.Object?>? variables)
         {
-            return new global::StrawberryShake.OperationRequest(id: GetCompanyQueryDocument.Instance.Hash.Value, name: "GetCompany", document: GetCompanyQueryDocument.Instance, strategy: global::StrawberryShake.RequestStrategy.Default);
+            return new global::StrawberryShake.OperationRequest(id: RefreshTokenMutationDocument.Instance.Hash.Value, name: "RefreshToken", document: RefreshTokenMutationDocument.Instance, strategy: global::StrawberryShake.RequestStrategy.Default);
         }
 
         global::StrawberryShake.OperationRequest global::StrawberryShake.IOperationRequestFactory.Create(global::System.Collections.Generic.IReadOnlyDictionary<global::System.String, global::System.Object?>? variables)
@@ -8164,357 +8056,21 @@ namespace app.Graphql
     }
 
     /// <summary>
-    /// Represents the operation service of the GetCompany GraphQL operation
+    /// Represents the operation service of the RefreshToken GraphQL operation
     /// <code>
-    /// query GetCompany {
-    ///   Companies {
+    /// mutation RefreshToken {
+    ///   account {
     ///     __typename
-    ///     nodes {
-    ///       __typename
-    ///       id
-    ///       name
-    ///       status
-    ///       ... on Company {
-    ///         id
-    ///       }
-    ///     }
+    ///     refreshToken
     ///   }
     /// }
     /// </code>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface IGetCompanyQuery : global::StrawberryShake.IOperationRequestFactory
+    public interface IRefreshTokenMutation : global::StrawberryShake.IOperationRequestFactory
     {
-        global::System.Threading.Tasks.Task<global::StrawberryShake.IOperationResult<IGetCompanyResult>> ExecuteAsync(global::System.Threading.CancellationToken cancellationToken = default);
-        global::System.IObservable<global::StrawberryShake.IOperationResult<IGetCompanyResult>> Watch(global::StrawberryShake.ExecutionStrategy? strategy = null);
-    }
-
-    /// <summary>
-    /// Represents the operation service of the CreateUser GraphQL operation
-    /// <code>
-    /// mutation CreateUser($model: CreateUserVmInput) {
-    ///   user {
-    ///     __typename
-    ///     add(model: $model)
-    ///   }
-    /// }
-    /// </code>
-    /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class CreateUserMutationDocument : global::StrawberryShake.IDocument
-    {
-        private CreateUserMutationDocument()
-        {
-        }
-
-        public static CreateUserMutationDocument Instance
-        {
-            get;
-        }
-
-        = new CreateUserMutationDocument();
-        public global::StrawberryShake.OperationKind Kind => global::StrawberryShake.OperationKind.Mutation;
-        public global::System.ReadOnlySpan<global::System.Byte> Body => new global::System.Byte[]{0x6d, 0x75, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x20, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x28, 0x24, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x3a, 0x20, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x56, 0x6d, 0x49, 0x6e, 0x70, 0x75, 0x74, 0x29, 0x20, 0x7b, 0x20, 0x75, 0x73, 0x65, 0x72, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x61, 0x64, 0x64, 0x28, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x3a, 0x20, 0x24, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x29, 0x20, 0x7d, 0x20, 0x7d};
-        public global::StrawberryShake.DocumentHash Hash
-        {
-            get;
-        }
-
-        = new global::StrawberryShake.DocumentHash("md5Hash", "87c8bbb06dc76c52429fbffa0caefe0d");
-        public override global::System.String ToString()
-        {
-#if NETSTANDARD2_0
-        return global::System.Text.Encoding.UTF8.GetString(Body.ToArray());
-#else
-            return global::System.Text.Encoding.UTF8.GetString(Body);
-#endif
-        }
-    }
-
-    /// <summary>
-    /// Represents the operation service of the CreateUser GraphQL operation
-    /// <code>
-    /// mutation CreateUser($model: CreateUserVmInput) {
-    ///   user {
-    ///     __typename
-    ///     add(model: $model)
-    ///   }
-    /// }
-    /// </code>
-    /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class CreateUserMutation : global::app.Graphql.ICreateUserMutation
-    {
-        private readonly global::StrawberryShake.IOperationExecutor<ICreateUserResult> _operationExecutor;
-        private readonly global::StrawberryShake.Serialization.IInputValueFormatter _createUserVmInputFormatter;
-        public CreateUserMutation(global::StrawberryShake.IOperationExecutor<ICreateUserResult> operationExecutor, global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
-        {
-            _operationExecutor = operationExecutor ?? throw new global::System.ArgumentNullException(nameof(operationExecutor));
-            _createUserVmInputFormatter = serializerResolver.GetInputValueFormatter("CreateUserVmInput");
-        }
-
-        global::System.Type global::StrawberryShake.IOperationRequestFactory.ResultType => typeof(ICreateUserResult);
-        public async global::System.Threading.Tasks.Task<global::StrawberryShake.IOperationResult<ICreateUserResult>> ExecuteAsync(global::app.Graphql.CreateUserVmInput? model, global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            var request = CreateRequest(model);
-            return await _operationExecutor.ExecuteAsync(request, cancellationToken).ConfigureAwait(false);
-        }
-
-        public global::System.IObservable<global::StrawberryShake.IOperationResult<ICreateUserResult>> Watch(global::app.Graphql.CreateUserVmInput? model, global::StrawberryShake.ExecutionStrategy? strategy = null)
-        {
-            var request = CreateRequest(model);
-            return _operationExecutor.Watch(request, strategy);
-        }
-
-        private global::StrawberryShake.OperationRequest CreateRequest(global::app.Graphql.CreateUserVmInput? model)
-        {
-            var variables = new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>();
-            variables.Add("model", FormatModel(model));
-            return CreateRequest(variables);
-        }
-
-        private global::StrawberryShake.OperationRequest CreateRequest(global::System.Collections.Generic.IReadOnlyDictionary<global::System.String, global::System.Object?>? variables)
-        {
-            return new global::StrawberryShake.OperationRequest(id: CreateUserMutationDocument.Instance.Hash.Value, name: "CreateUser", document: CreateUserMutationDocument.Instance, strategy: global::StrawberryShake.RequestStrategy.Default, variables: variables);
-        }
-
-        private global::System.Object? FormatModel(global::app.Graphql.CreateUserVmInput? value)
-        {
-            if (value is null)
-            {
-                return value;
-            }
-            else
-            {
-                return _createUserVmInputFormatter.Format(value);
-            }
-        }
-
-        global::StrawberryShake.OperationRequest global::StrawberryShake.IOperationRequestFactory.Create(global::System.Collections.Generic.IReadOnlyDictionary<global::System.String, global::System.Object?>? variables)
-        {
-            return CreateRequest(variables!);
-        }
-    }
-
-    /// <summary>
-    /// Represents the operation service of the CreateUser GraphQL operation
-    /// <code>
-    /// mutation CreateUser($model: CreateUserVmInput) {
-    ///   user {
-    ///     __typename
-    ///     add(model: $model)
-    ///   }
-    /// }
-    /// </code>
-    /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface ICreateUserMutation : global::StrawberryShake.IOperationRequestFactory
-    {
-        global::System.Threading.Tasks.Task<global::StrawberryShake.IOperationResult<ICreateUserResult>> ExecuteAsync(global::app.Graphql.CreateUserVmInput? model, global::System.Threading.CancellationToken cancellationToken = default);
-        global::System.IObservable<global::StrawberryShake.IOperationResult<ICreateUserResult>> Watch(global::app.Graphql.CreateUserVmInput? model, global::StrawberryShake.ExecutionStrategy? strategy = null);
-    }
-
-    /// <summary>
-    /// Represents the operation service of the GetUsers GraphQL operation
-    /// <code>
-    /// query GetUsers($filter: UserFilterInput) {
-    ///   Users(where: $filter) {
-    ///     __typename
-    ///     nodes {
-    ///       __typename
-    ///       company {
-    ///         __typename
-    ///         name
-    ///         ... on Company {
-    ///           id
-    ///         }
-    ///       }
-    ///       id
-    ///       email
-    ///       phoneNumber
-    ///       status
-    ///       userName
-    ///       companyId
-    ///       ... on User {
-    ///         id
-    ///       }
-    ///     }
-    ///     pageInfo {
-    ///       __typename
-    ///       endCursor
-    ///       hasNextPage
-    ///       hasPreviousPage
-    ///       startCursor
-    ///     }
-    ///     totalCount
-    ///   }
-    /// }
-    /// </code>
-    /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class GetUsersQueryDocument : global::StrawberryShake.IDocument
-    {
-        private GetUsersQueryDocument()
-        {
-        }
-
-        public static GetUsersQueryDocument Instance
-        {
-            get;
-        }
-
-        = new GetUsersQueryDocument();
-        public global::StrawberryShake.OperationKind Kind => global::StrawberryShake.OperationKind.Query;
-        public global::System.ReadOnlySpan<global::System.Byte> Body => new global::System.Byte[]{0x71, 0x75, 0x65, 0x72, 0x79, 0x20, 0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x73, 0x28, 0x24, 0x66, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x3a, 0x20, 0x55, 0x73, 0x65, 0x72, 0x46, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x49, 0x6e, 0x70, 0x75, 0x74, 0x29, 0x20, 0x7b, 0x20, 0x55, 0x73, 0x65, 0x72, 0x73, 0x28, 0x77, 0x68, 0x65, 0x72, 0x65, 0x3a, 0x20, 0x24, 0x66, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x29, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x6e, 0x6f, 0x64, 0x65, 0x73, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x43, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x69, 0x64, 0x20, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x20, 0x70, 0x68, 0x6f, 0x6e, 0x65, 0x4e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x20, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x20, 0x75, 0x73, 0x65, 0x72, 0x4e, 0x61, 0x6d, 0x65, 0x20, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x49, 0x64, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x55, 0x73, 0x65, 0x72, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x70, 0x61, 0x67, 0x65, 0x49, 0x6e, 0x66, 0x6f, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x65, 0x6e, 0x64, 0x43, 0x75, 0x72, 0x73, 0x6f, 0x72, 0x20, 0x68, 0x61, 0x73, 0x4e, 0x65, 0x78, 0x74, 0x50, 0x61, 0x67, 0x65, 0x20, 0x68, 0x61, 0x73, 0x50, 0x72, 0x65, 0x76, 0x69, 0x6f, 0x75, 0x73, 0x50, 0x61, 0x67, 0x65, 0x20, 0x73, 0x74, 0x61, 0x72, 0x74, 0x43, 0x75, 0x72, 0x73, 0x6f, 0x72, 0x20, 0x7d, 0x20, 0x74, 0x6f, 0x74, 0x61, 0x6c, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x20, 0x7d, 0x20, 0x7d};
-        public global::StrawberryShake.DocumentHash Hash
-        {
-            get;
-        }
-
-        = new global::StrawberryShake.DocumentHash("md5Hash", "8ba7db67b072171991c92c7e1903d7ce");
-        public override global::System.String ToString()
-        {
-#if NETSTANDARD2_0
-        return global::System.Text.Encoding.UTF8.GetString(Body.ToArray());
-#else
-            return global::System.Text.Encoding.UTF8.GetString(Body);
-#endif
-        }
-    }
-
-    /// <summary>
-    /// Represents the operation service of the GetUsers GraphQL operation
-    /// <code>
-    /// query GetUsers($filter: UserFilterInput) {
-    ///   Users(where: $filter) {
-    ///     __typename
-    ///     nodes {
-    ///       __typename
-    ///       company {
-    ///         __typename
-    ///         name
-    ///         ... on Company {
-    ///           id
-    ///         }
-    ///       }
-    ///       id
-    ///       email
-    ///       phoneNumber
-    ///       status
-    ///       userName
-    ///       companyId
-    ///       ... on User {
-    ///         id
-    ///       }
-    ///     }
-    ///     pageInfo {
-    ///       __typename
-    ///       endCursor
-    ///       hasNextPage
-    ///       hasPreviousPage
-    ///       startCursor
-    ///     }
-    ///     totalCount
-    ///   }
-    /// }
-    /// </code>
-    /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class GetUsersQuery : global::app.Graphql.IGetUsersQuery
-    {
-        private readonly global::StrawberryShake.IOperationExecutor<IGetUsersResult> _operationExecutor;
-        private readonly global::StrawberryShake.Serialization.IInputValueFormatter _userFilterInputFormatter;
-        public GetUsersQuery(global::StrawberryShake.IOperationExecutor<IGetUsersResult> operationExecutor, global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
-        {
-            _operationExecutor = operationExecutor ?? throw new global::System.ArgumentNullException(nameof(operationExecutor));
-            _userFilterInputFormatter = serializerResolver.GetInputValueFormatter("UserFilterInput");
-        }
-
-        global::System.Type global::StrawberryShake.IOperationRequestFactory.ResultType => typeof(IGetUsersResult);
-        public async global::System.Threading.Tasks.Task<global::StrawberryShake.IOperationResult<IGetUsersResult>> ExecuteAsync(global::app.Graphql.UserFilterInput? filter, global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            var request = CreateRequest(filter);
-            return await _operationExecutor.ExecuteAsync(request, cancellationToken).ConfigureAwait(false);
-        }
-
-        public global::System.IObservable<global::StrawberryShake.IOperationResult<IGetUsersResult>> Watch(global::app.Graphql.UserFilterInput? filter, global::StrawberryShake.ExecutionStrategy? strategy = null)
-        {
-            var request = CreateRequest(filter);
-            return _operationExecutor.Watch(request, strategy);
-        }
-
-        private global::StrawberryShake.OperationRequest CreateRequest(global::app.Graphql.UserFilterInput? filter)
-        {
-            var variables = new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>();
-            variables.Add("filter", FormatFilter(filter));
-            return CreateRequest(variables);
-        }
-
-        private global::StrawberryShake.OperationRequest CreateRequest(global::System.Collections.Generic.IReadOnlyDictionary<global::System.String, global::System.Object?>? variables)
-        {
-            return new global::StrawberryShake.OperationRequest(id: GetUsersQueryDocument.Instance.Hash.Value, name: "GetUsers", document: GetUsersQueryDocument.Instance, strategy: global::StrawberryShake.RequestStrategy.Default, variables: variables);
-        }
-
-        private global::System.Object? FormatFilter(global::app.Graphql.UserFilterInput? value)
-        {
-            if (value is null)
-            {
-                return value;
-            }
-            else
-            {
-                return _userFilterInputFormatter.Format(value);
-            }
-        }
-
-        global::StrawberryShake.OperationRequest global::StrawberryShake.IOperationRequestFactory.Create(global::System.Collections.Generic.IReadOnlyDictionary<global::System.String, global::System.Object?>? variables)
-        {
-            return CreateRequest(variables!);
-        }
-    }
-
-    /// <summary>
-    /// Represents the operation service of the GetUsers GraphQL operation
-    /// <code>
-    /// query GetUsers($filter: UserFilterInput) {
-    ///   Users(where: $filter) {
-    ///     __typename
-    ///     nodes {
-    ///       __typename
-    ///       company {
-    ///         __typename
-    ///         name
-    ///         ... on Company {
-    ///           id
-    ///         }
-    ///       }
-    ///       id
-    ///       email
-    ///       phoneNumber
-    ///       status
-    ///       userName
-    ///       companyId
-    ///       ... on User {
-    ///         id
-    ///       }
-    ///     }
-    ///     pageInfo {
-    ///       __typename
-    ///       endCursor
-    ///       hasNextPage
-    ///       hasPreviousPage
-    ///       startCursor
-    ///     }
-    ///     totalCount
-    ///   }
-    /// }
-    /// </code>
-    /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface IGetUsersQuery : global::StrawberryShake.IOperationRequestFactory
-    {
-        global::System.Threading.Tasks.Task<global::StrawberryShake.IOperationResult<IGetUsersResult>> ExecuteAsync(global::app.Graphql.UserFilterInput? filter, global::System.Threading.CancellationToken cancellationToken = default);
-        global::System.IObservable<global::StrawberryShake.IOperationResult<IGetUsersResult>> Watch(global::app.Graphql.UserFilterInput? filter, global::StrawberryShake.ExecutionStrategy? strategy = null);
+        global::System.Threading.Tasks.Task<global::StrawberryShake.IOperationResult<IRefreshTokenResult>> ExecuteAsync(global::System.Threading.CancellationToken cancellationToken = default);
+        global::System.IObservable<global::StrawberryShake.IOperationResult<IRefreshTokenResult>> Watch(global::StrawberryShake.ExecutionStrategy? strategy = null);
     }
 
     /// <summary>
@@ -8535,20 +8091,10 @@ namespace app.Graphql
         {
         }
 
-        public static CreateProjectMutationDocument Instance
-        {
-            get;
-        }
-
-        = new CreateProjectMutationDocument();
+        public static CreateProjectMutationDocument Instance { get; } = new CreateProjectMutationDocument();
         public global::StrawberryShake.OperationKind Kind => global::StrawberryShake.OperationKind.Mutation;
         public global::System.ReadOnlySpan<global::System.Byte> Body => new global::System.Byte[]{0x6d, 0x75, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x20, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x28, 0x24, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x3a, 0x20, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x56, 0x6d, 0x49, 0x6e, 0x70, 0x75, 0x74, 0x29, 0x20, 0x7b, 0x20, 0x70, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x61, 0x64, 0x64, 0x28, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x3a, 0x20, 0x24, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x29, 0x20, 0x7d, 0x20, 0x7d};
-        public global::StrawberryShake.DocumentHash Hash
-        {
-            get;
-        }
-
-        = new global::StrawberryShake.DocumentHash("md5Hash", "b885b52eb7f0e3f8de9d666249422f95");
+        public global::StrawberryShake.DocumentHash Hash { get; } = new global::StrawberryShake.DocumentHash("md5Hash", "b885b52eb7f0e3f8de9d666249422f95");
         public override global::System.String ToString()
         {
 #if NETSTANDARD2_0
@@ -8699,20 +8245,10 @@ namespace app.Graphql
         {
         }
 
-        public static GetProjectsQueryDocument Instance
-        {
-            get;
-        }
-
-        = new GetProjectsQueryDocument();
+        public static GetProjectsQueryDocument Instance { get; } = new GetProjectsQueryDocument();
         public global::StrawberryShake.OperationKind Kind => global::StrawberryShake.OperationKind.Query;
         public global::System.ReadOnlySpan<global::System.Byte> Body => new global::System.Byte[]{0x71, 0x75, 0x65, 0x72, 0x79, 0x20, 0x47, 0x65, 0x74, 0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x73, 0x28, 0x24, 0x74, 0x61, 0x6b, 0x65, 0x46, 0x69, 0x72, 0x73, 0x74, 0x3a, 0x20, 0x49, 0x6e, 0x74, 0x2c, 0x20, 0x24, 0x74, 0x61, 0x73, 0x6b, 0x50, 0x72, 0x65, 0x76, 0x69, 0x6f, 0x75, 0x73, 0x3a, 0x20, 0x49, 0x6e, 0x74, 0x2c, 0x20, 0x24, 0x61, 0x66, 0x74, 0x65, 0x72, 0x3a, 0x20, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x2c, 0x20, 0x24, 0x62, 0x65, 0x66, 0x6f, 0x72, 0x65, 0x3a, 0x20, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x2c, 0x20, 0x24, 0x66, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x3a, 0x20, 0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x46, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x49, 0x6e, 0x70, 0x75, 0x74, 0x29, 0x20, 0x7b, 0x20, 0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x73, 0x28, 0x66, 0x69, 0x72, 0x73, 0x74, 0x3a, 0x20, 0x24, 0x74, 0x61, 0x6b, 0x65, 0x46, 0x69, 0x72, 0x73, 0x74, 0x2c, 0x20, 0x6c, 0x61, 0x73, 0x74, 0x3a, 0x20, 0x24, 0x74, 0x61, 0x73, 0x6b, 0x50, 0x72, 0x65, 0x76, 0x69, 0x6f, 0x75, 0x73, 0x2c, 0x20, 0x61, 0x66, 0x74, 0x65, 0x72, 0x3a, 0x20, 0x24, 0x61, 0x66, 0x74, 0x65, 0x72, 0x2c, 0x20, 0x62, 0x65, 0x66, 0x6f, 0x72, 0x65, 0x3a, 0x20, 0x24, 0x62, 0x65, 0x66, 0x6f, 0x72, 0x65, 0x2c, 0x20, 0x77, 0x68, 0x65, 0x72, 0x65, 0x3a, 0x20, 0x24, 0x66, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x29, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x6e, 0x6f, 0x64, 0x65, 0x73, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x20, 0x69, 0x64, 0x20, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x49, 0x64, 0x20, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x20, 0x74, 0x69, 0x74, 0x6c, 0x65, 0x20, 0x75, 0x73, 0x65, 0x72, 0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x73, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x20, 0x75, 0x73, 0x65, 0x72, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x75, 0x73, 0x65, 0x72, 0x4e, 0x61, 0x6d, 0x65, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x55, 0x73, 0x65, 0x72, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x55, 0x73, 0x65, 0x72, 0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x75, 0x73, 0x65, 0x72, 0x73, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x75, 0x73, 0x65, 0x72, 0x4e, 0x61, 0x6d, 0x65, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x55, 0x73, 0x65, 0x72, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x70, 0x61, 0x67, 0x65, 0x49, 0x6e, 0x66, 0x6f, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x65, 0x6e, 0x64, 0x43, 0x75, 0x72, 0x73, 0x6f, 0x72, 0x20, 0x68, 0x61, 0x73, 0x4e, 0x65, 0x78, 0x74, 0x50, 0x61, 0x67, 0x65, 0x20, 0x68, 0x61, 0x73, 0x50, 0x72, 0x65, 0x76, 0x69, 0x6f, 0x75, 0x73, 0x50, 0x61, 0x67, 0x65, 0x20, 0x73, 0x74, 0x61, 0x72, 0x74, 0x43, 0x75, 0x72, 0x73, 0x6f, 0x72, 0x20, 0x7d, 0x20, 0x74, 0x6f, 0x74, 0x61, 0x6c, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x20, 0x7d, 0x20, 0x7d};
-        public global::StrawberryShake.DocumentHash Hash
-        {
-            get;
-        }
-
-        = new global::StrawberryShake.DocumentHash("md5Hash", "e2ca19bfd566beb11df5fad10e02a1e4");
+        public global::StrawberryShake.DocumentHash Hash { get; } = new global::StrawberryShake.DocumentHash("md5Hash", "e2ca19bfd566beb11df5fad10e02a1e4");
         public override global::System.String ToString()
         {
 #if NETSTANDARD2_0
@@ -8958,20 +8494,10 @@ namespace app.Graphql
         {
         }
 
-        public static AddUserInProjectMutationDocument Instance
-        {
-            get;
-        }
-
-        = new AddUserInProjectMutationDocument();
+        public static AddUserInProjectMutationDocument Instance { get; } = new AddUserInProjectMutationDocument();
         public global::StrawberryShake.OperationKind Kind => global::StrawberryShake.OperationKind.Mutation;
         public global::System.ReadOnlySpan<global::System.Byte> Body => new global::System.Byte[]{0x6d, 0x75, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x20, 0x41, 0x64, 0x64, 0x55, 0x73, 0x65, 0x72, 0x49, 0x6e, 0x50, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x28, 0x24, 0x70, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x49, 0x64, 0x3a, 0x20, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x2c, 0x20, 0x24, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x3a, 0x20, 0x53, 0x74, 0x72, 0x69, 0x6e, 0x67, 0x29, 0x20, 0x7b, 0x20, 0x70, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x61, 0x64, 0x64, 0x55, 0x73, 0x65, 0x72, 0x28, 0x70, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x49, 0x64, 0x3a, 0x20, 0x24, 0x70, 0x72, 0x6f, 0x6a, 0x65, 0x63, 0x74, 0x49, 0x64, 0x2c, 0x20, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x3a, 0x20, 0x24, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x29, 0x20, 0x7d, 0x20, 0x7d};
-        public global::StrawberryShake.DocumentHash Hash
-        {
-            get;
-        }
-
-        = new global::StrawberryShake.DocumentHash("md5Hash", "4220fdc4c7d04c61691c4ef866a36e62");
+        public global::StrawberryShake.DocumentHash Hash { get; } = new global::StrawberryShake.DocumentHash("md5Hash", "4220fdc4c7d04c61691c4ef866a36e62");
         public override global::System.String ToString()
         {
 #if NETSTANDARD2_0
@@ -9079,37 +8605,35 @@ namespace app.Graphql
     }
 
     /// <summary>
-    /// Represents the operation service of the Login GraphQL operation
+    /// Represents the operation service of the GetCompany GraphQL operation
     /// <code>
-    /// mutation Login($model: LoginModelInput) {
-    ///   account {
+    /// query GetCompany {
+    ///   Companies {
     ///     __typename
-    ///     login(model: $model)
+    ///     nodes {
+    ///       __typename
+    ///       id
+    ///       name
+    ///       status
+    ///       ... on Company {
+    ///         id
+    ///       }
+    ///     }
     ///   }
     /// }
     /// </code>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class LoginMutationDocument : global::StrawberryShake.IDocument
+    public partial class GetCompanyQueryDocument : global::StrawberryShake.IDocument
     {
-        private LoginMutationDocument()
+        private GetCompanyQueryDocument()
         {
         }
 
-        public static LoginMutationDocument Instance
-        {
-            get;
-        }
-
-        = new LoginMutationDocument();
-        public global::StrawberryShake.OperationKind Kind => global::StrawberryShake.OperationKind.Mutation;
-        public global::System.ReadOnlySpan<global::System.Byte> Body => new global::System.Byte[]{0x6d, 0x75, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x20, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x28, 0x24, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x3a, 0x20, 0x4c, 0x6f, 0x67, 0x69, 0x6e, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x49, 0x6e, 0x70, 0x75, 0x74, 0x29, 0x20, 0x7b, 0x20, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x6c, 0x6f, 0x67, 0x69, 0x6e, 0x28, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x3a, 0x20, 0x24, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x29, 0x20, 0x7d, 0x20, 0x7d};
-        public global::StrawberryShake.DocumentHash Hash
-        {
-            get;
-        }
-
-        = new global::StrawberryShake.DocumentHash("md5Hash", "b608660a5770bd8ca53c27064f0dc44d");
+        public static GetCompanyQueryDocument Instance { get; } = new GetCompanyQueryDocument();
+        public global::StrawberryShake.OperationKind Kind => global::StrawberryShake.OperationKind.Query;
+        public global::System.ReadOnlySpan<global::System.Byte> Body => new global::System.Byte[]{0x71, 0x75, 0x65, 0x72, 0x79, 0x20, 0x47, 0x65, 0x74, 0x43, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x20, 0x7b, 0x20, 0x43, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x69, 0x65, 0x73, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x6e, 0x6f, 0x64, 0x65, 0x73, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x69, 0x64, 0x20, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x43, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x7d};
+        public global::StrawberryShake.DocumentHash Hash { get; } = new global::StrawberryShake.DocumentHash("md5Hash", "3562551688f11b2ff1613a193440f4c8");
         public override global::System.String ToString()
         {
 #if NETSTANDARD2_0
@@ -9121,283 +8645,41 @@ namespace app.Graphql
     }
 
     /// <summary>
-    /// Represents the operation service of the Login GraphQL operation
+    /// Represents the operation service of the GetCompany GraphQL operation
     /// <code>
-    /// mutation Login($model: LoginModelInput) {
-    ///   account {
+    /// query GetCompany {
+    ///   Companies {
     ///     __typename
-    ///     login(model: $model)
+    ///     nodes {
+    ///       __typename
+    ///       id
+    ///       name
+    ///       status
+    ///       ... on Company {
+    ///         id
+    ///       }
+    ///     }
     ///   }
     /// }
     /// </code>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class LoginMutation : global::app.Graphql.ILoginMutation
+    public partial class GetCompanyQuery : global::app.Graphql.IGetCompanyQuery
     {
-        private readonly global::StrawberryShake.IOperationExecutor<ILoginResult> _operationExecutor;
-        private readonly global::StrawberryShake.Serialization.IInputValueFormatter _loginModelInputFormatter;
-        public LoginMutation(global::StrawberryShake.IOperationExecutor<ILoginResult> operationExecutor, global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
-        {
-            _operationExecutor = operationExecutor ?? throw new global::System.ArgumentNullException(nameof(operationExecutor));
-            _loginModelInputFormatter = serializerResolver.GetInputValueFormatter("LoginModelInput");
-        }
-
-        global::System.Type global::StrawberryShake.IOperationRequestFactory.ResultType => typeof(ILoginResult);
-        public async global::System.Threading.Tasks.Task<global::StrawberryShake.IOperationResult<ILoginResult>> ExecuteAsync(global::app.Graphql.LoginModelInput? model, global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            var request = CreateRequest(model);
-            return await _operationExecutor.ExecuteAsync(request, cancellationToken).ConfigureAwait(false);
-        }
-
-        public global::System.IObservable<global::StrawberryShake.IOperationResult<ILoginResult>> Watch(global::app.Graphql.LoginModelInput? model, global::StrawberryShake.ExecutionStrategy? strategy = null)
-        {
-            var request = CreateRequest(model);
-            return _operationExecutor.Watch(request, strategy);
-        }
-
-        private global::StrawberryShake.OperationRequest CreateRequest(global::app.Graphql.LoginModelInput? model)
-        {
-            var variables = new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>();
-            variables.Add("model", FormatModel(model));
-            return CreateRequest(variables);
-        }
-
-        private global::StrawberryShake.OperationRequest CreateRequest(global::System.Collections.Generic.IReadOnlyDictionary<global::System.String, global::System.Object?>? variables)
-        {
-            return new global::StrawberryShake.OperationRequest(id: LoginMutationDocument.Instance.Hash.Value, name: "Login", document: LoginMutationDocument.Instance, strategy: global::StrawberryShake.RequestStrategy.Default, variables: variables);
-        }
-
-        private global::System.Object? FormatModel(global::app.Graphql.LoginModelInput? value)
-        {
-            if (value is null)
-            {
-                return value;
-            }
-            else
-            {
-                return _loginModelInputFormatter.Format(value);
-            }
-        }
-
-        global::StrawberryShake.OperationRequest global::StrawberryShake.IOperationRequestFactory.Create(global::System.Collections.Generic.IReadOnlyDictionary<global::System.String, global::System.Object?>? variables)
-        {
-            return CreateRequest(variables!);
-        }
-    }
-
-    /// <summary>
-    /// Represents the operation service of the Login GraphQL operation
-    /// <code>
-    /// mutation Login($model: LoginModelInput) {
-    ///   account {
-    ///     __typename
-    ///     login(model: $model)
-    ///   }
-    /// }
-    /// </code>
-    /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface ILoginMutation : global::StrawberryShake.IOperationRequestFactory
-    {
-        global::System.Threading.Tasks.Task<global::StrawberryShake.IOperationResult<ILoginResult>> ExecuteAsync(global::app.Graphql.LoginModelInput? model, global::System.Threading.CancellationToken cancellationToken = default);
-        global::System.IObservable<global::StrawberryShake.IOperationResult<ILoginResult>> Watch(global::app.Graphql.LoginModelInput? model, global::StrawberryShake.ExecutionStrategy? strategy = null);
-    }
-
-    /// <summary>
-    /// Represents the operation service of the Register GraphQL operation
-    /// <code>
-    /// mutation Register($model: RegisterModelInput) {
-    ///   account {
-    ///     __typename
-    ///     register(model: $model)
-    ///   }
-    /// }
-    /// </code>
-    /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class RegisterMutationDocument : global::StrawberryShake.IDocument
-    {
-        private RegisterMutationDocument()
-        {
-        }
-
-        public static RegisterMutationDocument Instance
-        {
-            get;
-        }
-
-        = new RegisterMutationDocument();
-        public global::StrawberryShake.OperationKind Kind => global::StrawberryShake.OperationKind.Mutation;
-        public global::System.ReadOnlySpan<global::System.Byte> Body => new global::System.Byte[]{0x6d, 0x75, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x20, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x28, 0x24, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x3a, 0x20, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x4d, 0x6f, 0x64, 0x65, 0x6c, 0x49, 0x6e, 0x70, 0x75, 0x74, 0x29, 0x20, 0x7b, 0x20, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x72, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x28, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x3a, 0x20, 0x24, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x29, 0x20, 0x7d, 0x20, 0x7d};
-        public global::StrawberryShake.DocumentHash Hash
-        {
-            get;
-        }
-
-        = new global::StrawberryShake.DocumentHash("md5Hash", "003441ab205e7f8f021ad4af3db64538");
-        public override global::System.String ToString()
-        {
-#if NETSTANDARD2_0
-        return global::System.Text.Encoding.UTF8.GetString(Body.ToArray());
-#else
-            return global::System.Text.Encoding.UTF8.GetString(Body);
-#endif
-        }
-    }
-
-    /// <summary>
-    /// Represents the operation service of the Register GraphQL operation
-    /// <code>
-    /// mutation Register($model: RegisterModelInput) {
-    ///   account {
-    ///     __typename
-    ///     register(model: $model)
-    ///   }
-    /// }
-    /// </code>
-    /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class RegisterMutation : global::app.Graphql.IRegisterMutation
-    {
-        private readonly global::StrawberryShake.IOperationExecutor<IRegisterResult> _operationExecutor;
-        private readonly global::StrawberryShake.Serialization.IInputValueFormatter _registerModelInputFormatter;
-        public RegisterMutation(global::StrawberryShake.IOperationExecutor<IRegisterResult> operationExecutor, global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
-        {
-            _operationExecutor = operationExecutor ?? throw new global::System.ArgumentNullException(nameof(operationExecutor));
-            _registerModelInputFormatter = serializerResolver.GetInputValueFormatter("RegisterModelInput");
-        }
-
-        global::System.Type global::StrawberryShake.IOperationRequestFactory.ResultType => typeof(IRegisterResult);
-        public async global::System.Threading.Tasks.Task<global::StrawberryShake.IOperationResult<IRegisterResult>> ExecuteAsync(global::app.Graphql.RegisterModelInput? model, global::System.Threading.CancellationToken cancellationToken = default)
-        {
-            var request = CreateRequest(model);
-            return await _operationExecutor.ExecuteAsync(request, cancellationToken).ConfigureAwait(false);
-        }
-
-        public global::System.IObservable<global::StrawberryShake.IOperationResult<IRegisterResult>> Watch(global::app.Graphql.RegisterModelInput? model, global::StrawberryShake.ExecutionStrategy? strategy = null)
-        {
-            var request = CreateRequest(model);
-            return _operationExecutor.Watch(request, strategy);
-        }
-
-        private global::StrawberryShake.OperationRequest CreateRequest(global::app.Graphql.RegisterModelInput? model)
-        {
-            var variables = new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>();
-            variables.Add("model", FormatModel(model));
-            return CreateRequest(variables);
-        }
-
-        private global::StrawberryShake.OperationRequest CreateRequest(global::System.Collections.Generic.IReadOnlyDictionary<global::System.String, global::System.Object?>? variables)
-        {
-            return new global::StrawberryShake.OperationRequest(id: RegisterMutationDocument.Instance.Hash.Value, name: "Register", document: RegisterMutationDocument.Instance, strategy: global::StrawberryShake.RequestStrategy.Default, variables: variables);
-        }
-
-        private global::System.Object? FormatModel(global::app.Graphql.RegisterModelInput? value)
-        {
-            if (value is null)
-            {
-                return value;
-            }
-            else
-            {
-                return _registerModelInputFormatter.Format(value);
-            }
-        }
-
-        global::StrawberryShake.OperationRequest global::StrawberryShake.IOperationRequestFactory.Create(global::System.Collections.Generic.IReadOnlyDictionary<global::System.String, global::System.Object?>? variables)
-        {
-            return CreateRequest(variables!);
-        }
-    }
-
-    /// <summary>
-    /// Represents the operation service of the Register GraphQL operation
-    /// <code>
-    /// mutation Register($model: RegisterModelInput) {
-    ///   account {
-    ///     __typename
-    ///     register(model: $model)
-    ///   }
-    /// }
-    /// </code>
-    /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface IRegisterMutation : global::StrawberryShake.IOperationRequestFactory
-    {
-        global::System.Threading.Tasks.Task<global::StrawberryShake.IOperationResult<IRegisterResult>> ExecuteAsync(global::app.Graphql.RegisterModelInput? model, global::System.Threading.CancellationToken cancellationToken = default);
-        global::System.IObservable<global::StrawberryShake.IOperationResult<IRegisterResult>> Watch(global::app.Graphql.RegisterModelInput? model, global::StrawberryShake.ExecutionStrategy? strategy = null);
-    }
-
-    /// <summary>
-    /// Represents the operation service of the RefreshToken GraphQL operation
-    /// <code>
-    /// mutation RefreshToken {
-    ///   account {
-    ///     __typename
-    ///     refreshToken
-    ///   }
-    /// }
-    /// </code>
-    /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class RefreshTokenMutationDocument : global::StrawberryShake.IDocument
-    {
-        private RefreshTokenMutationDocument()
-        {
-        }
-
-        public static RefreshTokenMutationDocument Instance
-        {
-            get;
-        }
-
-        = new RefreshTokenMutationDocument();
-        public global::StrawberryShake.OperationKind Kind => global::StrawberryShake.OperationKind.Mutation;
-        public global::System.ReadOnlySpan<global::System.Byte> Body => new global::System.Byte[]{0x6d, 0x75, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x20, 0x52, 0x65, 0x66, 0x72, 0x65, 0x73, 0x68, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x20, 0x7b, 0x20, 0x61, 0x63, 0x63, 0x6f, 0x75, 0x6e, 0x74, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x72, 0x65, 0x66, 0x72, 0x65, 0x73, 0x68, 0x54, 0x6f, 0x6b, 0x65, 0x6e, 0x20, 0x7d, 0x20, 0x7d};
-        public global::StrawberryShake.DocumentHash Hash
-        {
-            get;
-        }
-
-        = new global::StrawberryShake.DocumentHash("md5Hash", "083faf1597469fcd7bd8a9d9c16e72f6");
-        public override global::System.String ToString()
-        {
-#if NETSTANDARD2_0
-        return global::System.Text.Encoding.UTF8.GetString(Body.ToArray());
-#else
-            return global::System.Text.Encoding.UTF8.GetString(Body);
-#endif
-        }
-    }
-
-    /// <summary>
-    /// Represents the operation service of the RefreshToken GraphQL operation
-    /// <code>
-    /// mutation RefreshToken {
-    ///   account {
-    ///     __typename
-    ///     refreshToken
-    ///   }
-    /// }
-    /// </code>
-    /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class RefreshTokenMutation : global::app.Graphql.IRefreshTokenMutation
-    {
-        private readonly global::StrawberryShake.IOperationExecutor<IRefreshTokenResult> _operationExecutor;
-        public RefreshTokenMutation(global::StrawberryShake.IOperationExecutor<IRefreshTokenResult> operationExecutor)
+        private readonly global::StrawberryShake.IOperationExecutor<IGetCompanyResult> _operationExecutor;
+        public GetCompanyQuery(global::StrawberryShake.IOperationExecutor<IGetCompanyResult> operationExecutor)
         {
             _operationExecutor = operationExecutor ?? throw new global::System.ArgumentNullException(nameof(operationExecutor));
         }
 
-        global::System.Type global::StrawberryShake.IOperationRequestFactory.ResultType => typeof(IRefreshTokenResult);
-        public async global::System.Threading.Tasks.Task<global::StrawberryShake.IOperationResult<IRefreshTokenResult>> ExecuteAsync(global::System.Threading.CancellationToken cancellationToken = default)
+        global::System.Type global::StrawberryShake.IOperationRequestFactory.ResultType => typeof(IGetCompanyResult);
+        public async global::System.Threading.Tasks.Task<global::StrawberryShake.IOperationResult<IGetCompanyResult>> ExecuteAsync(global::System.Threading.CancellationToken cancellationToken = default)
         {
             var request = CreateRequest();
             return await _operationExecutor.ExecuteAsync(request, cancellationToken).ConfigureAwait(false);
         }
 
-        public global::System.IObservable<global::StrawberryShake.IOperationResult<IRefreshTokenResult>> Watch(global::StrawberryShake.ExecutionStrategy? strategy = null)
+        public global::System.IObservable<global::StrawberryShake.IOperationResult<IGetCompanyResult>> Watch(global::StrawberryShake.ExecutionStrategy? strategy = null)
         {
             var request = CreateRequest();
             return _operationExecutor.Watch(request, strategy);
@@ -9410,7 +8692,7 @@ namespace app.Graphql
 
         private global::StrawberryShake.OperationRequest CreateRequest(global::System.Collections.Generic.IReadOnlyDictionary<global::System.String, global::System.Object?>? variables)
         {
-            return new global::StrawberryShake.OperationRequest(id: RefreshTokenMutationDocument.Instance.Hash.Value, name: "RefreshToken", document: RefreshTokenMutationDocument.Instance, strategy: global::StrawberryShake.RequestStrategy.Default);
+            return new global::StrawberryShake.OperationRequest(id: GetCompanyQueryDocument.Instance.Hash.Value, name: "GetCompany", document: GetCompanyQueryDocument.Instance, strategy: global::StrawberryShake.RequestStrategy.Default);
         }
 
         global::StrawberryShake.OperationRequest global::StrawberryShake.IOperationRequestFactory.Create(global::System.Collections.Generic.IReadOnlyDictionary<global::System.String, global::System.Object?>? variables)
@@ -9420,21 +8702,337 @@ namespace app.Graphql
     }
 
     /// <summary>
-    /// Represents the operation service of the RefreshToken GraphQL operation
+    /// Represents the operation service of the GetCompany GraphQL operation
     /// <code>
-    /// mutation RefreshToken {
-    ///   account {
+    /// query GetCompany {
+    ///   Companies {
     ///     __typename
-    ///     refreshToken
+    ///     nodes {
+    ///       __typename
+    ///       id
+    ///       name
+    ///       status
+    ///       ... on Company {
+    ///         id
+    ///       }
+    ///     }
     ///   }
     /// }
     /// </code>
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public interface IRefreshTokenMutation : global::StrawberryShake.IOperationRequestFactory
+    public interface IGetCompanyQuery : global::StrawberryShake.IOperationRequestFactory
     {
-        global::System.Threading.Tasks.Task<global::StrawberryShake.IOperationResult<IRefreshTokenResult>> ExecuteAsync(global::System.Threading.CancellationToken cancellationToken = default);
-        global::System.IObservable<global::StrawberryShake.IOperationResult<IRefreshTokenResult>> Watch(global::StrawberryShake.ExecutionStrategy? strategy = null);
+        global::System.Threading.Tasks.Task<global::StrawberryShake.IOperationResult<IGetCompanyResult>> ExecuteAsync(global::System.Threading.CancellationToken cancellationToken = default);
+        global::System.IObservable<global::StrawberryShake.IOperationResult<IGetCompanyResult>> Watch(global::StrawberryShake.ExecutionStrategy? strategy = null);
+    }
+
+    /// <summary>
+    /// Represents the operation service of the CreateUser GraphQL operation
+    /// <code>
+    /// mutation CreateUser($model: CreateUserVmInput) {
+    ///   user {
+    ///     __typename
+    ///     add(model: $model)
+    ///   }
+    /// }
+    /// </code>
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class CreateUserMutationDocument : global::StrawberryShake.IDocument
+    {
+        private CreateUserMutationDocument()
+        {
+        }
+
+        public static CreateUserMutationDocument Instance { get; } = new CreateUserMutationDocument();
+        public global::StrawberryShake.OperationKind Kind => global::StrawberryShake.OperationKind.Mutation;
+        public global::System.ReadOnlySpan<global::System.Byte> Body => new global::System.Byte[]{0x6d, 0x75, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x20, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x28, 0x24, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x3a, 0x20, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x55, 0x73, 0x65, 0x72, 0x56, 0x6d, 0x49, 0x6e, 0x70, 0x75, 0x74, 0x29, 0x20, 0x7b, 0x20, 0x75, 0x73, 0x65, 0x72, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x61, 0x64, 0x64, 0x28, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x3a, 0x20, 0x24, 0x6d, 0x6f, 0x64, 0x65, 0x6c, 0x29, 0x20, 0x7d, 0x20, 0x7d};
+        public global::StrawberryShake.DocumentHash Hash { get; } = new global::StrawberryShake.DocumentHash("md5Hash", "87c8bbb06dc76c52429fbffa0caefe0d");
+        public override global::System.String ToString()
+        {
+#if NETSTANDARD2_0
+        return global::System.Text.Encoding.UTF8.GetString(Body.ToArray());
+#else
+            return global::System.Text.Encoding.UTF8.GetString(Body);
+#endif
+        }
+    }
+
+    /// <summary>
+    /// Represents the operation service of the CreateUser GraphQL operation
+    /// <code>
+    /// mutation CreateUser($model: CreateUserVmInput) {
+    ///   user {
+    ///     __typename
+    ///     add(model: $model)
+    ///   }
+    /// }
+    /// </code>
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class CreateUserMutation : global::app.Graphql.ICreateUserMutation
+    {
+        private readonly global::StrawberryShake.IOperationExecutor<ICreateUserResult> _operationExecutor;
+        private readonly global::StrawberryShake.Serialization.IInputValueFormatter _createUserVmInputFormatter;
+        public CreateUserMutation(global::StrawberryShake.IOperationExecutor<ICreateUserResult> operationExecutor, global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
+        {
+            _operationExecutor = operationExecutor ?? throw new global::System.ArgumentNullException(nameof(operationExecutor));
+            _createUserVmInputFormatter = serializerResolver.GetInputValueFormatter("CreateUserVmInput");
+        }
+
+        global::System.Type global::StrawberryShake.IOperationRequestFactory.ResultType => typeof(ICreateUserResult);
+        public async global::System.Threading.Tasks.Task<global::StrawberryShake.IOperationResult<ICreateUserResult>> ExecuteAsync(global::app.Graphql.CreateUserVmInput? model, global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            var request = CreateRequest(model);
+            return await _operationExecutor.ExecuteAsync(request, cancellationToken).ConfigureAwait(false);
+        }
+
+        public global::System.IObservable<global::StrawberryShake.IOperationResult<ICreateUserResult>> Watch(global::app.Graphql.CreateUserVmInput? model, global::StrawberryShake.ExecutionStrategy? strategy = null)
+        {
+            var request = CreateRequest(model);
+            return _operationExecutor.Watch(request, strategy);
+        }
+
+        private global::StrawberryShake.OperationRequest CreateRequest(global::app.Graphql.CreateUserVmInput? model)
+        {
+            var variables = new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>();
+            variables.Add("model", FormatModel(model));
+            return CreateRequest(variables);
+        }
+
+        private global::StrawberryShake.OperationRequest CreateRequest(global::System.Collections.Generic.IReadOnlyDictionary<global::System.String, global::System.Object?>? variables)
+        {
+            return new global::StrawberryShake.OperationRequest(id: CreateUserMutationDocument.Instance.Hash.Value, name: "CreateUser", document: CreateUserMutationDocument.Instance, strategy: global::StrawberryShake.RequestStrategy.Default, variables: variables);
+        }
+
+        private global::System.Object? FormatModel(global::app.Graphql.CreateUserVmInput? value)
+        {
+            if (value is null)
+            {
+                return value;
+            }
+            else
+            {
+                return _createUserVmInputFormatter.Format(value);
+            }
+        }
+
+        global::StrawberryShake.OperationRequest global::StrawberryShake.IOperationRequestFactory.Create(global::System.Collections.Generic.IReadOnlyDictionary<global::System.String, global::System.Object?>? variables)
+        {
+            return CreateRequest(variables!);
+        }
+    }
+
+    /// <summary>
+    /// Represents the operation service of the CreateUser GraphQL operation
+    /// <code>
+    /// mutation CreateUser($model: CreateUserVmInput) {
+    ///   user {
+    ///     __typename
+    ///     add(model: $model)
+    ///   }
+    /// }
+    /// </code>
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public interface ICreateUserMutation : global::StrawberryShake.IOperationRequestFactory
+    {
+        global::System.Threading.Tasks.Task<global::StrawberryShake.IOperationResult<ICreateUserResult>> ExecuteAsync(global::app.Graphql.CreateUserVmInput? model, global::System.Threading.CancellationToken cancellationToken = default);
+        global::System.IObservable<global::StrawberryShake.IOperationResult<ICreateUserResult>> Watch(global::app.Graphql.CreateUserVmInput? model, global::StrawberryShake.ExecutionStrategy? strategy = null);
+    }
+
+    /// <summary>
+    /// Represents the operation service of the GetUsers GraphQL operation
+    /// <code>
+    /// query GetUsers($filter: UserFilterInput) {
+    ///   Users(where: $filter) {
+    ///     __typename
+    ///     nodes {
+    ///       __typename
+    ///       company {
+    ///         __typename
+    ///         name
+    ///         ... on Company {
+    ///           id
+    ///         }
+    ///       }
+    ///       id
+    ///       email
+    ///       phoneNumber
+    ///       status
+    ///       userName
+    ///       companyId
+    ///       ... on User {
+    ///         id
+    ///       }
+    ///     }
+    ///     pageInfo {
+    ///       __typename
+    ///       endCursor
+    ///       hasNextPage
+    ///       hasPreviousPage
+    ///       startCursor
+    ///     }
+    ///     totalCount
+    ///   }
+    /// }
+    /// </code>
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class GetUsersQueryDocument : global::StrawberryShake.IDocument
+    {
+        private GetUsersQueryDocument()
+        {
+        }
+
+        public static GetUsersQueryDocument Instance { get; } = new GetUsersQueryDocument();
+        public global::StrawberryShake.OperationKind Kind => global::StrawberryShake.OperationKind.Query;
+        public global::System.ReadOnlySpan<global::System.Byte> Body => new global::System.Byte[]{0x71, 0x75, 0x65, 0x72, 0x79, 0x20, 0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x73, 0x28, 0x24, 0x66, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x3a, 0x20, 0x55, 0x73, 0x65, 0x72, 0x46, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x49, 0x6e, 0x70, 0x75, 0x74, 0x29, 0x20, 0x7b, 0x20, 0x55, 0x73, 0x65, 0x72, 0x73, 0x28, 0x77, 0x68, 0x65, 0x72, 0x65, 0x3a, 0x20, 0x24, 0x66, 0x69, 0x6c, 0x74, 0x65, 0x72, 0x29, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x6e, 0x6f, 0x64, 0x65, 0x73, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x43, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x69, 0x64, 0x20, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x20, 0x70, 0x68, 0x6f, 0x6e, 0x65, 0x4e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x20, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x20, 0x75, 0x73, 0x65, 0x72, 0x4e, 0x61, 0x6d, 0x65, 0x20, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x49, 0x64, 0x20, 0x2e, 0x2e, 0x2e, 0x20, 0x6f, 0x6e, 0x20, 0x55, 0x73, 0x65, 0x72, 0x20, 0x7b, 0x20, 0x69, 0x64, 0x20, 0x7d, 0x20, 0x7d, 0x20, 0x70, 0x61, 0x67, 0x65, 0x49, 0x6e, 0x66, 0x6f, 0x20, 0x7b, 0x20, 0x5f, 0x5f, 0x74, 0x79, 0x70, 0x65, 0x6e, 0x61, 0x6d, 0x65, 0x20, 0x65, 0x6e, 0x64, 0x43, 0x75, 0x72, 0x73, 0x6f, 0x72, 0x20, 0x68, 0x61, 0x73, 0x4e, 0x65, 0x78, 0x74, 0x50, 0x61, 0x67, 0x65, 0x20, 0x68, 0x61, 0x73, 0x50, 0x72, 0x65, 0x76, 0x69, 0x6f, 0x75, 0x73, 0x50, 0x61, 0x67, 0x65, 0x20, 0x73, 0x74, 0x61, 0x72, 0x74, 0x43, 0x75, 0x72, 0x73, 0x6f, 0x72, 0x20, 0x7d, 0x20, 0x74, 0x6f, 0x74, 0x61, 0x6c, 0x43, 0x6f, 0x75, 0x6e, 0x74, 0x20, 0x7d, 0x20, 0x7d};
+        public global::StrawberryShake.DocumentHash Hash { get; } = new global::StrawberryShake.DocumentHash("md5Hash", "8ba7db67b072171991c92c7e1903d7ce");
+        public override global::System.String ToString()
+        {
+#if NETSTANDARD2_0
+        return global::System.Text.Encoding.UTF8.GetString(Body.ToArray());
+#else
+            return global::System.Text.Encoding.UTF8.GetString(Body);
+#endif
+        }
+    }
+
+    /// <summary>
+    /// Represents the operation service of the GetUsers GraphQL operation
+    /// <code>
+    /// query GetUsers($filter: UserFilterInput) {
+    ///   Users(where: $filter) {
+    ///     __typename
+    ///     nodes {
+    ///       __typename
+    ///       company {
+    ///         __typename
+    ///         name
+    ///         ... on Company {
+    ///           id
+    ///         }
+    ///       }
+    ///       id
+    ///       email
+    ///       phoneNumber
+    ///       status
+    ///       userName
+    ///       companyId
+    ///       ... on User {
+    ///         id
+    ///       }
+    ///     }
+    ///     pageInfo {
+    ///       __typename
+    ///       endCursor
+    ///       hasNextPage
+    ///       hasPreviousPage
+    ///       startCursor
+    ///     }
+    ///     totalCount
+    ///   }
+    /// }
+    /// </code>
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class GetUsersQuery : global::app.Graphql.IGetUsersQuery
+    {
+        private readonly global::StrawberryShake.IOperationExecutor<IGetUsersResult> _operationExecutor;
+        private readonly global::StrawberryShake.Serialization.IInputValueFormatter _userFilterInputFormatter;
+        public GetUsersQuery(global::StrawberryShake.IOperationExecutor<IGetUsersResult> operationExecutor, global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
+        {
+            _operationExecutor = operationExecutor ?? throw new global::System.ArgumentNullException(nameof(operationExecutor));
+            _userFilterInputFormatter = serializerResolver.GetInputValueFormatter("UserFilterInput");
+        }
+
+        global::System.Type global::StrawberryShake.IOperationRequestFactory.ResultType => typeof(IGetUsersResult);
+        public async global::System.Threading.Tasks.Task<global::StrawberryShake.IOperationResult<IGetUsersResult>> ExecuteAsync(global::app.Graphql.UserFilterInput? filter, global::System.Threading.CancellationToken cancellationToken = default)
+        {
+            var request = CreateRequest(filter);
+            return await _operationExecutor.ExecuteAsync(request, cancellationToken).ConfigureAwait(false);
+        }
+
+        public global::System.IObservable<global::StrawberryShake.IOperationResult<IGetUsersResult>> Watch(global::app.Graphql.UserFilterInput? filter, global::StrawberryShake.ExecutionStrategy? strategy = null)
+        {
+            var request = CreateRequest(filter);
+            return _operationExecutor.Watch(request, strategy);
+        }
+
+        private global::StrawberryShake.OperationRequest CreateRequest(global::app.Graphql.UserFilterInput? filter)
+        {
+            var variables = new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>();
+            variables.Add("filter", FormatFilter(filter));
+            return CreateRequest(variables);
+        }
+
+        private global::StrawberryShake.OperationRequest CreateRequest(global::System.Collections.Generic.IReadOnlyDictionary<global::System.String, global::System.Object?>? variables)
+        {
+            return new global::StrawberryShake.OperationRequest(id: GetUsersQueryDocument.Instance.Hash.Value, name: "GetUsers", document: GetUsersQueryDocument.Instance, strategy: global::StrawberryShake.RequestStrategy.Default, variables: variables);
+        }
+
+        private global::System.Object? FormatFilter(global::app.Graphql.UserFilterInput? value)
+        {
+            if (value is null)
+            {
+                return value;
+            }
+            else
+            {
+                return _userFilterInputFormatter.Format(value);
+            }
+        }
+
+        global::StrawberryShake.OperationRequest global::StrawberryShake.IOperationRequestFactory.Create(global::System.Collections.Generic.IReadOnlyDictionary<global::System.String, global::System.Object?>? variables)
+        {
+            return CreateRequest(variables!);
+        }
+    }
+
+    /// <summary>
+    /// Represents the operation service of the GetUsers GraphQL operation
+    /// <code>
+    /// query GetUsers($filter: UserFilterInput) {
+    ///   Users(where: $filter) {
+    ///     __typename
+    ///     nodes {
+    ///       __typename
+    ///       company {
+    ///         __typename
+    ///         name
+    ///         ... on Company {
+    ///           id
+    ///         }
+    ///       }
+    ///       id
+    ///       email
+    ///       phoneNumber
+    ///       status
+    ///       userName
+    ///       companyId
+    ///       ... on User {
+    ///         id
+    ///       }
+    ///     }
+    ///     pageInfo {
+    ///       __typename
+    ///       endCursor
+    ///       hasNextPage
+    ///       hasPreviousPage
+    ///       startCursor
+    ///     }
+    ///     totalCount
+    ///   }
+    /// }
+    /// </code>
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public interface IGetUsersQuery : global::StrawberryShake.IOperationRequestFactory
+    {
+        global::System.Threading.Tasks.Task<global::StrawberryShake.IOperationResult<IGetUsersResult>> ExecuteAsync(global::app.Graphql.UserFilterInput? filter, global::System.Threading.CancellationToken cancellationToken = default);
+        global::System.IObservable<global::StrawberryShake.IOperationResult<IGetUsersResult>> Watch(global::app.Graphql.UserFilterInput? filter, global::StrawberryShake.ExecutionStrategy? strategy = null);
     }
 
     /// <summary>
@@ -9443,38 +9041,38 @@ namespace app.Graphql
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public partial class TmClient : global::app.Graphql.ITmClient
     {
-        private readonly global::app.Graphql.IGetCompanyQuery _getCompany;
-        private readonly global::app.Graphql.ICreateUserMutation _createUser;
-        private readonly global::app.Graphql.IGetUsersQuery _getUsers;
-        private readonly global::app.Graphql.ICreateProjectMutation _createProject;
-        private readonly global::app.Graphql.IGetProjectsQuery _getProjects;
-        private readonly global::app.Graphql.IAddUserInProjectMutation _addUserInProject;
         private readonly global::app.Graphql.ILoginMutation _login;
         private readonly global::app.Graphql.IRegisterMutation _register;
         private readonly global::app.Graphql.IRefreshTokenMutation _refreshToken;
-        public TmClient(global::app.Graphql.IGetCompanyQuery getCompany, global::app.Graphql.ICreateUserMutation createUser, global::app.Graphql.IGetUsersQuery getUsers, global::app.Graphql.ICreateProjectMutation createProject, global::app.Graphql.IGetProjectsQuery getProjects, global::app.Graphql.IAddUserInProjectMutation addUserInProject, global::app.Graphql.ILoginMutation login, global::app.Graphql.IRegisterMutation register, global::app.Graphql.IRefreshTokenMutation refreshToken)
+        private readonly global::app.Graphql.ICreateProjectMutation _createProject;
+        private readonly global::app.Graphql.IGetProjectsQuery _getProjects;
+        private readonly global::app.Graphql.IAddUserInProjectMutation _addUserInProject;
+        private readonly global::app.Graphql.IGetCompanyQuery _getCompany;
+        private readonly global::app.Graphql.ICreateUserMutation _createUser;
+        private readonly global::app.Graphql.IGetUsersQuery _getUsers;
+        public TmClient(global::app.Graphql.ILoginMutation login, global::app.Graphql.IRegisterMutation register, global::app.Graphql.IRefreshTokenMutation refreshToken, global::app.Graphql.ICreateProjectMutation createProject, global::app.Graphql.IGetProjectsQuery getProjects, global::app.Graphql.IAddUserInProjectMutation addUserInProject, global::app.Graphql.IGetCompanyQuery getCompany, global::app.Graphql.ICreateUserMutation createUser, global::app.Graphql.IGetUsersQuery getUsers)
         {
-            _getCompany = getCompany ?? throw new global::System.ArgumentNullException(nameof(getCompany));
-            _createUser = createUser ?? throw new global::System.ArgumentNullException(nameof(createUser));
-            _getUsers = getUsers ?? throw new global::System.ArgumentNullException(nameof(getUsers));
-            _createProject = createProject ?? throw new global::System.ArgumentNullException(nameof(createProject));
-            _getProjects = getProjects ?? throw new global::System.ArgumentNullException(nameof(getProjects));
-            _addUserInProject = addUserInProject ?? throw new global::System.ArgumentNullException(nameof(addUserInProject));
             _login = login ?? throw new global::System.ArgumentNullException(nameof(login));
             _register = register ?? throw new global::System.ArgumentNullException(nameof(register));
             _refreshToken = refreshToken ?? throw new global::System.ArgumentNullException(nameof(refreshToken));
+            _createProject = createProject ?? throw new global::System.ArgumentNullException(nameof(createProject));
+            _getProjects = getProjects ?? throw new global::System.ArgumentNullException(nameof(getProjects));
+            _addUserInProject = addUserInProject ?? throw new global::System.ArgumentNullException(nameof(addUserInProject));
+            _getCompany = getCompany ?? throw new global::System.ArgumentNullException(nameof(getCompany));
+            _createUser = createUser ?? throw new global::System.ArgumentNullException(nameof(createUser));
+            _getUsers = getUsers ?? throw new global::System.ArgumentNullException(nameof(getUsers));
         }
 
         public static global::System.String ClientName => "TmClient";
-        public global::app.Graphql.IGetCompanyQuery GetCompany => _getCompany;
-        public global::app.Graphql.ICreateUserMutation CreateUser => _createUser;
-        public global::app.Graphql.IGetUsersQuery GetUsers => _getUsers;
-        public global::app.Graphql.ICreateProjectMutation CreateProject => _createProject;
-        public global::app.Graphql.IGetProjectsQuery GetProjects => _getProjects;
-        public global::app.Graphql.IAddUserInProjectMutation AddUserInProject => _addUserInProject;
         public global::app.Graphql.ILoginMutation Login => _login;
         public global::app.Graphql.IRegisterMutation Register => _register;
         public global::app.Graphql.IRefreshTokenMutation RefreshToken => _refreshToken;
+        public global::app.Graphql.ICreateProjectMutation CreateProject => _createProject;
+        public global::app.Graphql.IGetProjectsQuery GetProjects => _getProjects;
+        public global::app.Graphql.IAddUserInProjectMutation AddUserInProject => _addUserInProject;
+        public global::app.Graphql.IGetCompanyQuery GetCompany => _getCompany;
+        public global::app.Graphql.ICreateUserMutation CreateUser => _createUser;
+        public global::app.Graphql.IGetUsersQuery GetUsers => _getUsers;
     }
 
     /// <summary>
@@ -9483,131 +9081,28 @@ namespace app.Graphql
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public interface ITmClient
     {
-        global::app.Graphql.IGetCompanyQuery GetCompany
-        {
-            get;
-        }
+        global::app.Graphql.ILoginMutation Login { get; }
 
-        global::app.Graphql.ICreateUserMutation CreateUser
-        {
-            get;
-        }
+        global::app.Graphql.IRegisterMutation Register { get; }
 
-        global::app.Graphql.IGetUsersQuery GetUsers
-        {
-            get;
-        }
+        global::app.Graphql.IRefreshTokenMutation RefreshToken { get; }
 
-        global::app.Graphql.ICreateProjectMutation CreateProject
-        {
-            get;
-        }
+        global::app.Graphql.ICreateProjectMutation CreateProject { get; }
 
-        global::app.Graphql.IGetProjectsQuery GetProjects
-        {
-            get;
-        }
+        global::app.Graphql.IGetProjectsQuery GetProjects { get; }
 
-        global::app.Graphql.IAddUserInProjectMutation AddUserInProject
-        {
-            get;
-        }
+        global::app.Graphql.IAddUserInProjectMutation AddUserInProject { get; }
 
-        global::app.Graphql.ILoginMutation Login
-        {
-            get;
-        }
+        global::app.Graphql.IGetCompanyQuery GetCompany { get; }
 
-        global::app.Graphql.IRegisterMutation Register
-        {
-            get;
-        }
+        global::app.Graphql.ICreateUserMutation CreateUser { get; }
 
-        global::app.Graphql.IRefreshTokenMutation RefreshToken
-        {
-            get;
-        }
+        global::app.Graphql.IGetUsersQuery GetUsers { get; }
     }
 }
 
 namespace app.Graphql.State
 {
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class CompanyEntity
-    {
-        public CompanyEntity(global::System.String? id = default !, global::System.String? name = default !, global::app.Graphql.Status status = default !)
-        {
-            Id = id;
-            Name = name;
-            Status = status;
-        }
-
-        public global::System.String? Id
-        {
-            get;
-        }
-
-        public global::System.String? Name
-        {
-            get;
-        }
-
-        public global::app.Graphql.Status Status
-        {
-            get;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class UserEntity
-    {
-        public UserEntity(global::StrawberryShake.EntityId? company = default !, global::System.String? id = default !, global::System.String? email = default !, global::System.String? phoneNumber = default !, global::app.Graphql.Status status = default !, global::System.String? userName = default !, global::System.String? companyId = default !)
-        {
-            Company = company;
-            Id = id;
-            Email = email;
-            PhoneNumber = phoneNumber;
-            Status = status;
-            UserName = userName;
-            CompanyId = companyId;
-        }
-
-        public global::StrawberryShake.EntityId? Company
-        {
-            get;
-        }
-
-        public global::System.String? Id
-        {
-            get;
-        }
-
-        public global::System.String? Email
-        {
-            get;
-        }
-
-        public global::System.String? PhoneNumber
-        {
-            get;
-        }
-
-        public global::app.Graphql.Status Status
-        {
-            get;
-        }
-
-        public global::System.String? UserName
-        {
-            get;
-        }
-
-        public global::System.String? CompanyId
-        {
-            get;
-        }
-    }
-
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     public partial class ProjectEntity
     {
@@ -9622,40 +9117,19 @@ namespace app.Graphql.State
             Users = users;
         }
 
-        public global::System.String? Description
-        {
-            get;
-        }
+        public global::System.String? Description { get; }
 
-        public global::System.String? Id
-        {
-            get;
-        }
+        public global::System.String? Id { get; }
 
-        public global::System.String? CompanyId
-        {
-            get;
-        }
+        public global::System.String? CompanyId { get; }
 
-        public global::app.Graphql.Status Status
-        {
-            get;
-        }
+        public global::app.Graphql.Status Status { get; }
 
-        public global::System.String? Title
-        {
-            get;
-        }
+        public global::System.String? Title { get; }
 
-        public global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? UserProjects
-        {
-            get;
-        }
+        public global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? UserProjects { get; }
 
-        public global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? Users
-        {
-            get;
-        }
+        public global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? Users { get; }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -9667,182 +9141,93 @@ namespace app.Graphql.State
             User = user;
         }
 
-        public global::System.String? UserId
-        {
-            get;
-        }
+        public global::System.String? UserId { get; }
 
-        public global::StrawberryShake.EntityId? User
-        {
-            get;
-        }
+        public global::StrawberryShake.EntityId? User { get; }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class GetCompanyResultFactory : global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.GetCompanyResult>
+    public partial class UserEntity
     {
-        private readonly global::StrawberryShake.IEntityStore _entityStore;
-        private readonly global::StrawberryShake.IEntityMapper<global::app.Graphql.State.CompanyEntity, GetCompany_Companies_Nodes_Company> _getCompany_Companies_Nodes_CompanyFromCompanyEntityMapper;
-        public GetCompanyResultFactory(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityMapper<global::app.Graphql.State.CompanyEntity, GetCompany_Companies_Nodes_Company> getCompany_Companies_Nodes_CompanyFromCompanyEntityMapper)
+        public UserEntity(global::System.String? userName = default !, global::StrawberryShake.EntityId? company = default !, global::System.String? id = default !, global::System.String? email = default !, global::System.String? phoneNumber = default !, global::app.Graphql.Status status = default !, global::System.String? companyId = default !)
         {
-            _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
-            _getCompany_Companies_Nodes_CompanyFromCompanyEntityMapper = getCompany_Companies_Nodes_CompanyFromCompanyEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getCompany_Companies_Nodes_CompanyFromCompanyEntityMapper));
+            UserName = userName;
+            Company = company;
+            Id = id;
+            Email = email;
+            PhoneNumber = phoneNumber;
+            Status = status;
+            CompanyId = companyId;
         }
 
-        global::System.Type global::StrawberryShake.IOperationResultDataFactory.ResultType => typeof(global::app.Graphql.IGetCompanyResult);
-        public GetCompanyResult Create(global::StrawberryShake.IOperationResultDataInfo dataInfo, global::StrawberryShake.IEntityStoreSnapshot? snapshot = null)
+        public global::System.String? UserName { get; }
+
+        public global::StrawberryShake.EntityId? Company { get; }
+
+        public global::System.String? Id { get; }
+
+        public global::System.String? Email { get; }
+
+        public global::System.String? PhoneNumber { get; }
+
+        public global::app.Graphql.Status Status { get; }
+
+        public global::System.String? CompanyId { get; }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class CompanyEntity
+    {
+        public CompanyEntity(global::System.String? id = default !, global::System.String? name = default !, global::app.Graphql.Status status = default !)
+        {
+            Id = id;
+            Name = name;
+            Status = status;
+        }
+
+        public global::System.String? Id { get; }
+
+        public global::System.String? Name { get; }
+
+        public global::app.Graphql.Status Status { get; }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class LoginResultFactory : global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.LoginResult>
+    {
+        private readonly global::StrawberryShake.IEntityStore _entityStore;
+        public LoginResultFactory(global::StrawberryShake.IEntityStore entityStore)
+        {
+            _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
+        }
+
+        global::System.Type global::StrawberryShake.IOperationResultDataFactory.ResultType => typeof(global::app.Graphql.ILoginResult);
+        public LoginResult Create(global::StrawberryShake.IOperationResultDataInfo dataInfo, global::StrawberryShake.IEntityStoreSnapshot? snapshot = null)
         {
             if (snapshot is null)
             {
                 snapshot = _entityStore.CurrentSnapshot;
             }
 
-            if (dataInfo is GetCompanyResultInfo info)
+            if (dataInfo is LoginResultInfo info)
             {
-                return new GetCompanyResult(MapIGetCompany_Companies(info.Companies, snapshot));
+                return new LoginResult(MapILogin_Account(info.Account, snapshot));
             }
 
-            throw new global::System.ArgumentException("GetCompanyResultInfo expected.");
+            throw new global::System.ArgumentException("LoginResultInfo expected.");
         }
 
-        private global::app.Graphql.IGetCompany_Companies? MapIGetCompany_Companies(global::app.Graphql.State.CompanyConnectionData? data, global::StrawberryShake.IEntityStoreSnapshot snapshot)
+        private global::app.Graphql.ILogin_Account? MapILogin_Account(global::app.Graphql.State.AccountMutationTypeData? data, global::StrawberryShake.IEntityStoreSnapshot snapshot)
         {
             if (data is null)
             {
                 return null;
             }
 
-            IGetCompany_Companies returnValue = default !;
-            if (data?.__typename.Equals("CompanyConnection", global::System.StringComparison.Ordinal) ?? false)
+            ILogin_Account returnValue = default !;
+            if (data?.__typename.Equals("AccountMutationType", global::System.StringComparison.Ordinal) ?? false)
             {
-                returnValue = new GetCompany_Companies_CompanyConnection(MapIGetCompany_Companies_NodesArray(data.Nodes, snapshot));
-            }
-            else
-            {
-                throw new global::System.NotSupportedException();
-            }
-
-            return returnValue;
-        }
-
-        private global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetCompany_Companies_Nodes?>? MapIGetCompany_Companies_NodesArray(global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? list, global::StrawberryShake.IEntityStoreSnapshot snapshot)
-        {
-            if (list is null)
-            {
-                return null;
-            }
-
-            var companys = new global::System.Collections.Generic.List<global::app.Graphql.IGetCompany_Companies_Nodes?>();
-            foreach (global::StrawberryShake.EntityId? child in list)
-            {
-                companys.Add(MapIGetCompany_Companies_Nodes(child, snapshot));
-            }
-
-            return companys;
-        }
-
-        private global::app.Graphql.IGetCompany_Companies_Nodes? MapIGetCompany_Companies_Nodes(global::StrawberryShake.EntityId? entityId, global::StrawberryShake.IEntityStoreSnapshot snapshot)
-        {
-            if (entityId is null)
-            {
-                return null;
-            }
-
-            if (entityId.Value.Name.Equals("Company", global::System.StringComparison.Ordinal))
-            {
-                return _getCompany_Companies_Nodes_CompanyFromCompanyEntityMapper.Map(snapshot.GetEntity<global::app.Graphql.State.CompanyEntity>(entityId.Value) ?? throw new global::StrawberryShake.GraphQLClientException());
-            }
-
-            throw new global::System.NotSupportedException();
-        }
-
-        global::System.Object global::StrawberryShake.IOperationResultDataFactory.Create(global::StrawberryShake.IOperationResultDataInfo dataInfo, global::StrawberryShake.IEntityStoreSnapshot? snapshot)
-        {
-            return Create(dataInfo, snapshot);
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class GetCompanyResultInfo : global::StrawberryShake.IOperationResultDataInfo
-    {
-        private readonly global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> _entityIds;
-        private readonly global::System.UInt64 _version;
-        public GetCompanyResultInfo(global::app.Graphql.State.CompanyConnectionData? companies, global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> entityIds, global::System.UInt64 version)
-        {
-            Companies = companies;
-            _entityIds = entityIds ?? throw new global::System.ArgumentNullException(nameof(entityIds));
-            _version = version;
-        }
-
-        public global::app.Graphql.State.CompanyConnectionData? Companies
-        {
-            get;
-        }
-
-        public global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> EntityIds => _entityIds;
-        public global::System.UInt64 Version => _version;
-        public global::StrawberryShake.IOperationResultDataInfo WithVersion(global::System.UInt64 version)
-        {
-            return new GetCompanyResultInfo(Companies, _entityIds, version);
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class GetCompany_Companies_Nodes_CompanyFromCompanyEntityMapper : global::StrawberryShake.IEntityMapper<global::app.Graphql.State.CompanyEntity, GetCompany_Companies_Nodes_Company>
-    {
-        private readonly global::StrawberryShake.IEntityStore _entityStore;
-        public GetCompany_Companies_Nodes_CompanyFromCompanyEntityMapper(global::StrawberryShake.IEntityStore entityStore)
-        {
-            _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
-        }
-
-        public GetCompany_Companies_Nodes_Company Map(global::app.Graphql.State.CompanyEntity entity, global::StrawberryShake.IEntityStoreSnapshot? snapshot = null)
-        {
-            if (snapshot is null)
-            {
-                snapshot = _entityStore.CurrentSnapshot;
-            }
-
-            return new GetCompany_Companies_Nodes_Company(entity.Id, entity.Name, entity.Status);
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class CreateUserResultFactory : global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.CreateUserResult>
-    {
-        private readonly global::StrawberryShake.IEntityStore _entityStore;
-        public CreateUserResultFactory(global::StrawberryShake.IEntityStore entityStore)
-        {
-            _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
-        }
-
-        global::System.Type global::StrawberryShake.IOperationResultDataFactory.ResultType => typeof(global::app.Graphql.ICreateUserResult);
-        public CreateUserResult Create(global::StrawberryShake.IOperationResultDataInfo dataInfo, global::StrawberryShake.IEntityStoreSnapshot? snapshot = null)
-        {
-            if (snapshot is null)
-            {
-                snapshot = _entityStore.CurrentSnapshot;
-            }
-
-            if (dataInfo is CreateUserResultInfo info)
-            {
-                return new CreateUserResult(MapICreateUser_User(info.User, snapshot));
-            }
-
-            throw new global::System.ArgumentException("CreateUserResultInfo expected.");
-        }
-
-        private global::app.Graphql.ICreateUser_User? MapICreateUser_User(global::app.Graphql.State.UserMutationTypeData? data, global::StrawberryShake.IEntityStoreSnapshot snapshot)
-        {
-            if (data is null)
-            {
-                return null;
-            }
-
-            ICreateUser_User returnValue = default !;
-            if (data?.__typename.Equals("UserMutationType", global::System.StringComparison.Ordinal) ?? false)
-            {
-                returnValue = new CreateUser_User_UserMutationType(data.Add);
+                returnValue = new Login_Account_AccountMutationType(data.Login);
             }
             else
             {
@@ -9859,131 +9244,63 @@ namespace app.Graphql.State
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class CreateUserResultInfo : global::StrawberryShake.IOperationResultDataInfo
+    public partial class LoginResultInfo : global::StrawberryShake.IOperationResultDataInfo
     {
         private readonly global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> _entityIds;
         private readonly global::System.UInt64 _version;
-        public CreateUserResultInfo(global::app.Graphql.State.UserMutationTypeData? user, global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> entityIds, global::System.UInt64 version)
+        public LoginResultInfo(global::app.Graphql.State.AccountMutationTypeData? account, global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> entityIds, global::System.UInt64 version)
         {
-            User = user;
+            Account = account;
             _entityIds = entityIds ?? throw new global::System.ArgumentNullException(nameof(entityIds));
             _version = version;
         }
 
-        public global::app.Graphql.State.UserMutationTypeData? User
-        {
-            get;
-        }
+        public global::app.Graphql.State.AccountMutationTypeData? Account { get; }
 
         public global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> EntityIds => _entityIds;
         public global::System.UInt64 Version => _version;
         public global::StrawberryShake.IOperationResultDataInfo WithVersion(global::System.UInt64 version)
         {
-            return new CreateUserResultInfo(User, _entityIds, version);
+            return new LoginResultInfo(Account, _entityIds, version);
         }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class GetUsersResultFactory : global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.GetUsersResult>
+    public partial class RegisterResultFactory : global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.RegisterResult>
     {
         private readonly global::StrawberryShake.IEntityStore _entityStore;
-        private readonly global::StrawberryShake.IEntityMapper<global::app.Graphql.State.UserEntity, GetUsers_Users_Nodes_User> _getUsers_Users_Nodes_UserFromUserEntityMapper;
-        private readonly global::StrawberryShake.IEntityMapper<global::app.Graphql.State.CompanyEntity, GetUsers_Users_Nodes_Company_Company> _getUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper;
-        public GetUsersResultFactory(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityMapper<global::app.Graphql.State.UserEntity, GetUsers_Users_Nodes_User> getUsers_Users_Nodes_UserFromUserEntityMapper, global::StrawberryShake.IEntityMapper<global::app.Graphql.State.CompanyEntity, GetUsers_Users_Nodes_Company_Company> getUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper)
+        public RegisterResultFactory(global::StrawberryShake.IEntityStore entityStore)
         {
             _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
-            _getUsers_Users_Nodes_UserFromUserEntityMapper = getUsers_Users_Nodes_UserFromUserEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getUsers_Users_Nodes_UserFromUserEntityMapper));
-            _getUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper = getUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper));
         }
 
-        global::System.Type global::StrawberryShake.IOperationResultDataFactory.ResultType => typeof(global::app.Graphql.IGetUsersResult);
-        public GetUsersResult Create(global::StrawberryShake.IOperationResultDataInfo dataInfo, global::StrawberryShake.IEntityStoreSnapshot? snapshot = null)
+        global::System.Type global::StrawberryShake.IOperationResultDataFactory.ResultType => typeof(global::app.Graphql.IRegisterResult);
+        public RegisterResult Create(global::StrawberryShake.IOperationResultDataInfo dataInfo, global::StrawberryShake.IEntityStoreSnapshot? snapshot = null)
         {
             if (snapshot is null)
             {
                 snapshot = _entityStore.CurrentSnapshot;
             }
 
-            if (dataInfo is GetUsersResultInfo info)
+            if (dataInfo is RegisterResultInfo info)
             {
-                return new GetUsersResult(MapIGetUsers_Users(info.Users, snapshot));
+                return new RegisterResult(MapIRegister_Account(info.Account, snapshot));
             }
 
-            throw new global::System.ArgumentException("GetUsersResultInfo expected.");
+            throw new global::System.ArgumentException("RegisterResultInfo expected.");
         }
 
-        private global::app.Graphql.IGetUsers_Users? MapIGetUsers_Users(global::app.Graphql.State.UserConnectionData? data, global::StrawberryShake.IEntityStoreSnapshot snapshot)
+        private global::app.Graphql.IRegister_Account? MapIRegister_Account(global::app.Graphql.State.AccountMutationTypeData? data, global::StrawberryShake.IEntityStoreSnapshot snapshot)
         {
             if (data is null)
             {
                 return null;
             }
 
-            IGetUsers_Users returnValue = default !;
-            if (data?.__typename.Equals("UserConnection", global::System.StringComparison.Ordinal) ?? false)
+            IRegister_Account returnValue = default !;
+            if (data?.__typename.Equals("AccountMutationType", global::System.StringComparison.Ordinal) ?? false)
             {
-                returnValue = new GetUsers_Users_UserConnection(MapIGetUsers_Users_NodesArray(data.Nodes, snapshot), MapNonNullableIGetUsers_Users_PageInfo(data.PageInfo ?? throw new global::System.ArgumentNullException(), snapshot), data.TotalCount ?? throw new global::System.ArgumentNullException());
-            }
-            else
-            {
-                throw new global::System.NotSupportedException();
-            }
-
-            return returnValue;
-        }
-
-        private global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetUsers_Users_Nodes?>? MapIGetUsers_Users_NodesArray(global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? list, global::StrawberryShake.IEntityStoreSnapshot snapshot)
-        {
-            if (list is null)
-            {
-                return null;
-            }
-
-            var users = new global::System.Collections.Generic.List<global::app.Graphql.IGetUsers_Users_Nodes?>();
-            foreach (global::StrawberryShake.EntityId? child in list)
-            {
-                users.Add(MapIGetUsers_Users_Nodes(child, snapshot));
-            }
-
-            return users;
-        }
-
-        private global::app.Graphql.IGetUsers_Users_Nodes? MapIGetUsers_Users_Nodes(global::StrawberryShake.EntityId? entityId, global::StrawberryShake.IEntityStoreSnapshot snapshot)
-        {
-            if (entityId is null)
-            {
-                return null;
-            }
-
-            if (entityId.Value.Name.Equals("User", global::System.StringComparison.Ordinal))
-            {
-                return _getUsers_Users_Nodes_UserFromUserEntityMapper.Map(snapshot.GetEntity<global::app.Graphql.State.UserEntity>(entityId.Value) ?? throw new global::StrawberryShake.GraphQLClientException());
-            }
-
-            throw new global::System.NotSupportedException();
-        }
-
-        private global::app.Graphql.IGetUsers_Users_Nodes_Company? MapIGetUsers_Users_Nodes_Company(global::StrawberryShake.EntityId? entityId, global::StrawberryShake.IEntityStoreSnapshot snapshot)
-        {
-            if (entityId is null)
-            {
-                return null;
-            }
-
-            if (entityId.Value.Name.Equals("Company", global::System.StringComparison.Ordinal))
-            {
-                return _getUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper.Map(snapshot.GetEntity<global::app.Graphql.State.CompanyEntity>(entityId.Value) ?? throw new global::StrawberryShake.GraphQLClientException());
-            }
-
-            throw new global::System.NotSupportedException();
-        }
-
-        private global::app.Graphql.IGetUsers_Users_PageInfo MapNonNullableIGetUsers_Users_PageInfo(global::app.Graphql.State.PageInfoData data, global::StrawberryShake.IEntityStoreSnapshot snapshot)
-        {
-            IGetUsers_Users_PageInfo returnValue = default !;
-            if (data.__typename.Equals("PageInfo", global::System.StringComparison.Ordinal))
-            {
-                returnValue = new GetUsers_Users_PageInfo_PageInfo(data.EndCursor, data.HasNextPage ?? throw new global::System.ArgumentNullException(), data.HasPreviousPage ?? throw new global::System.ArgumentNullException(), data.StartCursor);
+                returnValue = new Register_Account_AccountMutationType(data.Register);
             }
             else
             {
@@ -10000,84 +9317,97 @@ namespace app.Graphql.State
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class GetUsersResultInfo : global::StrawberryShake.IOperationResultDataInfo
+    public partial class RegisterResultInfo : global::StrawberryShake.IOperationResultDataInfo
     {
         private readonly global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> _entityIds;
         private readonly global::System.UInt64 _version;
-        public GetUsersResultInfo(global::app.Graphql.State.UserConnectionData? users, global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> entityIds, global::System.UInt64 version)
+        public RegisterResultInfo(global::app.Graphql.State.AccountMutationTypeData? account, global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> entityIds, global::System.UInt64 version)
         {
-            Users = users;
+            Account = account;
             _entityIds = entityIds ?? throw new global::System.ArgumentNullException(nameof(entityIds));
             _version = version;
         }
 
-        public global::app.Graphql.State.UserConnectionData? Users
-        {
-            get;
-        }
+        public global::app.Graphql.State.AccountMutationTypeData? Account { get; }
 
         public global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> EntityIds => _entityIds;
         public global::System.UInt64 Version => _version;
         public global::StrawberryShake.IOperationResultDataInfo WithVersion(global::System.UInt64 version)
         {
-            return new GetUsersResultInfo(Users, _entityIds, version);
+            return new RegisterResultInfo(Account, _entityIds, version);
         }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class GetUsers_Users_Nodes_UserFromUserEntityMapper : global::StrawberryShake.IEntityMapper<global::app.Graphql.State.UserEntity, GetUsers_Users_Nodes_User>
+    public partial class RefreshTokenResultFactory : global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.RefreshTokenResult>
     {
         private readonly global::StrawberryShake.IEntityStore _entityStore;
-        private readonly global::StrawberryShake.IEntityMapper<global::app.Graphql.State.CompanyEntity, GetUsers_Users_Nodes_Company_Company> _getUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper;
-        public GetUsers_Users_Nodes_UserFromUserEntityMapper(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityMapper<global::app.Graphql.State.CompanyEntity, GetUsers_Users_Nodes_Company_Company> getUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper)
+        public RefreshTokenResultFactory(global::StrawberryShake.IEntityStore entityStore)
         {
             _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
-            _getUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper = getUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper));
         }
 
-        public GetUsers_Users_Nodes_User Map(global::app.Graphql.State.UserEntity entity, global::StrawberryShake.IEntityStoreSnapshot? snapshot = null)
+        global::System.Type global::StrawberryShake.IOperationResultDataFactory.ResultType => typeof(global::app.Graphql.IRefreshTokenResult);
+        public RefreshTokenResult Create(global::StrawberryShake.IOperationResultDataInfo dataInfo, global::StrawberryShake.IEntityStoreSnapshot? snapshot = null)
         {
             if (snapshot is null)
             {
                 snapshot = _entityStore.CurrentSnapshot;
             }
 
-            return new GetUsers_Users_Nodes_User(MapIGetUsers_Users_Nodes_Company(entity.Company, snapshot), entity.Id, entity.Email, entity.PhoneNumber, entity.Status, entity.UserName, entity.CompanyId);
+            if (dataInfo is RefreshTokenResultInfo info)
+            {
+                return new RefreshTokenResult(MapIRefreshToken_Account(info.Account, snapshot));
+            }
+
+            throw new global::System.ArgumentException("RefreshTokenResultInfo expected.");
         }
 
-        private global::app.Graphql.IGetUsers_Users_Nodes_Company? MapIGetUsers_Users_Nodes_Company(global::StrawberryShake.EntityId? entityId, global::StrawberryShake.IEntityStoreSnapshot snapshot)
+        private global::app.Graphql.IRefreshToken_Account? MapIRefreshToken_Account(global::app.Graphql.State.AccountMutationTypeData? data, global::StrawberryShake.IEntityStoreSnapshot snapshot)
         {
-            if (entityId is null)
+            if (data is null)
             {
                 return null;
             }
 
-            if (entityId.Value.Name.Equals("Company", global::System.StringComparison.Ordinal))
+            IRefreshToken_Account returnValue = default !;
+            if (data?.__typename.Equals("AccountMutationType", global::System.StringComparison.Ordinal) ?? false)
             {
-                return _getUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper.Map(snapshot.GetEntity<global::app.Graphql.State.CompanyEntity>(entityId.Value) ?? throw new global::StrawberryShake.GraphQLClientException());
+                returnValue = new RefreshToken_Account_AccountMutationType(data.RefreshToken);
+            }
+            else
+            {
+                throw new global::System.NotSupportedException();
             }
 
-            throw new global::System.NotSupportedException();
+            return returnValue;
+        }
+
+        global::System.Object global::StrawberryShake.IOperationResultDataFactory.Create(global::StrawberryShake.IOperationResultDataInfo dataInfo, global::StrawberryShake.IEntityStoreSnapshot? snapshot)
+        {
+            return Create(dataInfo, snapshot);
         }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class GetUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper : global::StrawberryShake.IEntityMapper<global::app.Graphql.State.CompanyEntity, GetUsers_Users_Nodes_Company_Company>
+    public partial class RefreshTokenResultInfo : global::StrawberryShake.IOperationResultDataInfo
     {
-        private readonly global::StrawberryShake.IEntityStore _entityStore;
-        public GetUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper(global::StrawberryShake.IEntityStore entityStore)
+        private readonly global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> _entityIds;
+        private readonly global::System.UInt64 _version;
+        public RefreshTokenResultInfo(global::app.Graphql.State.AccountMutationTypeData? account, global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> entityIds, global::System.UInt64 version)
         {
-            _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
+            Account = account;
+            _entityIds = entityIds ?? throw new global::System.ArgumentNullException(nameof(entityIds));
+            _version = version;
         }
 
-        public GetUsers_Users_Nodes_Company_Company Map(global::app.Graphql.State.CompanyEntity entity, global::StrawberryShake.IEntityStoreSnapshot? snapshot = null)
-        {
-            if (snapshot is null)
-            {
-                snapshot = _entityStore.CurrentSnapshot;
-            }
+        public global::app.Graphql.State.AccountMutationTypeData? Account { get; }
 
-            return new GetUsers_Users_Nodes_Company_Company(entity.Name);
+        public global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> EntityIds => _entityIds;
+        public global::System.UInt64 Version => _version;
+        public global::StrawberryShake.IOperationResultDataInfo WithVersion(global::System.UInt64 version)
+        {
+            return new RefreshTokenResultInfo(Account, _entityIds, version);
         }
     }
 
@@ -10144,10 +9474,7 @@ namespace app.Graphql.State
             _version = version;
         }
 
-        public global::app.Graphql.State.ProjectMutationTypeData? Project
-        {
-            get;
-        }
+        public global::app.Graphql.State.ProjectMutationTypeData? Project { get; }
 
         public global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> EntityIds => _entityIds;
         public global::System.UInt64 Version => _version;
@@ -10351,10 +9678,7 @@ namespace app.Graphql.State
             _version = version;
         }
 
-        public global::app.Graphql.State.ProjectConnectionData? Projects
-        {
-            get;
-        }
+        public global::app.Graphql.State.ProjectConnectionData? Projects { get; }
 
         public global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> EntityIds => _entityIds;
         public global::System.UInt64 Version => _version;
@@ -10607,10 +9931,7 @@ namespace app.Graphql.State
             _version = version;
         }
 
-        public global::app.Graphql.State.ProjectMutationTypeData? Project
-        {
-            get;
-        }
+        public global::app.Graphql.State.ProjectMutationTypeData? Project { get; }
 
         public global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> EntityIds => _entityIds;
         public global::System.UInt64 Version => _version;
@@ -10621,41 +9942,167 @@ namespace app.Graphql.State
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class LoginResultFactory : global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.LoginResult>
+    public partial class GetCompanyResultFactory : global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.GetCompanyResult>
     {
         private readonly global::StrawberryShake.IEntityStore _entityStore;
-        public LoginResultFactory(global::StrawberryShake.IEntityStore entityStore)
+        private readonly global::StrawberryShake.IEntityMapper<global::app.Graphql.State.CompanyEntity, GetCompany_Companies_Nodes_Company> _getCompany_Companies_Nodes_CompanyFromCompanyEntityMapper;
+        public GetCompanyResultFactory(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityMapper<global::app.Graphql.State.CompanyEntity, GetCompany_Companies_Nodes_Company> getCompany_Companies_Nodes_CompanyFromCompanyEntityMapper)
         {
             _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
+            _getCompany_Companies_Nodes_CompanyFromCompanyEntityMapper = getCompany_Companies_Nodes_CompanyFromCompanyEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getCompany_Companies_Nodes_CompanyFromCompanyEntityMapper));
         }
 
-        global::System.Type global::StrawberryShake.IOperationResultDataFactory.ResultType => typeof(global::app.Graphql.ILoginResult);
-        public LoginResult Create(global::StrawberryShake.IOperationResultDataInfo dataInfo, global::StrawberryShake.IEntityStoreSnapshot? snapshot = null)
+        global::System.Type global::StrawberryShake.IOperationResultDataFactory.ResultType => typeof(global::app.Graphql.IGetCompanyResult);
+        public GetCompanyResult Create(global::StrawberryShake.IOperationResultDataInfo dataInfo, global::StrawberryShake.IEntityStoreSnapshot? snapshot = null)
         {
             if (snapshot is null)
             {
                 snapshot = _entityStore.CurrentSnapshot;
             }
 
-            if (dataInfo is LoginResultInfo info)
+            if (dataInfo is GetCompanyResultInfo info)
             {
-                return new LoginResult(MapILogin_Account(info.Account, snapshot));
+                return new GetCompanyResult(MapIGetCompany_Companies(info.Companies, snapshot));
             }
 
-            throw new global::System.ArgumentException("LoginResultInfo expected.");
+            throw new global::System.ArgumentException("GetCompanyResultInfo expected.");
         }
 
-        private global::app.Graphql.ILogin_Account? MapILogin_Account(global::app.Graphql.State.AccountMutationTypeData? data, global::StrawberryShake.IEntityStoreSnapshot snapshot)
+        private global::app.Graphql.IGetCompany_Companies? MapIGetCompany_Companies(global::app.Graphql.State.CompanyConnectionData? data, global::StrawberryShake.IEntityStoreSnapshot snapshot)
         {
             if (data is null)
             {
                 return null;
             }
 
-            ILogin_Account returnValue = default !;
-            if (data?.__typename.Equals("AccountMutationType", global::System.StringComparison.Ordinal) ?? false)
+            IGetCompany_Companies returnValue = default !;
+            if (data?.__typename.Equals("CompanyConnection", global::System.StringComparison.Ordinal) ?? false)
             {
-                returnValue = new Login_Account_AccountMutationType(data.Login);
+                returnValue = new GetCompany_Companies_CompanyConnection(MapIGetCompany_Companies_NodesArray(data.Nodes, snapshot));
+            }
+            else
+            {
+                throw new global::System.NotSupportedException();
+            }
+
+            return returnValue;
+        }
+
+        private global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetCompany_Companies_Nodes?>? MapIGetCompany_Companies_NodesArray(global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? list, global::StrawberryShake.IEntityStoreSnapshot snapshot)
+        {
+            if (list is null)
+            {
+                return null;
+            }
+
+            var companys = new global::System.Collections.Generic.List<global::app.Graphql.IGetCompany_Companies_Nodes?>();
+            foreach (global::StrawberryShake.EntityId? child in list)
+            {
+                companys.Add(MapIGetCompany_Companies_Nodes(child, snapshot));
+            }
+
+            return companys;
+        }
+
+        private global::app.Graphql.IGetCompany_Companies_Nodes? MapIGetCompany_Companies_Nodes(global::StrawberryShake.EntityId? entityId, global::StrawberryShake.IEntityStoreSnapshot snapshot)
+        {
+            if (entityId is null)
+            {
+                return null;
+            }
+
+            if (entityId.Value.Name.Equals("Company", global::System.StringComparison.Ordinal))
+            {
+                return _getCompany_Companies_Nodes_CompanyFromCompanyEntityMapper.Map(snapshot.GetEntity<global::app.Graphql.State.CompanyEntity>(entityId.Value) ?? throw new global::StrawberryShake.GraphQLClientException());
+            }
+
+            throw new global::System.NotSupportedException();
+        }
+
+        global::System.Object global::StrawberryShake.IOperationResultDataFactory.Create(global::StrawberryShake.IOperationResultDataInfo dataInfo, global::StrawberryShake.IEntityStoreSnapshot? snapshot)
+        {
+            return Create(dataInfo, snapshot);
+        }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class GetCompanyResultInfo : global::StrawberryShake.IOperationResultDataInfo
+    {
+        private readonly global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> _entityIds;
+        private readonly global::System.UInt64 _version;
+        public GetCompanyResultInfo(global::app.Graphql.State.CompanyConnectionData? companies, global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> entityIds, global::System.UInt64 version)
+        {
+            Companies = companies;
+            _entityIds = entityIds ?? throw new global::System.ArgumentNullException(nameof(entityIds));
+            _version = version;
+        }
+
+        public global::app.Graphql.State.CompanyConnectionData? Companies { get; }
+
+        public global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> EntityIds => _entityIds;
+        public global::System.UInt64 Version => _version;
+        public global::StrawberryShake.IOperationResultDataInfo WithVersion(global::System.UInt64 version)
+        {
+            return new GetCompanyResultInfo(Companies, _entityIds, version);
+        }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class GetCompany_Companies_Nodes_CompanyFromCompanyEntityMapper : global::StrawberryShake.IEntityMapper<global::app.Graphql.State.CompanyEntity, GetCompany_Companies_Nodes_Company>
+    {
+        private readonly global::StrawberryShake.IEntityStore _entityStore;
+        public GetCompany_Companies_Nodes_CompanyFromCompanyEntityMapper(global::StrawberryShake.IEntityStore entityStore)
+        {
+            _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
+        }
+
+        public GetCompany_Companies_Nodes_Company Map(global::app.Graphql.State.CompanyEntity entity, global::StrawberryShake.IEntityStoreSnapshot? snapshot = null)
+        {
+            if (snapshot is null)
+            {
+                snapshot = _entityStore.CurrentSnapshot;
+            }
+
+            return new GetCompany_Companies_Nodes_Company(entity.Id, entity.Name, entity.Status);
+        }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class CreateUserResultFactory : global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.CreateUserResult>
+    {
+        private readonly global::StrawberryShake.IEntityStore _entityStore;
+        public CreateUserResultFactory(global::StrawberryShake.IEntityStore entityStore)
+        {
+            _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
+        }
+
+        global::System.Type global::StrawberryShake.IOperationResultDataFactory.ResultType => typeof(global::app.Graphql.ICreateUserResult);
+        public CreateUserResult Create(global::StrawberryShake.IOperationResultDataInfo dataInfo, global::StrawberryShake.IEntityStoreSnapshot? snapshot = null)
+        {
+            if (snapshot is null)
+            {
+                snapshot = _entityStore.CurrentSnapshot;
+            }
+
+            if (dataInfo is CreateUserResultInfo info)
+            {
+                return new CreateUserResult(MapICreateUser_User(info.User, snapshot));
+            }
+
+            throw new global::System.ArgumentException("CreateUserResultInfo expected.");
+        }
+
+        private global::app.Graphql.ICreateUser_User? MapICreateUser_User(global::app.Graphql.State.UserMutationTypeData? data, global::StrawberryShake.IEntityStoreSnapshot snapshot)
+        {
+            if (data is null)
+            {
+                return null;
+            }
+
+            ICreateUser_User returnValue = default !;
+            if (data?.__typename.Equals("UserMutationType", global::System.StringComparison.Ordinal) ?? false)
+            {
+                returnValue = new CreateUser_User_UserMutationType(data.Add);
             }
             else
             {
@@ -10672,66 +10119,128 @@ namespace app.Graphql.State
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class LoginResultInfo : global::StrawberryShake.IOperationResultDataInfo
+    public partial class CreateUserResultInfo : global::StrawberryShake.IOperationResultDataInfo
     {
         private readonly global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> _entityIds;
         private readonly global::System.UInt64 _version;
-        public LoginResultInfo(global::app.Graphql.State.AccountMutationTypeData? account, global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> entityIds, global::System.UInt64 version)
+        public CreateUserResultInfo(global::app.Graphql.State.UserMutationTypeData? user, global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> entityIds, global::System.UInt64 version)
         {
-            Account = account;
+            User = user;
             _entityIds = entityIds ?? throw new global::System.ArgumentNullException(nameof(entityIds));
             _version = version;
         }
 
-        public global::app.Graphql.State.AccountMutationTypeData? Account
-        {
-            get;
-        }
+        public global::app.Graphql.State.UserMutationTypeData? User { get; }
 
         public global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> EntityIds => _entityIds;
         public global::System.UInt64 Version => _version;
         public global::StrawberryShake.IOperationResultDataInfo WithVersion(global::System.UInt64 version)
         {
-            return new LoginResultInfo(Account, _entityIds, version);
+            return new CreateUserResultInfo(User, _entityIds, version);
         }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class RegisterResultFactory : global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.RegisterResult>
+    public partial class GetUsersResultFactory : global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.GetUsersResult>
     {
         private readonly global::StrawberryShake.IEntityStore _entityStore;
-        public RegisterResultFactory(global::StrawberryShake.IEntityStore entityStore)
+        private readonly global::StrawberryShake.IEntityMapper<global::app.Graphql.State.UserEntity, GetUsers_Users_Nodes_User> _getUsers_Users_Nodes_UserFromUserEntityMapper;
+        private readonly global::StrawberryShake.IEntityMapper<global::app.Graphql.State.CompanyEntity, GetUsers_Users_Nodes_Company_Company> _getUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper;
+        public GetUsersResultFactory(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityMapper<global::app.Graphql.State.UserEntity, GetUsers_Users_Nodes_User> getUsers_Users_Nodes_UserFromUserEntityMapper, global::StrawberryShake.IEntityMapper<global::app.Graphql.State.CompanyEntity, GetUsers_Users_Nodes_Company_Company> getUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper)
         {
             _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
+            _getUsers_Users_Nodes_UserFromUserEntityMapper = getUsers_Users_Nodes_UserFromUserEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getUsers_Users_Nodes_UserFromUserEntityMapper));
+            _getUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper = getUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper));
         }
 
-        global::System.Type global::StrawberryShake.IOperationResultDataFactory.ResultType => typeof(global::app.Graphql.IRegisterResult);
-        public RegisterResult Create(global::StrawberryShake.IOperationResultDataInfo dataInfo, global::StrawberryShake.IEntityStoreSnapshot? snapshot = null)
+        global::System.Type global::StrawberryShake.IOperationResultDataFactory.ResultType => typeof(global::app.Graphql.IGetUsersResult);
+        public GetUsersResult Create(global::StrawberryShake.IOperationResultDataInfo dataInfo, global::StrawberryShake.IEntityStoreSnapshot? snapshot = null)
         {
             if (snapshot is null)
             {
                 snapshot = _entityStore.CurrentSnapshot;
             }
 
-            if (dataInfo is RegisterResultInfo info)
+            if (dataInfo is GetUsersResultInfo info)
             {
-                return new RegisterResult(MapIRegister_Account(info.Account, snapshot));
+                return new GetUsersResult(MapIGetUsers_Users(info.Users, snapshot));
             }
 
-            throw new global::System.ArgumentException("RegisterResultInfo expected.");
+            throw new global::System.ArgumentException("GetUsersResultInfo expected.");
         }
 
-        private global::app.Graphql.IRegister_Account? MapIRegister_Account(global::app.Graphql.State.AccountMutationTypeData? data, global::StrawberryShake.IEntityStoreSnapshot snapshot)
+        private global::app.Graphql.IGetUsers_Users? MapIGetUsers_Users(global::app.Graphql.State.UserConnectionData? data, global::StrawberryShake.IEntityStoreSnapshot snapshot)
         {
             if (data is null)
             {
                 return null;
             }
 
-            IRegister_Account returnValue = default !;
-            if (data?.__typename.Equals("AccountMutationType", global::System.StringComparison.Ordinal) ?? false)
+            IGetUsers_Users returnValue = default !;
+            if (data?.__typename.Equals("UserConnection", global::System.StringComparison.Ordinal) ?? false)
             {
-                returnValue = new Register_Account_AccountMutationType(data.Register);
+                returnValue = new GetUsers_Users_UserConnection(MapIGetUsers_Users_NodesArray(data.Nodes, snapshot), MapNonNullableIGetUsers_Users_PageInfo(data.PageInfo ?? throw new global::System.ArgumentNullException(), snapshot), data.TotalCount ?? throw new global::System.ArgumentNullException());
+            }
+            else
+            {
+                throw new global::System.NotSupportedException();
+            }
+
+            return returnValue;
+        }
+
+        private global::System.Collections.Generic.IReadOnlyList<global::app.Graphql.IGetUsers_Users_Nodes?>? MapIGetUsers_Users_NodesArray(global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? list, global::StrawberryShake.IEntityStoreSnapshot snapshot)
+        {
+            if (list is null)
+            {
+                return null;
+            }
+
+            var users = new global::System.Collections.Generic.List<global::app.Graphql.IGetUsers_Users_Nodes?>();
+            foreach (global::StrawberryShake.EntityId? child in list)
+            {
+                users.Add(MapIGetUsers_Users_Nodes(child, snapshot));
+            }
+
+            return users;
+        }
+
+        private global::app.Graphql.IGetUsers_Users_Nodes? MapIGetUsers_Users_Nodes(global::StrawberryShake.EntityId? entityId, global::StrawberryShake.IEntityStoreSnapshot snapshot)
+        {
+            if (entityId is null)
+            {
+                return null;
+            }
+
+            if (entityId.Value.Name.Equals("User", global::System.StringComparison.Ordinal))
+            {
+                return _getUsers_Users_Nodes_UserFromUserEntityMapper.Map(snapshot.GetEntity<global::app.Graphql.State.UserEntity>(entityId.Value) ?? throw new global::StrawberryShake.GraphQLClientException());
+            }
+
+            throw new global::System.NotSupportedException();
+        }
+
+        private global::app.Graphql.IGetUsers_Users_Nodes_Company? MapIGetUsers_Users_Nodes_Company(global::StrawberryShake.EntityId? entityId, global::StrawberryShake.IEntityStoreSnapshot snapshot)
+        {
+            if (entityId is null)
+            {
+                return null;
+            }
+
+            if (entityId.Value.Name.Equals("Company", global::System.StringComparison.Ordinal))
+            {
+                return _getUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper.Map(snapshot.GetEntity<global::app.Graphql.State.CompanyEntity>(entityId.Value) ?? throw new global::StrawberryShake.GraphQLClientException());
+            }
+
+            throw new global::System.NotSupportedException();
+        }
+
+        private global::app.Graphql.IGetUsers_Users_PageInfo MapNonNullableIGetUsers_Users_PageInfo(global::app.Graphql.State.PageInfoData data, global::StrawberryShake.IEntityStoreSnapshot snapshot)
+        {
+            IGetUsers_Users_PageInfo returnValue = default !;
+            if (data.__typename.Equals("PageInfo", global::System.StringComparison.Ordinal))
+            {
+                returnValue = new GetUsers_Users_PageInfo_PageInfo(data.EndCursor, data.HasNextPage ?? throw new global::System.ArgumentNullException(), data.HasPreviousPage ?? throw new global::System.ArgumentNullException(), data.StartCursor);
             }
             else
             {
@@ -10748,707 +10257,1097 @@ namespace app.Graphql.State
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class RegisterResultInfo : global::StrawberryShake.IOperationResultDataInfo
+    public partial class GetUsersResultInfo : global::StrawberryShake.IOperationResultDataInfo
     {
         private readonly global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> _entityIds;
         private readonly global::System.UInt64 _version;
-        public RegisterResultInfo(global::app.Graphql.State.AccountMutationTypeData? account, global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> entityIds, global::System.UInt64 version)
+        public GetUsersResultInfo(global::app.Graphql.State.UserConnectionData? users, global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> entityIds, global::System.UInt64 version)
         {
-            Account = account;
+            Users = users;
             _entityIds = entityIds ?? throw new global::System.ArgumentNullException(nameof(entityIds));
             _version = version;
         }
 
-        public global::app.Graphql.State.AccountMutationTypeData? Account
-        {
-            get;
-        }
+        public global::app.Graphql.State.UserConnectionData? Users { get; }
 
         public global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> EntityIds => _entityIds;
         public global::System.UInt64 Version => _version;
         public global::StrawberryShake.IOperationResultDataInfo WithVersion(global::System.UInt64 version)
         {
-            return new RegisterResultInfo(Account, _entityIds, version);
+            return new GetUsersResultInfo(Users, _entityIds, version);
         }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class RefreshTokenResultFactory : global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.RefreshTokenResult>
+    public partial class GetUsers_Users_Nodes_UserFromUserEntityMapper : global::StrawberryShake.IEntityMapper<global::app.Graphql.State.UserEntity, GetUsers_Users_Nodes_User>
     {
         private readonly global::StrawberryShake.IEntityStore _entityStore;
-        public RefreshTokenResultFactory(global::StrawberryShake.IEntityStore entityStore)
+        private readonly global::StrawberryShake.IEntityMapper<global::app.Graphql.State.CompanyEntity, GetUsers_Users_Nodes_Company_Company> _getUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper;
+        public GetUsers_Users_Nodes_UserFromUserEntityMapper(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityMapper<global::app.Graphql.State.CompanyEntity, GetUsers_Users_Nodes_Company_Company> getUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper)
         {
             _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
+            _getUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper = getUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper ?? throw new global::System.ArgumentNullException(nameof(getUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper));
         }
 
-        global::System.Type global::StrawberryShake.IOperationResultDataFactory.ResultType => typeof(global::app.Graphql.IRefreshTokenResult);
-        public RefreshTokenResult Create(global::StrawberryShake.IOperationResultDataInfo dataInfo, global::StrawberryShake.IEntityStoreSnapshot? snapshot = null)
+        public GetUsers_Users_Nodes_User Map(global::app.Graphql.State.UserEntity entity, global::StrawberryShake.IEntityStoreSnapshot? snapshot = null)
         {
             if (snapshot is null)
             {
                 snapshot = _entityStore.CurrentSnapshot;
             }
 
-            if (dataInfo is RefreshTokenResultInfo info)
-            {
-                return new RefreshTokenResult(MapIRefreshToken_Account(info.Account, snapshot));
-            }
-
-            throw new global::System.ArgumentException("RefreshTokenResultInfo expected.");
+            return new GetUsers_Users_Nodes_User(MapIGetUsers_Users_Nodes_Company(entity.Company, snapshot), entity.Id, entity.Email, entity.PhoneNumber, entity.Status, entity.UserName, entity.CompanyId);
         }
 
-        private global::app.Graphql.IRefreshToken_Account? MapIRefreshToken_Account(global::app.Graphql.State.AccountMutationTypeData? data, global::StrawberryShake.IEntityStoreSnapshot snapshot)
+        private global::app.Graphql.IGetUsers_Users_Nodes_Company? MapIGetUsers_Users_Nodes_Company(global::StrawberryShake.EntityId? entityId, global::StrawberryShake.IEntityStoreSnapshot snapshot)
         {
-            if (data is null)
+            if (entityId is null)
             {
                 return null;
             }
 
-            IRefreshToken_Account returnValue = default !;
-            if (data?.__typename.Equals("AccountMutationType", global::System.StringComparison.Ordinal) ?? false)
+            if (entityId.Value.Name.Equals("Company", global::System.StringComparison.Ordinal))
             {
-                returnValue = new RefreshToken_Account_AccountMutationType(data.RefreshToken);
-            }
-            else
-            {
-                throw new global::System.NotSupportedException();
+                return _getUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper.Map(snapshot.GetEntity<global::app.Graphql.State.CompanyEntity>(entityId.Value) ?? throw new global::StrawberryShake.GraphQLClientException());
             }
 
-            return returnValue;
-        }
-
-        global::System.Object global::StrawberryShake.IOperationResultDataFactory.Create(global::StrawberryShake.IOperationResultDataInfo dataInfo, global::StrawberryShake.IEntityStoreSnapshot? snapshot)
-        {
-            return Create(dataInfo, snapshot);
+            throw new global::System.NotSupportedException();
         }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class RefreshTokenResultInfo : global::StrawberryShake.IOperationResultDataInfo
+    public partial class GetUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper : global::StrawberryShake.IEntityMapper<global::app.Graphql.State.CompanyEntity, GetUsers_Users_Nodes_Company_Company>
     {
-        private readonly global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> _entityIds;
-        private readonly global::System.UInt64 _version;
-        public RefreshTokenResultInfo(global::app.Graphql.State.AccountMutationTypeData? account, global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> entityIds, global::System.UInt64 version)
+        private readonly global::StrawberryShake.IEntityStore _entityStore;
+        public GetUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper(global::StrawberryShake.IEntityStore entityStore)
         {
-            Account = account;
-            _entityIds = entityIds ?? throw new global::System.ArgumentNullException(nameof(entityIds));
-            _version = version;
+            _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
         }
 
-        public global::app.Graphql.State.AccountMutationTypeData? Account
+        public GetUsers_Users_Nodes_Company_Company Map(global::app.Graphql.State.CompanyEntity entity, global::StrawberryShake.IEntityStoreSnapshot? snapshot = null)
         {
-            get;
-        }
-
-        public global::System.Collections.Generic.IReadOnlyCollection<global::StrawberryShake.EntityId> EntityIds => _entityIds;
-        public global::System.UInt64 Version => _version;
-        public global::StrawberryShake.IOperationResultDataInfo WithVersion(global::System.UInt64 version)
-        {
-            return new RefreshTokenResultInfo(Account, _entityIds, version);
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    internal interface ICreateUserVmInputInfo
-    {
-        global::System.Boolean IsEmailSet
-        {
-            get;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    internal interface IUserFilterInputInfo
-    {
-        global::System.Boolean IsAndSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsOrSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsIdSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsCompanyIdSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsStatusSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsCompanySet
-        {
-            get;
-        }
-
-        global::System.Boolean IsUserProjectsSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsUserNameSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsNormalizedUserNameSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsEmailSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsNormalizedEmailSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsEmailConfirmedSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsPasswordHashSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsSecurityStampSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsConcurrencyStampSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsPhoneNumberSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsPhoneNumberConfirmedSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsTwoFactorEnabledSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsLockoutEndSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsLockoutEnabledSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsAccessFailedCountSet
-        {
-            get;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    internal interface IStringOperationFilterInputInfo
-    {
-        global::System.Boolean IsAndSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsOrSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsEqSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsNeqSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsContainsSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsNcontainsSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsInSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsNinSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsStartsWithSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsNstartsWithSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsEndsWithSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsNendsWithSet
-        {
-            get;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    internal interface IStatusOperationFilterInputInfo
-    {
-        global::System.Boolean IsEqSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsNeqSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsInSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsNinSet
-        {
-            get;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    internal interface ICompanyFilterInputInfo
-    {
-        global::System.Boolean IsAndSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsOrSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsIdSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsNameSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsStatusSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsUsersSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsProjectsSet
-        {
-            get;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    internal interface IListFilterInputTypeOfUserFilterInputInfo
-    {
-        global::System.Boolean IsAllSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsNoneSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsSomeSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsAnySet
-        {
-            get;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    internal interface IListFilterInputTypeOfProjectFilterInputInfo
-    {
-        global::System.Boolean IsAllSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsNoneSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsSomeSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsAnySet
-        {
-            get;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    internal interface IProjectFilterInputInfo
-    {
-        global::System.Boolean IsAndSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsOrSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsIdSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsCompanyIdSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsTitleSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsDescriptionSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsStatusSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsCompanySet
-        {
-            get;
-        }
-
-        global::System.Boolean IsUserProjectsSet
-        {
-            get;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    internal interface IListFilterInputTypeOfUserProjectFilterInputInfo
-    {
-        global::System.Boolean IsAllSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsNoneSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsSomeSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsAnySet
-        {
-            get;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    internal interface IUserProjectFilterInputInfo
-    {
-        global::System.Boolean IsAndSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsOrSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsIdSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsUserIdSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsProjectIdSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsProjectSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsUserSet
-        {
-            get;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    internal interface IBooleanOperationFilterInputInfo
-    {
-        global::System.Boolean IsEqSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsNeqSet
-        {
-            get;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    internal interface IComparableNullableOfDateTimeOffsetOperationFilterInputInfo
-    {
-        global::System.Boolean IsEqSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsNeqSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsInSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsNinSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsGtSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsNgtSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsGteSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsNgteSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsLtSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsNltSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsLteSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsNlteSet
-        {
-            get;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    internal interface IComparableInt32OperationFilterInputInfo
-    {
-        global::System.Boolean IsEqSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsNeqSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsInSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsNinSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsGtSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsNgtSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsGteSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsNgteSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsLtSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsNltSet
-        {
-            get;
-        }
+            if (snapshot is null)
+            {
+                snapshot = _entityStore.CurrentSnapshot;
+            }
 
-        global::System.Boolean IsLteSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsNlteSet
-        {
-            get;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    internal interface ICreateProjectVmInputInfo
-    {
-        global::System.Boolean IsTitleSet
-        {
-            get;
-        }
-
-        global::System.Boolean IsDescriptionSet
-        {
-            get;
+            return new GetUsers_Users_Nodes_Company_Company(entity.Name);
         }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     internal interface ILoginModelInputInfo
     {
-        global::System.Boolean IsUsernameSet
-        {
-            get;
-        }
+        global::System.Boolean IsUsernameSet { get; }
 
-        global::System.Boolean IsPasswordSet
-        {
-            get;
-        }
+        global::System.Boolean IsPasswordSet { get; }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
     internal interface IRegisterModelInputInfo
     {
-        global::System.Boolean IsCompanyNameSet
+        global::System.Boolean IsCompanyNameSet { get; }
+
+        global::System.Boolean IsEmailSet { get; }
+
+        global::System.Boolean IsPasswordConfirmationSet { get; }
+
+        global::System.Boolean IsUsernameSet { get; }
+
+        global::System.Boolean IsPasswordSet { get; }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    internal interface ICreateProjectVmInputInfo
+    {
+        global::System.Boolean IsTitleSet { get; }
+
+        global::System.Boolean IsDescriptionSet { get; }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    internal interface IProjectFilterInputInfo
+    {
+        global::System.Boolean IsAndSet { get; }
+
+        global::System.Boolean IsOrSet { get; }
+
+        global::System.Boolean IsIdSet { get; }
+
+        global::System.Boolean IsCompanyIdSet { get; }
+
+        global::System.Boolean IsTitleSet { get; }
+
+        global::System.Boolean IsDescriptionSet { get; }
+
+        global::System.Boolean IsStatusSet { get; }
+
+        global::System.Boolean IsCompanySet { get; }
+
+        global::System.Boolean IsUserProjectsSet { get; }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    internal interface IStringOperationFilterInputInfo
+    {
+        global::System.Boolean IsAndSet { get; }
+
+        global::System.Boolean IsOrSet { get; }
+
+        global::System.Boolean IsEqSet { get; }
+
+        global::System.Boolean IsNeqSet { get; }
+
+        global::System.Boolean IsContainsSet { get; }
+
+        global::System.Boolean IsNcontainsSet { get; }
+
+        global::System.Boolean IsInSet { get; }
+
+        global::System.Boolean IsNinSet { get; }
+
+        global::System.Boolean IsStartsWithSet { get; }
+
+        global::System.Boolean IsNstartsWithSet { get; }
+
+        global::System.Boolean IsEndsWithSet { get; }
+
+        global::System.Boolean IsNendsWithSet { get; }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    internal interface IStatusOperationFilterInputInfo
+    {
+        global::System.Boolean IsEqSet { get; }
+
+        global::System.Boolean IsNeqSet { get; }
+
+        global::System.Boolean IsInSet { get; }
+
+        global::System.Boolean IsNinSet { get; }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    internal interface ICompanyFilterInputInfo
+    {
+        global::System.Boolean IsAndSet { get; }
+
+        global::System.Boolean IsOrSet { get; }
+
+        global::System.Boolean IsIdSet { get; }
+
+        global::System.Boolean IsNameSet { get; }
+
+        global::System.Boolean IsStatusSet { get; }
+
+        global::System.Boolean IsUsersSet { get; }
+
+        global::System.Boolean IsProjectsSet { get; }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    internal interface IListFilterInputTypeOfUserFilterInputInfo
+    {
+        global::System.Boolean IsAllSet { get; }
+
+        global::System.Boolean IsNoneSet { get; }
+
+        global::System.Boolean IsSomeSet { get; }
+
+        global::System.Boolean IsAnySet { get; }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    internal interface IUserFilterInputInfo
+    {
+        global::System.Boolean IsAndSet { get; }
+
+        global::System.Boolean IsOrSet { get; }
+
+        global::System.Boolean IsIdSet { get; }
+
+        global::System.Boolean IsCompanyIdSet { get; }
+
+        global::System.Boolean IsStatusSet { get; }
+
+        global::System.Boolean IsCompanySet { get; }
+
+        global::System.Boolean IsUserProjectsSet { get; }
+
+        global::System.Boolean IsUserNameSet { get; }
+
+        global::System.Boolean IsNormalizedUserNameSet { get; }
+
+        global::System.Boolean IsEmailSet { get; }
+
+        global::System.Boolean IsNormalizedEmailSet { get; }
+
+        global::System.Boolean IsEmailConfirmedSet { get; }
+
+        global::System.Boolean IsPasswordHashSet { get; }
+
+        global::System.Boolean IsSecurityStampSet { get; }
+
+        global::System.Boolean IsConcurrencyStampSet { get; }
+
+        global::System.Boolean IsPhoneNumberSet { get; }
+
+        global::System.Boolean IsPhoneNumberConfirmedSet { get; }
+
+        global::System.Boolean IsTwoFactorEnabledSet { get; }
+
+        global::System.Boolean IsLockoutEndSet { get; }
+
+        global::System.Boolean IsLockoutEnabledSet { get; }
+
+        global::System.Boolean IsAccessFailedCountSet { get; }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    internal interface IListFilterInputTypeOfUserProjectFilterInputInfo
+    {
+        global::System.Boolean IsAllSet { get; }
+
+        global::System.Boolean IsNoneSet { get; }
+
+        global::System.Boolean IsSomeSet { get; }
+
+        global::System.Boolean IsAnySet { get; }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    internal interface IUserProjectFilterInputInfo
+    {
+        global::System.Boolean IsAndSet { get; }
+
+        global::System.Boolean IsOrSet { get; }
+
+        global::System.Boolean IsIdSet { get; }
+
+        global::System.Boolean IsUserIdSet { get; }
+
+        global::System.Boolean IsProjectIdSet { get; }
+
+        global::System.Boolean IsProjectSet { get; }
+
+        global::System.Boolean IsUserSet { get; }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    internal interface IBooleanOperationFilterInputInfo
+    {
+        global::System.Boolean IsEqSet { get; }
+
+        global::System.Boolean IsNeqSet { get; }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    internal interface IComparableNullableOfDateTimeOffsetOperationFilterInputInfo
+    {
+        global::System.Boolean IsEqSet { get; }
+
+        global::System.Boolean IsNeqSet { get; }
+
+        global::System.Boolean IsInSet { get; }
+
+        global::System.Boolean IsNinSet { get; }
+
+        global::System.Boolean IsGtSet { get; }
+
+        global::System.Boolean IsNgtSet { get; }
+
+        global::System.Boolean IsGteSet { get; }
+
+        global::System.Boolean IsNgteSet { get; }
+
+        global::System.Boolean IsLtSet { get; }
+
+        global::System.Boolean IsNltSet { get; }
+
+        global::System.Boolean IsLteSet { get; }
+
+        global::System.Boolean IsNlteSet { get; }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    internal interface IComparableInt32OperationFilterInputInfo
+    {
+        global::System.Boolean IsEqSet { get; }
+
+        global::System.Boolean IsNeqSet { get; }
+
+        global::System.Boolean IsInSet { get; }
+
+        global::System.Boolean IsNinSet { get; }
+
+        global::System.Boolean IsGtSet { get; }
+
+        global::System.Boolean IsNgtSet { get; }
+
+        global::System.Boolean IsGteSet { get; }
+
+        global::System.Boolean IsNgteSet { get; }
+
+        global::System.Boolean IsLtSet { get; }
+
+        global::System.Boolean IsNltSet { get; }
+
+        global::System.Boolean IsLteSet { get; }
+
+        global::System.Boolean IsNlteSet { get; }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    internal interface IListFilterInputTypeOfProjectFilterInputInfo
+    {
+        global::System.Boolean IsAllSet { get; }
+
+        global::System.Boolean IsNoneSet { get; }
+
+        global::System.Boolean IsSomeSet { get; }
+
+        global::System.Boolean IsAnySet { get; }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    internal interface ICreateUserVmInputInfo
+    {
+        global::System.Boolean IsEmailSet { get; }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class LoginBuilder : global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.ILoginResult>
+    {
+        private readonly global::StrawberryShake.IEntityStore _entityStore;
+        private readonly global::StrawberryShake.IEntityIdSerializer _idSerializer;
+        private readonly global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.ILoginResult> _resultDataFactory;
+        private readonly global::StrawberryShake.Serialization.ILeafValueParser<global::System.String, global::System.String> _stringParser;
+        public LoginBuilder(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityIdSerializer idSerializer, global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.ILoginResult> resultDataFactory, global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
         {
-            get;
+            _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
+            _idSerializer = idSerializer ?? throw new global::System.ArgumentNullException(nameof(idSerializer));
+            _resultDataFactory = resultDataFactory ?? throw new global::System.ArgumentNullException(nameof(resultDataFactory));
+            _stringParser = serializerResolver.GetLeafValueParser<global::System.String, global::System.String>("String") ?? throw new global::System.ArgumentException("No serializer for type `String` found.");
         }
 
-        global::System.Boolean IsEmailSet
+        public global::StrawberryShake.IOperationResult<ILoginResult> Build(global::StrawberryShake.Response<global::System.Text.Json.JsonDocument> response)
         {
-            get;
+            (ILoginResult Result, LoginResultInfo Info)? data = null;
+            global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.IClientError>? errors = null;
+            if (response.Exception is null)
+            {
+                try
+                {
+                    if (response.Body != null)
+                    {
+                        if (response.Body.RootElement.TryGetProperty("data", out global::System.Text.Json.JsonElement dataElement) && dataElement.ValueKind == global::System.Text.Json.JsonValueKind.Object)
+                        {
+                            data = BuildData(dataElement);
+                        }
+
+                        if (response.Body.RootElement.TryGetProperty("errors", out global::System.Text.Json.JsonElement errorsElement))
+                        {
+                            errors = global::StrawberryShake.Json.JsonErrorParser.ParseErrors(errorsElement);
+                        }
+                    }
+                }
+                catch (global::System.Exception ex)
+                {
+                    errors = new global::StrawberryShake.IClientError[]{new global::StrawberryShake.ClientError(ex.Message, exception: ex, extensions: new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>{{"body", response.Body?.RootElement.ToString()}})};
+                }
+            }
+            else
+            {
+                errors = new global::StrawberryShake.IClientError[]{new global::StrawberryShake.ClientError(response.Exception.Message, exception: response.Exception, extensions: new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>{{"body", response.Body?.RootElement.ToString()}})};
+            }
+
+            return new global::StrawberryShake.OperationResult<ILoginResult>(data?.Result, data?.Info, _resultDataFactory, errors);
         }
 
-        global::System.Boolean IsPasswordConfirmationSet
+        private (ILoginResult, LoginResultInfo) BuildData(global::System.Text.Json.JsonElement obj)
         {
-            get;
+            var entityIds = new global::System.Collections.Generic.HashSet<global::StrawberryShake.EntityId>();
+            global::StrawberryShake.IEntityStoreSnapshot snapshot = default !;
+            _entityStore.Update(session =>
+            {
+                snapshot = session.CurrentSnapshot;
+            });
+            var resultInfo = new LoginResultInfo(DeserializeILogin_Account(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "account")), entityIds, snapshot.Version);
+            return (_resultDataFactory.Create(resultInfo), resultInfo);
         }
 
-        global::System.Boolean IsUsernameSet
+        private global::app.Graphql.State.AccountMutationTypeData? DeserializeILogin_Account(global::System.Text.Json.JsonElement? obj)
         {
-            get;
+            if (!obj.HasValue)
+            {
+                return null;
+            }
+
+            var typename = obj.Value.GetProperty("__typename").GetString();
+            if (typename?.Equals("AccountMutationType", global::System.StringComparison.Ordinal) ?? false)
+            {
+                return new global::app.Graphql.State.AccountMutationTypeData(typename, login: DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "login")));
+            }
+
+            throw new global::System.NotSupportedException();
         }
 
-        global::System.Boolean IsPasswordSet
+        private global::System.String? DeserializeString(global::System.Text.Json.JsonElement? obj)
         {
-            get;
+            if (!obj.HasValue)
+            {
+                return null;
+            }
+
+            return _stringParser.Parse(obj.Value.GetString()!);
+        }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class RegisterBuilder : global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.IRegisterResult>
+    {
+        private readonly global::StrawberryShake.IEntityStore _entityStore;
+        private readonly global::StrawberryShake.IEntityIdSerializer _idSerializer;
+        private readonly global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IRegisterResult> _resultDataFactory;
+        private readonly global::StrawberryShake.Serialization.ILeafValueParser<global::System.String, global::System.String> _stringParser;
+        public RegisterBuilder(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityIdSerializer idSerializer, global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IRegisterResult> resultDataFactory, global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
+        {
+            _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
+            _idSerializer = idSerializer ?? throw new global::System.ArgumentNullException(nameof(idSerializer));
+            _resultDataFactory = resultDataFactory ?? throw new global::System.ArgumentNullException(nameof(resultDataFactory));
+            _stringParser = serializerResolver.GetLeafValueParser<global::System.String, global::System.String>("String") ?? throw new global::System.ArgumentException("No serializer for type `String` found.");
+        }
+
+        public global::StrawberryShake.IOperationResult<IRegisterResult> Build(global::StrawberryShake.Response<global::System.Text.Json.JsonDocument> response)
+        {
+            (IRegisterResult Result, RegisterResultInfo Info)? data = null;
+            global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.IClientError>? errors = null;
+            if (response.Exception is null)
+            {
+                try
+                {
+                    if (response.Body != null)
+                    {
+                        if (response.Body.RootElement.TryGetProperty("data", out global::System.Text.Json.JsonElement dataElement) && dataElement.ValueKind == global::System.Text.Json.JsonValueKind.Object)
+                        {
+                            data = BuildData(dataElement);
+                        }
+
+                        if (response.Body.RootElement.TryGetProperty("errors", out global::System.Text.Json.JsonElement errorsElement))
+                        {
+                            errors = global::StrawberryShake.Json.JsonErrorParser.ParseErrors(errorsElement);
+                        }
+                    }
+                }
+                catch (global::System.Exception ex)
+                {
+                    errors = new global::StrawberryShake.IClientError[]{new global::StrawberryShake.ClientError(ex.Message, exception: ex, extensions: new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>{{"body", response.Body?.RootElement.ToString()}})};
+                }
+            }
+            else
+            {
+                errors = new global::StrawberryShake.IClientError[]{new global::StrawberryShake.ClientError(response.Exception.Message, exception: response.Exception, extensions: new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>{{"body", response.Body?.RootElement.ToString()}})};
+            }
+
+            return new global::StrawberryShake.OperationResult<IRegisterResult>(data?.Result, data?.Info, _resultDataFactory, errors);
+        }
+
+        private (IRegisterResult, RegisterResultInfo) BuildData(global::System.Text.Json.JsonElement obj)
+        {
+            var entityIds = new global::System.Collections.Generic.HashSet<global::StrawberryShake.EntityId>();
+            global::StrawberryShake.IEntityStoreSnapshot snapshot = default !;
+            _entityStore.Update(session =>
+            {
+                snapshot = session.CurrentSnapshot;
+            });
+            var resultInfo = new RegisterResultInfo(DeserializeIRegister_Account(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "account")), entityIds, snapshot.Version);
+            return (_resultDataFactory.Create(resultInfo), resultInfo);
+        }
+
+        private global::app.Graphql.State.AccountMutationTypeData? DeserializeIRegister_Account(global::System.Text.Json.JsonElement? obj)
+        {
+            if (!obj.HasValue)
+            {
+                return null;
+            }
+
+            var typename = obj.Value.GetProperty("__typename").GetString();
+            if (typename?.Equals("AccountMutationType", global::System.StringComparison.Ordinal) ?? false)
+            {
+                return new global::app.Graphql.State.AccountMutationTypeData(typename, register: DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "register")));
+            }
+
+            throw new global::System.NotSupportedException();
+        }
+
+        private global::System.String? DeserializeString(global::System.Text.Json.JsonElement? obj)
+        {
+            if (!obj.HasValue)
+            {
+                return null;
+            }
+
+            return _stringParser.Parse(obj.Value.GetString()!);
+        }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class RefreshTokenBuilder : global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.IRefreshTokenResult>
+    {
+        private readonly global::StrawberryShake.IEntityStore _entityStore;
+        private readonly global::StrawberryShake.IEntityIdSerializer _idSerializer;
+        private readonly global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IRefreshTokenResult> _resultDataFactory;
+        private readonly global::StrawberryShake.Serialization.ILeafValueParser<global::System.String, global::System.String> _stringParser;
+        public RefreshTokenBuilder(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityIdSerializer idSerializer, global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IRefreshTokenResult> resultDataFactory, global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
+        {
+            _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
+            _idSerializer = idSerializer ?? throw new global::System.ArgumentNullException(nameof(idSerializer));
+            _resultDataFactory = resultDataFactory ?? throw new global::System.ArgumentNullException(nameof(resultDataFactory));
+            _stringParser = serializerResolver.GetLeafValueParser<global::System.String, global::System.String>("String") ?? throw new global::System.ArgumentException("No serializer for type `String` found.");
+        }
+
+        public global::StrawberryShake.IOperationResult<IRefreshTokenResult> Build(global::StrawberryShake.Response<global::System.Text.Json.JsonDocument> response)
+        {
+            (IRefreshTokenResult Result, RefreshTokenResultInfo Info)? data = null;
+            global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.IClientError>? errors = null;
+            if (response.Exception is null)
+            {
+                try
+                {
+                    if (response.Body != null)
+                    {
+                        if (response.Body.RootElement.TryGetProperty("data", out global::System.Text.Json.JsonElement dataElement) && dataElement.ValueKind == global::System.Text.Json.JsonValueKind.Object)
+                        {
+                            data = BuildData(dataElement);
+                        }
+
+                        if (response.Body.RootElement.TryGetProperty("errors", out global::System.Text.Json.JsonElement errorsElement))
+                        {
+                            errors = global::StrawberryShake.Json.JsonErrorParser.ParseErrors(errorsElement);
+                        }
+                    }
+                }
+                catch (global::System.Exception ex)
+                {
+                    errors = new global::StrawberryShake.IClientError[]{new global::StrawberryShake.ClientError(ex.Message, exception: ex, extensions: new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>{{"body", response.Body?.RootElement.ToString()}})};
+                }
+            }
+            else
+            {
+                errors = new global::StrawberryShake.IClientError[]{new global::StrawberryShake.ClientError(response.Exception.Message, exception: response.Exception, extensions: new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>{{"body", response.Body?.RootElement.ToString()}})};
+            }
+
+            return new global::StrawberryShake.OperationResult<IRefreshTokenResult>(data?.Result, data?.Info, _resultDataFactory, errors);
+        }
+
+        private (IRefreshTokenResult, RefreshTokenResultInfo) BuildData(global::System.Text.Json.JsonElement obj)
+        {
+            var entityIds = new global::System.Collections.Generic.HashSet<global::StrawberryShake.EntityId>();
+            global::StrawberryShake.IEntityStoreSnapshot snapshot = default !;
+            _entityStore.Update(session =>
+            {
+                snapshot = session.CurrentSnapshot;
+            });
+            var resultInfo = new RefreshTokenResultInfo(DeserializeIRefreshToken_Account(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "account")), entityIds, snapshot.Version);
+            return (_resultDataFactory.Create(resultInfo), resultInfo);
+        }
+
+        private global::app.Graphql.State.AccountMutationTypeData? DeserializeIRefreshToken_Account(global::System.Text.Json.JsonElement? obj)
+        {
+            if (!obj.HasValue)
+            {
+                return null;
+            }
+
+            var typename = obj.Value.GetProperty("__typename").GetString();
+            if (typename?.Equals("AccountMutationType", global::System.StringComparison.Ordinal) ?? false)
+            {
+                return new global::app.Graphql.State.AccountMutationTypeData(typename, refreshToken: DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "refreshToken")));
+            }
+
+            throw new global::System.NotSupportedException();
+        }
+
+        private global::System.String? DeserializeString(global::System.Text.Json.JsonElement? obj)
+        {
+            if (!obj.HasValue)
+            {
+                return null;
+            }
+
+            return _stringParser.Parse(obj.Value.GetString()!);
+        }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class CreateProjectBuilder : global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.ICreateProjectResult>
+    {
+        private readonly global::StrawberryShake.IEntityStore _entityStore;
+        private readonly global::StrawberryShake.IEntityIdSerializer _idSerializer;
+        private readonly global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.ICreateProjectResult> _resultDataFactory;
+        private readonly global::StrawberryShake.Serialization.ILeafValueParser<global::System.String, global::System.String> _stringParser;
+        public CreateProjectBuilder(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityIdSerializer idSerializer, global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.ICreateProjectResult> resultDataFactory, global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
+        {
+            _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
+            _idSerializer = idSerializer ?? throw new global::System.ArgumentNullException(nameof(idSerializer));
+            _resultDataFactory = resultDataFactory ?? throw new global::System.ArgumentNullException(nameof(resultDataFactory));
+            _stringParser = serializerResolver.GetLeafValueParser<global::System.String, global::System.String>("String") ?? throw new global::System.ArgumentException("No serializer for type `String` found.");
+        }
+
+        public global::StrawberryShake.IOperationResult<ICreateProjectResult> Build(global::StrawberryShake.Response<global::System.Text.Json.JsonDocument> response)
+        {
+            (ICreateProjectResult Result, CreateProjectResultInfo Info)? data = null;
+            global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.IClientError>? errors = null;
+            if (response.Exception is null)
+            {
+                try
+                {
+                    if (response.Body != null)
+                    {
+                        if (response.Body.RootElement.TryGetProperty("data", out global::System.Text.Json.JsonElement dataElement) && dataElement.ValueKind == global::System.Text.Json.JsonValueKind.Object)
+                        {
+                            data = BuildData(dataElement);
+                        }
+
+                        if (response.Body.RootElement.TryGetProperty("errors", out global::System.Text.Json.JsonElement errorsElement))
+                        {
+                            errors = global::StrawberryShake.Json.JsonErrorParser.ParseErrors(errorsElement);
+                        }
+                    }
+                }
+                catch (global::System.Exception ex)
+                {
+                    errors = new global::StrawberryShake.IClientError[]{new global::StrawberryShake.ClientError(ex.Message, exception: ex, extensions: new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>{{"body", response.Body?.RootElement.ToString()}})};
+                }
+            }
+            else
+            {
+                errors = new global::StrawberryShake.IClientError[]{new global::StrawberryShake.ClientError(response.Exception.Message, exception: response.Exception, extensions: new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>{{"body", response.Body?.RootElement.ToString()}})};
+            }
+
+            return new global::StrawberryShake.OperationResult<ICreateProjectResult>(data?.Result, data?.Info, _resultDataFactory, errors);
+        }
+
+        private (ICreateProjectResult, CreateProjectResultInfo) BuildData(global::System.Text.Json.JsonElement obj)
+        {
+            var entityIds = new global::System.Collections.Generic.HashSet<global::StrawberryShake.EntityId>();
+            global::StrawberryShake.IEntityStoreSnapshot snapshot = default !;
+            _entityStore.Update(session =>
+            {
+                snapshot = session.CurrentSnapshot;
+            });
+            var resultInfo = new CreateProjectResultInfo(DeserializeICreateProject_Project(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "project")), entityIds, snapshot.Version);
+            return (_resultDataFactory.Create(resultInfo), resultInfo);
+        }
+
+        private global::app.Graphql.State.ProjectMutationTypeData? DeserializeICreateProject_Project(global::System.Text.Json.JsonElement? obj)
+        {
+            if (!obj.HasValue)
+            {
+                return null;
+            }
+
+            var typename = obj.Value.GetProperty("__typename").GetString();
+            if (typename?.Equals("ProjectMutationType", global::System.StringComparison.Ordinal) ?? false)
+            {
+                return new global::app.Graphql.State.ProjectMutationTypeData(typename, @add: DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "add")));
+            }
+
+            throw new global::System.NotSupportedException();
+        }
+
+        private global::System.String? DeserializeString(global::System.Text.Json.JsonElement? obj)
+        {
+            if (!obj.HasValue)
+            {
+                return null;
+            }
+
+            return _stringParser.Parse(obj.Value.GetString()!);
+        }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class GetProjectsBuilder : global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.IGetProjectsResult>
+    {
+        private readonly global::StrawberryShake.IEntityStore _entityStore;
+        private readonly global::StrawberryShake.IEntityIdSerializer _idSerializer;
+        private readonly global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IGetProjectsResult> _resultDataFactory;
+        private readonly global::StrawberryShake.Serialization.ILeafValueParser<global::System.String, global::app.Graphql.Status> _statusParser;
+        private readonly global::StrawberryShake.Serialization.ILeafValueParser<global::System.Int32, global::System.Int32> _intParser;
+        private readonly global::StrawberryShake.Serialization.ILeafValueParser<global::System.String, global::System.String> _stringParser;
+        private readonly global::StrawberryShake.Serialization.ILeafValueParser<global::System.Boolean, global::System.Boolean> _booleanParser;
+        private readonly global::StrawberryShake.Serialization.ILeafValueParser<global::System.String, global::System.DateTimeOffset> _dateTimeParser;
+        public GetProjectsBuilder(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityIdSerializer idSerializer, global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IGetProjectsResult> resultDataFactory, global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
+        {
+            _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
+            _idSerializer = idSerializer ?? throw new global::System.ArgumentNullException(nameof(idSerializer));
+            _resultDataFactory = resultDataFactory ?? throw new global::System.ArgumentNullException(nameof(resultDataFactory));
+            _statusParser = serializerResolver.GetLeafValueParser<global::System.String, global::app.Graphql.Status>("Status") ?? throw new global::System.ArgumentException("No serializer for type `Status` found.");
+            _intParser = serializerResolver.GetLeafValueParser<global::System.Int32, global::System.Int32>("Int") ?? throw new global::System.ArgumentException("No serializer for type `Int` found.");
+            _stringParser = serializerResolver.GetLeafValueParser<global::System.String, global::System.String>("String") ?? throw new global::System.ArgumentException("No serializer for type `String` found.");
+            _booleanParser = serializerResolver.GetLeafValueParser<global::System.Boolean, global::System.Boolean>("Boolean") ?? throw new global::System.ArgumentException("No serializer for type `Boolean` found.");
+            _dateTimeParser = serializerResolver.GetLeafValueParser<global::System.String, global::System.DateTimeOffset>("DateTime") ?? throw new global::System.ArgumentException("No serializer for type `DateTime` found.");
+        }
+
+        public global::StrawberryShake.IOperationResult<IGetProjectsResult> Build(global::StrawberryShake.Response<global::System.Text.Json.JsonDocument> response)
+        {
+            (IGetProjectsResult Result, GetProjectsResultInfo Info)? data = null;
+            global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.IClientError>? errors = null;
+            if (response.Exception is null)
+            {
+                try
+                {
+                    if (response.Body != null)
+                    {
+                        if (response.Body.RootElement.TryGetProperty("data", out global::System.Text.Json.JsonElement dataElement) && dataElement.ValueKind == global::System.Text.Json.JsonValueKind.Object)
+                        {
+                            data = BuildData(dataElement);
+                        }
+
+                        if (response.Body.RootElement.TryGetProperty("errors", out global::System.Text.Json.JsonElement errorsElement))
+                        {
+                            errors = global::StrawberryShake.Json.JsonErrorParser.ParseErrors(errorsElement);
+                        }
+                    }
+                }
+                catch (global::System.Exception ex)
+                {
+                    errors = new global::StrawberryShake.IClientError[]{new global::StrawberryShake.ClientError(ex.Message, exception: ex, extensions: new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>{{"body", response.Body?.RootElement.ToString()}})};
+                }
+            }
+            else
+            {
+                errors = new global::StrawberryShake.IClientError[]{new global::StrawberryShake.ClientError(response.Exception.Message, exception: response.Exception, extensions: new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>{{"body", response.Body?.RootElement.ToString()}})};
+            }
+
+            return new global::StrawberryShake.OperationResult<IGetProjectsResult>(data?.Result, data?.Info, _resultDataFactory, errors);
+        }
+
+        private (IGetProjectsResult, GetProjectsResultInfo) BuildData(global::System.Text.Json.JsonElement obj)
+        {
+            var entityIds = new global::System.Collections.Generic.HashSet<global::StrawberryShake.EntityId>();
+            global::StrawberryShake.IEntityStoreSnapshot snapshot = default !;
+            global::app.Graphql.State.ProjectConnectionData? projectsId = default !;
+            _entityStore.Update(session =>
+            {
+                projectsId = DeserializeIGetProjects_Projects(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "Projects"), entityIds);
+                snapshot = session.CurrentSnapshot;
+            });
+            var resultInfo = new GetProjectsResultInfo(projectsId, entityIds, snapshot.Version);
+            return (_resultDataFactory.Create(resultInfo), resultInfo);
+        }
+
+        private global::app.Graphql.State.ProjectConnectionData? DeserializeIGetProjects_Projects(global::StrawberryShake.IEntityStoreUpdateSession session, global::System.Text.Json.JsonElement? obj, global::System.Collections.Generic.ISet<global::StrawberryShake.EntityId> entityIds)
+        {
+            if (!obj.HasValue)
+            {
+                return null;
+            }
+
+            var typename = obj.Value.GetProperty("__typename").GetString();
+            if (typename?.Equals("ProjectConnection", global::System.StringComparison.Ordinal) ?? false)
+            {
+                return new global::app.Graphql.State.ProjectConnectionData(typename, nodes: UpdateIGetProjects_Projects_NodesEntityArray(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "nodes"), entityIds), pageInfo: DeserializeNonNullableIGetProjects_Projects_PageInfo(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "pageInfo")), totalCount: DeserializeNonNullableInt32(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "totalCount")));
+            }
+
+            throw new global::System.NotSupportedException();
+        }
+
+        private global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? UpdateIGetProjects_Projects_NodesEntityArray(global::StrawberryShake.IEntityStoreUpdateSession session, global::System.Text.Json.JsonElement? obj, global::System.Collections.Generic.ISet<global::StrawberryShake.EntityId> entityIds)
+        {
+            if (!obj.HasValue)
+            {
+                return null;
+            }
+
+            var projects = new global::System.Collections.Generic.List<global::StrawberryShake.EntityId?>();
+            foreach (global::System.Text.Json.JsonElement child in obj.Value.EnumerateArray())
+            {
+                projects.Add(UpdateIGetProjects_Projects_NodesEntity(session, child, entityIds));
+            }
+
+            return projects;
+        }
+
+        private global::StrawberryShake.EntityId? UpdateIGetProjects_Projects_NodesEntity(global::StrawberryShake.IEntityStoreUpdateSession session, global::System.Text.Json.JsonElement? obj, global::System.Collections.Generic.ISet<global::StrawberryShake.EntityId> entityIds)
+        {
+            if (!obj.HasValue)
+            {
+                return null;
+            }
+
+            global::StrawberryShake.EntityId entityId = _idSerializer.Parse(obj.Value);
+            entityIds.Add(entityId);
+            if (entityId.Name.Equals("Project", global::System.StringComparison.Ordinal))
+            {
+                if (session.CurrentSnapshot.TryGetEntity(entityId, out global::app.Graphql.State.ProjectEntity? entity))
+                {
+                    session.SetEntity(entityId, new global::app.Graphql.State.ProjectEntity(DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "description")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "id")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "companyId")), DeserializeNonNullableStatus(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "status")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "title")), UpdateIGetProjects_Projects_Nodes_UserProjectsEntityArray(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "userProjects"), entityIds), UpdateIGetProjects_Projects_Nodes_UsersEntityArray(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "users"), entityIds)));
+                }
+                else
+                {
+                    session.SetEntity(entityId, new global::app.Graphql.State.ProjectEntity(DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "description")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "id")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "companyId")), DeserializeNonNullableStatus(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "status")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "title")), UpdateIGetProjects_Projects_Nodes_UserProjectsEntityArray(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "userProjects"), entityIds), UpdateIGetProjects_Projects_Nodes_UsersEntityArray(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "users"), entityIds)));
+                }
+
+                return entityId;
+            }
+
+            throw new global::System.NotSupportedException();
+        }
+
+        private global::System.String? DeserializeString(global::System.Text.Json.JsonElement? obj)
+        {
+            if (!obj.HasValue)
+            {
+                return null;
+            }
+
+            return _stringParser.Parse(obj.Value.GetString()!);
+        }
+
+        private global::app.Graphql.Status DeserializeNonNullableStatus(global::System.Text.Json.JsonElement? obj)
+        {
+            if (!obj.HasValue)
+            {
+                throw new global::System.ArgumentNullException();
+            }
+
+            return _statusParser.Parse(obj.Value.GetString()!);
+        }
+
+        private global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? UpdateIGetProjects_Projects_Nodes_UserProjectsEntityArray(global::StrawberryShake.IEntityStoreUpdateSession session, global::System.Text.Json.JsonElement? obj, global::System.Collections.Generic.ISet<global::StrawberryShake.EntityId> entityIds)
+        {
+            if (!obj.HasValue)
+            {
+                return null;
+            }
+
+            var userProjects = new global::System.Collections.Generic.List<global::StrawberryShake.EntityId?>();
+            foreach (global::System.Text.Json.JsonElement child in obj.Value.EnumerateArray())
+            {
+                userProjects.Add(UpdateIGetProjects_Projects_Nodes_UserProjectsEntity(session, child, entityIds));
+            }
+
+            return userProjects;
+        }
+
+        private global::StrawberryShake.EntityId? UpdateIGetProjects_Projects_Nodes_UserProjectsEntity(global::StrawberryShake.IEntityStoreUpdateSession session, global::System.Text.Json.JsonElement? obj, global::System.Collections.Generic.ISet<global::StrawberryShake.EntityId> entityIds)
+        {
+            if (!obj.HasValue)
+            {
+                return null;
+            }
+
+            global::StrawberryShake.EntityId entityId = _idSerializer.Parse(obj.Value);
+            entityIds.Add(entityId);
+            if (entityId.Name.Equals("UserProject", global::System.StringComparison.Ordinal))
+            {
+                if (session.CurrentSnapshot.TryGetEntity(entityId, out global::app.Graphql.State.UserProjectEntity? entity))
+                {
+                    session.SetEntity(entityId, new global::app.Graphql.State.UserProjectEntity(DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "userId")), UpdateIGetProjects_Projects_Nodes_UserProjects_UserEntity(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "user"), entityIds)));
+                }
+                else
+                {
+                    session.SetEntity(entityId, new global::app.Graphql.State.UserProjectEntity(DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "userId")), UpdateIGetProjects_Projects_Nodes_UserProjects_UserEntity(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "user"), entityIds)));
+                }
+
+                return entityId;
+            }
+
+            throw new global::System.NotSupportedException();
+        }
+
+        private global::StrawberryShake.EntityId? UpdateIGetProjects_Projects_Nodes_UserProjects_UserEntity(global::StrawberryShake.IEntityStoreUpdateSession session, global::System.Text.Json.JsonElement? obj, global::System.Collections.Generic.ISet<global::StrawberryShake.EntityId> entityIds)
+        {
+            if (!obj.HasValue)
+            {
+                return null;
+            }
+
+            global::StrawberryShake.EntityId entityId = _idSerializer.Parse(obj.Value);
+            entityIds.Add(entityId);
+            if (entityId.Name.Equals("User", global::System.StringComparison.Ordinal))
+            {
+                if (session.CurrentSnapshot.TryGetEntity(entityId, out global::app.Graphql.State.UserEntity? entity))
+                {
+                    session.SetEntity(entityId, new global::app.Graphql.State.UserEntity(DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "userName")), entity.Company, entity.Id, entity.Email, entity.PhoneNumber, entity.Status, entity.CompanyId));
+                }
+                else
+                {
+                    session.SetEntity(entityId, new global::app.Graphql.State.UserEntity(DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "userName")), default !, default !, default !, default !, default !, default !));
+                }
+
+                return entityId;
+            }
+
+            throw new global::System.NotSupportedException();
+        }
+
+        private global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? UpdateIGetProjects_Projects_Nodes_UsersEntityArray(global::StrawberryShake.IEntityStoreUpdateSession session, global::System.Text.Json.JsonElement? obj, global::System.Collections.Generic.ISet<global::StrawberryShake.EntityId> entityIds)
+        {
+            if (!obj.HasValue)
+            {
+                return null;
+            }
+
+            var users = new global::System.Collections.Generic.List<global::StrawberryShake.EntityId?>();
+            foreach (global::System.Text.Json.JsonElement child in obj.Value.EnumerateArray())
+            {
+                users.Add(UpdateIGetProjects_Projects_Nodes_UsersEntity(session, child, entityIds));
+            }
+
+            return users;
+        }
+
+        private global::StrawberryShake.EntityId? UpdateIGetProjects_Projects_Nodes_UsersEntity(global::StrawberryShake.IEntityStoreUpdateSession session, global::System.Text.Json.JsonElement? obj, global::System.Collections.Generic.ISet<global::StrawberryShake.EntityId> entityIds)
+        {
+            if (!obj.HasValue)
+            {
+                return null;
+            }
+
+            global::StrawberryShake.EntityId entityId = _idSerializer.Parse(obj.Value);
+            entityIds.Add(entityId);
+            if (entityId.Name.Equals("User", global::System.StringComparison.Ordinal))
+            {
+                if (session.CurrentSnapshot.TryGetEntity(entityId, out global::app.Graphql.State.UserEntity? entity))
+                {
+                    session.SetEntity(entityId, new global::app.Graphql.State.UserEntity(DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "userName")), entity.Company, entity.Id, entity.Email, entity.PhoneNumber, entity.Status, entity.CompanyId));
+                }
+                else
+                {
+                    session.SetEntity(entityId, new global::app.Graphql.State.UserEntity(DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "userName")), default !, default !, default !, default !, default !, default !));
+                }
+
+                return entityId;
+            }
+
+            throw new global::System.NotSupportedException();
+        }
+
+        private global::app.Graphql.State.PageInfoData DeserializeNonNullableIGetProjects_Projects_PageInfo(global::System.Text.Json.JsonElement? obj)
+        {
+            if (!obj.HasValue)
+            {
+                throw new global::System.ArgumentNullException();
+            }
+
+            var typename = obj.Value.GetProperty("__typename").GetString();
+            if (typename?.Equals("PageInfo", global::System.StringComparison.Ordinal) ?? false)
+            {
+                return new global::app.Graphql.State.PageInfoData(typename, endCursor: DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "endCursor")), hasNextPage: DeserializeNonNullableBoolean(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "hasNextPage")), hasPreviousPage: DeserializeNonNullableBoolean(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "hasPreviousPage")), startCursor: DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "startCursor")));
+            }
+
+            throw new global::System.NotSupportedException();
+        }
+
+        private global::System.Boolean DeserializeNonNullableBoolean(global::System.Text.Json.JsonElement? obj)
+        {
+            if (!obj.HasValue)
+            {
+                throw new global::System.ArgumentNullException();
+            }
+
+            return _booleanParser.Parse(obj.Value.GetBoolean()!);
+        }
+
+        private global::System.Int32 DeserializeNonNullableInt32(global::System.Text.Json.JsonElement? obj)
+        {
+            if (!obj.HasValue)
+            {
+                throw new global::System.ArgumentNullException();
+            }
+
+            return _intParser.Parse(obj.Value.GetInt32()!);
+        }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class AddUserInProjectBuilder : global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.IAddUserInProjectResult>
+    {
+        private readonly global::StrawberryShake.IEntityStore _entityStore;
+        private readonly global::StrawberryShake.IEntityIdSerializer _idSerializer;
+        private readonly global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IAddUserInProjectResult> _resultDataFactory;
+        private readonly global::StrawberryShake.Serialization.ILeafValueParser<global::System.String, global::System.String> _stringParser;
+        public AddUserInProjectBuilder(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityIdSerializer idSerializer, global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IAddUserInProjectResult> resultDataFactory, global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
+        {
+            _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
+            _idSerializer = idSerializer ?? throw new global::System.ArgumentNullException(nameof(idSerializer));
+            _resultDataFactory = resultDataFactory ?? throw new global::System.ArgumentNullException(nameof(resultDataFactory));
+            _stringParser = serializerResolver.GetLeafValueParser<global::System.String, global::System.String>("String") ?? throw new global::System.ArgumentException("No serializer for type `String` found.");
+        }
+
+        public global::StrawberryShake.IOperationResult<IAddUserInProjectResult> Build(global::StrawberryShake.Response<global::System.Text.Json.JsonDocument> response)
+        {
+            (IAddUserInProjectResult Result, AddUserInProjectResultInfo Info)? data = null;
+            global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.IClientError>? errors = null;
+            if (response.Exception is null)
+            {
+                try
+                {
+                    if (response.Body != null)
+                    {
+                        if (response.Body.RootElement.TryGetProperty("data", out global::System.Text.Json.JsonElement dataElement) && dataElement.ValueKind == global::System.Text.Json.JsonValueKind.Object)
+                        {
+                            data = BuildData(dataElement);
+                        }
+
+                        if (response.Body.RootElement.TryGetProperty("errors", out global::System.Text.Json.JsonElement errorsElement))
+                        {
+                            errors = global::StrawberryShake.Json.JsonErrorParser.ParseErrors(errorsElement);
+                        }
+                    }
+                }
+                catch (global::System.Exception ex)
+                {
+                    errors = new global::StrawberryShake.IClientError[]{new global::StrawberryShake.ClientError(ex.Message, exception: ex, extensions: new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>{{"body", response.Body?.RootElement.ToString()}})};
+                }
+            }
+            else
+            {
+                errors = new global::StrawberryShake.IClientError[]{new global::StrawberryShake.ClientError(response.Exception.Message, exception: response.Exception, extensions: new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>{{"body", response.Body?.RootElement.ToString()}})};
+            }
+
+            return new global::StrawberryShake.OperationResult<IAddUserInProjectResult>(data?.Result, data?.Info, _resultDataFactory, errors);
+        }
+
+        private (IAddUserInProjectResult, AddUserInProjectResultInfo) BuildData(global::System.Text.Json.JsonElement obj)
+        {
+            var entityIds = new global::System.Collections.Generic.HashSet<global::StrawberryShake.EntityId>();
+            global::StrawberryShake.IEntityStoreSnapshot snapshot = default !;
+            _entityStore.Update(session =>
+            {
+                snapshot = session.CurrentSnapshot;
+            });
+            var resultInfo = new AddUserInProjectResultInfo(DeserializeIAddUserInProject_Project(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "project")), entityIds, snapshot.Version);
+            return (_resultDataFactory.Create(resultInfo), resultInfo);
+        }
+
+        private global::app.Graphql.State.ProjectMutationTypeData? DeserializeIAddUserInProject_Project(global::System.Text.Json.JsonElement? obj)
+        {
+            if (!obj.HasValue)
+            {
+                return null;
+            }
+
+            var typename = obj.Value.GetProperty("__typename").GetString();
+            if (typename?.Equals("ProjectMutationType", global::System.StringComparison.Ordinal) ?? false)
+            {
+                return new global::app.Graphql.State.ProjectMutationTypeData(typename, addUser: DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "addUser")));
+            }
+
+            throw new global::System.NotSupportedException();
+        }
+
+        private global::System.String? DeserializeString(global::System.Text.Json.JsonElement? obj)
+        {
+            if (!obj.HasValue)
+            {
+                return null;
+            }
+
+            return _stringParser.Parse(obj.Value.GetString()!);
         }
     }
 
@@ -11800,11 +11699,11 @@ namespace app.Graphql.State
             {
                 if (session.CurrentSnapshot.TryGetEntity(entityId, out global::app.Graphql.State.UserEntity? entity))
                 {
-                    session.SetEntity(entityId, new global::app.Graphql.State.UserEntity(UpdateIGetUsers_Users_Nodes_CompanyEntity(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "company"), entityIds), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "id")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "email")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "phoneNumber")), DeserializeNonNullableStatus(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "status")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "userName")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "companyId"))));
+                    session.SetEntity(entityId, new global::app.Graphql.State.UserEntity(DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "userName")), UpdateIGetUsers_Users_Nodes_CompanyEntity(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "company"), entityIds), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "id")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "email")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "phoneNumber")), DeserializeNonNullableStatus(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "status")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "companyId"))));
                 }
                 else
                 {
-                    session.SetEntity(entityId, new global::app.Graphql.State.UserEntity(UpdateIGetUsers_Users_Nodes_CompanyEntity(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "company"), entityIds), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "id")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "email")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "phoneNumber")), DeserializeNonNullableStatus(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "status")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "userName")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "companyId"))));
+                    session.SetEntity(entityId, new global::app.Graphql.State.UserEntity(DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "userName")), UpdateIGetUsers_Users_Nodes_CompanyEntity(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "company"), entityIds), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "id")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "email")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "phoneNumber")), DeserializeNonNullableStatus(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "status")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "companyId"))));
                 }
 
                 return entityId;
@@ -11897,788 +11796,47 @@ namespace app.Graphql.State
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class CreateProjectBuilder : global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.ICreateProjectResult>
+    public partial class AccountMutationTypeData
     {
-        private readonly global::StrawberryShake.IEntityStore _entityStore;
-        private readonly global::StrawberryShake.IEntityIdSerializer _idSerializer;
-        private readonly global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.ICreateProjectResult> _resultDataFactory;
-        private readonly global::StrawberryShake.Serialization.ILeafValueParser<global::System.String, global::System.String> _stringParser;
-        public CreateProjectBuilder(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityIdSerializer idSerializer, global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.ICreateProjectResult> resultDataFactory, global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
-        {
-            _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
-            _idSerializer = idSerializer ?? throw new global::System.ArgumentNullException(nameof(idSerializer));
-            _resultDataFactory = resultDataFactory ?? throw new global::System.ArgumentNullException(nameof(resultDataFactory));
-            _stringParser = serializerResolver.GetLeafValueParser<global::System.String, global::System.String>("String") ?? throw new global::System.ArgumentException("No serializer for type `String` found.");
-        }
-
-        public global::StrawberryShake.IOperationResult<ICreateProjectResult> Build(global::StrawberryShake.Response<global::System.Text.Json.JsonDocument> response)
-        {
-            (ICreateProjectResult Result, CreateProjectResultInfo Info)? data = null;
-            global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.IClientError>? errors = null;
-            if (response.Exception is null)
-            {
-                try
-                {
-                    if (response.Body != null)
-                    {
-                        if (response.Body.RootElement.TryGetProperty("data", out global::System.Text.Json.JsonElement dataElement) && dataElement.ValueKind == global::System.Text.Json.JsonValueKind.Object)
-                        {
-                            data = BuildData(dataElement);
-                        }
-
-                        if (response.Body.RootElement.TryGetProperty("errors", out global::System.Text.Json.JsonElement errorsElement))
-                        {
-                            errors = global::StrawberryShake.Json.JsonErrorParser.ParseErrors(errorsElement);
-                        }
-                    }
-                }
-                catch (global::System.Exception ex)
-                {
-                    errors = new global::StrawberryShake.IClientError[]{new global::StrawberryShake.ClientError(ex.Message, exception: ex, extensions: new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>{{"body", response.Body?.RootElement.ToString()}})};
-                }
-            }
-            else
-            {
-                errors = new global::StrawberryShake.IClientError[]{new global::StrawberryShake.ClientError(response.Exception.Message, exception: response.Exception, extensions: new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>{{"body", response.Body?.RootElement.ToString()}})};
-            }
-
-            return new global::StrawberryShake.OperationResult<ICreateProjectResult>(data?.Result, data?.Info, _resultDataFactory, errors);
-        }
-
-        private (ICreateProjectResult, CreateProjectResultInfo) BuildData(global::System.Text.Json.JsonElement obj)
-        {
-            var entityIds = new global::System.Collections.Generic.HashSet<global::StrawberryShake.EntityId>();
-            global::StrawberryShake.IEntityStoreSnapshot snapshot = default !;
-            _entityStore.Update(session =>
-            {
-                snapshot = session.CurrentSnapshot;
-            });
-            var resultInfo = new CreateProjectResultInfo(DeserializeICreateProject_Project(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "project")), entityIds, snapshot.Version);
-            return (_resultDataFactory.Create(resultInfo), resultInfo);
-        }
-
-        private global::app.Graphql.State.ProjectMutationTypeData? DeserializeICreateProject_Project(global::System.Text.Json.JsonElement? obj)
-        {
-            if (!obj.HasValue)
-            {
-                return null;
-            }
-
-            var typename = obj.Value.GetProperty("__typename").GetString();
-            if (typename?.Equals("ProjectMutationType", global::System.StringComparison.Ordinal) ?? false)
-            {
-                return new global::app.Graphql.State.ProjectMutationTypeData(typename, @add: DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "add")));
-            }
-
-            throw new global::System.NotSupportedException();
-        }
-
-        private global::System.String? DeserializeString(global::System.Text.Json.JsonElement? obj)
-        {
-            if (!obj.HasValue)
-            {
-                return null;
-            }
-
-            return _stringParser.Parse(obj.Value.GetString()!);
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class GetProjectsBuilder : global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.IGetProjectsResult>
-    {
-        private readonly global::StrawberryShake.IEntityStore _entityStore;
-        private readonly global::StrawberryShake.IEntityIdSerializer _idSerializer;
-        private readonly global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IGetProjectsResult> _resultDataFactory;
-        private readonly global::StrawberryShake.Serialization.ILeafValueParser<global::System.String, global::app.Graphql.Status> _statusParser;
-        private readonly global::StrawberryShake.Serialization.ILeafValueParser<global::System.Int32, global::System.Int32> _intParser;
-        private readonly global::StrawberryShake.Serialization.ILeafValueParser<global::System.String, global::System.String> _stringParser;
-        private readonly global::StrawberryShake.Serialization.ILeafValueParser<global::System.Boolean, global::System.Boolean> _booleanParser;
-        private readonly global::StrawberryShake.Serialization.ILeafValueParser<global::System.String, global::System.DateTimeOffset> _dateTimeParser;
-        public GetProjectsBuilder(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityIdSerializer idSerializer, global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IGetProjectsResult> resultDataFactory, global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
-        {
-            _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
-            _idSerializer = idSerializer ?? throw new global::System.ArgumentNullException(nameof(idSerializer));
-            _resultDataFactory = resultDataFactory ?? throw new global::System.ArgumentNullException(nameof(resultDataFactory));
-            _statusParser = serializerResolver.GetLeafValueParser<global::System.String, global::app.Graphql.Status>("Status") ?? throw new global::System.ArgumentException("No serializer for type `Status` found.");
-            _intParser = serializerResolver.GetLeafValueParser<global::System.Int32, global::System.Int32>("Int") ?? throw new global::System.ArgumentException("No serializer for type `Int` found.");
-            _stringParser = serializerResolver.GetLeafValueParser<global::System.String, global::System.String>("String") ?? throw new global::System.ArgumentException("No serializer for type `String` found.");
-            _booleanParser = serializerResolver.GetLeafValueParser<global::System.Boolean, global::System.Boolean>("Boolean") ?? throw new global::System.ArgumentException("No serializer for type `Boolean` found.");
-            _dateTimeParser = serializerResolver.GetLeafValueParser<global::System.String, global::System.DateTimeOffset>("DateTime") ?? throw new global::System.ArgumentException("No serializer for type `DateTime` found.");
-        }
-
-        public global::StrawberryShake.IOperationResult<IGetProjectsResult> Build(global::StrawberryShake.Response<global::System.Text.Json.JsonDocument> response)
-        {
-            (IGetProjectsResult Result, GetProjectsResultInfo Info)? data = null;
-            global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.IClientError>? errors = null;
-            if (response.Exception is null)
-            {
-                try
-                {
-                    if (response.Body != null)
-                    {
-                        if (response.Body.RootElement.TryGetProperty("data", out global::System.Text.Json.JsonElement dataElement) && dataElement.ValueKind == global::System.Text.Json.JsonValueKind.Object)
-                        {
-                            data = BuildData(dataElement);
-                        }
-
-                        if (response.Body.RootElement.TryGetProperty("errors", out global::System.Text.Json.JsonElement errorsElement))
-                        {
-                            errors = global::StrawberryShake.Json.JsonErrorParser.ParseErrors(errorsElement);
-                        }
-                    }
-                }
-                catch (global::System.Exception ex)
-                {
-                    errors = new global::StrawberryShake.IClientError[]{new global::StrawberryShake.ClientError(ex.Message, exception: ex, extensions: new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>{{"body", response.Body?.RootElement.ToString()}})};
-                }
-            }
-            else
-            {
-                errors = new global::StrawberryShake.IClientError[]{new global::StrawberryShake.ClientError(response.Exception.Message, exception: response.Exception, extensions: new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>{{"body", response.Body?.RootElement.ToString()}})};
-            }
-
-            return new global::StrawberryShake.OperationResult<IGetProjectsResult>(data?.Result, data?.Info, _resultDataFactory, errors);
-        }
-
-        private (IGetProjectsResult, GetProjectsResultInfo) BuildData(global::System.Text.Json.JsonElement obj)
-        {
-            var entityIds = new global::System.Collections.Generic.HashSet<global::StrawberryShake.EntityId>();
-            global::StrawberryShake.IEntityStoreSnapshot snapshot = default !;
-            global::app.Graphql.State.ProjectConnectionData? projectsId = default !;
-            _entityStore.Update(session =>
-            {
-                projectsId = DeserializeIGetProjects_Projects(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "Projects"), entityIds);
-                snapshot = session.CurrentSnapshot;
-            });
-            var resultInfo = new GetProjectsResultInfo(projectsId, entityIds, snapshot.Version);
-            return (_resultDataFactory.Create(resultInfo), resultInfo);
-        }
-
-        private global::app.Graphql.State.ProjectConnectionData? DeserializeIGetProjects_Projects(global::StrawberryShake.IEntityStoreUpdateSession session, global::System.Text.Json.JsonElement? obj, global::System.Collections.Generic.ISet<global::StrawberryShake.EntityId> entityIds)
-        {
-            if (!obj.HasValue)
-            {
-                return null;
-            }
-
-            var typename = obj.Value.GetProperty("__typename").GetString();
-            if (typename?.Equals("ProjectConnection", global::System.StringComparison.Ordinal) ?? false)
-            {
-                return new global::app.Graphql.State.ProjectConnectionData(typename, nodes: UpdateIGetProjects_Projects_NodesEntityArray(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "nodes"), entityIds), pageInfo: DeserializeNonNullableIGetProjects_Projects_PageInfo(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "pageInfo")), totalCount: DeserializeNonNullableInt32(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "totalCount")));
-            }
-
-            throw new global::System.NotSupportedException();
-        }
-
-        private global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? UpdateIGetProjects_Projects_NodesEntityArray(global::StrawberryShake.IEntityStoreUpdateSession session, global::System.Text.Json.JsonElement? obj, global::System.Collections.Generic.ISet<global::StrawberryShake.EntityId> entityIds)
-        {
-            if (!obj.HasValue)
-            {
-                return null;
-            }
-
-            var projects = new global::System.Collections.Generic.List<global::StrawberryShake.EntityId?>();
-            foreach (global::System.Text.Json.JsonElement child in obj.Value.EnumerateArray())
-            {
-                projects.Add(UpdateIGetProjects_Projects_NodesEntity(session, child, entityIds));
-            }
-
-            return projects;
-        }
-
-        private global::StrawberryShake.EntityId? UpdateIGetProjects_Projects_NodesEntity(global::StrawberryShake.IEntityStoreUpdateSession session, global::System.Text.Json.JsonElement? obj, global::System.Collections.Generic.ISet<global::StrawberryShake.EntityId> entityIds)
-        {
-            if (!obj.HasValue)
-            {
-                return null;
-            }
-
-            global::StrawberryShake.EntityId entityId = _idSerializer.Parse(obj.Value);
-            entityIds.Add(entityId);
-            if (entityId.Name.Equals("Project", global::System.StringComparison.Ordinal))
-            {
-                if (session.CurrentSnapshot.TryGetEntity(entityId, out global::app.Graphql.State.ProjectEntity? entity))
-                {
-                    session.SetEntity(entityId, new global::app.Graphql.State.ProjectEntity(DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "description")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "id")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "companyId")), DeserializeNonNullableStatus(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "status")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "title")), UpdateIGetProjects_Projects_Nodes_UserProjectsEntityArray(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "userProjects"), entityIds), UpdateIGetProjects_Projects_Nodes_UsersEntityArray(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "users"), entityIds)));
-                }
-                else
-                {
-                    session.SetEntity(entityId, new global::app.Graphql.State.ProjectEntity(DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "description")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "id")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "companyId")), DeserializeNonNullableStatus(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "status")), DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "title")), UpdateIGetProjects_Projects_Nodes_UserProjectsEntityArray(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "userProjects"), entityIds), UpdateIGetProjects_Projects_Nodes_UsersEntityArray(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "users"), entityIds)));
-                }
-
-                return entityId;
-            }
-
-            throw new global::System.NotSupportedException();
-        }
-
-        private global::System.String? DeserializeString(global::System.Text.Json.JsonElement? obj)
-        {
-            if (!obj.HasValue)
-            {
-                return null;
-            }
-
-            return _stringParser.Parse(obj.Value.GetString()!);
-        }
-
-        private global::app.Graphql.Status DeserializeNonNullableStatus(global::System.Text.Json.JsonElement? obj)
-        {
-            if (!obj.HasValue)
-            {
-                throw new global::System.ArgumentNullException();
-            }
-
-            return _statusParser.Parse(obj.Value.GetString()!);
-        }
-
-        private global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? UpdateIGetProjects_Projects_Nodes_UserProjectsEntityArray(global::StrawberryShake.IEntityStoreUpdateSession session, global::System.Text.Json.JsonElement? obj, global::System.Collections.Generic.ISet<global::StrawberryShake.EntityId> entityIds)
-        {
-            if (!obj.HasValue)
-            {
-                return null;
-            }
-
-            var userProjects = new global::System.Collections.Generic.List<global::StrawberryShake.EntityId?>();
-            foreach (global::System.Text.Json.JsonElement child in obj.Value.EnumerateArray())
-            {
-                userProjects.Add(UpdateIGetProjects_Projects_Nodes_UserProjectsEntity(session, child, entityIds));
-            }
-
-            return userProjects;
-        }
-
-        private global::StrawberryShake.EntityId? UpdateIGetProjects_Projects_Nodes_UserProjectsEntity(global::StrawberryShake.IEntityStoreUpdateSession session, global::System.Text.Json.JsonElement? obj, global::System.Collections.Generic.ISet<global::StrawberryShake.EntityId> entityIds)
-        {
-            if (!obj.HasValue)
-            {
-                return null;
-            }
-
-            global::StrawberryShake.EntityId entityId = _idSerializer.Parse(obj.Value);
-            entityIds.Add(entityId);
-            if (entityId.Name.Equals("UserProject", global::System.StringComparison.Ordinal))
-            {
-                if (session.CurrentSnapshot.TryGetEntity(entityId, out global::app.Graphql.State.UserProjectEntity? entity))
-                {
-                    session.SetEntity(entityId, new global::app.Graphql.State.UserProjectEntity(DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "userId")), UpdateIGetProjects_Projects_Nodes_UserProjects_UserEntity(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "user"), entityIds)));
-                }
-                else
-                {
-                    session.SetEntity(entityId, new global::app.Graphql.State.UserProjectEntity(DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "userId")), UpdateIGetProjects_Projects_Nodes_UserProjects_UserEntity(session, global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "user"), entityIds)));
-                }
-
-                return entityId;
-            }
-
-            throw new global::System.NotSupportedException();
-        }
-
-        private global::StrawberryShake.EntityId? UpdateIGetProjects_Projects_Nodes_UserProjects_UserEntity(global::StrawberryShake.IEntityStoreUpdateSession session, global::System.Text.Json.JsonElement? obj, global::System.Collections.Generic.ISet<global::StrawberryShake.EntityId> entityIds)
-        {
-            if (!obj.HasValue)
-            {
-                return null;
-            }
-
-            global::StrawberryShake.EntityId entityId = _idSerializer.Parse(obj.Value);
-            entityIds.Add(entityId);
-            if (entityId.Name.Equals("User", global::System.StringComparison.Ordinal))
-            {
-                if (session.CurrentSnapshot.TryGetEntity(entityId, out global::app.Graphql.State.UserEntity? entity))
-                {
-                    session.SetEntity(entityId, new global::app.Graphql.State.UserEntity(entity.Company, entity.Id, entity.Email, entity.PhoneNumber, entity.Status, DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "userName")), entity.CompanyId));
-                }
-                else
-                {
-                    session.SetEntity(entityId, new global::app.Graphql.State.UserEntity(default !, default !, default !, default !, default !, DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "userName")), default !));
-                }
-
-                return entityId;
-            }
-
-            throw new global::System.NotSupportedException();
-        }
-
-        private global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? UpdateIGetProjects_Projects_Nodes_UsersEntityArray(global::StrawberryShake.IEntityStoreUpdateSession session, global::System.Text.Json.JsonElement? obj, global::System.Collections.Generic.ISet<global::StrawberryShake.EntityId> entityIds)
-        {
-            if (!obj.HasValue)
-            {
-                return null;
-            }
-
-            var users = new global::System.Collections.Generic.List<global::StrawberryShake.EntityId?>();
-            foreach (global::System.Text.Json.JsonElement child in obj.Value.EnumerateArray())
-            {
-                users.Add(UpdateIGetProjects_Projects_Nodes_UsersEntity(session, child, entityIds));
-            }
-
-            return users;
-        }
-
-        private global::StrawberryShake.EntityId? UpdateIGetProjects_Projects_Nodes_UsersEntity(global::StrawberryShake.IEntityStoreUpdateSession session, global::System.Text.Json.JsonElement? obj, global::System.Collections.Generic.ISet<global::StrawberryShake.EntityId> entityIds)
-        {
-            if (!obj.HasValue)
-            {
-                return null;
-            }
-
-            global::StrawberryShake.EntityId entityId = _idSerializer.Parse(obj.Value);
-            entityIds.Add(entityId);
-            if (entityId.Name.Equals("User", global::System.StringComparison.Ordinal))
-            {
-                if (session.CurrentSnapshot.TryGetEntity(entityId, out global::app.Graphql.State.UserEntity? entity))
-                {
-                    session.SetEntity(entityId, new global::app.Graphql.State.UserEntity(entity.Company, entity.Id, entity.Email, entity.PhoneNumber, entity.Status, DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "userName")), entity.CompanyId));
-                }
-                else
-                {
-                    session.SetEntity(entityId, new global::app.Graphql.State.UserEntity(default !, default !, default !, default !, default !, DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "userName")), default !));
-                }
-
-                return entityId;
-            }
-
-            throw new global::System.NotSupportedException();
-        }
-
-        private global::app.Graphql.State.PageInfoData DeserializeNonNullableIGetProjects_Projects_PageInfo(global::System.Text.Json.JsonElement? obj)
-        {
-            if (!obj.HasValue)
-            {
-                throw new global::System.ArgumentNullException();
-            }
-
-            var typename = obj.Value.GetProperty("__typename").GetString();
-            if (typename?.Equals("PageInfo", global::System.StringComparison.Ordinal) ?? false)
-            {
-                return new global::app.Graphql.State.PageInfoData(typename, endCursor: DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "endCursor")), hasNextPage: DeserializeNonNullableBoolean(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "hasNextPage")), hasPreviousPage: DeserializeNonNullableBoolean(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "hasPreviousPage")), startCursor: DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "startCursor")));
-            }
-
-            throw new global::System.NotSupportedException();
-        }
-
-        private global::System.Boolean DeserializeNonNullableBoolean(global::System.Text.Json.JsonElement? obj)
-        {
-            if (!obj.HasValue)
-            {
-                throw new global::System.ArgumentNullException();
-            }
-
-            return _booleanParser.Parse(obj.Value.GetBoolean()!);
-        }
-
-        private global::System.Int32 DeserializeNonNullableInt32(global::System.Text.Json.JsonElement? obj)
-        {
-            if (!obj.HasValue)
-            {
-                throw new global::System.ArgumentNullException();
-            }
-
-            return _intParser.Parse(obj.Value.GetInt32()!);
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class AddUserInProjectBuilder : global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.IAddUserInProjectResult>
-    {
-        private readonly global::StrawberryShake.IEntityStore _entityStore;
-        private readonly global::StrawberryShake.IEntityIdSerializer _idSerializer;
-        private readonly global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IAddUserInProjectResult> _resultDataFactory;
-        private readonly global::StrawberryShake.Serialization.ILeafValueParser<global::System.String, global::System.String> _stringParser;
-        public AddUserInProjectBuilder(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityIdSerializer idSerializer, global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IAddUserInProjectResult> resultDataFactory, global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
-        {
-            _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
-            _idSerializer = idSerializer ?? throw new global::System.ArgumentNullException(nameof(idSerializer));
-            _resultDataFactory = resultDataFactory ?? throw new global::System.ArgumentNullException(nameof(resultDataFactory));
-            _stringParser = serializerResolver.GetLeafValueParser<global::System.String, global::System.String>("String") ?? throw new global::System.ArgumentException("No serializer for type `String` found.");
-        }
-
-        public global::StrawberryShake.IOperationResult<IAddUserInProjectResult> Build(global::StrawberryShake.Response<global::System.Text.Json.JsonDocument> response)
-        {
-            (IAddUserInProjectResult Result, AddUserInProjectResultInfo Info)? data = null;
-            global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.IClientError>? errors = null;
-            if (response.Exception is null)
-            {
-                try
-                {
-                    if (response.Body != null)
-                    {
-                        if (response.Body.RootElement.TryGetProperty("data", out global::System.Text.Json.JsonElement dataElement) && dataElement.ValueKind == global::System.Text.Json.JsonValueKind.Object)
-                        {
-                            data = BuildData(dataElement);
-                        }
-
-                        if (response.Body.RootElement.TryGetProperty("errors", out global::System.Text.Json.JsonElement errorsElement))
-                        {
-                            errors = global::StrawberryShake.Json.JsonErrorParser.ParseErrors(errorsElement);
-                        }
-                    }
-                }
-                catch (global::System.Exception ex)
-                {
-                    errors = new global::StrawberryShake.IClientError[]{new global::StrawberryShake.ClientError(ex.Message, exception: ex, extensions: new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>{{"body", response.Body?.RootElement.ToString()}})};
-                }
-            }
-            else
-            {
-                errors = new global::StrawberryShake.IClientError[]{new global::StrawberryShake.ClientError(response.Exception.Message, exception: response.Exception, extensions: new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>{{"body", response.Body?.RootElement.ToString()}})};
-            }
-
-            return new global::StrawberryShake.OperationResult<IAddUserInProjectResult>(data?.Result, data?.Info, _resultDataFactory, errors);
-        }
-
-        private (IAddUserInProjectResult, AddUserInProjectResultInfo) BuildData(global::System.Text.Json.JsonElement obj)
-        {
-            var entityIds = new global::System.Collections.Generic.HashSet<global::StrawberryShake.EntityId>();
-            global::StrawberryShake.IEntityStoreSnapshot snapshot = default !;
-            _entityStore.Update(session =>
-            {
-                snapshot = session.CurrentSnapshot;
-            });
-            var resultInfo = new AddUserInProjectResultInfo(DeserializeIAddUserInProject_Project(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "project")), entityIds, snapshot.Version);
-            return (_resultDataFactory.Create(resultInfo), resultInfo);
-        }
-
-        private global::app.Graphql.State.ProjectMutationTypeData? DeserializeIAddUserInProject_Project(global::System.Text.Json.JsonElement? obj)
-        {
-            if (!obj.HasValue)
-            {
-                return null;
-            }
-
-            var typename = obj.Value.GetProperty("__typename").GetString();
-            if (typename?.Equals("ProjectMutationType", global::System.StringComparison.Ordinal) ?? false)
-            {
-                return new global::app.Graphql.State.ProjectMutationTypeData(typename, addUser: DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "addUser")));
-            }
-
-            throw new global::System.NotSupportedException();
-        }
-
-        private global::System.String? DeserializeString(global::System.Text.Json.JsonElement? obj)
-        {
-            if (!obj.HasValue)
-            {
-                return null;
-            }
-
-            return _stringParser.Parse(obj.Value.GetString()!);
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class LoginBuilder : global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.ILoginResult>
-    {
-        private readonly global::StrawberryShake.IEntityStore _entityStore;
-        private readonly global::StrawberryShake.IEntityIdSerializer _idSerializer;
-        private readonly global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.ILoginResult> _resultDataFactory;
-        private readonly global::StrawberryShake.Serialization.ILeafValueParser<global::System.String, global::System.String> _stringParser;
-        public LoginBuilder(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityIdSerializer idSerializer, global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.ILoginResult> resultDataFactory, global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
-        {
-            _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
-            _idSerializer = idSerializer ?? throw new global::System.ArgumentNullException(nameof(idSerializer));
-            _resultDataFactory = resultDataFactory ?? throw new global::System.ArgumentNullException(nameof(resultDataFactory));
-            _stringParser = serializerResolver.GetLeafValueParser<global::System.String, global::System.String>("String") ?? throw new global::System.ArgumentException("No serializer for type `String` found.");
-        }
-
-        public global::StrawberryShake.IOperationResult<ILoginResult> Build(global::StrawberryShake.Response<global::System.Text.Json.JsonDocument> response)
-        {
-            (ILoginResult Result, LoginResultInfo Info)? data = null;
-            global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.IClientError>? errors = null;
-            if (response.Exception is null)
-            {
-                try
-                {
-                    if (response.Body != null)
-                    {
-                        if (response.Body.RootElement.TryGetProperty("data", out global::System.Text.Json.JsonElement dataElement) && dataElement.ValueKind == global::System.Text.Json.JsonValueKind.Object)
-                        {
-                            data = BuildData(dataElement);
-                        }
-
-                        if (response.Body.RootElement.TryGetProperty("errors", out global::System.Text.Json.JsonElement errorsElement))
-                        {
-                            errors = global::StrawberryShake.Json.JsonErrorParser.ParseErrors(errorsElement);
-                        }
-                    }
-                }
-                catch (global::System.Exception ex)
-                {
-                    errors = new global::StrawberryShake.IClientError[]{new global::StrawberryShake.ClientError(ex.Message, exception: ex, extensions: new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>{{"body", response.Body?.RootElement.ToString()}})};
-                }
-            }
-            else
-            {
-                errors = new global::StrawberryShake.IClientError[]{new global::StrawberryShake.ClientError(response.Exception.Message, exception: response.Exception, extensions: new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>{{"body", response.Body?.RootElement.ToString()}})};
-            }
-
-            return new global::StrawberryShake.OperationResult<ILoginResult>(data?.Result, data?.Info, _resultDataFactory, errors);
-        }
-
-        private (ILoginResult, LoginResultInfo) BuildData(global::System.Text.Json.JsonElement obj)
-        {
-            var entityIds = new global::System.Collections.Generic.HashSet<global::StrawberryShake.EntityId>();
-            global::StrawberryShake.IEntityStoreSnapshot snapshot = default !;
-            _entityStore.Update(session =>
-            {
-                snapshot = session.CurrentSnapshot;
-            });
-            var resultInfo = new LoginResultInfo(DeserializeILogin_Account(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "account")), entityIds, snapshot.Version);
-            return (_resultDataFactory.Create(resultInfo), resultInfo);
-        }
-
-        private global::app.Graphql.State.AccountMutationTypeData? DeserializeILogin_Account(global::System.Text.Json.JsonElement? obj)
-        {
-            if (!obj.HasValue)
-            {
-                return null;
-            }
-
-            var typename = obj.Value.GetProperty("__typename").GetString();
-            if (typename?.Equals("AccountMutationType", global::System.StringComparison.Ordinal) ?? false)
-            {
-                return new global::app.Graphql.State.AccountMutationTypeData(typename, login: DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "login")));
-            }
-
-            throw new global::System.NotSupportedException();
-        }
-
-        private global::System.String? DeserializeString(global::System.Text.Json.JsonElement? obj)
-        {
-            if (!obj.HasValue)
-            {
-                return null;
-            }
-
-            return _stringParser.Parse(obj.Value.GetString()!);
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class RegisterBuilder : global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.IRegisterResult>
-    {
-        private readonly global::StrawberryShake.IEntityStore _entityStore;
-        private readonly global::StrawberryShake.IEntityIdSerializer _idSerializer;
-        private readonly global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IRegisterResult> _resultDataFactory;
-        private readonly global::StrawberryShake.Serialization.ILeafValueParser<global::System.String, global::System.String> _stringParser;
-        public RegisterBuilder(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityIdSerializer idSerializer, global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IRegisterResult> resultDataFactory, global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
-        {
-            _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
-            _idSerializer = idSerializer ?? throw new global::System.ArgumentNullException(nameof(idSerializer));
-            _resultDataFactory = resultDataFactory ?? throw new global::System.ArgumentNullException(nameof(resultDataFactory));
-            _stringParser = serializerResolver.GetLeafValueParser<global::System.String, global::System.String>("String") ?? throw new global::System.ArgumentException("No serializer for type `String` found.");
-        }
-
-        public global::StrawberryShake.IOperationResult<IRegisterResult> Build(global::StrawberryShake.Response<global::System.Text.Json.JsonDocument> response)
-        {
-            (IRegisterResult Result, RegisterResultInfo Info)? data = null;
-            global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.IClientError>? errors = null;
-            if (response.Exception is null)
-            {
-                try
-                {
-                    if (response.Body != null)
-                    {
-                        if (response.Body.RootElement.TryGetProperty("data", out global::System.Text.Json.JsonElement dataElement) && dataElement.ValueKind == global::System.Text.Json.JsonValueKind.Object)
-                        {
-                            data = BuildData(dataElement);
-                        }
-
-                        if (response.Body.RootElement.TryGetProperty("errors", out global::System.Text.Json.JsonElement errorsElement))
-                        {
-                            errors = global::StrawberryShake.Json.JsonErrorParser.ParseErrors(errorsElement);
-                        }
-                    }
-                }
-                catch (global::System.Exception ex)
-                {
-                    errors = new global::StrawberryShake.IClientError[]{new global::StrawberryShake.ClientError(ex.Message, exception: ex, extensions: new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>{{"body", response.Body?.RootElement.ToString()}})};
-                }
-            }
-            else
-            {
-                errors = new global::StrawberryShake.IClientError[]{new global::StrawberryShake.ClientError(response.Exception.Message, exception: response.Exception, extensions: new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>{{"body", response.Body?.RootElement.ToString()}})};
-            }
-
-            return new global::StrawberryShake.OperationResult<IRegisterResult>(data?.Result, data?.Info, _resultDataFactory, errors);
-        }
-
-        private (IRegisterResult, RegisterResultInfo) BuildData(global::System.Text.Json.JsonElement obj)
-        {
-            var entityIds = new global::System.Collections.Generic.HashSet<global::StrawberryShake.EntityId>();
-            global::StrawberryShake.IEntityStoreSnapshot snapshot = default !;
-            _entityStore.Update(session =>
-            {
-                snapshot = session.CurrentSnapshot;
-            });
-            var resultInfo = new RegisterResultInfo(DeserializeIRegister_Account(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "account")), entityIds, snapshot.Version);
-            return (_resultDataFactory.Create(resultInfo), resultInfo);
-        }
-
-        private global::app.Graphql.State.AccountMutationTypeData? DeserializeIRegister_Account(global::System.Text.Json.JsonElement? obj)
-        {
-            if (!obj.HasValue)
-            {
-                return null;
-            }
-
-            var typename = obj.Value.GetProperty("__typename").GetString();
-            if (typename?.Equals("AccountMutationType", global::System.StringComparison.Ordinal) ?? false)
-            {
-                return new global::app.Graphql.State.AccountMutationTypeData(typename, register: DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "register")));
-            }
-
-            throw new global::System.NotSupportedException();
-        }
-
-        private global::System.String? DeserializeString(global::System.Text.Json.JsonElement? obj)
-        {
-            if (!obj.HasValue)
-            {
-                return null;
-            }
-
-            return _stringParser.Parse(obj.Value.GetString()!);
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class RefreshTokenBuilder : global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.IRefreshTokenResult>
-    {
-        private readonly global::StrawberryShake.IEntityStore _entityStore;
-        private readonly global::StrawberryShake.IEntityIdSerializer _idSerializer;
-        private readonly global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IRefreshTokenResult> _resultDataFactory;
-        private readonly global::StrawberryShake.Serialization.ILeafValueParser<global::System.String, global::System.String> _stringParser;
-        public RefreshTokenBuilder(global::StrawberryShake.IEntityStore entityStore, global::StrawberryShake.IEntityIdSerializer idSerializer, global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IRefreshTokenResult> resultDataFactory, global::StrawberryShake.Serialization.ISerializerResolver serializerResolver)
-        {
-            _entityStore = entityStore ?? throw new global::System.ArgumentNullException(nameof(entityStore));
-            _idSerializer = idSerializer ?? throw new global::System.ArgumentNullException(nameof(idSerializer));
-            _resultDataFactory = resultDataFactory ?? throw new global::System.ArgumentNullException(nameof(resultDataFactory));
-            _stringParser = serializerResolver.GetLeafValueParser<global::System.String, global::System.String>("String") ?? throw new global::System.ArgumentException("No serializer for type `String` found.");
-        }
-
-        public global::StrawberryShake.IOperationResult<IRefreshTokenResult> Build(global::StrawberryShake.Response<global::System.Text.Json.JsonDocument> response)
-        {
-            (IRefreshTokenResult Result, RefreshTokenResultInfo Info)? data = null;
-            global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.IClientError>? errors = null;
-            if (response.Exception is null)
-            {
-                try
-                {
-                    if (response.Body != null)
-                    {
-                        if (response.Body.RootElement.TryGetProperty("data", out global::System.Text.Json.JsonElement dataElement) && dataElement.ValueKind == global::System.Text.Json.JsonValueKind.Object)
-                        {
-                            data = BuildData(dataElement);
-                        }
-
-                        if (response.Body.RootElement.TryGetProperty("errors", out global::System.Text.Json.JsonElement errorsElement))
-                        {
-                            errors = global::StrawberryShake.Json.JsonErrorParser.ParseErrors(errorsElement);
-                        }
-                    }
-                }
-                catch (global::System.Exception ex)
-                {
-                    errors = new global::StrawberryShake.IClientError[]{new global::StrawberryShake.ClientError(ex.Message, exception: ex, extensions: new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>{{"body", response.Body?.RootElement.ToString()}})};
-                }
-            }
-            else
-            {
-                errors = new global::StrawberryShake.IClientError[]{new global::StrawberryShake.ClientError(response.Exception.Message, exception: response.Exception, extensions: new global::System.Collections.Generic.Dictionary<global::System.String, global::System.Object?>{{"body", response.Body?.RootElement.ToString()}})};
-            }
-
-            return new global::StrawberryShake.OperationResult<IRefreshTokenResult>(data?.Result, data?.Info, _resultDataFactory, errors);
-        }
-
-        private (IRefreshTokenResult, RefreshTokenResultInfo) BuildData(global::System.Text.Json.JsonElement obj)
-        {
-            var entityIds = new global::System.Collections.Generic.HashSet<global::StrawberryShake.EntityId>();
-            global::StrawberryShake.IEntityStoreSnapshot snapshot = default !;
-            _entityStore.Update(session =>
-            {
-                snapshot = session.CurrentSnapshot;
-            });
-            var resultInfo = new RefreshTokenResultInfo(DeserializeIRefreshToken_Account(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "account")), entityIds, snapshot.Version);
-            return (_resultDataFactory.Create(resultInfo), resultInfo);
-        }
-
-        private global::app.Graphql.State.AccountMutationTypeData? DeserializeIRefreshToken_Account(global::System.Text.Json.JsonElement? obj)
-        {
-            if (!obj.HasValue)
-            {
-                return null;
-            }
-
-            var typename = obj.Value.GetProperty("__typename").GetString();
-            if (typename?.Equals("AccountMutationType", global::System.StringComparison.Ordinal) ?? false)
-            {
-                return new global::app.Graphql.State.AccountMutationTypeData(typename, refreshToken: DeserializeString(global::StrawberryShake.Json.JsonElementExtensions.GetPropertyOrNull(obj, "refreshToken")));
-            }
-
-            throw new global::System.NotSupportedException();
-        }
-
-        private global::System.String? DeserializeString(global::System.Text.Json.JsonElement? obj)
-        {
-            if (!obj.HasValue)
-            {
-                return null;
-            }
-
-            return _stringParser.Parse(obj.Value.GetString()!);
-        }
-    }
-
-    ///<summary>A connection to a list of items.</summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class CompanyConnectionData
-    {
-        public CompanyConnectionData(global::System.String __typename, global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? nodes = default !)
+        public AccountMutationTypeData(global::System.String __typename, global::System.String? login = default !, global::System.String? register = default !, global::System.String? refreshToken = default !)
         {
             this.__typename = __typename ?? throw new global::System.ArgumentNullException(nameof(__typename));
-            Nodes = nodes;
+            Login = login;
+            Register = register;
+            RefreshToken = refreshToken;
         }
 
-        public global::System.String __typename
-        {
-            get;
-        }
+        public global::System.String __typename { get; }
 
-        ///<summary>A flattened list of the nodes.</summary>
-        public global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? Nodes
-        {
-            get;
-        }
+        public global::System.String? Login { get; }
+
+        public global::System.String? Register { get; }
+
+        public global::System.String? RefreshToken { get; }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class UserMutationTypeData
+    public partial class ProjectMutationTypeData
     {
-        public UserMutationTypeData(global::System.String __typename, global::System.String? @add = default !)
+        public ProjectMutationTypeData(global::System.String __typename, global::System.String? @add = default !, global::System.String? addUser = default !)
         {
             this.__typename = __typename ?? throw new global::System.ArgumentNullException(nameof(__typename));
             Add = @add;
+            AddUser = addUser;
         }
 
-        public global::System.String __typename
-        {
-            get;
-        }
+        public global::System.String __typename { get; }
 
-        public global::System.String? Add
-        {
-            get;
-        }
+        public global::System.String? Add { get; }
+
+        public global::System.String? AddUser { get; }
     }
 
     ///<summary>A connection to a list of items.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class UserConnectionData
+    public partial class ProjectConnectionData
     {
-        public UserConnectionData(global::System.String __typename, global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? nodes = default !, global::app.Graphql.State.PageInfoData? pageInfo = default !, global::System.Int32? totalCount = default !)
+        public ProjectConnectionData(global::System.String __typename, global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? nodes = default !, global::app.Graphql.State.PageInfoData? pageInfo = default !, global::System.Int32? totalCount = default !)
         {
             this.__typename = __typename ?? throw new global::System.ArgumentNullException(nameof(__typename));
             Nodes = nodes;
@@ -12686,27 +11844,15 @@ namespace app.Graphql.State
             TotalCount = totalCount;
         }
 
-        public global::System.String __typename
-        {
-            get;
-        }
+        public global::System.String __typename { get; }
 
         ///<summary>A flattened list of the nodes.</summary>
-        public global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? Nodes
-        {
-            get;
-        }
+        public global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? Nodes { get; }
 
         ///<summary>Information to aid in pagination.</summary>
-        public global::app.Graphql.State.PageInfoData? PageInfo
-        {
-            get;
-        }
+        public global::app.Graphql.State.PageInfoData? PageInfo { get; }
 
-        public global::System.Int32? TotalCount
-        {
-            get;
-        }
+        public global::System.Int32? TotalCount { get; }
     }
 
     ///<summary>Information about pagination in a connection.</summary>
@@ -12722,67 +11868,56 @@ namespace app.Graphql.State
             StartCursor = startCursor;
         }
 
-        public global::System.String __typename
-        {
-            get;
-        }
+        public global::System.String __typename { get; }
 
         ///<summary>When paginating forwards, the cursor to continue.</summary>
-        public global::System.String? EndCursor
-        {
-            get;
-        }
+        public global::System.String? EndCursor { get; }
 
         ///<summary>Indicates whether more edges exist following the set defined by the clients arguments.</summary>
-        public global::System.Boolean? HasNextPage
-        {
-            get;
-        }
+        public global::System.Boolean? HasNextPage { get; }
 
         ///<summary>Indicates whether more edges exist prior the set defined by the clients arguments.</summary>
-        public global::System.Boolean? HasPreviousPage
-        {
-            get;
-        }
+        public global::System.Boolean? HasPreviousPage { get; }
 
         ///<summary>When paginating backwards, the cursor to continue.</summary>
-        public global::System.String? StartCursor
-        {
-            get;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class ProjectMutationTypeData
-    {
-        public ProjectMutationTypeData(global::System.String __typename, global::System.String? @add = default !, global::System.String? addUser = default !)
-        {
-            this.__typename = __typename ?? throw new global::System.ArgumentNullException(nameof(__typename));
-            Add = @add;
-            AddUser = addUser;
-        }
-
-        public global::System.String __typename
-        {
-            get;
-        }
-
-        public global::System.String? Add
-        {
-            get;
-        }
-
-        public global::System.String? AddUser
-        {
-            get;
-        }
+        public global::System.String? StartCursor { get; }
     }
 
     ///<summary>A connection to a list of items.</summary>
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class ProjectConnectionData
+    public partial class CompanyConnectionData
     {
-        public ProjectConnectionData(global::System.String __typename, global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? nodes = default !, global::app.Graphql.State.PageInfoData? pageInfo = default !, global::System.Int32? totalCount = default !)
+        public CompanyConnectionData(global::System.String __typename, global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? nodes = default !)
+        {
+            this.__typename = __typename ?? throw new global::System.ArgumentNullException(nameof(__typename));
+            Nodes = nodes;
+        }
+
+        public global::System.String __typename { get; }
+
+        ///<summary>A flattened list of the nodes.</summary>
+        public global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? Nodes { get; }
+    }
+
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class UserMutationTypeData
+    {
+        public UserMutationTypeData(global::System.String __typename, global::System.String? @add = default !)
+        {
+            this.__typename = __typename ?? throw new global::System.ArgumentNullException(nameof(__typename));
+            Add = @add;
+        }
+
+        public global::System.String __typename { get; }
+
+        public global::System.String? Add { get; }
+    }
+
+    ///<summary>A connection to a list of items.</summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
+    public partial class UserConnectionData
+    {
+        public UserConnectionData(global::System.String __typename, global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? nodes = default !, global::app.Graphql.State.PageInfoData? pageInfo = default !, global::System.Int32? totalCount = default !)
         {
             this.__typename = __typename ?? throw new global::System.ArgumentNullException(nameof(__typename));
             Nodes = nodes;
@@ -12790,59 +11925,15 @@ namespace app.Graphql.State
             TotalCount = totalCount;
         }
 
-        public global::System.String __typename
-        {
-            get;
-        }
+        public global::System.String __typename { get; }
 
         ///<summary>A flattened list of the nodes.</summary>
-        public global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? Nodes
-        {
-            get;
-        }
+        public global::System.Collections.Generic.IReadOnlyList<global::StrawberryShake.EntityId?>? Nodes { get; }
 
         ///<summary>Information to aid in pagination.</summary>
-        public global::app.Graphql.State.PageInfoData? PageInfo
-        {
-            get;
-        }
+        public global::app.Graphql.State.PageInfoData? PageInfo { get; }
 
-        public global::System.Int32? TotalCount
-        {
-            get;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
-    public partial class AccountMutationTypeData
-    {
-        public AccountMutationTypeData(global::System.String __typename, global::System.String? login = default !, global::System.String? register = default !, global::System.String? refreshToken = default !)
-        {
-            this.__typename = __typename ?? throw new global::System.ArgumentNullException(nameof(__typename));
-            Login = login;
-            Register = register;
-            RefreshToken = refreshToken;
-        }
-
-        public global::System.String __typename
-        {
-            get;
-        }
-
-        public global::System.String? Login
-        {
-            get;
-        }
-
-        public global::System.String? Register
-        {
-            get;
-        }
-
-        public global::System.String? RefreshToken
-        {
-            get;
-        }
+        public global::System.Int32? TotalCount { get; }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -12855,7 +11946,7 @@ namespace app.Graphql.State
             global::System.String __typename = obj.GetProperty("__typename").GetString()!;
             return __typename switch
             {
-            "Company" => ParseCompanyEntityId(obj, __typename), "User" => ParseUserEntityId(obj, __typename), "Project" => ParseProjectEntityId(obj, __typename), "UserProject" => ParseUserProjectEntityId(obj, __typename), _ => throw new global::System.NotSupportedException()}
+            "Project" => ParseProjectEntityId(obj, __typename), "UserProject" => ParseUserProjectEntityId(obj, __typename), "User" => ParseUserEntityId(obj, __typename), "Company" => ParseCompanyEntityId(obj, __typename), _ => throw new global::System.NotSupportedException()}
 
             ;
         }
@@ -12864,43 +11955,9 @@ namespace app.Graphql.State
         {
             return entityId.Name switch
             {
-            "Company" => FormatCompanyEntityId(entityId), "User" => FormatUserEntityId(entityId), "Project" => FormatProjectEntityId(entityId), "UserProject" => FormatUserProjectEntityId(entityId), _ => throw new global::System.NotSupportedException()}
+            "Project" => FormatProjectEntityId(entityId), "UserProject" => FormatUserProjectEntityId(entityId), "User" => FormatUserEntityId(entityId), "Company" => FormatCompanyEntityId(entityId), _ => throw new global::System.NotSupportedException()}
 
             ;
-        }
-
-        private global::StrawberryShake.EntityId ParseCompanyEntityId(global::System.Text.Json.JsonElement obj, global::System.String type)
-        {
-            return new global::StrawberryShake.EntityId(type, obj.GetProperty("id").GetString()!);
-        }
-
-        private global::System.String FormatCompanyEntityId(global::StrawberryShake.EntityId entityId)
-        {
-            using var writer = new global::StrawberryShake.Internal.ArrayWriter();
-            using var jsonWriter = new global::System.Text.Json.Utf8JsonWriter(writer, _options);
-            jsonWriter.WriteStartObject();
-            jsonWriter.WriteString("__typename", entityId.Name);
-            jsonWriter.WriteString("id", (global::System.String)entityId.Value);
-            jsonWriter.WriteEndObject();
-            jsonWriter.Flush();
-            return global::System.Text.Encoding.UTF8.GetString(writer.GetInternalBuffer(), 0, writer.Length);
-        }
-
-        private global::StrawberryShake.EntityId ParseUserEntityId(global::System.Text.Json.JsonElement obj, global::System.String type)
-        {
-            return new global::StrawberryShake.EntityId(type, obj.GetProperty("id").GetString()!);
-        }
-
-        private global::System.String FormatUserEntityId(global::StrawberryShake.EntityId entityId)
-        {
-            using var writer = new global::StrawberryShake.Internal.ArrayWriter();
-            using var jsonWriter = new global::System.Text.Json.Utf8JsonWriter(writer, _options);
-            jsonWriter.WriteStartObject();
-            jsonWriter.WriteString("__typename", entityId.Name);
-            jsonWriter.WriteString("id", (global::System.String)entityId.Value);
-            jsonWriter.WriteEndObject();
-            jsonWriter.Flush();
-            return global::System.Text.Encoding.UTF8.GetString(writer.GetInternalBuffer(), 0, writer.Length);
         }
 
         private global::StrawberryShake.EntityId ParseProjectEntityId(global::System.Text.Json.JsonElement obj, global::System.String type)
@@ -12936,6 +11993,40 @@ namespace app.Graphql.State
             jsonWriter.Flush();
             return global::System.Text.Encoding.UTF8.GetString(writer.GetInternalBuffer(), 0, writer.Length);
         }
+
+        private global::StrawberryShake.EntityId ParseUserEntityId(global::System.Text.Json.JsonElement obj, global::System.String type)
+        {
+            return new global::StrawberryShake.EntityId(type, obj.GetProperty("id").GetString()!);
+        }
+
+        private global::System.String FormatUserEntityId(global::StrawberryShake.EntityId entityId)
+        {
+            using var writer = new global::StrawberryShake.Internal.ArrayWriter();
+            using var jsonWriter = new global::System.Text.Json.Utf8JsonWriter(writer, _options);
+            jsonWriter.WriteStartObject();
+            jsonWriter.WriteString("__typename", entityId.Name);
+            jsonWriter.WriteString("id", (global::System.String)entityId.Value);
+            jsonWriter.WriteEndObject();
+            jsonWriter.Flush();
+            return global::System.Text.Encoding.UTF8.GetString(writer.GetInternalBuffer(), 0, writer.Length);
+        }
+
+        private global::StrawberryShake.EntityId ParseCompanyEntityId(global::System.Text.Json.JsonElement obj, global::System.String type)
+        {
+            return new global::StrawberryShake.EntityId(type, obj.GetProperty("id").GetString()!);
+        }
+
+        private global::System.String FormatCompanyEntityId(global::StrawberryShake.EntityId entityId)
+        {
+            using var writer = new global::StrawberryShake.Internal.ArrayWriter();
+            using var jsonWriter = new global::System.Text.Json.Utf8JsonWriter(writer, _options);
+            jsonWriter.WriteStartObject();
+            jsonWriter.WriteString("__typename", entityId.Name);
+            jsonWriter.WriteString("id", (global::System.String)entityId.Value);
+            jsonWriter.WriteEndObject();
+            jsonWriter.Flush();
+            return global::System.Text.Encoding.UTF8.GetString(writer.GetInternalBuffer(), 0, writer.Length);
+        }
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("StrawberryShake", "11.2.2.0")]
@@ -12961,15 +12052,15 @@ namespace Microsoft.Extensions.DependencyInjection
                 return new ClientServiceProvider(global::Microsoft.Extensions.DependencyInjection.ServiceCollectionContainerBuilderExtensions.BuildServiceProvider(serviceCollection));
             });
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton(services, sp => new global::app.Graphql.State.TmClientStoreAccessor(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationStore>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)), global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IEntityStore>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)), global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IEntityIdSerializer>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)), global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::System.Collections.Generic.IEnumerable<global::StrawberryShake.IOperationRequestFactory>>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)), global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::System.Collections.Generic.IEnumerable<global::StrawberryShake.IOperationResultDataFactory>>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp))));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.GetCompanyQuery>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.CreateUserMutation>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.GetUsersQuery>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.CreateProjectMutation>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.GetProjectsQuery>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.AddUserInProjectMutation>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)));
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.LoginMutation>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)));
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.RegisterMutation>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)));
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.RefreshTokenMutation>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.CreateProjectMutation>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.GetProjectsQuery>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.AddUserInProjectMutation>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.GetCompanyQuery>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.CreateUserMutation>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.GetUsersQuery>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)));
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.TmClient>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)));
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.ITmClient>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<ClientServiceProvider>(sp)));
             return new global::StrawberryShake.ClientBuilder<global::app.Graphql.State.TmClientStoreAccessor>("TmClient", services, serviceCollection);
@@ -12984,13 +12075,13 @@ namespace Microsoft.Extensions.DependencyInjection
                 var clientFactory = global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::System.Net.Http.IHttpClientFactory>(parentServices);
                 return new global::StrawberryShake.Transport.Http.HttpConnection(() => clientFactory.CreateClient("TmClient"));
             });
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IEntityMapper<global::app.Graphql.State.CompanyEntity, global::app.Graphql.GetCompany_Companies_Nodes_Company>, global::app.Graphql.State.GetCompany_Companies_Nodes_CompanyFromCompanyEntityMapper>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IEntityMapper<global::app.Graphql.State.UserEntity, global::app.Graphql.GetUsers_Users_Nodes_User>, global::app.Graphql.State.GetUsers_Users_Nodes_UserFromUserEntityMapper>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IEntityMapper<global::app.Graphql.State.CompanyEntity, global::app.Graphql.GetUsers_Users_Nodes_Company_Company>, global::app.Graphql.State.GetUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IEntityMapper<global::app.Graphql.State.ProjectEntity, global::app.Graphql.GetProjects_Projects_Nodes_Project>, global::app.Graphql.State.GetProjects_Projects_Nodes_ProjectFromProjectEntityMapper>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IEntityMapper<global::app.Graphql.State.UserProjectEntity, global::app.Graphql.GetProjects_Projects_Nodes_UserProjects_UserProject>, global::app.Graphql.State.GetProjects_Projects_Nodes_UserProjects_UserProjectFromUserProjectEntityMapper>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IEntityMapper<global::app.Graphql.State.UserEntity, global::app.Graphql.GetProjects_Projects_Nodes_Users_User>, global::app.Graphql.State.GetProjects_Projects_Nodes_Users_UserFromUserEntityMapper>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IEntityMapper<global::app.Graphql.State.UserEntity, global::app.Graphql.GetProjects_Projects_Nodes_UserProjects_User_User>, global::app.Graphql.State.GetProjects_Projects_Nodes_UserProjects_User_UserFromUserEntityMapper>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IEntityMapper<global::app.Graphql.State.CompanyEntity, global::app.Graphql.GetCompany_Companies_Nodes_Company>, global::app.Graphql.State.GetCompany_Companies_Nodes_CompanyFromCompanyEntityMapper>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IEntityMapper<global::app.Graphql.State.UserEntity, global::app.Graphql.GetUsers_Users_Nodes_User>, global::app.Graphql.State.GetUsers_Users_Nodes_UserFromUserEntityMapper>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IEntityMapper<global::app.Graphql.State.CompanyEntity, global::app.Graphql.GetUsers_Users_Nodes_Company_Company>, global::app.Graphql.State.GetUsers_Users_Nodes_Company_CompanyFromCompanyEntityMapper>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::app.Graphql.StatusSerializer>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::StrawberryShake.Serialization.StringSerializer>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::StrawberryShake.Serialization.BooleanSerializer>(services);
@@ -13007,65 +12098,23 @@ namespace Microsoft.Extensions.DependencyInjection
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::StrawberryShake.Serialization.DateSerializer>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::StrawberryShake.Serialization.ByteArraySerializer>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::StrawberryShake.Serialization.TimeSpanSerializer>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::app.Graphql.CreateUserVmInputInputValueFormatter>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::app.Graphql.UserFilterInputInputValueFormatter>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::app.Graphql.LoginModelInputInputValueFormatter>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::app.Graphql.RegisterModelInputInputValueFormatter>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::app.Graphql.CreateProjectVmInputInputValueFormatter>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::app.Graphql.ProjectFilterInputInputValueFormatter>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::app.Graphql.StringOperationFilterInputInputValueFormatter>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::app.Graphql.StatusOperationFilterInputInputValueFormatter>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::app.Graphql.CompanyFilterInputInputValueFormatter>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::app.Graphql.ListFilterInputTypeOfUserFilterInputInputValueFormatter>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::app.Graphql.ListFilterInputTypeOfProjectFilterInputInputValueFormatter>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::app.Graphql.ProjectFilterInputInputValueFormatter>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::app.Graphql.UserFilterInputInputValueFormatter>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::app.Graphql.ListFilterInputTypeOfUserProjectFilterInputInputValueFormatter>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::app.Graphql.UserProjectFilterInputInputValueFormatter>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::app.Graphql.BooleanOperationFilterInputInputValueFormatter>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::app.Graphql.ComparableNullableOfDateTimeOffsetOperationFilterInputInputValueFormatter>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::app.Graphql.ComparableInt32OperationFilterInputInputValueFormatter>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::app.Graphql.CreateProjectVmInputInputValueFormatter>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::app.Graphql.LoginModelInputInputValueFormatter>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::app.Graphql.RegisterModelInputInputValueFormatter>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::app.Graphql.ListFilterInputTypeOfProjectFilterInputInputValueFormatter>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializer, global::app.Graphql.CreateUserVmInputInputValueFormatter>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.Serialization.ISerializerResolver>(services, sp => new global::StrawberryShake.Serialization.SerializerResolver(global::System.Linq.Enumerable.Concat(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::System.Collections.Generic.IEnumerable<global::StrawberryShake.Serialization.ISerializer>>(parentServices), global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::System.Collections.Generic.IEnumerable<global::StrawberryShake.Serialization.ISerializer>>(sp))));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IGetCompanyResult>, global::app.Graphql.State.GetCompanyResultFactory>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IGetCompanyResult>>(sp));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationRequestFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.IGetCompanyQuery>(sp));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.IGetCompanyResult>, global::app.Graphql.State.GetCompanyBuilder>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationExecutor<global::app.Graphql.IGetCompanyResult>>(services, sp => new global::StrawberryShake.OperationExecutor<global::System.Text.Json.JsonDocument, global::app.Graphql.IGetCompanyResult>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.Transport.Http.IHttpConnection>(sp), () => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.IGetCompanyResult>>(sp), global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationStore>(sp), strategy));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::app.Graphql.GetCompanyQuery>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::app.Graphql.IGetCompanyQuery>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.GetCompanyQuery>(sp));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.ICreateUserResult>, global::app.Graphql.State.CreateUserResultFactory>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.ICreateUserResult>>(sp));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationRequestFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.ICreateUserMutation>(sp));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.ICreateUserResult>, global::app.Graphql.State.CreateUserBuilder>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationExecutor<global::app.Graphql.ICreateUserResult>>(services, sp => new global::StrawberryShake.OperationExecutor<global::System.Text.Json.JsonDocument, global::app.Graphql.ICreateUserResult>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.Transport.Http.IHttpConnection>(sp), () => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.ICreateUserResult>>(sp), global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationStore>(sp), strategy));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::app.Graphql.CreateUserMutation>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::app.Graphql.ICreateUserMutation>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.CreateUserMutation>(sp));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IGetUsersResult>, global::app.Graphql.State.GetUsersResultFactory>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IGetUsersResult>>(sp));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationRequestFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.IGetUsersQuery>(sp));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.IGetUsersResult>, global::app.Graphql.State.GetUsersBuilder>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationExecutor<global::app.Graphql.IGetUsersResult>>(services, sp => new global::StrawberryShake.OperationExecutor<global::System.Text.Json.JsonDocument, global::app.Graphql.IGetUsersResult>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.Transport.Http.IHttpConnection>(sp), () => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.IGetUsersResult>>(sp), global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationStore>(sp), strategy));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::app.Graphql.GetUsersQuery>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::app.Graphql.IGetUsersQuery>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.GetUsersQuery>(sp));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.ICreateProjectResult>, global::app.Graphql.State.CreateProjectResultFactory>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.ICreateProjectResult>>(sp));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationRequestFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.ICreateProjectMutation>(sp));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.ICreateProjectResult>, global::app.Graphql.State.CreateProjectBuilder>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationExecutor<global::app.Graphql.ICreateProjectResult>>(services, sp => new global::StrawberryShake.OperationExecutor<global::System.Text.Json.JsonDocument, global::app.Graphql.ICreateProjectResult>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.Transport.Http.IHttpConnection>(sp), () => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.ICreateProjectResult>>(sp), global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationStore>(sp), strategy));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::app.Graphql.CreateProjectMutation>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::app.Graphql.ICreateProjectMutation>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.CreateProjectMutation>(sp));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IGetProjectsResult>, global::app.Graphql.State.GetProjectsResultFactory>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IGetProjectsResult>>(sp));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationRequestFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.IGetProjectsQuery>(sp));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.IGetProjectsResult>, global::app.Graphql.State.GetProjectsBuilder>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationExecutor<global::app.Graphql.IGetProjectsResult>>(services, sp => new global::StrawberryShake.OperationExecutor<global::System.Text.Json.JsonDocument, global::app.Graphql.IGetProjectsResult>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.Transport.Http.IHttpConnection>(sp), () => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.IGetProjectsResult>>(sp), global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationStore>(sp), strategy));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::app.Graphql.GetProjectsQuery>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::app.Graphql.IGetProjectsQuery>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.GetProjectsQuery>(sp));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IAddUserInProjectResult>, global::app.Graphql.State.AddUserInProjectResultFactory>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IAddUserInProjectResult>>(sp));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationRequestFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.IAddUserInProjectMutation>(sp));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.IAddUserInProjectResult>, global::app.Graphql.State.AddUserInProjectBuilder>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationExecutor<global::app.Graphql.IAddUserInProjectResult>>(services, sp => new global::StrawberryShake.OperationExecutor<global::System.Text.Json.JsonDocument, global::app.Graphql.IAddUserInProjectResult>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.Transport.Http.IHttpConnection>(sp), () => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.IAddUserInProjectResult>>(sp), global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationStore>(sp), strategy));
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::app.Graphql.AddUserInProjectMutation>(services);
-            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::app.Graphql.IAddUserInProjectMutation>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.AddUserInProjectMutation>(sp));
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.ILoginResult>, global::app.Graphql.State.LoginResultFactory>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.ILoginResult>>(sp));
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationRequestFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.ILoginMutation>(sp));
@@ -13087,6 +12136,48 @@ namespace Microsoft.Extensions.DependencyInjection
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationExecutor<global::app.Graphql.IRefreshTokenResult>>(services, sp => new global::StrawberryShake.OperationExecutor<global::System.Text.Json.JsonDocument, global::app.Graphql.IRefreshTokenResult>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.Transport.Http.IHttpConnection>(sp), () => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.IRefreshTokenResult>>(sp), global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationStore>(sp), strategy));
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::app.Graphql.RefreshTokenMutation>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::app.Graphql.IRefreshTokenMutation>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.RefreshTokenMutation>(sp));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.ICreateProjectResult>, global::app.Graphql.State.CreateProjectResultFactory>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.ICreateProjectResult>>(sp));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationRequestFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.ICreateProjectMutation>(sp));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.ICreateProjectResult>, global::app.Graphql.State.CreateProjectBuilder>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationExecutor<global::app.Graphql.ICreateProjectResult>>(services, sp => new global::StrawberryShake.OperationExecutor<global::System.Text.Json.JsonDocument, global::app.Graphql.ICreateProjectResult>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.Transport.Http.IHttpConnection>(sp), () => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.ICreateProjectResult>>(sp), global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationStore>(sp), strategy));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::app.Graphql.CreateProjectMutation>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::app.Graphql.ICreateProjectMutation>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.CreateProjectMutation>(sp));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IGetProjectsResult>, global::app.Graphql.State.GetProjectsResultFactory>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IGetProjectsResult>>(sp));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationRequestFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.IGetProjectsQuery>(sp));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.IGetProjectsResult>, global::app.Graphql.State.GetProjectsBuilder>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationExecutor<global::app.Graphql.IGetProjectsResult>>(services, sp => new global::StrawberryShake.OperationExecutor<global::System.Text.Json.JsonDocument, global::app.Graphql.IGetProjectsResult>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.Transport.Http.IHttpConnection>(sp), () => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.IGetProjectsResult>>(sp), global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationStore>(sp), strategy));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::app.Graphql.GetProjectsQuery>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::app.Graphql.IGetProjectsQuery>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.GetProjectsQuery>(sp));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IAddUserInProjectResult>, global::app.Graphql.State.AddUserInProjectResultFactory>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IAddUserInProjectResult>>(sp));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationRequestFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.IAddUserInProjectMutation>(sp));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.IAddUserInProjectResult>, global::app.Graphql.State.AddUserInProjectBuilder>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationExecutor<global::app.Graphql.IAddUserInProjectResult>>(services, sp => new global::StrawberryShake.OperationExecutor<global::System.Text.Json.JsonDocument, global::app.Graphql.IAddUserInProjectResult>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.Transport.Http.IHttpConnection>(sp), () => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.IAddUserInProjectResult>>(sp), global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationStore>(sp), strategy));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::app.Graphql.AddUserInProjectMutation>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::app.Graphql.IAddUserInProjectMutation>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.AddUserInProjectMutation>(sp));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IGetCompanyResult>, global::app.Graphql.State.GetCompanyResultFactory>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IGetCompanyResult>>(sp));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationRequestFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.IGetCompanyQuery>(sp));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.IGetCompanyResult>, global::app.Graphql.State.GetCompanyBuilder>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationExecutor<global::app.Graphql.IGetCompanyResult>>(services, sp => new global::StrawberryShake.OperationExecutor<global::System.Text.Json.JsonDocument, global::app.Graphql.IGetCompanyResult>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.Transport.Http.IHttpConnection>(sp), () => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.IGetCompanyResult>>(sp), global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationStore>(sp), strategy));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::app.Graphql.GetCompanyQuery>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::app.Graphql.IGetCompanyQuery>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.GetCompanyQuery>(sp));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.ICreateUserResult>, global::app.Graphql.State.CreateUserResultFactory>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.ICreateUserResult>>(sp));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationRequestFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.ICreateUserMutation>(sp));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.ICreateUserResult>, global::app.Graphql.State.CreateUserBuilder>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationExecutor<global::app.Graphql.ICreateUserResult>>(services, sp => new global::StrawberryShake.OperationExecutor<global::System.Text.Json.JsonDocument, global::app.Graphql.ICreateUserResult>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.Transport.Http.IHttpConnection>(sp), () => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.ICreateUserResult>>(sp), global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationStore>(sp), strategy));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::app.Graphql.CreateUserMutation>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::app.Graphql.ICreateUserMutation>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.CreateUserMutation>(sp));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IGetUsersResult>, global::app.Graphql.State.GetUsersResultFactory>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultDataFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultDataFactory<global::app.Graphql.IGetUsersResult>>(sp));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationRequestFactory>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.IGetUsersQuery>(sp));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.IGetUsersResult>, global::app.Graphql.State.GetUsersBuilder>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IOperationExecutor<global::app.Graphql.IGetUsersResult>>(services, sp => new global::StrawberryShake.OperationExecutor<global::System.Text.Json.JsonDocument, global::app.Graphql.IGetUsersResult>(global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.Transport.Http.IHttpConnection>(sp), () => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationResultBuilder<global::System.Text.Json.JsonDocument, global::app.Graphql.IGetUsersResult>>(sp), global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::StrawberryShake.IOperationStore>(sp), strategy));
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::app.Graphql.GetUsersQuery>(services);
+            global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::app.Graphql.IGetUsersQuery>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.GetUsersQuery>(sp));
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::StrawberryShake.IEntityIdSerializer, global::app.Graphql.State.TmClientEntityIdFactory>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::app.Graphql.TmClient>(services);
             global::Microsoft.Extensions.DependencyInjection.ServiceCollectionServiceExtensions.AddSingleton<global::app.Graphql.ITmClient>(services, sp => global::Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService<global::app.Graphql.TmClient>(sp));

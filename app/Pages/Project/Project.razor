@@ -1,0 +1,140 @@
+@page "/projects/{Id}"
+@attribute [Authorize]
+@using app.Core.Services
+@using app.Core.Moldes.PageResultModel
+@inject NavigationManager _navigationManager
+@inject ISnackbar  _alertService
+@inject ILocalStorageService  _localStorageService
+@inject IProjectService _client
+@inject IUserService _userService
+@inject IDialogService DialogService
+
+<div Class="d-flex align-center mud-full-width p-2 mb-2 border-bottom">
+    <MudText Typo="Typo.subtitle1">@project?.Title</MudText>
+    <MudToolBarSpacer />
+
+</div>
+@if (project.Id is not null)
+{
+    <MudGrid>
+        <MudItem xs="8">
+            <MudPaper Class="mud-width-full px-4 py-8">
+                <strong>Work Items</strong>
+                <MudDivider/>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </MudPaper>
+        </MudItem>
+        <MudItem xs="4">
+            <MudGrid>
+                <MudItem xs="12">
+                    <MudPaper Class="mud-width-full  px-4  py-8">
+                        <strong>Summary</strong>
+                        <MudDivider />
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    </MudPaper>
+                </MudItem>
+                <MudItem xs="12" Class="text-right">
+                    <MudGrid>
+                        <MudItem xs="12">
+                            <MudPaper Elevation="0" Class="d-flex align-center justify-center mud-width-full py-2">
+                                @{
+                                    bool afterFirstt = false;
+                                }
+                                @foreach (var user in project.Users.Take(4))
+                                {
+                                    @if (!afterFirstt)
+                                    {
+                                        <MudTooltip Text="@user.Username">
+                                            <MudAvatar style="@AvatarStyle.Get(user.Username,"50px","50px","1.5rem")" Size="Size.Small">
+                                                @user.Username.ToUpper().FirstOrDefault()
+                                            </MudAvatar>
+                                        </MudTooltip>
+                                    }
+                                    else
+                                    {
+                                        <MudTooltip Text="@user.Username">
+                                            <MudAvatar style="@(AvatarStyle.Get(user.Username,"50px","50px","1.5rem")+" margin-left: -10px;")" Size="Size.Small">
+                                                @user.Username.ToUpper().FirstOrDefault()
+                                            </MudAvatar>
+                                        </MudTooltip>
+                                    }
+
+
+                                    {
+                                        afterFirstt = true;
+                                    }
+
+                                }
+                                @if (project.Users.Count > 4)
+                                {
+                                    
+                                        <MudAvatar style="@(AvatarStyle.Get("More","50px","50px","1.5rem")+" margin-left: -10px;")" Size="Size.Small">
+                                           +@project.Users.Skip(4).Count()
+                                        </MudAvatar>
+                                }
+
+
+                            </MudPaper>
+                        </MudItem>
+                        <MudItem xs="12" >
+                            <MudDivider></MudDivider>
+                            <MudMenu FullWidth="true" Class="text-right" Label="Invite users" Color="Color.Primary" Style="min-width:100% !important;" Size="Size.Small" Direction="Direction.Left">
+
+
+                                <MudPaper Elevation="0" Style="padding:5px;">
+                                    <AddProjectUser ProjectId="@Id" Success="UserAddedEvent"></AddProjectUser>
+                                </MudPaper>
+
+
+                            </MudMenu>
+                        </MudItem>
+                    </MudGrid>
+
+
+
+                </MudItem>
+            </MudGrid>
+
+        </MudItem>
+
+    </MudGrid>
+}
+@code{
+    [Parameter]
+    public string Id { get; set; }
+
+    public ProjectVm project = new ProjectVm();
+
+    ProjectFilterInput filter = new ProjectFilterInput();
+    PagingFilter pagingFilter = new PagingFilter();
+
+    bool loading = false;
+
+
+
+    protected override async Task OnInitializedAsync()
+        => await GetData();
+
+    public async Task GetData()
+    {
+        pagingFilter.TakeFirst = 1;
+        pagingFilter.After = null;
+        pagingFilter.Before = null;
+        pagingFilter.TakePrevious = null;
+        filter.Id = new StringOperationFilterInput { Eq = Id };
+        var result = await _client.GetProjectsAsync(pagingFilter, filter);
+
+        project = result?.Data?.FirstOrDefault();
+    }
+
+
+    private async Task UserAddedEvent(bool value)
+    {
+        if (value)
+            await OnInitializedAsync();
+    }
+
+
+}
+
+

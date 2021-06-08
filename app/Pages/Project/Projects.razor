@@ -9,6 +9,7 @@
 @inject IUserService _userService
 @inject IDialogService DialogService
 
+
 <div Class="d-flex align-center mud-full-width p-2 mb-2 border-bottom">
     <MudText Typo="Typo.subtitle1">Projects</MudText>
     <MudToolBarSpacer />
@@ -47,7 +48,8 @@
                                     <MudAvatar style="@AvatarStyle.Get(item.Title,"70px","70px","2.0rem")">@item.Title.First().ToString().ToUpper()</MudAvatar>
                                 </CardHeaderAvatar>
                                 <CardHeaderContent>
-                                    <MudText Typo="Typo.body1">@item.Title</MudText>
+                                    <MudLink Href="@("Projects/"+item.Id)" Typo="Typo.body1">@item.Title</MudLink>
+                                    
                                     @*<MudText Typo="Typo.body2"><MudChip Size="Size.Small" Color="Color.Primary">@item.Status.ToString()</MudChip></MudText>*@
                                 </CardHeaderContent>
                                 <CardHeaderActions>
@@ -64,7 +66,7 @@
                                 @{
                                     bool afterFirstt = false;
                                 }
-                                @foreach (var user in item.Users)
+                                @foreach (var user in item.Users.Take(6))
                                 {
                                     @if (!afterFirstt)
                                     {
@@ -89,7 +91,13 @@
                                     }
 
                                 }
+                                @if (item.Users.Count > 6)
+                                {
 
+                                    <MudAvatar style="@(AvatarStyle.Get("More","","","0.5rem")+" margin-left: -10px;")" Size="Size.Small">
+                                        +@item.Users.Skip(6).Count()
+                                    </MudAvatar>
+                                }
                                 <MudMenu FullWidth="true" Style="min-width:250px !important;" Size="Size.Small" Direction="Direction.Right">
                                     <ActivatorContent>
                                         <MudChip Icon="@Icons.Material.Filled.PersonAddAlt" Size="Size.Small" Color="Color.Primary">Users</MudChip>
