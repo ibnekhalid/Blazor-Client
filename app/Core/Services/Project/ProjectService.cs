@@ -71,7 +71,7 @@ namespace app.Core.Services
 	{
 		[Required]
 		public string Title { get; set; }
-		[Required]
+		
 		public string Description { get; set; }
 	}
 	public class CompanyVm

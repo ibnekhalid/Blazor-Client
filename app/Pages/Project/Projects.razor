@@ -9,7 +9,6 @@
 @inject IUserService _userService
 @inject IDialogService DialogService
 
-
 <div Class="d-flex align-center mud-full-width p-2 mb-2 border-bottom">
     <MudText Typo="Typo.subtitle1">Projects</MudText>
     <MudToolBarSpacer />
@@ -49,7 +48,7 @@
                                 </CardHeaderAvatar>
                                 <CardHeaderContent>
                                     <MudLink Href="@("Projects/"+item.Id)" Typo="Typo.body1">@item.Title</MudLink>
-                                    
+
                                     @*<MudText Typo="Typo.body2"><MudChip Size="Size.Small" Color="Color.Primary">@item.Status.ToString()</MudChip></MudText>*@
                                 </CardHeaderContent>
                                 <CardHeaderActions>
@@ -59,7 +58,7 @@
                             </MudCardHeader>
 
                             <MudCardContent>
-                                <MudText Typo="Typo.body2">@item.Description</MudText>
+                                <MudText Typo="Typo.body2" Class="px-2">@((MarkupString)item.Description)</MudText>
 
                             </MudCardContent>
                             <MudCardActions Class="bg-gray-custom">

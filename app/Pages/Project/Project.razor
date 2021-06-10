@@ -9,18 +9,19 @@
 @inject IUserService _userService
 @inject IDialogService DialogService
 
-<div Class="d-flex align-center mud-full-width p-2 mb-2 border-bottom">
-    <MudText Typo="Typo.subtitle1">@project?.Title</MudText>
-    <MudToolBarSpacer />
 
-</div>
 @if (project.Id is not null)
 {
+    <div Class="d-flex align-center mud-full-width p-2 mb-2 border-bottom">
+        <MudAvatar style="@(AvatarStyle.Get(project.Title,"50px","50px","2.0rem")+"border-radius: 5px;")">@project.Title.First().ToString().ToUpper()</MudAvatar> <MudText Class="ml-2" Typo="Typo.h5">@project?.Title</MudText>
+        <MudToolBarSpacer />
+
+    </div>
     <MudGrid>
         <MudItem xs="8">
             <MudPaper Class="mud-width-full px-4 py-8">
                 <strong>Work Items</strong>
-                <MudDivider/>
+                <MudDivider />
                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
             </MudPaper>
         </MudItem>
@@ -67,16 +68,16 @@
                                 }
                                 @if (project.Users.Count > 4)
                                 {
-                                    
-                                        <MudAvatar style="@(AvatarStyle.Get("More","50px","50px","1.5rem")+" margin-left: -10px;")" Size="Size.Small">
-                                           +@project.Users.Skip(4).Count()
-                                        </MudAvatar>
+
+                                    <MudAvatar style="@(AvatarStyle.Get("More","50px","50px","1.5rem")+" margin-left: -10px;")" Size="Size.Small">
+                                        +@project.Users.Skip(4).Count()
+                                    </MudAvatar>
                                 }
 
 
                             </MudPaper>
                         </MudItem>
-                        <MudItem xs="12" >
+                        <MudItem xs="12">
                             <MudDivider></MudDivider>
                             <MudMenu FullWidth="true" Class="text-right" Label="Invite users" Color="Color.Primary" Style="min-width:100% !important;" Size="Size.Small" Direction="Direction.Left">
 
